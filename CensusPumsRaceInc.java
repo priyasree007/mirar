@@ -52,7 +52,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			        for(int i=0; i<availableUnits.size(); i++){
 			        	if(Double.isNaN(utilities.get(i)) | Double.isInfinite((utilities.get(i)))){
 			        		System.out.println("utility " + i + " is " + utilities.get(i));
-			        		System.out.println("is this agent's own unit? " + (utilities.get(i)==utilityCurrentUnit)); // Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+			        		System.out.println("is this agent's own unit? " + (utilities.get(i)==utilityCurrentUnit)); // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
 			        		System.out.println("characteristics of unit with NaN are: ");
 			        		System.out.println("race comp: " + this.getPctAsianInNeighborhood(((HousingUnit)availableUnits.get(i)).block) 
 			        					+ ", " + this.getPctBlackInNeighborhood(((HousingUnit)availableUnits.get(i)).block) + ", " 
@@ -478,7 +478,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	} else {
 		        	    System.out.println("no tenure");
 		        	}
-                    if(utility==0.0){ // Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+                    if(utility==0.0){ // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
                         utility = 0.00000000000000000001;
                     }
 

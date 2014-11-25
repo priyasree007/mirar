@@ -10,10 +10,10 @@ import java.util.*;
 import javax.swing.*; 
 
 import java.awt.*;
-import java.awt.event.WindowAdapter; // Priyasree: Unnecessary import: import java.awt.event.WindowAdapter;_Delete the import.
-import java.awt.event.WindowEvent; // Priyasree: Unnecessary import: import java.awt.event.WindowEvent;_Delete the import.
+import java.awt.event.WindowAdapter; // Priyasree_Audit: Unnecessary import: import java.awt.event.WindowAdapter;_Delete the import.
+import java.awt.event.WindowEvent; // Priyasree_Audit: Unnecessary import: import java.awt.event.WindowEvent;_Delete the import.
 
-import javax.swing.*; // Priyasree:  Duplicate import: import javax.swing.*_Delete the duplicate import.
+import javax.swing.*; // Priyasree_Audit:  Duplicate import: import javax.swing.*_Delete the duplicate import.
 
 /*import org.geotools.data.FeatureReader;
 import org.geotools.data.FeatureResults;
@@ -22,20 +22,20 @@ import org.geotools.data.shapefile.ShapefileDataStore;
 import org.geotools.feature.FeatureType;
 */
 import java.io.*;
-import java.net.URL; // Priyasree:  Unnecessary import: import java.net.URL;
+import java.net.URL; // Priyasree_Audit:  Unnecessary import: import java.net.URL;
 import java.nio.channels.FileChannel;
 
-import com.vividsolutions.jump.io.datasource.*; // Priyasree:  Unnecessary import: import com.vividsolutions.jump.io.datasource.*;_Unnecessary import: null
+import com.vividsolutions.jump.io.datasource.*; // Priyasree_Audit:  Unnecessary import: import com.vividsolutions.jump.io.datasource.*;_Unnecessary import: null
 import com.vividsolutions.jump.io.*;
 import com.vividsolutions.jump.feature.*;
 import com.vividsolutions.jump.workbench.*;
 import com.vividsolutions.jump.task.*;
 import com.vividsolutions.jump.workbench.ui.images.IconLoader;
 import com.vividsolutions.jump.workbench.ui.*;
-import com.vividsolutions.jump.workbench.ui.plugin.*; // Priyasree:  Unnecessary import: import com.vividsolutions.jump.workbench.ui.plugin.*;_Unnecessary import: null
+import com.vividsolutions.jump.workbench.ui.plugin.*; // Priyasree_Audit:  Unnecessary import: import com.vividsolutions.jump.workbench.ui.plugin.*;_Unnecessary import: null
 import com.vividsolutions.jump.workbench.model.*;
-import com.vividsolutions.jump.workbench.ui.plugin.test.*; // Priyasree: Unnecessary import: import com.vividsolutions.jump.workbench.ui.plugin.test.*;_Unnecessary import: null
-import com.vividsolutions.jump.workbench.plugin.*; // Priyasree: Unnecessary import: import com.vividsolutions.jump.workbench.plugin.*;_Unnecessary import: null
+import com.vividsolutions.jump.workbench.ui.plugin.test.*; // Priyasree_Audit: Unnecessary import: import com.vividsolutions.jump.workbench.ui.plugin.test.*;_Unnecessary import: null
+import com.vividsolutions.jump.workbench.plugin.*; // Priyasree_Audit: Unnecessary import: import com.vividsolutions.jump.workbench.plugin.*;_Unnecessary import: null
 import com.vividsolutions.jump.workbench.ui.renderer.style.*;
 import com.vividsolutions.jump.util.Range.RangeTreeMap;
 import com.vividsolutions.jump.util.*;
@@ -295,7 +295,7 @@ public class JUMPHandler {
             Feature f = (Feature)i.next();
            
             String fSTFID = f.getString(3) + f.getString(4);
-            b = (Block)CensusUnitHandler.getInstance().getBlock(fSTFID); // Priyasree: Unnecessary type cast to Block_Delete the unnecessary cast.
+            b = (Block)CensusUnitHandler.getInstance().getBlock(fSTFID); // Priyasree_Audit: Unnecessary type cast to Block_Delete the unnecessary cast.
             if (b != null) {
                 //if ( ! (  b.getSTFID().equalsIgnoreCase(fSTFID)) ) {
                 //     System.out.println("\t\t &&&&&&&&&   Block   " +b.getSTFID() + " does not equal feature stfid : " + f.getString(3) + "" + f.getString(4) + "<" + fSTFID + ">" );
@@ -684,7 +684,7 @@ public class JUMPHandler {
         attributeRangeToStyleMap.put(noMajority, new BasicStyle(Color.GRAY));
         
         ColorThemingStyle themeStyle = new ColorThemingStyle("racePct",
-                attributeRangeToStyleMap, new BasicStyle((Color) colorScheme // Priyasree: Unnecessary type cast to Color_Delete the unnecessary cast.
+                attributeRangeToStyleMap, new BasicStyle((Color) colorScheme // Priyasree_Audit: Unnecessary type cast to Color_Delete the unnecessary cast.
                         .next()));
 
         //***********************
@@ -754,7 +754,7 @@ public class JUMPHandler {
           //  int numRecords = header.getNumRecords();
             int numFields = dbfFileReader.getFieldCount();
             for (int i=0; i<numFields; i++) {
-                System.out.println("dbf filed: " + ((JDBField)dbfFileReader.getField(i)).getName()); // Priyasree: Unnecessary type cast to JDBField_Delete the unnecessary cast.
+                System.out.println("dbf filed: " + ((JDBField)dbfFileReader.getField(i)).getName()); // Priyasree_Audit: Unnecessary type cast to JDBField_Delete the unnecessary cast.
             }
             while (dbfFileReader.hasNextRecord()) {
                 Object [] record = dbfFileReader.nextRecord();

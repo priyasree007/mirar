@@ -32,7 +32,7 @@ public class LafansIncomeThreshold extends AgentDecision {
         try {
             testSelect = new PrintWriter(new FileOutputStream("testSelect.txt", true));
             
-        } catch (IOException ioe) { // Priyasree: Empty catch clause for exception ioe_Delete the empty catch clause. // Priyasree: Caught exception not logged_Use one of the logging methods to log the exception.
+        } catch (IOException ioe) { // Priyasree_Audit: Empty catch clause for exception ioe_Delete the empty catch clause. // Priyasree_Audit: Caught exception not logged_Use one of the logging methods to log the exception.
             
         }      
         
@@ -101,7 +101,7 @@ public class LafansIncomeThreshold extends AgentDecision {
           if(units.size()>1651){
           	d=10.21492; 
           } else {
-            d = 10.21492 - Math.log(1651/units.size()); // "Priyasree: Integer division in a floating-point expression_Cast one of the integers to a float. This will prevent round off error."
+            d = 10.21492 - Math.log(1651/units.size()); // Priyasree_Audit: Integer division in a floating-point expression_Cast one of the integers to a float. This will prevent round off error."
           }
             double ratio = (b.getNeighborhoodPercentileRent(.2, a.getTenure())*12.0)/a.getIncome();
         	utility = Math.exp(d + 13.88038*ratio -10.7266*ratio -33.02009*ratio*ratio + 24.59793*ratio*ratio);

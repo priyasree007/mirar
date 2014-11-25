@@ -346,7 +346,7 @@ System.out.println("this is x " + x);
         for (int i=0;i<data.size();i++) {           
             total += data.get(i);
         }
-        if (MirarUtils.TEST_UTILITIES==true){ // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+        if (MirarUtils.TEST_UTILITIES==true){ // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
         System.out.println("MirarUtils#sampleFromRawDistribution sum of all utilities is: " + total);
         }
         if (Double.isNaN(total) ) {
@@ -470,14 +470,14 @@ System.out.println("this is x " + x);
     public static int incomeToIncomeCategory(double income, int tenure) {
         if (tenure == Agent.RENTER) {
             for (int i=0; i<MirarUtils.RENTER_INCOMES.length; i++) {
-                if (MirarUtils.RENTER_INCOMES[i] == income) { // Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+                if (MirarUtils.RENTER_INCOMES[i] == income) { // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
                     return i;
                 }
             }
         }
         else {
             for (int i=0; i<MirarUtils.OWNER_INCOMES.length; i++) {
-                if (MirarUtils.OWNER_INCOMES[i] == income) { // Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+                if (MirarUtils.OWNER_INCOMES[i] == income) { // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
                     return i;
                 }
             }

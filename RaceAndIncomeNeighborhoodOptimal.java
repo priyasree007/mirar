@@ -9,7 +9,7 @@ package mirar;
 
 import java.util.*;
 import cern.colt.list.*;
-import cern.jet.stat.Descriptive; // Priyasree: Unnecessary import: Delete the import.
+import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete the import.
 
 /** 
  * 
@@ -56,7 +56,7 @@ public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUni
 	System.out.println("the number of utilities is: " + utilities.size());
 
 // print utilities
-if (MirarUtils.TEST_UTILITIES == true) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+if (MirarUtils.TEST_UTILITIES == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
     System.out.println("Agent " + agent.getAgentNum() + " utilities");
     for (int i=0; i<utilities.size(); i++) {
         System.out.print(utilities.get(i) + " ");

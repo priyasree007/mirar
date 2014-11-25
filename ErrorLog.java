@@ -68,7 +68,7 @@ public class ErrorLog {
     }
     
     public void finishUp() {
-        if (errorLogged == true) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+        if (errorLogged == true) { //Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             logWriter.flush();
             logWriter.println("\n##########################\n");
         }

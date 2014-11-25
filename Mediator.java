@@ -7,45 +7,45 @@ package mirar;
 
 import java.util.*;
 
-import javax.swing.*; // Priyasree: Unnecessary import: null 
-import java.awt.*; // Priyasree: Unnecessary import: null
-import java.awt.event.WindowAdapter; // Priyasree: Unnecessary import: Delete the import.
-import java.awt.event.WindowEvent; // Priyasree: Unnecessary import: Delete the import.
+import javax.swing.*; // Priyasree_Audit: Unnecessary import: null 
+import java.awt.*; // Priyasree_Audit: Unnecessary import: null
+import java.awt.event.WindowAdapter; // Priyasree_Audit: Unnecessary import: Delete the import.
+import java.awt.event.WindowEvent; // Priyasree_Audit: Unnecessary import: Delete the import.
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.regex.*;
-import javax.swing.*; //Priyasree: Duplicate import: import javax.swing.*;_Delete the duplicate import. // Priyasree: Unnecessary import: null 
+import javax.swing.*; //Priyasree_Audit: Duplicate import: import javax.swing.*;_Delete the duplicate import. // Priyasree_Audit: Unnecessary import: null 
 import java.io.*;
 
 
 import cern.colt.list.DoubleArrayList;
-import cern.jet.stat.Descriptive; // Priyasree: Unnecessary import: Delete the import.
+import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete the import.
 
-import com.vividsolutions.jump.io.datasource.*; // Priyasree: Unnecessary import: null
-import com.vividsolutions.jump.io.*; // Priyasree: Unnecessary import: null
+import com.vividsolutions.jump.io.datasource.*; // Priyasree_Audit: Unnecessary import: null
+import com.vividsolutions.jump.io.*; // Priyasree_Audit: Unnecessary import: null
 import com.vividsolutions.jump.feature.*;
 import com.vividsolutions.jump.workbench.*;
-import com.vividsolutions.jump.task.*; // Priyasree: Unnecessary import: null
-import com.vividsolutions.jump.workbench.ui.images.IconLoader; // Priyasree: Unnecessary import: Delete the import.
+import com.vividsolutions.jump.task.*; // Priyasree_Audit: Unnecessary import: null
+import com.vividsolutions.jump.workbench.ui.images.IconLoader; // Priyasree_Audit: Unnecessary import: Delete the import.
 import com.vividsolutions.jump.workbench.ui.*;
-import com.vividsolutions.jump.workbench.ui.plugin.*; // Priyasree: Unnecessary import: null
+import com.vividsolutions.jump.workbench.ui.plugin.*; // Priyasree_Audit: Unnecessary import: null
 import com.vividsolutions.jump.workbench.model.*;
-import com.vividsolutions.jump.workbench.ui.plugin.test.*; // Priyasree: Unnecessary import: null
-import com.vividsolutions.jump.workbench.plugin.*; // Priyasree: Unnecessary import: null
-import com.vividsolutions.jump.workbench.ui.renderer.style.*; // Priyasree: Unnecessary import: null
-import com.vividsolutions.jump.util.Range.RangeTreeMap; // Priyasree: Unnecessary import: Delete the import.
-import com.vividsolutions.jump.util.*; // Priyasree: Unnecessary import: null
+import com.vividsolutions.jump.workbench.ui.plugin.test.*; // Priyasree_Audit: Unnecessary import: null
+import com.vividsolutions.jump.workbench.plugin.*; // Priyasree_Audit: Unnecessary import: null
+import com.vividsolutions.jump.workbench.ui.renderer.style.*; // Priyasree_Audit: Unnecessary import: null
+import com.vividsolutions.jump.util.Range.RangeTreeMap; // Priyasree_Audit: Unnecessary import: Delete the import.
+import com.vividsolutions.jump.util.*; // Priyasree_Audit: Unnecessary import: null
 
-import uchicago.src.sim.analysis.Sequence; // Priyasree: Unnecessary import: Delete the import.
-import uchicago.src.sim.engine.BasicAction; // Priyasree: Unnecessary import: Delete the import.
-import uchicago.src.sim.engine.Controller; // Priyasree: Unnecessary import: Delete the import.
-import uchicago.src.sim.engine.Schedule; // Priyasree: Unnecessary import: Delete the import.
-import uchicago.src.sim.engine.SimModelImpl; // Priyasree: Unnecessary import: Delete the import.
-import uchicago.src.sim.gui.*; // Priyasree: Unnecessary import: null
-import uchicago.src.sim.util.Random; // Priyasree: Unnecessary import: Delete the import.
+import uchicago.src.sim.analysis.Sequence; // Priyasree_Audit: Unnecessary import: Delete the import.
+import uchicago.src.sim.engine.BasicAction; // Priyasree_Audit: Unnecessary import: Delete the import.
+import uchicago.src.sim.engine.Controller; // Priyasree_Audit: Unnecessary import: Delete the import.
+import uchicago.src.sim.engine.Schedule; // Priyasree_Audit: Unnecessary import: Delete the import.
+import uchicago.src.sim.engine.SimModelImpl; // Priyasree_Audit: Unnecessary import: Delete the import.
+import uchicago.src.sim.gui.*; // Priyasree_Audit: Unnecessary import: null
+import uchicago.src.sim.util.Random; // Priyasree_Audit: Unnecessary import: Delete the import.
 
 /**
  *  
@@ -103,7 +103,7 @@ public class Mediator {
                     if (hu.getTenure() != Agent.RENTER)
                         System.out.println("--------------     Mediator check HU ---   tenure does not match ");
                     
-                    if (hu.isOccupied() == true  && hu.getAgent() == null) // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+                    if (hu.isOccupied() == true  && hu.getAgent() == null) // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                         System.out.println("--------------     Mediator check HU ---   agent is null");
                     
                   
@@ -117,7 +117,7 @@ public class Mediator {
                     if (hu.getTenure() != Agent.OWNER)
                         System.out.println("--------------     Mediator check HU ---   tenure does not match ");
                     
-                    if (hu.isOccupied() == true  && hu.getAgent() == null) // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+                    if (hu.isOccupied() == true  && hu.getAgent() == null) // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                         System.out.println("--------------     Mediator check HU ---   agent is null");
                     
                     
@@ -210,7 +210,7 @@ public class Mediator {
            //***********************************
           // else {
                //     System.out.println("Mediator rent type: " + MirarUtils.RENT_TYPE);
-                    if (MirarUtils.AGENT_DECISION.toString() != "PSID_RaceOnly" & (MirarUtils.STEP_NUM % MirarUtils.RENTS_UPDATE_INTERVAL == 1 || MirarUtils.RENTS_UPDATE_INTERVAL == 1))  { //Priyasree: Cannot compare strings using the not equals (!=) operator_Replace the comparison with equals().
+                    if (MirarUtils.AGENT_DECISION.toString() != "PSID_RaceOnly" & (MirarUtils.STEP_NUM % MirarUtils.RENTS_UPDATE_INTERVAL == 1 || MirarUtils.RENTS_UPDATE_INTERVAL == 1))  { //Priyasree_Audit: Cannot compare strings using the not equals (!=) operator_Replace the comparison with equals().
                         System.out.println("-------->>>>     updating rents");
                         if (MirarUtils.RENT_TYPE.equalsIgnoreCase("HomogeneousRentWithinBlocks")) {
                             housingMarket.computeHomogeneousRentWithinBlock(this.blocksForUpdating_Renter, Agent.RENTER);
@@ -238,7 +238,7 @@ public class Mediator {
                                     mcRentsBefore.println(b.getSTFID() +", " + b.getMedianRent(Agent.OWNER) + ", " + b.getNeighborhoodMedianIncome()+ "," + b.getHousingUnitList_Renters().size() + "," + b.getPctBlkInNeighborhood());
                                 }
                                 mcRentsBefore.close();
-                            } catch (IOException ioe) { // Priyasree: Empty catch clause for exception ioe_Delete the empty catch clause.
+                            } catch (IOException ioe) { // Priyasree_Audit: Empty catch clause for exception ioe_Delete the empty catch clause.
                                 
                             }
                             
@@ -265,7 +265,7 @@ public class Mediator {
                                     mcRentsAfter.println(b.getSTFID() +", " + b.getMedianRent(Agent.OWNER) + ", " + b.getNeighborhoodMedianIncome() + "," + b.getHousingUnitList_Renters().size() + ", " + b.getPctBlkInNeighborhood());
                                 }
                                 mcRentsAfter.close();
-                            } catch (IOException ioe) { // Priyasree: Empty catch clause for exception ioe_Delete the empty catch clause.
+                            } catch (IOException ioe) { // Priyasree_Audit: Empty catch clause for exception ioe_Delete the empty catch clause.
                                 
                             }
                         }
@@ -277,7 +277,7 @@ public class Mediator {
            
              
             if (MirarUtils.STEP_NUM % MirarUtils.DISPLAY_UPDATE_INTERVAL == 0) {
-               if (MirarUtils.NO_GUI == false) { // Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+               if (MirarUtils.NO_GUI == false) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
                    // update the display every 20 turns
                    //   System.out.println("setpNum; " + stepNum);
                    jumpHandler.updateBlockLayer();
@@ -450,7 +450,7 @@ public class Mediator {
         // get list of blocks from jh
         //assign agents to blocks 
     	
-        if (MirarUtils.NO_GUI == false) { // Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+        if (MirarUtils.NO_GUI == false) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
             jumpHandler.setup();
         }
         else {
@@ -567,7 +567,7 @@ public class Mediator {
             s = in.readLine();
             String [] income = p.split(s);
             for (int i=1; i<income.length; i++) {
-                incomeList.add(new Double(income[i]).doubleValue()); // "Priyasree:  Expression can be replaced by Double.parseDouble(income[i])_Replace the expression with the more efficient code."
+                incomeList.add(new Double(income[i]).doubleValue()); // "Priyasree_Audit:  Expression can be replaced by Double.parseDouble(income[i])_Replace the expression with the more efficient code."
                // System.out.println("IncomeList " + i + "  " + income[i]);
                // MirarUtils.INCOME_TYPES.add(incomeList.get(i));
             }
@@ -576,7 +576,7 @@ public class Mediator {
             s = in.readLine();
             String [] rent = p.split(s);
             for (int i=1; i<rent.length; i++) {
-                rentList.add(new Double(rent[i]).doubleValue()); // "Priyasree:  Expression can be replaced by Double.parseDouble(rent[i])_Replace the expression with the more efficient code."
+                rentList.add(new Double(rent[i]).doubleValue()); // "Priyasree_Audit:  Expression can be replaced by Double.parseDouble(rent[i])_Replace the expression with the more efficient code."
             }
             MirarUtils.setRenterRents(rentList);
             MirarUtils.setRenterIncomes(incomeList);
@@ -592,7 +592,7 @@ public class Mediator {
            // System.out.println("MirarUtils.NUM_AGENT_TYPES " + MirarUtils.NUM_AGENT_TYPES + " MirarUtils.RACE_INCOME_SIZE  " + MirarUtils.RACE_INCOME_SIZE);
         
             in.close();
-        } catch (IOException e) { // Priyasree: Empty catch clause for exception e_Delete the empty catch clause.
+        } catch (IOException e) { // Priyasree_Audit: Empty catch clause for exception e_Delete the empty catch clause.
        
             
         }
@@ -635,7 +635,7 @@ public class Mediator {
             s = in.readLine();
             String [] income = p.split(s);
             for (int i=1; i<income.length; i++) {
-                incomeList.add(new Double(income[i]).doubleValue()); // "Priyasree:  Expression can be replaced by Double.parseDouble(income[i])_Replace the expression with the more efficient code."
+                incomeList.add(new Double(income[i]).doubleValue()); // "Priyasree_Audit:  Expression can be replaced by Double.parseDouble(income[i])_Replace the expression with the more efficient code."
              //   System.out.println("IncomeList " + i + "  " + income[i]);
                 // MirarUtils.INCOME_TYPES.add(incomeList.get(i));
             }
@@ -644,7 +644,7 @@ public class Mediator {
             s = in.readLine();
             String [] rent = p.split(s);
             for (int i=1; i<rent.length; i++) {
-                rentList.add(new Double(rent[i]).doubleValue()); // "Priyasree:  Expression can be replaced by Double.parseDouble(rent[i])_Replace the expression with the more efficient code."
+                rentList.add(new Double(rent[i]).doubleValue()); // "Priyasree_Audit:  Expression can be replaced by Double.parseDouble(rent[i])_Replace the expression with the more efficient code."
             }
             MirarUtils.setOwnerRents(rentList);
             MirarUtils.setOwnerIncomes(incomeList);
@@ -660,7 +660,7 @@ public class Mediator {
          //   System.out.println("MirarUtils.NUM_AGENT_TYPES " + MirarUtils.NUM_AGENT_TYPES + " MirarUtils.RACE_INCOME_SIZE  " + MirarUtils.RACE_INCOME_SIZE);
             
             in.close();
-        } catch (IOException e) { // Priyasree: Empty catch clause for exception e_Delete the empty catch clause.
+        } catch (IOException e) { // Priyasree_Audit: Empty catch clause for exception e_Delete the empty catch clause.
             
             
         }
@@ -852,7 +852,7 @@ public class Mediator {
    //                 System.out.println("Mediator#loadAgentData:  raceIncomeRent.add");
                     for(int index = 10; index<result.length; index++) {
                     	//System.out.print("result count is " + result[index]);
-                        raceIncomeRent.add(new Double(result[index]).doubleValue()); // "Priyasree:  Expression can be replaced by Double.parseDouble(result[index])_Replace the expression with the more efficient code."
+                        raceIncomeRent.add(new Double(result[index]).doubleValue()); // "Priyasree_Audit:  Expression can be replaced by Double.parseDouble(result[index])_Replace the expression with the more efficient code."
 //                                new Integer(MirarUtils.probabilisticInterpolation( Double.parseDouble(result[index]))));
 //                                new Integer(result[index]));
                     }
@@ -877,7 +877,7 @@ public class Mediator {
            
             //#### 
             // add to block history
-            if (MirarUtils.BLOCK_HISTORY == true) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+            if (MirarUtils.BLOCK_HISTORY == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                 Iterator blockIter = MirarUtils.BLOCKS.iterator();
                 while (blockIter.hasNext()) {
                     ((Block)blockIter.next()).addToHistory(Agent.RENTER);
@@ -987,7 +987,7 @@ public class Mediator {
                    
    //                 System.out.println("Mediator#loadAgentData:  raceIncomeRent.add");
                     for(int index = 10; index<result.length; index++) {
-                        raceIncomeRent.add(new Double(result[index]).doubleValue()); // "Priyasree:  Expression can be replaced by Double.parseDouble(result[index])_Replace the expression with the more efficient code."
+                        raceIncomeRent.add(new Double(result[index]).doubleValue()); // "Priyasree_Audit:  Expression can be replaced by Double.parseDouble(result[index])_Replace the expression with the more efficient code."
 //                                new Integer(MirarUtils.probabilisticInterpolation( Double.parseDouble(result[index]))));
 //                                new Integer(result[index]));
                     }
@@ -1011,7 +1011,7 @@ public class Mediator {
            
             //#### 
             // add to block history
-            if (MirarUtils.BLOCK_HISTORY == true) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+            if (MirarUtils.BLOCK_HISTORY == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                 Iterator blockIter = MirarUtils.BLOCKS.iterator();
                 while (blockIter.hasNext()) {
                     ((Block)blockIter.next()).addToHistory(Agent.OWNER);
@@ -1082,7 +1082,7 @@ public class Mediator {
                    String stfid = data[3] + data[4];
               // System.out.println("Mediator#loadBlockNeighborData: num blocks  " + CensusUnitHandler.getInstance().getAllBlocks().size());
                  //  System.out.println("\t compare tract num + block num " + tractNum +"" +blockNum + "  stfid  " + stfid );
-                   if (MirarUtils.SUBSET_DATA == true) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+                   if (MirarUtils.SUBSET_DATA == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                    // check to see if the neighbor is in the block set, otherwise don't add
                   //     ArrayList blocks = censusUnitHandler.getAllBlocks();
                       // boolean add = false;
@@ -1091,7 +1091,7 @@ public class Mediator {
                            if (CensusUnitHandler.getInstance().hasBlock(tractNum, blockNum) && CensusUnitHandler.getInstance().hasBlock(stfid)) {
 //                           if ( ((Block)blocks.get(i)).getSTFID().equals(stfid) ) {
                           //     System.out.println("add neighbor " + stfid);
-                               ((Block) censusUnitHandler.getBlock(tractNum, blockNum)).addNeighbor(CensusUnitHandler.getInstance().getBlock(stfid)); // Priyasree: Unnecessary type cast to Block_Delete the unnecessary cast.
+                               ((Block) censusUnitHandler.getBlock(tractNum, blockNum)).addNeighbor(CensusUnitHandler.getInstance().getBlock(stfid)); // Priyasree_Audit: Unnecessary type cast to Block_Delete the unnecessary cast.
                    //            neighborsFromFile.println(((Block) censusUnitHandler.getBlock(tractNum, blockNum)).getSTFID() + ", " + stfid);
                                
                           //     break;
@@ -1099,7 +1099,7 @@ public class Mediator {
                        }
                    }
                    else {
-                       ((Block) censusUnitHandler.getBlock(tractNum, blockNum)).addNeighbor(CensusUnitHandler.getInstance().getBlock(stfid)); // Priyasree: Unnecessary type cast to Block_Delete the unnecessary cast.
+                       ((Block) censusUnitHandler.getBlock(tractNum, blockNum)).addNeighbor(CensusUnitHandler.getInstance().getBlock(stfid)); // Priyasree_Audit: Unnecessary type cast to Block_Delete the unnecessary cast.
                       // neighborsFromFile.println(((Block) censusUnitHandler.getBlock(tractNum, blockNum)).getSTFID() + ", " + stfid);
                    
                    }
@@ -1267,7 +1267,7 @@ public class Mediator {
         // prepare data
 
          loadAgentDataHeader();
-         if (MirarUtils.NO_GUI == false) { // Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+         if (MirarUtils.NO_GUI == false) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
              jumpHandler.loadShapefiles();//Mirar, blockGroupShpFile, censusTractShpFile);
              jumpHandler.prepareData();
          }
@@ -1285,7 +1285,7 @@ public class Mediator {
             e.printStackTrace();
         }
 
-        if (MirarUtils.NO_GUI == false) { // Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+        if (MirarUtils.NO_GUI == false) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
             // prepare display
             jumpHandler.buildDisplay();
             jumpHandler.updateBlockLayer();//censusUnitHandler.getAllBlocks());

@@ -31,7 +31,7 @@ public class PSID_RaceIncome extends AgentDecision {
 	        DoubleArrayList utilities = getUtilitiesByHousingUnit(availableUnits, agent);
 	        
 	     // print utilities
-	        if (MirarUtils.TEST_UTILITIES == true) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+	        if (MirarUtils.TEST_UTILITIES == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
 	            System.out.println("Agent " + agent.getAgentNum() + " has " + utilities.size() + " utilities");
 	            for (int i=0; i<utilities.size(); i++) {
 	                System.out.print(utilities.get(i) + " ");
@@ -41,7 +41,7 @@ public class PSID_RaceIncome extends AgentDecision {
 
 	        double utilityCurrentUnit = computeUtilitityForOwnUnit(availableUnits, currUnit, agent); 
 	        
-	        if (MirarUtils.TEST_UTILITIES==true){ // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+	        if (MirarUtils.TEST_UTILITIES==true){ // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
 	        	System.out.println("Agent's utility for own unit is: " + utilityCurrentUnit);
 	        }
 	        utilities.add(utilityCurrentUnit);
@@ -162,7 +162,7 @@ public class PSID_RaceIncome extends AgentDecision {
  * that my estimates for Asians aren't so great. So I recode these values to just a high number. 
  */
 	       		if(a.getRace()==Agent.ASIAN){
-	       			if (pctAsianInNeighborhood == 1.0){ // Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+	       			if (pctAsianInNeighborhood == 1.0){ // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
 	       				utility = 10000; 
 	       			} else {
 		        	utility = Math.exp( 

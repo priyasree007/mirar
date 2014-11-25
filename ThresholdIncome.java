@@ -23,7 +23,7 @@ public class ThresholdIncome extends AgentDecision {
         try {
             testSelect = new PrintWriter(new FileOutputStream("testSelect.txt", true));
             
-        } catch (IOException ioe) { // Priyasree: Empty catch clause for exception ioe_Delete the empty catch clause. // Priyasree: Caught exception not logged_Use one of the logging methods to log the exception.
+        } catch (IOException ioe) { // Priyasree_Audit: Empty catch clause for exception ioe_Delete the empty catch clause. // Priyasree_Audit: Caught exception not logged_Use one of the logging methods to log the exception.
             
         }      
         
@@ -245,7 +245,7 @@ public class ThresholdIncome extends AgentDecision {
   			if((currentRent*12.0)/MirarUtils.RENTER_INCOMES[j]<=0.3){
     				d = 0.0; // 1 * number of agents in income category
     			} else if((currentRent*12.0)/MirarUtils.RENTER_INCOMES[j]>0.3){
-    				d = 1.0;; // Priyasree: Extra semicolon_Delete the extra semicolon.
+    				d = 1.0;; // Priyasree_Audit: Extra semicolon_Delete the extra semicolon.
     			}
     	
     		
@@ -269,7 +269,7 @@ public class ThresholdIncome extends AgentDecision {
     			rent=possibleRent; 
     		}
     	}
-    	if(rent== -1.0){ // Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+    	if(rent== -1.0){ // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
     		System.out.println("\t\t\t Could not find rent in interval!!!!");
     	} else {
 System.out.println("this is rent: " + rent);

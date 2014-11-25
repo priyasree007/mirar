@@ -2,7 +2,7 @@
  */
 package mirar;
 
-import java.util.*; // Priyasree: Unnecessary import: import java.util.*;_Unnecessary import: null
+import java.util.*; // Priyasree_Audit: Unnecessary import: import java.util.*;_Unnecessary import: null
 
 /**
 * Housing units are nested within Census blocks. They can be empty 
@@ -155,7 +155,7 @@ public class HousingUnit {
         this.housingUnitNum = housingUnitNum;
     }
     
-    public boolean equals(HousingUnit hu) {// Priyasree: Wrong parameter type_Change the name of the method.
+    public boolean equals(HousingUnit hu) {// Priyasree_Audit: Wrong parameter type_Change the name of the method.
         
       //  System.out.println("====== compare houing units:");
       //  System.out.println("\tthis housing unit: " + this.block.getSTFID());
@@ -165,7 +165,7 @@ public class HousingUnit {
        // System.out.println("\tother housing unit: " + hu.getBlock().getBlockGroup().getCensusTractNum() + " " + 
          //       hu.getBlock().getBlockGroupNum() + "  " + hu.getBlockNum()  + " " + hu.getHousingUnitNum());
         
-        if (this.block.getSTFID().equals(hu.getBlock().getSTFID()) && this.housingUnitNum == hu.getHousingUnitNum() ) { // Priyasree: An if-statement always return true or false_Replace the if-statement with a return-statement whose return value is the expression tested in the if-statement.
+        if (this.block.getSTFID().equals(hu.getBlock().getSTFID()) && this.housingUnitNum == hu.getHousingUnitNum() ) { // Priyasree_Audit: An if-statement always return true or false_Replace the if-statement with a return-statement whose return value is the expression tested in the if-statement.
                 //this.housingUnitNum == hu.getHousingUnitNum() &&
                 //this.blockNum == hu.getBlockNum() &&
                 //this.block.getBlockGroupNum() == hu.getBlock().getBlockNum() &&

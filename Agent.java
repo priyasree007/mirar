@@ -122,7 +122,7 @@ public class Agent {
         possibleHousingUnitList.addAll(housingUnitList);
         // add own unit to list
   
-        if (MirarUtils.TEST_BLOCK_NEIGHBORHOOD == true) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true. 
+        if (MirarUtils.TEST_BLOCK_NEIGHBORHOOD == true) { // Priyasree_Audit : Equality test with boolean literal: true_ Remove the comparison with true. 
             for (int i=0; i<housingUnitList.size(); i++) {
                 Block b = ((HousingUnit)housingUnitList.get(i)).getBlock();
                 
@@ -146,13 +146,13 @@ public class Agent {
         // check to make sure there are no occupied housing units
         // should do something if this does happen - perhaps remove them
         for (int i=0; i<housingUnitList.size(); i++) {
-            if ( ((HousingUnit)housingUnitList.get(i)).isOccupied() == true ) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true. 
+            if ( ((HousingUnit)housingUnitList.get(i)).isOccupied() == true ) { // Priyasree_Audit : Equality test with boolean literal: true_ Remove the comparison with true. 
             }
         }
  
         if (this.getHousingUnit().getAgent() == null) {
             ErrorLog.getInstance().logError("Agent#move  move currUnit  agent is null  tenure -> " + this.getTenure());
-            if (notThere == true) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true. 
+            if (notThere == true) { // Priyasree_Audit : Equality test with boolean literal: true_ Remove the comparison with true. 
                 ErrorLog.getInstance().logError("Agent#move move currUnit  agent is null  -->  notThere at beginning either");
                 
             }
@@ -207,7 +207,7 @@ public class Agent {
     
     
     public void addToMemory() {
-        if (MirarUtils.AGENT_MEMORY == true) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true. 
+        if (MirarUtils.AGENT_MEMORY == true) { // Priyasree_Audit : Equality test with boolean literal: true_ Remove the comparison with true. 
             memory.add(new AgentMemory(MirarUtils.STEP_NUM,this.stfid, this.housingUnitNum));
         }
     }
@@ -242,7 +242,7 @@ public class Agent {
     }
 
     public Block getBlock() {
-        return (Block) CensusUnitHandler.getInstance().getBlock(this.blockNum); //Priyasree: Unnecessary type cast to Block_Delete the unnecessary cast.
+        return (Block) CensusUnitHandler.getInstance().getBlock(this.blockNum); // Priyasree_Audit : Unnecessary type cast to Block_Delete the unnecessary cast.
     }
   
     public double getIncome() {
@@ -257,7 +257,7 @@ public class Agent {
     public void setIncome(double income) {
       //  MirarUtils.subtractIncome(this.income);  ### don't need to subtract in version 1
         this.income = income;
-        if (this.addToIncomeList == true) {  //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true. 
+        if (this.addToIncomeList == true) {  // Priyasree_Audit : Equality test with boolean literal: true_ Remove the comparison with true. 
             MirarUtils.addIncome(income);
         }
     
@@ -419,7 +419,7 @@ public class Agent {
         StringBuffer result = new StringBuffer();
         int totalMemory = 0;
         // add race-income type  
-        result.append((this.getRace()*MirarUtils.NUM_INCOMES) + this.getIncomeCategory() + ",") ;//Priyasree:  Accidental Concatenation_Enclose the sub-expression in parentheses. 
+        result.append((this.getRace()*MirarUtils.NUM_INCOMES) + this.getIncomeCategory() + ",") ;// Priyasree_Audit :  Accidental Concatenation_Enclose the sub-expression in parentheses. 
         //add stfid from 1st step - initialization
      //  if (((AgentMemory)memory.get(0)).getStepNum() == (MirarUtils.STEP_NUM + 1)) 
           // System.out.println("***********  prepend mem == StepNUm+1 prepend:  " + ((AgentMemory)memory.get(0)).getStepNum() + 

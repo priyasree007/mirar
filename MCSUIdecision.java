@@ -6,7 +6,7 @@
  */
 package mirar;
 
-import java.io.PrintWriter; // Priyasree: Unnecessary import: import java.io.PrintWriter;_Delete the import.
+import java.io.PrintWriter; // Priyasree_Audit: Unnecessary import: import java.io.PrintWriter;_Delete the import.
 import java.util.ArrayList;
 
 import cern.colt.list.DoubleArrayList;
@@ -174,7 +174,7 @@ for(int i=0; i<(numRents); i++){ // sum over possible rents
 			if((currentRent*12.0)/MirarUtils.RENTER_INCOMES[j]<=0.3){
   				d = 0.0; // 1 * number of agents in income category
   			} else if((currentRent*12.0)/MirarUtils.RENTER_INCOMES[j]>0.3){
-  				d = 1.0;; // Priyasree: Extra semicolon_Delete the extra semicolon.
+  				d = 1.0;; // Priyasree_Audit: Extra semicolon_Delete the extra semicolon.
   			}
   	
   		
@@ -198,7 +198,7 @@ for(int i=0; i<(numRents); i++){ // sum over possible rents
   			rent=possibleRent; 
   		}
   	}
-  	if(rent== -1.0){ // Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+  	if(rent== -1.0){ // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
   		System.out.println("\t\t\t Could not find rent in interval!!!!");
   	} else {
 System.out.println("this is rent: " + rent);

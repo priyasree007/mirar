@@ -145,7 +145,7 @@ public class CensusUnitHandler {
             housingUnitList.addAll( ((Block)blockIter.next()).getHousingUnitList_Renters() );
         }
         for (int i=0; i<housingUnitList.size(); i++) {
-            if ( ((HousingUnit)housingUnitList.get(i)).isOccupied() == true ) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+            if ( ((HousingUnit)housingUnitList.get(i)).isOccupied() == true ) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                 agentList.add( ((HousingUnit)housingUnitList.get(i)).getAgent() );
             }
         }
@@ -191,7 +191,7 @@ public class CensusUnitHandler {
         // add only vacant units 
         while (iter.hasNext()) {
             HousingUnit hu = (HousingUnit)iter.next();
-            if ( hu.isOccupied() == false ) { // Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+            if ( hu.isOccupied() == false ) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
                 vacantHousingUnitList.add(hu);
             }
         }
@@ -209,7 +209,7 @@ public class CensusUnitHandler {
         // add only vacant units 
         while (iter.hasNext()) {
             HousingUnit hu = (HousingUnit)iter.next();
-            if ( hu.isOccupied() == true ) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+            if ( hu.isOccupied() == true ) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                 occupiedHousingUnitList.add(hu);
             }
         }
@@ -378,9 +378,9 @@ public class CensusUnitHandler {
     public Block getBlock(int censusTractNum, int blockGroupNum, int blockNum) {
         //Block b = null;
         if (this.hasCensusTract(censusTractNum) ) {
-            CensusTract ct = (CensusTract)this.getCensusTract(censusTractNum); //Priyasree: Unnecessary type cast to CensusTract_Delete the unnecessary cast.
+            CensusTract ct = (CensusTract)this.getCensusTract(censusTractNum); //Priyasree_Audit: Unnecessary type cast to CensusTract_Delete the unnecessary cast.
             if (ct.hasBlockGroup(blockGroupNum) ) {
-                BlockGroup bg = (BlockGroup)ct.getBlockGroup(blockGroupNum); //Priyasree: Unnecessary type cast to BlockGroup_Delete the unnecessary cast.
+                BlockGroup bg = (BlockGroup)ct.getBlockGroup(blockGroupNum); //Priyasree_Audit: Unnecessary type cast to BlockGroup_Delete the unnecessary cast.
                 if (bg.hasBlock(blockNum) ) {
                      return bg.getBlock(blockNum);
                 }
@@ -422,7 +422,7 @@ public class CensusUnitHandler {
     public BlockGroup getBlockGroup(String tractString, String groupString) {
         try {
             return getBlockGroup(Integer.getInteger(tractString).intValue(), Integer.getInteger(groupString).intValue());
-        } catch (NullPointerException e) { // Priyasree: Caught exception not logged_Use one of the logging methods to log the exception.
+        } catch (NullPointerException e) { // Priyasree_Audit: Caught exception not logged_Use one of the logging methods to log the exception.
             return null;
         }
     }
@@ -462,7 +462,7 @@ public class CensusUnitHandler {
     public CensusTract getCensusTract(String tractString){ 
         try {
             return getCensusTract(Integer.getInteger(tractString).intValue());
-        }catch (NullPointerException e) { // Priyasree: Caught exception not logged_Use one of the logging methods to log the exception.
+        }catch (NullPointerException e) { // Priyasree_Audit: Caught exception not logged_Use one of the logging methods to log the exception.
             return null;
         }
     }
@@ -486,7 +486,7 @@ public class CensusUnitHandler {
     /**
      * @return Returns the sampleProportion.
      */
-    public double getSampleProportion() {
+    public double getSampleProportion() { 
         return sampleProportion;
     }
     /**

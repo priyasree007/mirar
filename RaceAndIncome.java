@@ -8,7 +8,7 @@
 package mirar;
 import java.util.*;
 import cern.colt.list.*;
-import cern.jet.stat.Descriptive; // Priyasree: Unnecessary import: Delete the import.
+import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete the import.
 
 /** 
  * Agents care about both race and income composition of destination neighborhoods. 

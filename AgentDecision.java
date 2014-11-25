@@ -81,7 +81,7 @@ public abstract class AgentDecision {
         Block b = null;
         for (int i = 0; i < units.size(); i++) {
            
-            b = (Block) ((HousingUnit) units.get(i)).getBlock(); //Priyasree: Unnecessary type cast to Block_Delete the unnecessary cast.
+            b = (Block) ((HousingUnit) units.get(i)).getBlock(); //Priyasree_Audit: Unnecessary type cast to Block_Delete the unnecessary cast.
             incList.sort(); // sort ascending
             if (quantile <= Descriptive.quantileInverse(incList, agent.getIncome())) {
                 availableBlocks.add(b);
@@ -109,7 +109,7 @@ public abstract class AgentDecision {
         for (int i = 0; i < units.size(); i++) {
            
             hu = (HousingUnit) units.get(i);
-            b = (Block) hu.getBlock(); //Priyasree: Unnecessary type cast to Block_Delete the unnecessary cast.
+            b = (Block) hu.getBlock(); //Priyasree_Audit: Unnecessary type cast to Block_Delete the unnecessary cast.
             incList = b.getIncomeDistribution();
             incList.sort(); // sort ascending
             if (quantile <= Descriptive.quantileInverse(incList, agent.getIncome())) {
@@ -148,7 +148,7 @@ public abstract class AgentDecision {
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         while (blockIter.hasNext()) {
             Block b = (Block) blockIter.next();
-            if (inclusive == true) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+            if (inclusive == true) { //Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                 if (income >= b.getMeanIncome()) {
                     resultList.add(b);
                 }
@@ -170,26 +170,26 @@ public abstract class AgentDecision {
             Block b = (Block) blockIter.next();
             // if inclusive
            
-            if (includeLow == true && includeHigh == true) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+            if (includeLow == true && includeHigh == true) { //Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                 if (agent.getIncome() >= b.getMeanIncome()
                         && agent.getIncome() <= b.getMeanIncome()) {
                     resultList.add(b);
                 }
             }
-            else if (includeLow == true && includeHigh == false) { // inclusive //Priyasree: Equality test with boolean literal_ Remove the comparison with true/false.
+            else if (includeLow == true && includeHigh == false) { // inclusive //Priyasree_Audit: Equality test with boolean literal_ Remove the comparison with true/false.
                 // == false
                 if (agent.getIncome() >= b.getMeanIncome()
                         && agent.getIncome() < b.getMeanIncome()) {
                     resultList.add(b);
                 }
             }
-            else if (includeLow == false && includeHigh == true) { //Priyasree: Equality test with boolean literal_ Remove the comparison with false/true.
+            else if (includeLow == false && includeHigh == true) { //Priyasree_Audit: Equality test with boolean literal_ Remove the comparison with false/true.
                 if (agent.getIncome() > b.getMeanIncome()
                         && agent.getIncome() <= b.getMeanIncome()) {
                     resultList.add(b);
                 }
             }
-            else if (includeLow == false && includeHigh == false) { //Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+            else if (includeLow == false && includeHigh == false) { //Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
                 if (agent.getIncome() > b.getMeanIncome()
                         && agent.getIncome() < b.getMeanIncome()) {
                     resultList.add(b);
@@ -204,7 +204,7 @@ public abstract class AgentDecision {
         ArrayList resultList = new ArrayList();
         for (int i = 0; i < blocks.size(); i++) {
             Block b = (Block) blocks.get(i);
-            if (inclusive == true) { //Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+            if (inclusive == true) { //Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                 if (income >= b.getMeanIncome()) {
                     resultList.add(b);
                 }
@@ -241,11 +241,11 @@ public abstract class AgentDecision {
     }
 
     public ArrayList getBlockNeighbors(int blockNum) {
-        return (ArrayList) CensusUnitHandler.getInstance().getBlock(blockNum).getNeighbors(); //Priyasree: Unnecessary type cast to ArrayList_Delete the unnecessary cast.
+        return (ArrayList) CensusUnitHandler.getInstance().getBlock(blockNum).getNeighbors(); //Priyasree_Audit: Unnecessary type cast to ArrayList_Delete the unnecessary cast.
     }
 
     public int numNeighbors(int blockNum) {
-        return ((ArrayList) CensusUnitHandler.getInstance().getBlock(blockNum).getNeighbors()) //Priyasree: Unnecessary type cast to ArrayList_Delete the unnecessary cast.
+        return ((ArrayList) CensusUnitHandler.getInstance().getBlock(blockNum).getNeighbors()) //Priyasree_Audit: Unnecessary type cast to ArrayList_Delete the unnecessary cast.
                 .size();
     }
     

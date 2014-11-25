@@ -235,11 +235,11 @@ public class Block {
 
 		//add income
 		this.totalIncome += agent.getIncome();
-		incomeList.add((double) agent.getIncome()); //Priyasree: Unnecessary type cast to double_Delete the unnecessary cast.
+		incomeList.add((double) agent.getIncome()); //Priyasree_Audit: Unnecessary type cast to double_Delete the unnecessary cast.
 	}
 
     public void addToHistory(int tenure) {
-        if (MirarUtils.BLOCK_HISTORY == true) {//Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+        if (MirarUtils.BLOCK_HISTORY == true) {//Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             if (tenure == Agent.RENTER) {
                 this.renterHistory.add(new BlockHistory(this.getNumVacantHousingUnits(), this.getRaceAndIncomeList(), 
                         this.getMedianRent(Agent.RENTER), this.getPctBlkInNeighborhood(), this.getPctWhtInNeighborhood(), 
@@ -726,7 +726,7 @@ public class Block {
 
 		//subtract income
 		totalIncome -= agent.getIncome();
-		incomeList.delete((double) agent.getIncome()); //Priyasree: Unnecessary type cast to double_Delete the unnecessary cast.
+		incomeList.delete((double) agent.getIncome()); //Priyasree_Audit: Unnecessary type cast to double_Delete the unnecessary cast.
 
 	}
 /**
@@ -1566,7 +1566,7 @@ public double getPctRace(int race){
         
             for (int i = 0; i < housingUnitList_Renters.size(); i++) {
                 
-                if (((HousingUnit) housingUnitList_Renters.get(i)).isOccupied() == false && ((HousingUnit) housingUnitList_Renters.get(i)).getTenure() == tenure) { //Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+                if (((HousingUnit) housingUnitList_Renters.get(i)).isOccupied() == false && ((HousingUnit) housingUnitList_Renters.get(i)).getTenure() == tenure) { //Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
                     units.add(housingUnitList_Renters.get(i));
                 }
             }
@@ -1575,7 +1575,7 @@ public double getPctRace(int race){
             
             for (int i = 0; i < housingUnitList_Owners.size(); i++) {
                 
-                if (((HousingUnit) housingUnitList_Owners.get(i)).isOccupied() == false && ((HousingUnit) housingUnitList_Owners.get(i)).getTenure() == tenure) { //Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+                if (((HousingUnit) housingUnitList_Owners.get(i)).isOccupied() == false && ((HousingUnit) housingUnitList_Owners.get(i)).getTenure() == tenure) { //Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
                     units.add(housingUnitList_Owners.get(i));
                 }
             }
@@ -1595,7 +1595,7 @@ public double getPctRace(int race){
        
             for (int i = 0; i < housingUnitList_All.size(); i++) {
                 
-                if (((HousingUnit) housingUnitList_All.get(i)).isOccupied() == false) { //Priyasree: Equality test with boolean literal: false_ Remove the comparison with false.
+                if (((HousingUnit) housingUnitList_All.get(i)).isOccupied() == false) { //Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
                     units.add(housingUnitList_All.get(i));
                 }
             }
@@ -1701,7 +1701,7 @@ public double getPctRace(int race){
 	        //add renterHistory from step 0 - initialization
 	        result.append(this.getSTFID() + ", " );
     		result.append(((BlockHistory)renterHistory.get(0)).toString());
-    		result.append("\n"); //Priyasree: String literal can be replaced by a character literal_Replace the string literal with a character literal.
+    		result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
 	  /******** add back in if wanting all block histories....    
 	        // add remaining memory STFIDs - for 1 through last set of model
 	        // if missing any memories in between steps, have to insert them
@@ -1829,7 +1829,7 @@ public double getPctRace(int race){
             //add renterHistory from step 0 - initialization
             result.append(this.getSTFID() + ", " );
             result.append(((BlockHistory)ownerHistory.get(0)).toString());
-            result.append("\n"); //Priyasree: String literal can be replaced by a character literal_Replace the string literal with a character literal.
+            result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
          
             // add remaining memory STFIDs - for 1 through last set of model
             // if missing any memories in between steps, have to insert them
@@ -1855,13 +1855,13 @@ public double getPctRace(int race){
                         
                         result.append(new BlockHistory( (BlockHistory)ownerHistory.get(prevHistory), (stepToAdd + (j+1))) );
                       //  result.append("insert histories");
-                        result.append("\n"); //Priyasree: String literal can be replaced by a character literal_Replace the string literal with a character literal.
+                        result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                         totalHistory++;
                     }
                     result.append(this.getSTFID() + ", ");
                     result.append(((BlockHistory)ownerHistory.get(currHistory)));
                  //   result.append("middle part");
-                    result.append("\n"); //Priyasree: String literal can be replaced by a character literal_Replace the string literal with a character literal.
+                    result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                     totalHistory++;
                     prevHistory = currHistory;
                     currHistory++;
@@ -1871,7 +1871,7 @@ public double getPctRace(int race){
                     result.append(this.getSTFID() + ", ");
                     result.append(((BlockHistory)ownerHistory.get(currHistory)));
                //     result.append("no insert part");
-                    result.append("\n"); //Priyasree: String literal can be replaced by a character literal_Replace the string literal with a character literal.
+                    result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                     totalHistory++;
                     prevHistory = currHistory;
                     currHistory++;
@@ -1892,7 +1892,7 @@ public double getPctRace(int race){
                     result.append(this.getSTFID() + ", ");
                     result.append(new BlockHistory( (BlockHistory)ownerHistory.get(lastHistory), (lastStep + incrementor)) );
                   //  result.append("last part");
-                    result.append("\n"); //Priyasree: String literal can be replaced by a character literal_Replace the string literal with a character literal.
+                    result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                      totalHistory++;
                      incrementor++;
                 }
@@ -1968,7 +1968,7 @@ public double getPctRace(int race){
 	
 	public void setRaceIncomeRent_Renters(int [] list) {
 	    if (raceIncomeRent_Renters == null) raceIncomeRent_Renters = new int[list.length];
-	    for (int i=0; i<list.length; i++) {//Priyasree: Loop used to copy an array_Use the method arraycopy defined in java.lang.System instead.
+	    for (int i=0; i<list.length; i++) {//Priyasree_Audit: Loop used to copy an array_Use the method arraycopy defined in java.lang.System instead.
 	        raceIncomeRent_Renters[i] = list[i];
 	    }
 	}
@@ -1979,7 +1979,7 @@ public double getPctRace(int race){
 	
 	public void setRaceIncomeRent_Owners(int [] list) {
 	    if (raceIncomeRent_Owners == null) raceIncomeRent_Owners = new int[list.length];
-	    for (int i=0; i<list.length; i++) {//Priyasree: Loop used to copy an array_Use the method arraycopy defined in java.lang.System instead.
+	    for (int i=0; i<list.length; i++) {//Priyasree_Audit: Loop used to copy an array_Use the method arraycopy defined in java.lang.System instead.
 	        raceIncomeRent_Owners[i] = list[i];
 	    }
 	}

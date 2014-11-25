@@ -242,7 +242,7 @@ public class BlockGroup {
             //     System.out.println("raceIncomeRent.size()  RENTER  : " + raceIncomeRent.size() );
                 for (int raceIndex=0; raceIndex< MirarUtils.NUM_RACES; raceIndex++) {
                     for (int incomeIndex=0; incomeIndex<MirarUtils.NUM_INCOMES; incomeIndex++) {
-                        raceIncomeIndex = (raceIndex*MirarUtils.NUM_INCOMES) + incomeIndex;;//((raceIndex +1) + (incomeIndex + 1) - 1); // Priyasree: Extra semicolon_Delete the extra semicolon.
+                        raceIncomeIndex = (raceIndex*MirarUtils.NUM_INCOMES) + incomeIndex;;//((raceIndex +1) + (incomeIndex + 1) - 1); // Priyasree_Audit: Extra semicolon_Delete the extra semicolon.
                         for (int rentIndex=0; rentIndex<MirarUtils.NUM_RENTS_RENTERS; rentIndex++) {
                             currentIndex = ((raceIndex*(MirarUtils.NUM_INCOMES*MirarUtils.NUM_RENTS_RENTERS)) + (incomeIndex*MirarUtils.NUM_RENTS_RENTERS)) + rentIndex;//(((raceIndex +1) * (incomeIndex + 1)) -1);
                             
@@ -250,7 +250,7 @@ public class BlockGroup {
                             double rirNum = (raceIncomeRent.get(currentIndex) * MirarUtils.RENTER_DATA_SAMPLE);
                             
                             rirValue = 0;
-                            if (rirNum == 0.0) continue; //Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+                            if (rirNum == 0.0) continue; //Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
                          //   if (rirNum != 0) 
                             else {    
                                 rirValue = MirarUtils.probabilisticInterpolation(  (rirNum/numBlocks) );   
@@ -464,7 +464,7 @@ public class BlockGroup {
        //     System.out.println("raceIncomeRent.size()  owner   : " + raceIncomeRent.size() );
             for (int raceIndex=0; raceIndex< MirarUtils.NUM_RACES; raceIndex++) {
                 for (int incomeIndex=0; incomeIndex<MirarUtils.NUM_INCOMES; incomeIndex++) {
-                    raceIncomeIndex = (raceIndex*MirarUtils.NUM_INCOMES) + incomeIndex;;//((raceIndex +1) + (incomeIndex + 1) - 1); // Priyasree: Extra semicolon_Delete the extra semicolon.
+                    raceIncomeIndex = (raceIndex*MirarUtils.NUM_INCOMES) + incomeIndex;;//((raceIndex +1) + (incomeIndex + 1) - 1); // Priyasree_Audit: Extra semicolon_Delete the extra semicolon.
                     for (int rentIndex=0; rentIndex<MirarUtils.NUM_RENTS_OWNERS; rentIndex++) {
                         currentIndex = ((raceIndex*(MirarUtils.NUM_INCOMES*MirarUtils.NUM_RENTS_OWNERS)) + (incomeIndex*MirarUtils.NUM_RENTS_OWNERS)) + rentIndex;//(((raceIndex +1) * (incomeIndex + 1)) -1);
                         
@@ -474,7 +474,7 @@ public class BlockGroup {
                         
                         
                         rirValue = 0;
-                        if (rirNum == 0.0) continue; //Priyasree: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
+                        if (rirNum == 0.0) continue; //Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
                         //   if (rirNum != 0) 
                         else {    
                             rirValue = MirarUtils.probabilisticInterpolation(  (rirNum/numBlocks) );   

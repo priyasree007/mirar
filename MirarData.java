@@ -67,10 +67,10 @@ public class MirarData {
      *
      */
     public void outputData() {
-        if (MirarUtils.AGENT_MEMORY == true) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+        if (MirarUtils.AGENT_MEMORY == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             outputAgentData();
         }
-        if (MirarUtils.BLOCK_HISTORY == true) { // Priyasree: Equality test with boolean literal: true_ Remove the comparison with true.
+        if (MirarUtils.BLOCK_HISTORY == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             outputBlockData();
         }
         numOutputs++;
@@ -109,10 +109,10 @@ public class MirarData {
                 label.append("tick" + i + ",");
             }
       
-            if (label.length() > 0) //Priyasree
-            {//Priyasree
+            if (label.length() > 0) 
+            {
               label.deleteCharAt(label.length() - 1);
-            }//Priyasree
+            }
             
             agentOut_Renters.println(label.toString());
             agentOut_Owners.println(label.toString());

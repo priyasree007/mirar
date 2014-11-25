@@ -345,7 +345,7 @@ public class HousingMarket {
             int numUnits = housingUnits.size();
             for (int k=0; k<numUnits; k++) { // set rents for occupied units
                 if(((HousingUnit)housingUnits.get(k)).isOccupied()){
-                    a = (Agent) ((HousingUnit)housingUnits.get(k)).getAgent() ; //Priyasree: Unnecessary type cast to Agent_Delete the unnecessary cast.
+                    a = (Agent) ((HousingUnit)housingUnits.get(k)).getAgent() ; //Priyasree_Audit: Unnecessary type cast to Agent_Delete the unnecessary cast.
                     int incomePoints = incomes.size()-1; // 11 points but 10 rents
                     for(int p=1; p<incomePoints; p++) { // set agent's rent to fall within same decile as agent's income in neighborhood distribution
                         if(a.getIncome()> incomes.get(p-1) & a.getIncome()<=incomes.get(p)){
