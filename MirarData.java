@@ -22,22 +22,22 @@ import java.util.*;
 public class MirarData {
 
    // List agents = new ArrayList();
-    List agents_renters = new ArrayList();
-    List agents_owners = new ArrayList();
-    String agentMemories;
-    List blocks = new ArrayList();
-    String blockHistories;
-    File agentDir;
-    File blockDir;
-    int numOutputs = 0;
+    List agents_renters = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
+    List agents_owners = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
+    String agentMemories; // Priyasree_DeadCode : Unreachable code_
+    List blocks = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
+    String blockHistories; // Priyasree_DeadCode : Unreachable code_
+    File agentDir; // Priyasree_DeadCode : Unreachable code_
+    File blockDir; // Priyasree_DeadCode : Unreachable code_
+    int numOutputs = 0; // Priyasree_DeadCode : Unreachable code_
     
-    private static MirarData instance = new MirarData();
+    private static MirarData instance = new MirarData(); // Priyasree_DeadCode : Unreachable code_
 
-    private MirarData() {
+    private MirarData() { // Priyasree_DeadCode : Unreachable code_
     	super();
     }
 
-    public static MirarData getInstance() {
+    public static MirarData getInstance() { // Priyasree_DeadCode : Unreachable code_
       return instance;
     }
     
@@ -46,7 +46,7 @@ public class MirarData {
      * calls: collectData, outputData 
      *
      */
-    public void processData() {
+    public void processData() { // Priyasree_DeadCode : Unreachable code_
         collectData();
         outputData();
     }
@@ -55,7 +55,7 @@ public class MirarData {
      * collects all agents (owner and renter) from AgentHandler 
      *
      */
-    public void collectData() {
+    public void collectData() { // Priyasree_DeadCode : Unreachable code_
         // collect all needed data
         AgentHandler ah = AgentHandler.getInstance();
         agents_owners.addAll(ah.getOwnerAgentList());
@@ -66,7 +66,7 @@ public class MirarData {
      * calls outputAgentData and outputBlockData if corresponding memory is set to true
      *
      */
-    public void outputData() {
+    public void outputData() { // Priyasree_DeadCode : Unreachable code_
         if (MirarUtils.AGENT_MEMORY == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             outputAgentData();
         }
@@ -83,7 +83,7 @@ public class MirarData {
      *  AgentData/agentData_Owners + {STEP_NUM}.txt
      *
      */
-    public void outputAgentData() {
+    public void outputAgentData() { // Priyasree_DeadCode : Unreachable code_
         
         //print data to file
         try {
@@ -154,7 +154,7 @@ public class MirarData {
      *  stfid,tick,vacancies,medianRent,neighPctBlk, neighPctWht, race_income_,
      *   -- where race_income repeats for each race/income combination
      */
-    public void outputBlockData() {
+    public void outputBlockData() { // Priyasree_DeadCode : Unreachable code_
         try {
             File blockFile_Renters = new File(blockDir, "blockData_Renters" + MirarUtils.STEP_NUM + ".txt");
             File blockFile_Owners = new File(blockDir, "blockData_Owners" + MirarUtils.STEP_NUM + ".txt");
@@ -207,7 +207,7 @@ public class MirarData {
      *  directory is set as: AgentDecision + (year.month.day.hour.minutes)
      *
      */
-    public void initialize() {
+    public void initialize() { // Priyasree_DeadCode : Unreachable code_
         // get unique id for run
         // get year.month.date.time for dir
         Calendar rightNow = Calendar.getInstance();

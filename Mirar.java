@@ -40,15 +40,15 @@ import uchicago.src.reflector.ListPropertyDescriptor;
  */
 public class Mirar extends SimModelImpl {
     
-    JUMPWorkbench wb;
-    WorkbenchFrame frame;
-    WorkbenchContext workbenchContext;
-    IndexedFeatureCollection fc1;
-    FeatureDataset fc11;
-	IndexedFeatureCollection fc2;
-	IndexedFeatureCollection fc3;	
-	ArrayList featureList;					
-    Layer blockLayer;		
+    JUMPWorkbench wb; // Priyasree_DeadCode : Unreachable code_
+    WorkbenchFrame frame; // Priyasree_DeadCode : Unreachable code_
+    WorkbenchContext workbenchContext; // Priyasree_DeadCode : Unreachable code_
+    IndexedFeatureCollection fc1; // Priyasree_DeadCode : Unreachable code_
+    FeatureDataset fc11; // Priyasree_DeadCode : Unreachable code_
+	IndexedFeatureCollection fc2; // Priyasree_DeadCode : Unreachable code_
+	IndexedFeatureCollection fc3; // Priyasree_DeadCode : Unreachable code_
+	ArrayList featureList; // Priyasree_DeadCode : Unreachable code_
+    Layer blockLayer; // Priyasree_DeadCode : Unreachable code_
     private Schedule schedule;	
     
    private Mediator mediator = new Mediator();
@@ -91,7 +91,7 @@ public class Mirar extends SimModelImpl {
         Random.createUniform();
     }
     
-    public void reset() {	
+    public void reset() { // Priyasree_DeadCode : Unreachable code_
         this.schedule = null;	
      
         System.gc();
@@ -149,7 +149,7 @@ public class Mirar extends SimModelImpl {
         }
     }
     
-    public void step() {
+    public void step() { // Priyasree_DeadCode : Unreachable code_
         
         if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             if (MirarUtils.STEPS_TO_RUN == MirarUtils.STEP_NUM) {
@@ -257,7 +257,7 @@ public class Mirar extends SimModelImpl {
         return MirarUtils.AGENT_DECISION_STRING;
     }
     
-    public void setAgentDecisionType(String type) {
+    public void setAgentDecisionType(String type) { // Priyasree_DeadCode : Unreachable code_
         MirarUtils.AGENT_DECISION_STRING = type;
         if (MirarUtils.AGENT_DECISION == null ) {
             if (type.equalsIgnoreCase("ThresholdRace")) {

@@ -19,12 +19,12 @@ public class ContsRace extends AgentDecision {
 	/**
 	 * 
 	 */
-	public ContsRace() {
+	public ContsRace() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) {
+	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 /*        
         PrintWriter testSelect = null;
         try {
@@ -127,8 +127,8 @@ public class ContsRace extends AgentDecision {
 
 
 
-    public double computeUtility(Block b, Agent a, int tenure) {
-        double utility=0.0;
+    public double computeUtility(Block b, Agent a, int tenure) { // Priyasree_DeadCode : Unreachable code_
+        double utility=0.0; 
         ArrayList blocks = new ArrayList();
         if (b == null) {
         System.out.println("contsrace neighbor computeUtility Block is null");
@@ -149,7 +149,7 @@ public class ContsRace extends AgentDecision {
       return utility;
     }
     
-    public double computeUtilitityForOwnUnit(HousingUnit currUnit, Agent a) {
+    public double computeUtilitityForOwnUnit(HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
             Block b = currUnit.getBlock();  //  block; 
             double utility=0.0;
             if(a.getRace()==Agent.WHITE) {
@@ -167,7 +167,7 @@ public class ContsRace extends AgentDecision {
     }
 
         
-    public double computeMarginalUtility(Block b, int tenure) {
+    public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
         double marginalUtility = 0.0;
         if (b == null) {
         System.out.println("raceincome neighbor computeUtility Block is null");
@@ -185,12 +185,12 @@ public class ContsRace extends AgentDecision {
         return marginalUtility;
     }
 
-    public double solveForPrice(double marginalUtil, Block b, int tenure) {
+    public double solveForPrice(double marginalUtil, Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
         //System.out.println("this is marginalUtil within solve method: " + marginalUtil);
         return -1000*(marginalUtil + b.getPctBlack());
     }
 
-    public String toString() {
+    public String toString() { // Priyasree_DeadCode : Unreachable code_
         return "ContsRace";
     }
     

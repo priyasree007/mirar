@@ -12,16 +12,16 @@ import cern.colt.list.DoubleArrayList;
  */
 public class PSID_RaceIncome extends AgentDecision {
 	
-	 ArrayList availableUnits = new ArrayList();
+	 ArrayList availableUnits = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
 
 	/**
 	 * 
 	 */
-	public PSID_RaceIncome() {
+	public PSID_RaceIncome() { // Priyasree_DeadCode : Unreachable code_
 		super();
 	}
 
-	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) {
+	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 	        availableUnits.clear();
 	        availableUnits.addAll(agent.getPossibleHousingUnitList());
 	        if (currUnit == null) {
@@ -76,7 +76,7 @@ public class PSID_RaceIncome extends AgentDecision {
 	        }
 	    }
 	    
-	      public double computeUtility(Block b, Agent a, int tenure) {
+	      public double computeUtility(Block b, Agent a, int tenure) { // Priyasree_DeadCode : Unreachable code_
 	  
 	      	double utility= -12.0;
 	   		//ArrayList blocks = new ArrayList();
@@ -147,7 +147,7 @@ public class PSID_RaceIncome extends AgentDecision {
 	        return utility;
 	      }
 
-	    public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) {
+	    public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
 	      	Block b = currUnit.getBlock();  //  block;
         	double medInc = b.getNeighborhoodMedianIncome()/1000; 
             double ratIncome =  a.getIncome()/b.getNeighborhoodMedianIncome();
@@ -246,7 +246,7 @@ public class PSID_RaceIncome extends AgentDecision {
 		    }
 
 		    
-		    public double computeMarginalUtility(Block b, int tenure) {
+		    public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		    	/**
 		    	 * For now, not using market clearing rents with the LA FANS choice
 		    	 * functions.. so these classes are undefined. 
@@ -255,12 +255,12 @@ public class PSID_RaceIncome extends AgentDecision {
 		    	return t; 
 		    }
 		    
-		    public double solveForPrice(double marginalUtil, Block b, int tenure) {
+		    public double solveForPrice(double marginalUtil, Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		    	double t=0; 
 		    	return t; 
 
 		   }
-		    public String toString() {
+		    public String toString() { // Priyasree_DeadCode : Unreachable code_
 		        return "PSID_RaceIncome";
 		    }
 

@@ -13,7 +13,7 @@ import cern.colt.list.DoubleArrayList;
 
 public class SchellingDecision extends AgentDecision {
 
-	public SchellingDecision() {
+	public SchellingDecision() { // Priyasree_DeadCode : Unreachable code_
 	}
 
 	//public SchellingDecision(Agent agent) {
@@ -21,7 +21,7 @@ public class SchellingDecision extends AgentDecision {
 //	}
 
 	public HousingUnit select(ArrayList possibleHousingUnitList,
-			HousingUnit currUnit, Agent agent) {
+			HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 		System.out.println("possibleHousingUnitList size is " + possibleHousingUnitList.size());
 		possibleHousingUnitList.addAll(possibleHousingUnitList);
 			ArrayList availableUnits = agent.getPossibleHousingUnitList();
@@ -49,7 +49,7 @@ public class SchellingDecision extends AgentDecision {
 		}
 
 
-	public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) {
+	public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 	    DoubleArrayList utilities = new DoubleArrayList();
 		ArrayList availableUnits = new ArrayList();
         availableUnits.addAll(housingUnits);
@@ -71,7 +71,7 @@ public class SchellingDecision extends AgentDecision {
 			   return utilities;
 	}
 	
-	public double computeUtility(Block b, Agent agent, int tenure) {
+	public double computeUtility(Block b, Agent agent, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		double utility=0.0;
 		ArrayList blocks = new ArrayList();
 		//System.out.println("block pct white " + this.getPctWhiteInNeighborhood(b));
@@ -118,7 +118,7 @@ public class SchellingDecision extends AgentDecision {
 	/* (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#computeMarginalUtility(edu.ucla.stat.mirar.Block)
 	 */
-	public double computeMarginalUtility(Block b, int tenure) {
+	public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -126,7 +126,7 @@ public class SchellingDecision extends AgentDecision {
 	/* (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#solveForPrice(double, edu.ucla.stat.mirar.Block)
 	 */
-	public double solveForPrice(double marginalUtil, Block b, int tenure) {
+	public double solveForPrice(double marginalUtil, Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		// TODO Auto-generated method stub
 		return 0;
 	}

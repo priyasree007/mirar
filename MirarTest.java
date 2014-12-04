@@ -19,14 +19,14 @@ import java.util.*;
  */
 public class MirarTest {
 
-    Mediator mediator;
+    Mediator mediator; // Priyasree_DeadCode : Unreachable code_
     //List block
     
-    public MirarTest(Mediator mediator) {
+    public MirarTest(Mediator mediator) { // Priyasree_DeadCode : Unreachable code_
         this.mediator = mediator;
     }
     
-    public void replaceModelRuns() {
+    public void replaceModelRuns() { // Priyasree_DeadCode : Unreachable code_
         CensusUnitHandler censusUnitHandler = mediator.getCensusUnitHandler();
         AgentHandler agentHandler = mediator.getAgentHandler();
         JUMPHandler jumpHandler = mediator.getJUMPHandler();

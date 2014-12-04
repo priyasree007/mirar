@@ -19,7 +19,7 @@ public class LafansRaceIncome extends AgentDecision {
 	/**
 	 * 
 	 */
-	public LafansRaceIncome() {
+	public LafansRaceIncome() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -27,7 +27,7 @@ public class LafansRaceIncome extends AgentDecision {
 	/* (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#select(java.util.ArrayList, edu.ucla.stat.mirar.HousingUnit, edu.ucla.stat.mirar.Agent)
 	 */
-	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) {
+	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
        // System.out.println("number of available units is " + possibleHousingUnitList.size());
   	
         /*PrintWriter testSelect = null;
@@ -96,7 +96,7 @@ public class LafansRaceIncome extends AgentDecision {
         }
     }
     
-      public double computeUtility(Block b, Agent a, int tenure) {
+      public double computeUtility(Block b, Agent a, int tenure) { // Priyasree_DeadCode : Unreachable code_
       	/*
 ------------------------------------------------------------------------------
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
@@ -189,7 +189,7 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
    numOwners |      .1053   .0605236     1.74   0.082     -.013324     .223924 
 */
  
-      public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) {
+      public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
 	    /**
 	     * note that I cap D to keep it from going to infinity
 	     */       
@@ -260,7 +260,7 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
 	    }
 
 	    
-	    public double computeMarginalUtility(Block b, int tenure) {
+	    public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 	    	/**
 	    	 * For now, not using market clearing rents with the LA FANS choice
 	    	 * functions.. so these classes are undefined. 
@@ -269,13 +269,13 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
 	    	return t; 
 	    }
 	    
-	    public double solveForPrice(double marginalUtil, Block b, int tenure) {
+	    public double solveForPrice(double marginalUtil, Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 	    	double t=0; 
 	    	return t; 
 
 	   }
 	    
-    public String toString() {
+    public String toString() { // Priyasree_DeadCode : Unreachable code_
         return "LafansRaceIncome";
     }
 

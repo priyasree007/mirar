@@ -20,7 +20,7 @@ public class CensusUnitHandler {
   /**
    * proportion of STF data to use to create agents. 
    */
-    private double sampleProportion = .1;
+    private double sampleProportion = .1; // Priyasree_DeadCode : Unreachable code_double sampleProportion
     
     private ArrayList censusTractList = new ArrayList(); 
     private ArrayList blockGroupList = new ArrayList(); 
@@ -486,13 +486,13 @@ public class CensusUnitHandler {
     /**
      * @return Returns the sampleProportion.
      */
-    public double getSampleProportion() { 
+    public double getSampleProportion() { // Priyasree_DeadCode : Unreachable code_double getSampleProportion()
         return sampleProportion;
     }
     /**
      * @param sampleProportion The sampleProportion to set.
      */
-    public void setSampleProportion(double sampleProportion) {
+    public void setSampleProportion(double sampleProportion) { // Priyasree_DeadCode : Unreachable code_void setSampleProportion(double sampleProportion)
         this.sampleProportion = sampleProportion;
     }
   /* public Mediator getMediator() {

@@ -526,7 +526,7 @@ public class HousingMarket {
      *
      * Note: since utilities are currently computed for each block (so all housing units within the block have the same utility), market clearing prices are computed over blocks as well (because all housing units within each block will have the same price).
      */
-    public void computeMarketClearingRent(int tenure){
+    public void computeMarketClearingRent(int tenure){ // Priyasree_DeadCode : Unreachable code_
         
         try {
             PrintWriter HMOut = new PrintWriter(new FileOutputStream("housingMarket.txt", true));

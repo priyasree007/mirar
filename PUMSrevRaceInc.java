@@ -21,7 +21,7 @@ public class PUMSrevRaceInc extends AgentDecision {
 	/**
 	 * 
 	 */
-	public PUMSrevRaceInc() {
+	public PUMSrevRaceInc() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,7 +35,7 @@ public class PUMSrevRaceInc extends AgentDecision {
 
 
 
-public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) {
+public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 	   
     ArrayList availableUnits = new ArrayList();
     availableUnits.addAll(agent.getPossibleHousingUnitList());
@@ -72,7 +72,7 @@ if (choice == -1) {
     }
 }
 
-  public double computeUtility(Block b, Agent a, int tenure) {
+  public double computeUtility(Block b, Agent a, int tenure) { // Priyasree_DeadCode : Unreachable code_
 
   	double utility= -12.0;
   	double ratio=(b.getMedianRent(tenure)*12.0)/a.getIncome();
@@ -335,7 +335,7 @@ if (choice == -1) {
     return utility;
   }
 
-public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) {
+public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
     /**
      * note that I cap D to keep it from going to infinity
      */       
@@ -606,7 +606,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
 }
 
     
-    public double computeMarginalUtility(Block b, int tenure) {
+    public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
     	/**
     	 * For now, not using market clearing rents with the LA FANS choice
     	 * functions.. so these classes are undefined. 
@@ -615,12 +615,12 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
     	return t; 
     }
     
-    public double solveForPrice(double marginalUtil, Block b, int tenure) {
+    public double solveForPrice(double marginalUtil, Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
     	double t=0; 
     	return t; 
 
    }
-    public String toString() {
+    public String toString() { // Priyasree_DeadCode : Unreachable code_
         return "CensusPumsRaceInc";
     }
 

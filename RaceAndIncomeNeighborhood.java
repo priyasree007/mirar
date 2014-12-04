@@ -28,7 +28,7 @@ import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete
 
 public class RaceAndIncomeNeighborhood extends AgentDecision {
 
-    public RaceAndIncomeNeighborhood() {
+    public RaceAndIncomeNeighborhood() { // Priyasree_DeadCode : Unreachable code_
 
     }
 
@@ -39,7 +39,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 	
 	/** @return block number of destination block
 	 */
-    public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) {
+    public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 		
         PrintWriter testSelect = null;
         try {
@@ -127,7 +127,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 
 
 
-	public double computeUtility(Block b, Agent agent, int tenure) {
+	public double computeUtility(Block b, Agent agent, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		double utility=0.0;
 		ArrayList blocks = new ArrayList();
 		if (b == null) {
@@ -156,13 +156,13 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 	  return utility;
 	}
 	
-	public double computeUtilitityForOwnUnit(HousingUnit currUnit) {
+	public double computeUtilitityForOwnUnit(HousingUnit currUnit) { // Priyasree_DeadCode : Unreachable code_
 		Block b = currUnit.getBlock();
 		return Math.exp(0.0 + -b.getMedianRent(currUnit.getTenure())/1000 -b.getPctBlkInNeighborhood()); 
 	}
 
 	    
-	public double computeMarginalUtility(Block b, int tenure) {
+	public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		double marginalUtility = 0.0;
 		if (b == null) {
 		System.out.println("raceincome neighbor computeUtility Block is null");
@@ -180,7 +180,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 		return marginalUtility;
 	}
 
-	public double solveForPrice(double marginalUtil, Block b, int tenure) {
+	public double solveForPrice(double marginalUtil, Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		double p = 1.0;
 	//	if(b.getHousingUnitList().size()!=0) {
 		p = -1000*(marginalUtil + b.getPctBlkInNeighborhood());
@@ -190,7 +190,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 		return p; 
 	}
 
-	public String toString() {
+	public String toString() { // Priyasree_DeadCode : Unreachable code_
 	    return "RaceAndIncomeNeighborhood";
 	}
 }
