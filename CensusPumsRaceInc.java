@@ -16,22 +16,22 @@ import cern.colt.list.DoubleArrayList;
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-public class CensusPumsRaceInc extends AgentDecision {
+/*public class CensusPumsRaceInc extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public CensusPumsRaceInc() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/*
+	
 	 * Created on Nov 10, 2005
 	 *
 	 * To change the template for this generated file go to
 	 * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
-	 */
+	 
 
 	public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) {
 		   
@@ -85,7 +85,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			            double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b);
 			            double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b);
 			            if(tenure==Agent.RENTER){
-			                /* ASIAN
+			                 ASIAN
 			                 ratio |   30.39265   .5013943    60.62   0.000     29.40994    31.37537
 			                 ratio2 |   -41.2187   .6498624   -63.43   0.000     -42.4924   -39.94499
 			                 medInc |  -.0398962    .002425   -16.45   0.000    -.0446491   -.0351433
@@ -98,7 +98,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                 ap2 |  -1.391105   .5565787    -2.50   0.012    -2.481979   -.3002307
 			                 wp2 |   1.703594   .2881452     5.91   0.000      1.13884    2.268348
 			                 offset |   (offset) 
-			                 */
+			                 
 			                if(a.getRace()==Agent.ASIAN){
 			                    utility = Math.exp( 
 			                            30.39265*ratio -41.2187*ratio*ratio
@@ -109,7 +109,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                            +1.703594*pctWhiteInNeighborhood);	        		
 			                }	else if(a.getRace()==Agent.WHITE) {
 			                    
-			                    /* WHITE
+			                     WHITE
 			                     ratio |   16.40714   .1839556    89.19   0.000      16.0466    16.76769
 			                     ratio2 |  -22.20756    .238067   -93.28   0.000    -22.67416   -21.74095
 			                     medInc |  -.0060357   .0009943    -6.07   0.000    -.0079845   -.0040868
@@ -122,7 +122,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                     ap2 |   .0058741   .3190918     0.02   0.985    -.6195342    .6312825
 			                     wp2 |  -4.037964   .1442055   -28.00   0.000    -4.320601   -3.755326
 			                     offset |   (offset)
-			                     */ 
+			                      
 			                    utility = Math.exp( 
 			                            16.40714*ratio -22.20756*ratio*ratio
 			                            -.0060357*(neighborhoodMedianIncome/1000) +.0000303*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -131,7 +131,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                            +-6.504971*pctAsianInNeighborhood+.0058741*pctAsianInNeighborhood*pctAsianInNeighborhood
 			                            +-4.037964 *pctWhiteInNeighborhood);	        		
 			                } else if(a.getRace()==Agent.BLACK) {
-			                    /* BLACK
+			                     BLACK
 			                     ratio |   28.80536   .4571892    63.01   0.000     27.90928    29.70143
 			                     ratio2 |  -39.35272   .5636884   -69.81   0.000    -40.45753   -38.24791
 			                     medInc |   .0124012   .0047311     2.62   0.009     .0031285     .021674
@@ -144,7 +144,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                     ap2 |  -10.45178    1.06885    -9.78   0.000    -12.54669   -8.356873
 			                     wp2 |  -10.03043   .4135346   -24.26   0.000    -10.84094   -9.219913
 			                     offset |   (offset)
-			                     */   
+			                        
 			                    utility = Math.exp( 
 			                            28.80536*ratio -39.35272*ratio*ratio
 			                            +.0124012*(neighborhoodMedianIncome/1000) -.0002096*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -153,7 +153,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                            +-1.252509*pctAsianInNeighborhood+-10.45178*pctAsianInNeighborhood*pctAsianInNeighborhood
 			                            -10.03043*pctWhiteInNeighborhood);
 			                } else if(a.getRace()==Agent.HISPANIC){
-			                    /* 	 
+			                     	 
 			                     HISPANIC
 			                     ratio |   10.49675    .146674    71.57   0.000     10.20927    10.78423
 			                     ratio2 |  -17.73934   .1879713   -94.37   0.000    -18.10776   -17.37093
@@ -167,7 +167,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                     ap2 |   .6330551   .2015418     3.14   0.002     .2380404     1.02807
 			                     wp2 |  -.9076131    .125293    -7.24   0.000    -1.153183   -.6620433
 			                     offset |   (offset) 
-			                     */  
+			                       
 			                    utility = Math.exp( 
 			                            10.49675*ratio-17.73934*ratio*ratio
 			                            +.0016539*(neighborhoodMedianIncome/1000) -.0000782*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -177,7 +177,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                            +-.9076131  *pctWhiteInNeighborhood);		} 
 			            } else if(tenure==Agent.OWNER){
 			                if(a.getRace()==Agent.ASIAN){
-			                    /* ASIAN
+			                     ASIAN
 			                     -------------+----------------------------------------------------------------
 			                     ratio |    41.4081   .9278486    44.63   0.000     39.58955    43.22665
 			                     ratio2 |  -50.79082   1.275268   -39.83   0.000     -53.2903   -48.29134
@@ -190,7 +190,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                     ap |   13.56877   .8320284    16.31   0.000     11.93802    15.19952
 			                     ap2 |   -4.19505   .8097312    -5.18   0.000    -5.782094   -2.608006
 			                     wp2 |  -2.539022   .5540852    -4.58   0.000    -3.625009   -1.453035
-			                     */
+			                     
 			                    utility = Math.exp( 
 			                            41.4081*ratio -50.79082*ratio*ratio
 			                            +.0003712*(neighborhoodMedianIncome/1000) +.000021*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -199,7 +199,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                            +13.56877*pctAsianInNeighborhood+-4.19505*pctAsianInNeighborhood*pctAsianInNeighborhood
 			                            +-2.539022*pctWhiteInNeighborhood);
 			                }	else if(a.getRace()==Agent.WHITE) {
-			                    /* WHITE      
+			                     WHITE      
 			                     ratio |   31.91786   .3603015    88.59   0.000     31.21168    32.62404
 			                     ratio2 |  -45.41915   .5659845   -80.25   0.000    -46.52846   -44.30984
 			                     medInc |   .0185751   .0015357    12.10   0.000     .0155651    .0215851
@@ -212,7 +212,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                     ap2 |   7.575933   .5089695    14.88   0.000     6.578371    8.573495
 			                     wp2 |  -5.403888   .3033748   -17.81   0.000    -5.998492   -4.809285
 			                     offset |   (offset) 
-			                     */
+			                     
 			                    utility = Math.exp( 
 			                            31.91786*ratio -45.41915*ratio*ratio
 			                            +.0185751*(neighborhoodMedianIncome/1000) -.0000874*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -221,7 +221,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                            +-13.60793*pctAsianInNeighborhood+7.575933*pctAsianInNeighborhood*pctAsianInNeighborhood
 			                            +-5.403888*pctWhiteInNeighborhood);		
 			                } else if(a.getRace()==a.BLACK) {
-			                    /* 
+			                     
 			                     /*
 			                      BLACK     
 			                      ratio |   97.51121   2.198777    44.35   0.000     93.20168    101.8207
@@ -236,7 +236,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                      ap2 |  -.9898796   3.091281    -0.32   0.749    -7.048679     5.06892
 			                      wp2 |  -37.37623   1.869553   -19.99   0.000    -41.04049   -33.71198
 			                      offset |   (offset)       
-			                      */ 
+			                       
 			                    utility = Math.exp( 
 			                            97.51121 *ratio -119.2507*ratio*ratio
 			                            +.3355175*(neighborhoodMedianIncome/1000) +-.0030947*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -245,7 +245,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                            +-29.23912*pctAsianInNeighborhood+-.9898796*pctAsianInNeighborhood*pctAsianInNeighborhood
 			                            +-37.37623*pctWhiteInNeighborhood);						
                                 } else if(a.getRace()==Agent.HISPANIC){
-			                                /* 
+			                                 
 			                                 HISP
 			                                 ratio |   23.51575   .3568434    65.90   0.000     22.81635    24.21515
 			                                 ratio2 |  -28.08815   .4738149   -59.28   0.000    -29.01681   -27.15949
@@ -259,7 +259,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			                                 ap2 |    1.78119   .6060696     2.94   0.003     .5933156    2.969065
 			                                 wp2 |  -1.748021   .3308424    -5.28   0.000     -2.39646   -1.099582
 			                                 offset |   (offset)   
-			                                 */ 
+			                                  
 			                                utility = Math.exp( 
 			                                        23.51575*ratio -28.08815*ratio*ratio
 			                                        -.0060357*(neighborhoodMedianIncome/1000) +-.0004245*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -275,9 +275,9 @@ public class CensusPumsRaceInc extends AgentDecision {
 			      }
 
 			    public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) {
-				    /**
+				    *//**
 				     * note that I cap D to keep it from going to infinity
-				     */       
+				     *//*       
 			      	int tenure = a.getTenure();
 			      	
 			      	Block b = currUnit.getBlock();  //  block;
@@ -293,7 +293,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 			   		
 			      	double utility= -12.0;
 		        	if(tenure==Agent.RENTER){
-		        		/* ASIAN
+		        		 ASIAN
  ratio |   30.39265   .5013943    60.62   0.000     29.40994    31.37537
   ratio2 |   -41.2187   .6498624   -63.43   0.000     -42.4924   -39.94499
   medInc |  -.0398962    .002425   -16.45   0.000    -.0446491   -.0351433
@@ -306,7 +306,7 @@ public class CensusPumsRaceInc extends AgentDecision {
      ap2 |  -1.391105   .5565787    -2.50   0.012    -2.481979   -.3002307
      wp2 |   1.703594   .2881452     5.91   0.000      1.13884    2.268348
   offset |   (offset) 
-		        	*/
+		        	
 	       		if(a.getRace()==Agent.ASIAN){
 	       		    utility = Math.exp( 
 	       		            30.39265*ratio -41.2187*ratio*ratio
@@ -317,7 +317,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 	       		            +1.703594*pctWhiteInNeighborhood);	        		
 	       		}	else if(a.getRace()==Agent.WHITE) {
 
-	       		    /* WHITE
+	       		     WHITE
 	       		     ratio |   16.40714   .1839556    89.19   0.000      16.0466    16.76769
 	       		     ratio2 |  -22.20756    .238067   -93.28   0.000    -22.67416   -21.74095
 	       		     medInc |  -.0060357   .0009943    -6.07   0.000    -.0079845   -.0040868
@@ -330,7 +330,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 	       		     ap2 |   .0058741   .3190918     0.02   0.985    -.6195342    .6312825
 	       		     wp2 |  -4.037964   .1442055   -28.00   0.000    -4.320601   -3.755326
 	       		     offset |   (offset)
-	       		     */ 
+	       		      
 	       		    utility = Math.exp( 
 	       		            16.40714*ratio -22.20756*ratio*ratio
 	       		            -.0060357*(neighborhoodMedianIncome/1000) +.0000303*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -339,7 +339,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 	       		            +-6.504971*pctAsianInNeighborhood+.0058741*pctAsianInNeighborhood*pctAsianInNeighborhood
 	       		            +-4.037964 *pctWhiteInNeighborhood);	        		
 	       		} else if(a.getRace()==Agent.BLACK) {
-	       		    /* BLACK
+	       		     BLACK
 	       		     ratio |   28.80536   .4571892    63.01   0.000     27.90928    29.70143
 	       		     ratio2 |  -39.35272   .5636884   -69.81   0.000    -40.45753   -38.24791
 	       		     medInc |   .0124012   .0047311     2.62   0.009     .0031285     .021674
@@ -352,7 +352,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 	       		     ap2 |  -10.45178    1.06885    -9.78   0.000    -12.54669   -8.356873
 	       		     wp2 |  -10.03043   .4135346   -24.26   0.000    -10.84094   -9.219913
 	       		     offset |   (offset)
-	       		     */   
+	       		        
 	       		    utility = Math.exp( 
 	       		            28.80536*ratio -39.35272*ratio*ratio
 	       		            +.0124012*(neighborhoodMedianIncome/1000) -.0002096*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -361,7 +361,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 	       		            +-1.252509*pctAsianInNeighborhood+-10.45178*pctAsianInNeighborhood*pctAsianInNeighborhood
 	       		            -10.03043*pctWhiteInNeighborhood);
 	       		} else if(a.getRace()==Agent.HISPANIC){
-	       		    /* 	 
+	       		     	 
 	       		     HISPANIC
 	       		     ratio |   10.49675    .146674    71.57   0.000     10.20927    10.78423
 	       		     ratio2 |  -17.73934   .1879713   -94.37   0.000    -18.10776   -17.37093
@@ -375,7 +375,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 	       		     ap2 |   .6330551   .2015418     3.14   0.002     .2380404     1.02807
 	       		     wp2 |  -.9076131    .125293    -7.24   0.000    -1.153183   -.6620433
 	       		     offset |   (offset) 
-	       		     */  
+	       		       
 	       		    utility = Math.exp( 
 	       		            10.49675*ratio-17.73934*ratio*ratio
 	       		            +.0016539*(neighborhoodMedianIncome/1000) -.0000782*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -385,7 +385,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 	       		            +-.9076131  *this.getPctWhiteInNeighborhood(b));		} 
 		        	} else if(tenure==Agent.OWNER){
 		        	    if(a.getRace()==Agent.ASIAN){
-		        	        /* ASIAN
+		        	         ASIAN
 		        	         -------------+----------------------------------------------------------------
 		        	         ratio |    41.4081   .9278486    44.63   0.000     39.58955    43.22665
 		        	         ratio2 |  -50.79082   1.275268   -39.83   0.000     -53.2903   -48.29134
@@ -398,7 +398,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	         ap |   13.56877   .8320284    16.31   0.000     11.93802    15.19952
 		        	         ap2 |   -4.19505   .8097312    -5.18   0.000    -5.782094   -2.608006
 		        	         wp2 |  -2.539022   .5540852    -4.58   0.000    -3.625009   -1.453035
-		        	         */
+		        	         
 		        	        utility = Math.exp( 
 		        	                41.4081*ratio -50.79082*ratio*ratio
 		        	                +.0003712*(neighborhoodMedianIncome/1000) +.000021*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -407,7 +407,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	                +13.56877*pctAsianInNeighborhood+-4.19505*pctAsianInNeighborhood*pctAsianInNeighborhood
 		        	                +-2.539022*pctWhiteInNeighborhood);
 		        	    }	else if(a.getRace()==Agent.WHITE) {
-		        	        /* WHITE      
+		        	         WHITE      
 		        	         ratio |   31.91786   .3603015    88.59   0.000     31.21168    32.62404
 		        	         ratio2 |  -45.41915   .5659845   -80.25   0.000    -46.52846   -44.30984
 		        	         medInc |   .0185751   .0015357    12.10   0.000     .0155651    .0215851
@@ -420,7 +420,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	         ap2 |   7.575933   .5089695    14.88   0.000     6.578371    8.573495
 		        	         wp2 |  -5.403888   .3033748   -17.81   0.000    -5.998492   -4.809285
 		        	         offset |   (offset) 
-		        	         */
+		        	         
 		        	        utility = Math.exp( 
 		        	                31.91786*ratio -45.41915*ratio*ratio
 		        	                +.0185751*(neighborhoodMedianIncome/1000) -.0000874*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -429,7 +429,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	                +-13.60793*pctAsianInNeighborhood+7.575933*pctAsianInNeighborhood*pctAsianInNeighborhood
 		        	                +-5.403888*pctWhiteInNeighborhood);		
 		        	    } else if(a.getRace()==Agent.BLACK) {
-		        	        /* 
+		        	         
 		        	         /*
 		        	          BLACK     
 		        	          ratio |   97.51121   2.198777    44.35   0.000     93.20168    101.8207
@@ -444,7 +444,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	          ap2 |  -.9898796   3.091281    -0.32   0.749    -7.048679     5.06892
 		        	          wp2 |  -37.37623   1.869553   -19.99   0.000    -41.04049   -33.71198
 		        	          offset |   (offset)       
-		        	          */ 
+		        	           
 		        	        utility = Math.exp( 
 		        	                97.51121 *ratio -119.2507*ratio*ratio
 		        	                +.3355175*(neighborhoodMedianIncome/1000) +-.0030947*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -453,7 +453,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	                +-29.23912*pctAsianInNeighborhood+-.9898796*pctAsianInNeighborhood*pctAsianInNeighborhood
 		        	                +-37.37623*pctWhiteInNeighborhood);				
                             } else if(a.getRace()==Agent.HISPANIC){
-		        	                    /* 
+		        	                     
 		        	                     HISP
 		        	                     ratio |   23.51575   .3568434    65.90   0.000     22.81635    24.21515
 		        	                     ratio2 |  -28.08815   .4738149   -59.28   0.000    -29.01681   -27.15949
@@ -467,7 +467,7 @@ public class CensusPumsRaceInc extends AgentDecision {
 		        	                     ap2 |    1.78119   .6060696     2.94   0.003     .5933156    2.969065
 		        	                     wp2 |  -1.748021   .3308424    -5.28   0.000     -2.39646   -1.099582
 		        	                     offset |   (offset)   
-		        	                     */ 
+		        	                      
 		        	                    utility = Math.exp( 
 		        	                            23.51575*ratio -28.08815*ratio*ratio
 		        	                            -.0060357*(neighborhoodMedianIncome/1000) +-.0004245*(neighborhoodMedianIncome/1000)*(neighborhoodMedianIncome/1000)        		
@@ -487,10 +487,10 @@ public class CensusPumsRaceInc extends AgentDecision {
 
 				    
 				    public double computeMarginalUtility(Block b, int tenure) {
-				    	/**
+				    	*//**
 				    	 * For now, not using market clearing rents with the LA FANS choice
 				    	 * functions.. so these classes are undefined. 
-				    	 */
+				    	 *//*
 				    	double t=0; 
 				    	return t; 
 				    }
@@ -505,6 +505,6 @@ public class CensusPumsRaceInc extends AgentDecision {
 				    }
 
 		}
-
+*/
 	
 

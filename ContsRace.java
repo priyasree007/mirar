@@ -14,18 +14,18 @@ import cern.colt.list.DoubleArrayList;
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-public class ContsRace extends AgentDecision {
+/*public class ContsRace extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public ContsRace() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
-/*        
+        
         PrintWriter testSelect = null;
         try {
             testSelect = new PrintWriter(new FileOutputStream("testSelect.txt", false));
@@ -33,7 +33,7 @@ public class ContsRace extends AgentDecision {
         } catch (IOException ioe) {
             
         }
-  */      
+        
         
         
       //  this.possibleHousingUnitList.addAll(possibleHousingUnitList);
@@ -104,7 +104,7 @@ public class ContsRace extends AgentDecision {
         }
     }
     
-  /*  public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) {
+    public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) {
         DoubleArrayList utilities = new DoubleArrayList();
         ArrayList availableUnits = possibleHousingUnitList;
         Iterator e = availableUnits.iterator();
@@ -123,7 +123,7 @@ public class ContsRace extends AgentDecision {
             }
                return utilities;
     }
-    */
+    
 
 
 
@@ -195,3 +195,4 @@ public class ContsRace extends AgentDecision {
     }
     
 }
+*/

@@ -13,7 +13,7 @@ import cern.colt.list.DoubleArrayList;
  * @author eeb
  *
  */
-public class ThresholdRace extends AgentDecision {
+/*public class ThresholdRace extends AgentDecision {
 
     public ThresholdRace() {
         super();
@@ -83,7 +83,7 @@ public class ThresholdRace extends AgentDecision {
             }
         }
         
-      /*  public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) {
+        public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) {
             DoubleArrayList utilities = new DoubleArrayList();
             ArrayList availableUnits = possibleHousingUnitList;
             Iterator e = availableUnits.iterator();
@@ -102,7 +102,7 @@ public class ThresholdRace extends AgentDecision {
                 }
                    return utilities;
         }
-        */
+        
 
 
 
@@ -217,3 +217,4 @@ public class ThresholdRace extends AgentDecision {
             return "ThresholdRace";
         }
 }
+*/

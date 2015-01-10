@@ -18,11 +18,11 @@ import cern.colt.list.DoubleArrayList;
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-public class LafansIncomeThreshold extends AgentDecision {
+/*public class LafansIncomeThreshold extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public LafansIncomeThreshold() { // Priyasree_DeadCode : Unreachable code_
 		super();
 	}
@@ -87,7 +87,7 @@ public class LafansIncomeThreshold extends AgentDecision {
     public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
             Block b = currUnit.getBlock();  //  block;
             double utility = -12.0;
-            /**
+            *//**
              * Note that I need to rescale d to account for the fact that, in the LA FANS estimates, 
              * dij is the probability of choosing one's own neighborhood instead of another neighborhood. 
              * Since neighborhoods = Census tracts, this coefficient is scaled to be the probability of 
@@ -96,7 +96,7 @@ public class LafansIncomeThreshold extends AgentDecision {
              * I think what I want to do is scale the dij coefficient by:
              * 	 (number of alternatives in simulation)/1652
              *  
-             */
+             *//*
             double d; 
           if(units.size()>1651){
           	d=10.21492; 
@@ -110,10 +110,10 @@ public class LafansIncomeThreshold extends AgentDecision {
 
     
     public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
-    	/**
+    	*//**
     	 * For now, not using market clearing rents with the LA FANS choice
     	 * functions.. so these classes are undefined. 
-    	 */
+    	 *//*
     	double t=0; 
     	return t; 
     }
@@ -127,3 +127,4 @@ public class LafansIncomeThreshold extends AgentDecision {
         return "LafansThresholdIncome";
     }
 }
+*/

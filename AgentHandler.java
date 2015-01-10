@@ -21,23 +21,23 @@ import uchicago.src.sim.util.Random;
  */
 public class AgentHandler {
 
- //   private ArrayList allAgentList = new ArrayList(); 
+ // private ArrayList allAgentList = new ArrayList(); 
     private ArrayList renterAgentList = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
     private ArrayList ownerAgentList = new ArrayList();
     private ArrayList renterTestAgents = new ArrayList(); // arraylist of theoretical agents used for utility testing // Priyasree_DeadCode : Unreachable code_
     private ArrayList ownerTestAgents = new ArrayList(); // arraylist of theoretical agents used for utility testing
     private HashSet blocksToUpdate_Renter = new HashSet(); // Priyasree_DeadCode : Unreachable code
-    private HashSet blocksToUpdate_All = new HashSet(); // Priyasree_DeadCode : Unreachable code_
-    private HashSet blocksToUpdate_Owner = new HashSet(); // Priyasree_DeadCode : Unreachable code_
+ // private HashSet blocksToUpdate_All = new HashSet(); // Priyasree_DeadCode : Unreachable code_
+ // private HashSet blocksToUpdate_Owner = new HashSet(); // Priyasree_DeadCode : Unreachable code_
    
  
-    private static AgentHandler instance = new AgentHandler(); // Priyasree_DeadCode : Unreachable code_
+    private static AgentHandler instance = new AgentHandler(); 
 
-    private AgentHandler() { // Priyasree_DeadCode : Unreachable code_
+    /*private AgentHandler() { // Priyasree_DeadCode : Unreachable code_
     	super();
-    }
+    }*/
 
-    public static AgentHandler getInstance() { // Priyasree_DeadCode : Unreachable code_
+    public static AgentHandler getInstance() { 
       return instance;
     }
     
@@ -56,7 +56,7 @@ public class AgentHandler {
      * calls the Agent#move function for each renter agent, passing in the list of vacant housing units
      */
     
-    public void moveAllAgents() { // Priyasree_DeadCode : Unreachable code_
+   /* public void moveAllAgents() { // Priyasree_DeadCode : Unreachable code_
         blocksToUpdate_All.clear(); // clear class list of blocks to update
         
         ArrayList agents =   new ArrayList();
@@ -106,7 +106,7 @@ public class AgentHandler {
         agents.clear();
         selectedAgents.clear();
     }
-    
+    */
     public void moveRenterAgents() { // Priyasree_DeadCode : Unreachable code_
         blocksToUpdate_Renter.clear(); // clear class list of blocks to update
         
@@ -162,7 +162,7 @@ public class AgentHandler {
      *  
      * calls the Agent#move function for each owner agent, passing in the list of vacant housing units
      */
-    public void moveOwnerAgents() { // Priyasree_DeadCode : Unreachable code_
+   /* public void moveOwnerAgents() { // Priyasree_DeadCode : Unreachable code_
         blocksToUpdate_Renter.clear(); // clear class list of blocks to update
         
         ArrayList agents =   this.sampleOwnerAgents();
@@ -211,25 +211,25 @@ public class AgentHandler {
         selectedAgents.clear();
         
     }
-    
+    */
     public HashSet getBlocksToUpdate_Renter(){ // Priyasree_DeadCode : Unreachable code_
         return blocksToUpdate_Renter; 
     }
     
-    public HashSet getBlocksToUpdate_Owner(){ // Priyasree_DeadCode : Unreachable code_
+    /*public HashSet getBlocksToUpdate_Owner(){ // Priyasree_DeadCode : Unreachable code_
         return blocksToUpdate_Owner; 
-    }
+    }*/
     
-    public HashSet getBlocksToUpdate_All(){ // Priyasree_DeadCode : Unreachable code_
+    /*public HashSet getBlocksToUpdate_All(){ // Priyasree_DeadCode : Unreachable code_
         return blocksToUpdate_All; 
-    }
+    }*/
     
     /**
      * creates a list of theoretical or test agents.  
      * One agent for each race and class combo - for each agent decision type , for renters and owners
      *
      */
-    public void createTestAgents() { // Priyasree_DeadCode : Unreachable code_
+    public void createTestAgents() { 
         if (renterTestAgents == null) { 
             renterTestAgents = new ArrayList();
         }
@@ -304,7 +304,7 @@ public class AgentHandler {
      * updates utilities for owner agents using the test agents to compute utilities 
      *
      */
-    public void updateOwnerUtilities()  { // Priyasree_DeadCode : Unreachable code_
+    /*public void updateOwnerUtilities()  { // Priyasree_DeadCode : Unreachable code_
        
         ArrayList testAgents = this.getRenterTestAgents();
         // go through the list and compute utilities for each agent type
@@ -319,7 +319,7 @@ public class AgentHandler {
             }
         }
      
-    }
+    }*/
     
     /**
      * determines what blocks need to have their utilities updated
@@ -368,9 +368,9 @@ public class AgentHandler {
             updateOwnerBlocks(blocks);
     }
     
-    public void updateBlocks(HashSet blocks) { // Priyasree_DeadCode : Unreachable code_
+    /*public void updateBlocks(HashSet blocks) { // Priyasree_DeadCode : Unreachable code_
             updateRenterBlocks(blocks); // only need to update renter utilities since renters and owners have same utility 
-    }
+    }*/
     
     
     /**
@@ -430,7 +430,7 @@ public class AgentHandler {
      * @param tenure
      * @return
      */
-    public Agent addAgent(int race, int incomeCategory, String stfid, int tenure) { // Priyasree_DeadCode : Unreachable code_
+    public Agent addAgent(int race, int incomeCategory, String stfid, int tenure) { 
 
         Agent agent = null;
          if (tenure == Agent.RENTER) {
@@ -452,7 +452,7 @@ public class AgentHandler {
      }
     
   
-    public int getNumAgentsOfRaceIncomeType(int raceIncomeType, int tenure) { // Priyasree_DeadCode : Unreachable code_
+    public int getNumAgentsOfRaceIncomeType(int raceIncomeType, int tenure) { 
         int total = 0;
         Iterator iter = null;
         if ( tenure == Agent.RENTER) {
@@ -468,7 +468,7 @@ public class AgentHandler {
         return total;
     }
     
-    public ArrayList sampleAllAgents() { // Priyasree_DeadCode : Unreachable code_
+    /*public ArrayList sampleAllAgents() { // Priyasree_DeadCode : Unreachable code_
         ArrayList units = new ArrayList(); 
         units.addAll(renterAgentList);
         units.addAll(ownerAgentList); 
@@ -482,7 +482,7 @@ public class AgentHandler {
             units.remove(choice);
         }
         return result;
-    }
+    }*/
     
     /**
      * gets a sample of the Renter agents based on MirarUtils.RENTER_AGENT_SAMPLE
@@ -507,7 +507,7 @@ public class AgentHandler {
      * gets a sample of the Owner agents based on MirarUtils.RENTER_AGENT_SAMPLE
      * @return list of sampled agents
      */
-    public ArrayList sampleOwnerAgents() { // Priyasree_DeadCode : Unreachable code_
+    /*public ArrayList sampleOwnerAgents() { // Priyasree_DeadCode : Unreachable code_
         ArrayList units = new ArrayList(); 
         units.addAll(ownerAgentList);
         int probInt = MirarUtils.probabilisticInterpolation(units.size(), MirarUtils.OWNER_AGENT_SAMPLE);
@@ -520,30 +520,30 @@ public class AgentHandler {
             units.remove(choice);
         }
         return result;
-    }
+    }*/
     
-    public int getNumAgents(int tenure) { // Priyasree_DeadCode : Unreachable code_
+    /*public int getNumAgents(int tenure) { // Priyasree_DeadCode : Unreachable code_
         if (tenure == Agent.RENTER) {
             return renterAgentList.size();
         }
         else return ownerAgentList.size();
-    }
+    }*/
     
-    public ArrayList getRenterAgentList() { // Priyasree_DeadCode : Unreachable code_
+    public ArrayList getRenterAgentList() { 
         return renterAgentList;
     } // end getAgentList
 
-    public void setRenterAgentList(ArrayList agentList) { // Priyasree_DeadCode : Unreachable code_
+    /*public void setRenterAgentList(ArrayList agentList) { // Priyasree_DeadCode : Unreachable code_
         this.renterAgentList = agentList;
     } // end setAgentList
-
+*/
     
     
     
-    public ArrayList getRenterTestAgents() { // Priyasree_DeadCode : Unreachable code_
+    public ArrayList getRenterTestAgents() { 
         return renterTestAgents;
     }
-    public void setRenterTestAgents(ArrayList testAgents) { // Priyasree_DeadCode : Unreachable code_
+    public void setRenterTestAgents(ArrayList testAgents) { 
         this.renterTestAgents = testAgents;
     }
     
@@ -557,19 +557,19 @@ public class AgentHandler {
         return s.toString();
     }
 */
-    public ArrayList getOwnerAgentList() { // Priyasree_DeadCode : Unreachable code_
+    public ArrayList getOwnerAgentList() { 
         return ownerAgentList;
     }
  
-    public void setOwnerAgentList(ArrayList ownerAgentList) { // Priyasree_DeadCode : Unreachable code_
+    public void setOwnerAgentList(ArrayList ownerAgentList) { 
         this.ownerAgentList = ownerAgentList;
     }
 
-    public ArrayList getOwnerTestAgents() { // Priyasree_DeadCode : Unreachable code_
+    public ArrayList getOwnerTestAgents() {
         return ownerTestAgents;
     }
 
-    public void setOwnerTestAgents(ArrayList ownerTestAgents) { // Priyasree_DeadCode : Unreachable code_
+   /* public void setOwnerTestAgents(ArrayList ownerTestAgents) { // Priyasree_DeadCode : Unreachable code_
         this.ownerTestAgents = ownerTestAgents;
-    }
+    }*/
 } // end AgentHandler

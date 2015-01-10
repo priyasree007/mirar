@@ -52,7 +52,7 @@ import uchicago.src.sim.util.Random; // Priyasree_Audit: Unnecessary import: Del
  */
 public class Mediator {
 
-    public Mirar mirar; // Priyasree_DeadCode : Unreachable code_
+   // public Mirar mirar; // Priyasree_DeadCode : Unreachable code_
     public AgentHandler agentHandler;
     public HousingMarket housingMarket;
     public ArrayList blocksForUpdating_All = new ArrayList();
@@ -146,7 +146,7 @@ public class Mediator {
     
     public void step() { // Priyasree_DeadCode : Unreachable code_
      //   checkHU();
-/*    	
+ /*   	
     	try {
             PrintWriter RentsTest = new PrintWriter(new FileOutputStream("RentsTest.txt", true));
             PrintWriter IncomeDist = new PrintWriter(new FileOutputStream("IncomesTest.txt", true));
@@ -191,7 +191,7 @@ public class Mediator {
         } catch (IOException ioe) {
         
         }
-  */      
+*/        
         MirarUtils.STEP_NUM++;
         // call moveAgents in agenthandler - with blockList
         //agentHandler.moveAgents(censusUnitHandler.getAllHousingUnits());

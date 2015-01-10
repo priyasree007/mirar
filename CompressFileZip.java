@@ -14,12 +14,4 @@ package mirar;;
  */
 public class CompressFileZip { 
 
-	/**
-	 * 
-	 */
-	public CompressFileZip() { // Priyasree_DeadCode : Unreachable code_
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 }

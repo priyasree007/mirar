@@ -22,7 +22,7 @@ import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete
  * in proportion own group (continuous function)
  */
 
-public class RaceAndIncome extends AgentDecision {
+/*public class RaceAndIncome extends AgentDecision {
 
     public RaceAndIncome() { // Priyasree_DeadCode : Unreachable code_
 
@@ -33,8 +33,8 @@ public class RaceAndIncome extends AgentDecision {
    // }
 
 	
-	/** @return block number of destination block
-	 */
+	*//** @return block number of destination block
+	 *//*
 	public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { //  Priyasree_DeadCode : Unreachable code_
 	//    this.possibleHousingUnitList.addAll(possibleHousingUnitList);
 		//ArrayList availableBlocks = findBlocksByQuantile(0.15);  // find available blocks
@@ -124,3 +124,4 @@ public class RaceAndIncome extends AgentDecision {
 	    return "RaceAndIncome";
 	}
 }
+*/

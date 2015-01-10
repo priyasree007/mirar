@@ -46,8 +46,8 @@ public class MirarUtils {
     public static int NUM_RENTS_OWNERS; // Priyasree_DeadCode : Unreachable code_
     
     
-    public static boolean AGENT_MEMORY = true; // Priyasree_DeadCode : Unreachable code_
-    public static boolean BLOCK_HISTORY = true; // Priyasree_DeadCode : Unreachable code_
+    public static boolean AGENT_MEMORY = true; 
+    public static boolean BLOCK_HISTORY = true; 
     
     public static double TOTAL_AGENT_INCOME;  // // Priyasree_DeadCode : Unreachable code_
     public static HashMap NUM_INCOMES_PER_TYPE;  //owners and renters together // Priyasree_DeadCode : Unreachable code_
@@ -105,7 +105,7 @@ public class MirarUtils {
      * @param num double
      * @return num.floor or num.ceil integer interpolation of double
      */
-    public static int probabilisticInterpolation(double num) { // Priyasree_DeadCode : Unreachable code_
+    public static int probabilisticInterpolation(double num) { 
         int wholeNum = (int) num;
         double remainder = num - wholeNum;
         double randomNum = Random.uniform.nextDoubleFromTo(0, 1);
@@ -125,7 +125,7 @@ public class MirarUtils {
      * @param sampleProportion proportion of quantity to sample
      * @return interpolated whole number sampled proportion 
      */
-    public static int probabilisticInterpolation(int totalNum, double sampleProportion) { // Priyasree_DeadCode : Unreachable code_
+    public static int probabilisticInterpolation(int totalNum, double sampleProportion) { 
         double num = totalNum*sampleProportion;
         int wholeNum = (int) num;
         double remainder = num - wholeNum;
@@ -158,7 +158,7 @@ public class MirarUtils {
  * @param data vector of transition probabilities
  * @return index of choice
  */
-    public static int sampleFromMultinomialDistribution(ArrayList data) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int sampleFromMultinomialDistribution(ArrayList data) { // Priyasree_DeadCode : Unreachable code_
         double[] t1, t2;
         double x; // random number
 
@@ -183,13 +183,13 @@ System.out.println("this is x " + x);
             }
         }
         return -1;
-    }
+    }*/
 /**
  * 
  * @param data
  * @return index
  */
-    public static int sampleFromMultinomialDistribution(DoubleArrayList data) { // Priyasree_DeadCode : Unreachable code_
+    public static int sampleFromMultinomialDistribution(DoubleArrayList data) { 
         
         if (Double.isNaN(data.get(data.size()-1)) || Double.isNaN(data.get(data.size()-1)) ) {
             ErrorLog.getInstance().logError("MirarUtils#sampleFromMultinomialDistribution:DoubleArrayList -- utilty is infinite.");
@@ -230,7 +230,7 @@ System.out.println("this is x " + x);
      * @param data
      * @return
      */
-    public static int sampleFromMultinomialDistribution(String [] data) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int sampleFromMultinomialDistribution(String [] data) { // Priyasree_DeadCode : Unreachable code_
         double[] t1, t2;
         double x; // random number
         int transLength = data.length;
@@ -251,9 +251,9 @@ System.out.println("this is x " + x);
             }
         }
         return -1;
-    }
+    }*/
     
-    public static int sampleFromMultinomialDistribution(double [] data) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int sampleFromMultinomialDistribution(double [] data) { // Priyasree_DeadCode : Unreachable code_
         double[] t1, t2;
         double x; // random number
         int transLength = data.length;
@@ -274,9 +274,9 @@ System.out.println("this is x " + x);
             }
         }
         return -1;
-    }
+    }*/
     
-    public static int sampleFromMultinomialDistribution(int [] data) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int sampleFromMultinomialDistribution(int [] data) { // Priyasree_DeadCode : Unreachable code_
 
         double[] t1, t2;
         double x; // random number
@@ -299,7 +299,7 @@ System.out.println("this is x " + x);
             }
         }
         return 0;
-    }
+    }*/
     
     /**
      * reads in a raw set of data values (e.g., utililities), converts them into 
@@ -308,7 +308,7 @@ System.out.println("this is x " + x);
      * @param data string
      * @return index value
      */
-    public static int sampleFromRawDistribution(String [] data) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int sampleFromRawDistribution(String [] data) { // Priyasree_DeadCode : Unreachable code_
         double total = 0.0;
         double [] result = new double[data.length];
         for (int i=0;i<result.length;i++) {
@@ -322,9 +322,9 @@ System.out.println("this is x " + x);
         
         
         return sampleFromMultinomialDistribution(result);
-    }
+    }*/
     
-    public static int sampleFromRawDistribution(double [] data) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int sampleFromRawDistribution(double [] data) { // Priyasree_DeadCode : Unreachable code_
         double total = 0.0;
         for (int i=0;i<data.length;i++) {           
             total += data[i];
@@ -334,10 +334,10 @@ System.out.println("this is x " + x);
         }
         
         return sampleFromMultinomialDistribution(data);
-    }
+    }*/
     
     
-    public static int sampleFromRawDistribution(DoubleArrayList data) { // Priyasree_DeadCode : Unreachable code_
+    public static int sampleFromRawDistribution(DoubleArrayList data) { 
         if (Double.isNaN(data.get(data.size()-1)) || Double.isNaN(data.get(data.size()-1)) ) {
             ErrorLog.getInstance().logError("MirarUtils#sampleFromRawDistribution:DoubleArrayList -- utilty is infinite.");
             return -1;
@@ -366,10 +366,10 @@ System.out.println("this is x " + x);
      * @param list
      * @return index value
      */
-    public static int randomlySelectIndex(ArrayList list) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int randomlySelectIndex(ArrayList list) { // Priyasree_DeadCode : Unreachable code_
         int index = Random.uniform.nextIntFromTo(0, (list.size()-1));
         return index;
-    }
+    }*/
     
    /**
     * Selects item with highest value in list (we should use the colt "max" method here)
@@ -378,7 +378,7 @@ System.out.println("this is x " + x);
     * @param data
     * @return index value
     */
-    public static int selectOptimal(DoubleArrayList data) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int selectOptimal(DoubleArrayList data) { // Priyasree_DeadCode : Unreachable code_
         double highest = 0.0;
         int selection = -1;
         int dataSize = data.size();
@@ -389,24 +389,24 @@ System.out.println("this is x " + x);
             }
         }
         return selection;
-    }
+    }*/
     
     
-    public static void setRaceIncomeRent(DoubleArrayList rir) { // Priyasree_DeadCode : Unreachable code_
+   /* public static void setRaceIncomeRent(DoubleArrayList rir) { // Priyasree_DeadCode : Unreachable code_
         MirarUtils.OWNER_RACE_INCOME_RENT = new double[rir.size()];
         for (int i=0; i<MirarUtils.OWNER_RACE_INCOME_RENT.length; i++) {
             MirarUtils.OWNER_RACE_INCOME_RENT[i] = rir.get(i);
         }
-    }
+    }*/
     
-    public static void setRenterRents(DoubleArrayList rentList) { // Priyasree_DeadCode : Unreachable code_
+    public static void setRenterRents(DoubleArrayList rentList) { 
         int numRents = rentList.size();
         MirarUtils.RENTER_RENTS = new double[numRents];
         for (int i=0; i<numRents; i++) {
             MirarUtils.RENTER_RENTS[i] = rentList.get(i);
         }
     }
-    public static void setOwnerRents(DoubleArrayList rentList) { // Priyasree_DeadCode : Unreachable code_
+    public static void setOwnerRents(DoubleArrayList rentList) { 
         int numRents = rentList.size();
         MirarUtils.OWNER_RENTS = new double[numRents];
         for (int i=0; i<numRents; i++) {
@@ -414,7 +414,7 @@ System.out.println("this is x " + x);
         }
     }
     
-    public static void setRenterIncomes(DoubleArrayList incomeList) { // Priyasree_DeadCode : Unreachable code_
+    public static void setRenterIncomes(DoubleArrayList incomeList) { 
         int numIncomes = incomeList.size();
         MirarUtils.RENTER_INCOMES = new double[numIncomes];
         for (int i=0; i<numIncomes; i++) {
@@ -422,7 +422,7 @@ System.out.println("this is x " + x);
         }
         MirarUtils.initNumIncomesPerType();
     }
-    public static void setOwnerIncomes(DoubleArrayList incomeList) { // Priyasree_DeadCode : Unreachable code_
+    public static void setOwnerIncomes(DoubleArrayList incomeList) { 
         int numIncomes = incomeList.size();
         MirarUtils.OWNER_INCOMES = new double[numIncomes];
         for (int i=0; i<numIncomes; i++) {
@@ -435,7 +435,7 @@ System.out.println("this is x " + x);
      * @param list of raw values
      * @return list of probabilities
      */
-    public static DoubleArrayList convertToProbabilities(DoubleArrayList list) { // Priyasree_DeadCode : Unreachable code_
+    public static DoubleArrayList convertToProbabilities(DoubleArrayList list) { 
         double total = 0.0;
         DoubleArrayList probabilityList = new DoubleArrayList();
        int listSize = list.size();
@@ -456,7 +456,7 @@ System.out.println("this is x " + x);
      * @param tenure 
      * @return
      */
-    public static double incomeCategoryToIncome(int incomeCategory, int tenure) { // Priyasree_DeadCode : Unreachable code_
+    public static double incomeCategoryToIncome(int incomeCategory, int tenure) {
         if (tenure == Agent.RENTER) {
             if (MirarUtils.RENTER_INCOMES == null) MirarUtils.RENTER_INCOMES = new double[MirarUtils.NUM_INCOMES];
             return MirarUtils.RENTER_INCOMES[incomeCategory];
@@ -467,7 +467,7 @@ System.out.println("this is x " + x);
         }
     }
     
-    public static int incomeToIncomeCategory(double income, int tenure) { // Priyasree_DeadCode : Unreachable code_
+    /*public static int incomeToIncomeCategory(double income, int tenure) { // Priyasree_DeadCode : Unreachable code_
         if (tenure == Agent.RENTER) {
             for (int i=0; i<MirarUtils.RENTER_INCOMES.length; i++) {
                 if (MirarUtils.RENTER_INCOMES[i] == income) { // Priyasree_Audit: Cannot compare floating-point values using the equals (==) operator_Compare the two float values to see if they are close in value.
@@ -483,19 +483,19 @@ System.out.println("this is x " + x);
             }
         }
         return -1;
-    }
+    }*/
     
-    public static double getIncomeSquared() { // Priyasree_DeadCode : Unreachable code_
+    /*public static double getIncomeSquared() { // Priyasree_DeadCode : Unreachable code_
         return MirarUtils.TOTAL_AGENT_INCOME*MirarUtils.TOTAL_AGENT_INCOME;
-    }
+    }*/
     
     
 //  this gives both renter and owner
-    public static double getTotalAgentIncome() { // Priyasree_DeadCode : Unreachable code_
+    /*public static double getTotalAgentIncome() { // Priyasree_DeadCode : Unreachable code_
         return MirarUtils.TOTAL_AGENT_INCOME;
-    }
+    }*/
     
-    public static void subtractIncome(double income){ // Priyasree_DeadCode : Unreachable code_
+    /*public static void subtractIncome(double income){ // Priyasree_DeadCode : Unreachable code_
         //## don't need to do subtraction in version 1
         Double incomeObj = new Double(income);
         int numIncomeType = ((Integer)MirarUtils.NUM_INCOMES_PER_TYPE.get(incomeObj)).intValue();
@@ -506,11 +506,11 @@ System.out.println("this is x " + x);
         
         MirarUtils.TOTAL_AGENT_INCOME -= income;
         
-    }
+    }*/
     
     
     // keeps track of total agent income (renter and owner)
-    public static void addIncome(double income) { // Priyasree_DeadCode : Unreachable code_
+    public static void addIncome(double income) { 
         MirarUtils.TOTAL_AGENT_INCOME += income;
         Double incomeObj = new Double(income);
         
@@ -520,7 +520,7 @@ System.out.println("this is x " + x);
         MirarUtils.NUM_INCOMES_PER_TYPE.put(incomeObj, new Integer(numIncomeType + 1));
     }
     
-    public static void initNumIncomesPerType() { // Priyasree_DeadCode : Unreachable code_
+    public static void initNumIncomesPerType() { 
         
       
         MirarUtils.NUM_INCOMES_PER_TYPE = new HashMap();
@@ -534,10 +534,10 @@ System.out.println("this is x " + x);
    
     
     // this gives both renter and owner
-        public static int getNumAgentsOfIncomeType(double income) { // Priyasree_DeadCode : Unreachable code_
+        /*public static int getNumAgentsOfIncomeType(double income) { // Priyasree_DeadCode : Unreachable code_
             return ((Integer)MirarUtils.NUM_INCOMES_PER_TYPE.get(new Double(income))).intValue();
             
-        }
+        }*/
         
    
 }

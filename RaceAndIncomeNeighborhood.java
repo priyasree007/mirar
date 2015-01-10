@@ -26,7 +26,7 @@ import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete
  * in proportion own group (continuous function)
  */
 
-public class RaceAndIncomeNeighborhood extends AgentDecision {
+/*public class RaceAndIncomeNeighborhood extends AgentDecision {
 
     public RaceAndIncomeNeighborhood() { // Priyasree_DeadCode : Unreachable code_
 
@@ -37,8 +37,8 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
    // }
 
 	
-	/** @return block number of destination block
-	 */
+	*//** @return block number of destination block
+	 *//*
     public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 		
         PrintWriter testSelect = null;
@@ -79,7 +79,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 		//System.out.println("AgentDecision select availableUnits " + availableUnits.size() + "  utilities: " + utilities.size());
 		//return getChosenHousingUnitFromUtilities(utilities, availableBlocks); //choose from available blocks
 		int choice = MirarUtils.sampleFromRawDistribution(utilities);
-    /*    
+        
           testSelect.println("agent decision randi neighbors: choice is null , choice == " + choice);
           testSelect.println("RaceAndIncomeNeighborhood#select:  Agent income is " + agent.getIncome() + " and race is " + agent.getRace());
           testSelect.println("RaceAndIncomeNeighborhood#select:  current STFID is " + agent.getSTFID());
@@ -88,7 +88,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
           }
           testSelect.println("AgentDecision select availableUnits " + availableUnits.size() + "  utilities: " + utilities.size());
           testSelect.close();
-      */  
+        
         
 		if (choice == -1) {
 		    possibleHousingUnitList.clear();
@@ -104,7 +104,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 
 	}
 	
-	/*public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) {
+	public DoubleArrayList computeUtilities(ArrayList housingUnits, Agent agent) {
 	    DoubleArrayList utilities = new DoubleArrayList();
 	//	ArrayList availableUnits = possibleHousingUnitList;
 	    Iterator e = availableUnits.iterator();
@@ -122,7 +122,7 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 			    i++;
 			}
 			   return utilities;
-	}*/
+	}
 	
 
 
@@ -194,3 +194,4 @@ public class RaceAndIncomeNeighborhood extends AgentDecision {
 	    return "RaceAndIncomeNeighborhood";
 	}
 }
+*/

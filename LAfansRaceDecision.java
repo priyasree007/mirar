@@ -18,11 +18,11 @@ import cern.colt.list.DoubleArrayList;
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-public class LAfansRaceDecision extends AgentDecision {
+/*public class LAfansRaceDecision extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public LAfansRaceDecision() { // Priyasree_DeadCode : Unreachable code_
 		super();
 	}
@@ -80,7 +80,7 @@ public class LAfansRaceDecision extends AgentDecision {
         System.out.println("block is null");
         }   
         else {
-        	/*
+        	
 ------------------------------------------------------------------------------
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -104,7 +104,7 @@ _Id_iXwap2_1 |  -6.547089   2.473687    -2.65   0.008    -11.39543   -1.698751
   numRenters |   .1532357   .0725234     2.11   0.035     .0110924     .295379
    numOwners |   .1420399   .0559996     2.54   0.011     .0322827    .2517971
 ------------------------------------------------------------------------------ 
-        	 */
+        	 
         		double wap = this.getPctWhiteInNeighborhood(b)+this.getPctAsianInNeighborhood(b);
         		if(a.getRace()==a.WHITE | a.getRace()==a.ASIAN) {
                	utility = Math.exp(7.699987*this.getPctHispanicInNeighborhood(b)  -8.500039*this.getPctHispanicInNeighborhood(b)*this.getPctHispanicInNeighborhood(b)
@@ -215,9 +215,9 @@ _Id_iXwap2_1 |  -6.547089   2.473687    -2.65   0.008    -11.39543   -1.698751
         	}
         }
         
-        /**
+        *//**
          * we check each interval between the minimum and maximum rents
-         */
+         *//*
   //  System.out.println("this is block med income " + b.getNeighborhoodMedianIncome());
   //  System.out.println("old rent is " + b.getMedianRent());
     	double d=0.0;
@@ -274,3 +274,4 @@ System.out.println("this is rent: " + rent);
     }
 
 }
+*/

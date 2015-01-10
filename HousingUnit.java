@@ -16,13 +16,13 @@ import java.util.*; // Priyasree_Audit: Unnecessary import: import java.util.*;_
 
 public class HousingUnit {
 
-    private int blockNum; // Priyasree_DeadCode : Unreachable code_
+  //private int blockNum; // Priyasree_DeadCode : Unreachable code_
     private int housingUnitNum; // Priyasree_DeadCode : Unreachable code_
     private Agent agent; // Priyasree_DeadCode : Unreachable code_
-    private int agentNum; // Priyasree_DeadCode : Unreachable code_
+  //private int agentNum; // Priyasree_DeadCode : Unreachable code_
 
-    private int race; // Priyasree_DeadCode : Unreachable code_
-    private int income; // Priyasree_DeadCode : Unreachable code_
+  //private int race; // Priyasree_DeadCode : Unreachable code_
+  //private int income; // Priyasree_DeadCode : Unreachable code_
     private double rent; // Priyasree_DeadCode : Unreachable code_
     private boolean occupied; // Priyasree_DeadCode : Unreachable code_
     private int  tenure; // Priyasree_DeadCode : Unreachable code_
@@ -30,19 +30,19 @@ public class HousingUnit {
     public static final int RENTED = 1; // Priyasree_DeadCode : Unreachable code_
     
     public Block block; // Priyasree_DeadCode : Unreachable code_
-    public HousingUnit() { // Priyasree_DeadCode : Unreachable code_
+    public HousingUnit() { 
         this.occupied = false;    
     }
     
-    public HousingUnit(int blockNum) { // Priyasree_DeadCode : Unreachable code_
+   /* public HousingUnit(int blockNum) { // Priyasree_DeadCode : Unreachable code_
         this.blockNum = blockNum;
-    }
+    }*/
 
-    public HousingUnit(boolean occupied) { // Priyasree_DeadCode : Unreachable code_
+    /*public HousingUnit(boolean occupied) { // Priyasree_DeadCode : Unreachable code_
         this.occupied = occupied;
-    }
+    }*/
 
-    public HousingUnit(int housingUnitNum, Block block, int tenure) { // Priyasree_DeadCode : Unreachable code_
+    public HousingUnit(int housingUnitNum, Block block, int tenure) {
         this.housingUnitNum = housingUnitNum;
         this.block = block;
         this.occupied = false;
@@ -53,16 +53,16 @@ public class HousingUnit {
     
     
    
-    public Agent getAgent() { // Priyasree_DeadCode : Unreachable code_
+    public Agent getAgent() { 
         return agent;
     }
 
-    public void setAgent(Agent agent) { // Priyasree_DeadCode : Unreachable code_
+    public void setAgent(Agent agent) { 
         if (agent == null ) System.out.println("11111 2222222  Housing Unit set AGent --  agent is nULL");
         this.agent = agent;
     }
 
-    public void addAgent(Agent agent) { // Priyasree_DeadCode : Unreachable code_
+    public void addAgent(Agent agent) { 
         if (agent == null) System.out.println("000010101 Housing Unit - add Agent - agent is null");
         this.setOccupied(true);
         //this.setAgentNum(agent.getAgentNum());
@@ -99,23 +99,23 @@ public class HousingUnit {
         this.agentNum = agentNum;
     }
 */
-    public Block getBlock() { // Priyasree_DeadCode : Unreachable code_
+    public Block getBlock() {
         return block;
     }
 
-    public void setBlock(Block block) { // Priyasree_DeadCode : Unreachable code_
+    /*public void setBlock(Block block) { // Priyasree_DeadCode : Unreachable code_
         this.block = block;
-    }
+    }*/
 
-    public int getBlockNum() { // Priyasree_DeadCode : Unreachable code_
+   /* public int getBlockNum() { // Priyasree_DeadCode : Unreachable code_
         return blockNum;
-    }
+    }*/
 
-    public void setBlockNum(int blockNum) { // Priyasree_DeadCode : Unreachable code_
+    /*public void setBlockNum(int blockNum) { // Priyasree_DeadCode : Unreachable code_
         this.blockNum = blockNum;
-    }
+    }*/
 
-    public double getIncome() { // Priyasree_DeadCode : Unreachable code_
+    public double getIncome() { 
         if (this.agent == null) return 0.0;
     //    System.out.println("\t ##  HU - agent.get Income : " + agent.getIncome());
         return this.agent.getIncome();
@@ -125,37 +125,37 @@ public class HousingUnit {
         this.income = income;
     }
 */
-    public int getRace() { // Priyasree_DeadCode : Unreachable code_
+    /*public int getRace() { // Priyasree_DeadCode : Unreachable code_
         if (this.agent == null) return  -1;
         return this.agent.getRace();
-    }
+    }*/
 
     //public void setRace(int race) {
      //   this.race = race;
    // }
 
-    public double getRent() { // Priyasree_DeadCode : Unreachable code_
+    public double getRent() {
         return rent;
     }
 
-    public void setRent(double rent) { // Priyasree_DeadCode : Unreachable code_
+    public void setRent(double rent) { 
         this.rent = rent;
     }
-    public boolean isOccupied() { // Priyasree_DeadCode : Unreachable code_
+    public boolean isOccupied() { 
         return occupied;
     }
-    public void setOccupied(boolean occupied) { // Priyasree_DeadCode : Unreachable code_
+    public void setOccupied(boolean occupied) { 
         this.occupied = occupied;
      
     }
-    public int getHousingUnitNum() { // Priyasree_DeadCode : Unreachable code_
+    public int getHousingUnitNum() { 
         return housingUnitNum;
     }
-    public void setHousingUnitNum(int housingUnitNum) { // Priyasree_DeadCode : Unreachable code_
+    /*public void setHousingUnitNum(int housingUnitNum) { // Priyasree_DeadCode : Unreachable code_
         this.housingUnitNum = housingUnitNum;
-    }
+    }*/
     
-    public boolean equals(HousingUnit hu) {// Priyasree_Audit: Wrong parameter type_Change the name of the method. // Priyasree_DeadCode : Unreachable code_
+    /*public boolean equals(HousingUnit hu) {// Priyasree_Audit: Wrong parameter type_Change the name of the method. // Priyasree_DeadCode : Unreachable code_
         
       //  System.out.println("====== compare houing units:");
       //  System.out.println("\tthis housing unit: " + this.block.getSTFID());
@@ -173,13 +173,13 @@ public class HousingUnit {
             return true;
         }
         else return false;
-    }
+    }*/
 
-    public int getTenure() { // Priyasree_DeadCode : Unreachable code_
+    public int getTenure() { 
         return tenure;
     }
 
-    public void setTenure(int tenure) { // Priyasree_DeadCode : Unreachable code_
+    public void setTenure(int tenure) { 
         this.tenure = tenure;
     }
 

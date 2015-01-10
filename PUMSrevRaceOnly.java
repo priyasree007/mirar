@@ -16,11 +16,11 @@ import cern.colt.list.DoubleArrayList;
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-public class PUMSrevRaceOnly extends AgentDecision {
+/*public class PUMSrevRaceOnly extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public PUMSrevRaceOnly() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
@@ -108,7 +108,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	        		} 
 	        } else if(tenure==Agent.OWNER){
 	               	if(a.getRace()==Agent.ASIAN){
-/* ASIAN
+ ASIAN
        costs |   .0041999   .0002378    17.66   0.000     .0037339    .0046659
       costs2 |  -4.47e-07   2.75e-08   -16.27   0.000    -5.01e-07   -3.94e-07
        ratio |   14.39926   1.657198     8.69   0.000     11.15121     17.6473
@@ -124,14 +124,14 @@ public class PUMSrevRaceOnly extends AgentDecision {
          wp2 |  -2.579125   .5686267    -4.54   0.000    -3.693613   -1.464637
       offset |   (offset)
 ------------------------------------------------------------------------------
-*/
+
 	       	        	utility = Math.exp( 
 	       	        		 1.959622*pctBlackInNeighborhood-14.26577*pctBlackInNeighborhood*pctBlackInNeighborhood
 	       	        			+ 3.222334*pctHispanicInNeighborhood-3.080838*pctHispanicInNeighborhood*pctHispanicInNeighborhood
 	       	   	             +13.96843*pctAsianInNeighborhood-3.938367*pctAsianInNeighborhood*pctAsianInNeighborhood
 	       	   	       -2.579125*pctWhiteInNeighborhood);	        		
 	}	else if(a.getRace()==Agent.WHITE) {
-       	/* WHITE      
+       	 WHITE      
        costs |   .0018232   .0000784    23.25   0.000     .0016696    .0019769
       costs2 |  -1.33e-07   8.49e-09   -15.64   0.000    -1.49e-07   -1.16e-07
        ratio |    13.8991   .6612793    21.02   0.000     12.60302    15.19519
@@ -147,7 +147,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
          wp2 |  -5.575379   .3060228   -18.22   0.000    -6.175173   -4.975586
       offset |   (offset)
 ------------------------------------------------------------------------------
-      */                                                    
+                                                          
 	       	        	utility = Math.exp( 
 	       	        	-.8410856*pctBlackInNeighborhood-13.28789*pctBlackInNeighborhood*pctBlackInNeighborhood
 	       	        	-5.482388*pctHispanicInNeighborhood-3.524827*pctHispanicInNeighborhood*pctHispanicInNeighborhood
@@ -155,7 +155,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	       	        	-5.575379*pctWhiteInNeighborhood);
 	       	        	
 	} else if(a.getRace()==Agent.BLACK) {
-	       	        	        /* 
+	       	        	         
  /*
        BLACK     
 ------------------------------------------------------------------------------
@@ -176,14 +176,14 @@ public class PUMSrevRaceOnly extends AgentDecision {
          wp2 |  -36.59448   1.905652   -19.20   0.000    -40.32949   -32.85947
       offset |   (offset)
 ------------------------------------------------------------------------------
-*/ 
+ 
 	       	        	utility = Math.exp( 
 	       	        			29.45947*pctBlackInNeighborhood-35.28017*pctBlackInNeighborhood*pctBlackInNeighborhood
 	       	        			-34.94042*pctHispanicInNeighborhood+ 11.04974*pctHispanicInNeighborhood*pctHispanicInNeighborhood
 	       	        			-28.80547 *pctAsianInNeighborhood-.8614868*pctAsianInNeighborhood*pctAsianInNeighborhood
 	       	        			-36.59448*pctWhiteInNeighborhood);
 	} else if(a.getRace()==Agent.HISPANIC){
- /* 
+  
 
        costs |   .0024295   .0002341    10.38   0.000     .0019706    .0028883
       costs2 |  -7.93e-07   4.84e-08   -16.39   0.000    -8.88e-07   -6.98e-07
@@ -200,7 +200,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
          wp2 |  -1.474916    .333954    -4.42   0.000    -2.129454   -.8203784
       offset |   (offset)
 ------------------------------------------------------------------------------
-  */ 
+   
 	       	    utility = Math.exp( 
 	       	    		3.691533*pctBlackInNeighborhood+ -5.657794*pctBlackInNeighborhood*pctBlackInNeighborhood
 	       	    +7.293655*pctHispanicInNeighborhood+ -3.340575*pctHispanicInNeighborhood*pctHispanicInNeighborhood
@@ -216,9 +216,9 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	      }
 
 	    public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
-		    /**
+		    *//**
 		     * note that I cap D to keep it from going to infinity
-		     */       
+		     *//*       
 	      	double tenure = a.getTenure();
 	      	Block b = currUnit.getBlock();  //  block;
             double neighborhoodMedianIncome =  b.getNeighborhoodMedianIncome();
@@ -229,7 +229,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	      	double utility= -12.0;
 	        if(tenure==Agent.RENTER){
          
-	        /* ASIAN
+	         ASIAN
 	             bp |    5.50094    .463471    11.87   0.000     4.592554    6.409327
 	            bp2 |  -14.91612   1.190251   -12.53   0.000    -17.24897   -12.58327
 	             hp |   3.948578    .363512    10.86   0.000     3.236108    4.661048
@@ -238,7 +238,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	            ap2 |  -3.989716   .5349245    -7.46   0.000    -5.038149   -2.941284
 	            wp2 |   2.074587   .2497249     8.31   0.000     1.585135    2.564039
 	         offset |   (offset)  
-	         */
+	         
        		if(a.getRace()==Agent.ASIAN){
 	        	utility = Math.exp( 
 		        		 4.562*pctBlackInNeighborhood-17.872*pctBlackInNeighborhood*pctBlackInNeighborhood
@@ -268,7 +268,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 		        		} 
 		        } else if(tenure==Agent.OWNER){
 		               	if(a.getRace()==Agent.ASIAN){
-	/* ASIAN
+	 ASIAN
 	       costs |   .0041999   .0002378    17.66   0.000     .0037339    .0046659
 	      costs2 |  -4.47e-07   2.75e-08   -16.27   0.000    -5.01e-07   -3.94e-07
 	       ratio |   14.39926   1.657198     8.69   0.000     11.15121     17.6473
@@ -284,14 +284,14 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	         wp2 |  -2.579125   .5686267    -4.54   0.000    -3.693613   -1.464637
 	      offset |   (offset)
 	------------------------------------------------------------------------------
-	*/
+	
 		       	        	utility = Math.exp( 
 		       	        		 1.959622*pctBlackInNeighborhood-14.26577*pctBlackInNeighborhood*pctBlackInNeighborhood
 		       	        			+ 3.222334*pctHispanicInNeighborhood-3.080838*pctHispanicInNeighborhood*pctHispanicInNeighborhood
 		       	   	             +13.96843*pctAsianInNeighborhood-3.938367*pctAsianInNeighborhood*pctAsianInNeighborhood
 		       	   	       -2.579125*pctWhiteInNeighborhood);	        		
 		}	else if(a.getRace()==Agent.WHITE) {
-	       	/* WHITE      
+	       	 WHITE      
 	       costs |   .0018232   .0000784    23.25   0.000     .0016696    .0019769
 	      costs2 |  -1.33e-07   8.49e-09   -15.64   0.000    -1.49e-07   -1.16e-07
 	       ratio |    13.8991   .6612793    21.02   0.000     12.60302    15.19519
@@ -307,7 +307,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	         wp2 |  -5.575379   .3060228   -18.22   0.000    -6.175173   -4.975586
 	      offset |   (offset)
 	------------------------------------------------------------------------------
-	      */                                                    
+	                                                          
 		       	        	utility = Math.exp( 
 		       	        	-.8410856*pctBlackInNeighborhood-13.28789*pctBlackInNeighborhood*pctBlackInNeighborhood
 		       	        	-5.482388*pctHispanicInNeighborhood-3.524827*pctHispanicInNeighborhood*pctHispanicInNeighborhood
@@ -315,7 +315,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 		       	        	-5.575379*pctWhiteInNeighborhood);
 		       	        	
 		} else if(a.getRace()==Agent.BLACK) {
-		       	        	        /* 
+		       	        	         
 	 /*
 	       BLACK     
 	------------------------------------------------------------------------------
@@ -336,14 +336,14 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	         wp2 |  -36.59448   1.905652   -19.20   0.000    -40.32949   -32.85947
 	      offset |   (offset)
 	------------------------------------------------------------------------------
-	*/ 
+	 
 		       	        	utility = Math.exp( 
 		       	        			29.45947*pctBlackInNeighborhood-35.28017*pctBlackInNeighborhood*pctBlackInNeighborhood
 		       	        			-34.94042*pctHispanicInNeighborhood+ 11.04974*pctHispanicInNeighborhood*pctHispanicInNeighborhood
 		       	        			-28.80547 *pctAsianInNeighborhood-.8614868*pctAsianInNeighborhood*pctAsianInNeighborhood
 		       	        			-36.59448*pctWhiteInNeighborhood);
 		} else if(a.getRace()==Agent.HISPANIC){
-	 /* 
+	  
 
 	       costs |   .0024295   .0002341    10.38   0.000     .0019706    .0028883
 	      costs2 |  -7.93e-07   4.84e-08   -16.39   0.000    -8.88e-07   -6.98e-07
@@ -360,7 +360,7 @@ public class PUMSrevRaceOnly extends AgentDecision {
 	         wp2 |  -1.474916    .333954    -4.42   0.000    -2.129454   -.8203784
 	      offset |   (offset)
 	------------------------------------------------------------------------------
-	  */ 
+	   
 		       	    utility = Math.exp( 
 		       	    		3.691533*pctBlackInNeighborhood+ -5.657794*pctBlackInNeighborhood*pctBlackInNeighborhood
 		       	    +7.293655*pctHispanicInNeighborhood+ -3.340575*pctHispanicInNeighborhood*pctHispanicInNeighborhood
@@ -376,10 +376,10 @@ public class PUMSrevRaceOnly extends AgentDecision {
 
 		    
 		    public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
-		    	/**
+		    	*//**
 		    	 * For now, not using market clearing rents with the LA FANS choice
 		    	 * functions.. so these classes are undefined. 
-		    	 */
+		    	 *//*
 		    	double t=0; 
 		    	return t; 
 		    }
@@ -394,3 +394,4 @@ public class PUMSrevRaceOnly extends AgentDecision {
 		    }
 
 }
+*/

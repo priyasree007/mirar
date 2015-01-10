@@ -55,12 +55,12 @@ public class JUMPHandler {
     WorkbenchContext workbenchContext; // Priyasree_DeadCode : Unreachable code_
 
     //ArrayList featureList;
-    int stepNum; // Priyasree_DeadCode : Unreachable code_int stepNum 
+    //int stepNum; // Priyasree_DeadCode : Unreachable code_int stepNum 
     Layer blockLayer; // Priyasree_DeadCode : Unreachable code_
     Layer blockGroupLayer; // Priyasree_DeadCode : Unreachable code_Layer blockGroupLayer
     Layer censusTractLayer; // Priyasree_DeadCode : Unreachable code_Layer censusTractLayer
-    ArrayList blockFeatureList; // Priyasree_DeadCode : Unreachable code_
-    FeatureSchema blockSchema; // Priyasree_DeadCode : Unreachable code_
+    //ArrayList blockFeatureList; // Priyasree_DeadCode : Unreachable code_
+    //FeatureSchema blockSchema; // Priyasree_DeadCode : Unreachable code_
     IndexedFeatureCollection blockShpData; // Priyasree_DeadCode : Unreachable code_
     FeatureDataset blockData; // Priyasree_DeadCode : Unreachable code_FeatureDataset blockData
     FeatureDataset blockGroupData; // Priyasree_DeadCode : Unreachable code_FeatureDataset blockGroupData
@@ -72,11 +72,11 @@ public class JUMPHandler {
     
     private static JUMPHandler instance = new JUMPHandler(); // Priyasree_DeadCode : Unreachable code_JUMPHandler instance 
 
-    private JUMPHandler() { // Priyasree_DeadCode : Unreachable code_
+    /*private JUMPHandler() { // Priyasree_DeadCode : Unreachable code_
     	super();
-    }
+    }*/
 
-    public static JUMPHandler getInstance() { // Priyasree_DeadCode : Unreachable code_JUMPHandler getInstance()
+    public static JUMPHandler getInstance() { 
       return instance;
     }
 
@@ -104,7 +104,7 @@ public class JUMPHandler {
      */
 
     
-    public void setup() { // Priyasree_DeadCode : Unreachable code_void setup()
+    public void setup() { 
      //loadShapefiles( blockShpFile,  blockGroupShpFile,censusTractShpFile);
      //prepareData();
      setupJUMPWorkbench();
@@ -123,7 +123,7 @@ public class JUMPHandler {
      *  @precondition: shp data read in, blocks created and populated with agents
      *  @postcondition: racePct field and data added to block schema
      */
-    public void prepareData() { // Priyasree_DeadCode : Unreachable code_void prepareData()
+    public void prepareData() { 
         try {
             
             // for blocks
@@ -272,7 +272,7 @@ public class JUMPHandler {
      *  BlockList
      *  @precondition blocks are create, map data read in
      */
-    public void updateBlockLayer() { // Priyasree_DeadCode : Unreachable code_void updateBlockLayer()
+    public void updateBlockLayer() { 
        // ArrayList blockList = new ArrayList();
        // blockList.addAll(blocks);
         // featureList = new ArrayList(fc1.getFeatures());
@@ -345,7 +345,7 @@ public class JUMPHandler {
      *  BlockList
      *  @precondition blocks are create, map data read in
      */
-    public void updateBlockGroupLayer(ArrayList blockGroupList) { // Priyasree_DeadCode : Unreachable code_updateBlockGroupLayer(ArrayList blockGroupList)
+    public void updateBlockGroupLayer(ArrayList blockGroupList) {
        // ArrayList blockList = new ArrayList();
        // blockList.addAll(blocks);
         // featureList = new ArrayList(fc1.getFeatures());
@@ -406,7 +406,7 @@ public class JUMPHandler {
     }
 
  
-    public void updateCensusTractLayer(ArrayList censusTractList) { // Priyasree_DeadCode : Unreachable code_void updateCensusTractLayer(ArrayList censusTractList)
+    public void updateCensusTractLayer(ArrayList censusTractList) { 
         // ArrayList blockList = new ArrayList();
         // blockList.addAll(blocks);
          // featureList = new ArrayList(fc1.getFeatures());
@@ -476,7 +476,7 @@ public class JUMPHandler {
      */
 //    public void loadShapefiles(String blockShpFile, String blockGroupShpFile, 
  //           String censusTractShpFile) {
-        public void loadShapefiles() { // Priyasree_DeadCode : Unreachable code_
+        public void loadShapefiles() { 
         ImageIcon imageIcon = IconLoader.icon("World.gif");
 
         ShapefileReader sfReader = new ShapefileReader();
@@ -505,7 +505,7 @@ public class JUMPHandler {
      * this mus be done (and completed) before the map can be added to the Workbench
      *
      */
-    public void setupJUMPWorkbench() { // Priyasree_DeadCode : Unreachable code_void setupJUMPWorkbench()
+    public void setupJUMPWorkbench() { 
         ImageIcon imageIcon = IconLoader.icon("World.gif");
         String[] empty = {};
 

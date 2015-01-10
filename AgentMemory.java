@@ -15,13 +15,13 @@ public class AgentMemory {
     private int housingUnitNum;
     
     
-    public AgentMemory(int stepNum, String stfid, int housingUnitNum) { // Priyasree_DeadCode : Unreachable code_
+    public AgentMemory(int stepNum, String stfid, int housingUnitNum) {
         this.stepNum = stepNum;
         this.stfid = stfid;
         this.housingUnitNum = housingUnitNum;
     }
     
-    public AgentMemory(AgentMemory memory, int stepNum) { // Priyasree_DeadCode : Unreachable code_
+    public AgentMemory(AgentMemory memory, int stepNum) { 
         this.stepNum = stepNum;
         this.stfid = memory.getSTFID();
         this.housingUnitNum = memory.getHousingUnitNum();
@@ -36,7 +36,7 @@ public class AgentMemory {
         this.housingUnitNum = housingUnitNum;
     }
     
-    public int getStepNum() { // Priyasree_DeadCode : Unreachable code_
+    public int getStepNum() {
         return stepNum; 
     }
     

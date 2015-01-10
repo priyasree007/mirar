@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 import cern.colt.list.DoubleArrayList;
 
-public class MCSUIdecision extends AgentDecision {
+/*public class MCSUIdecision extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public MCSUIdecision() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
@@ -152,9 +152,9 @@ public class MCSUIdecision extends AgentDecision {
       	}
       }
       
-      /**
+      *//**
        * we check each interval between the minimum and maximum rents
-       */
+       *//*
 //  System.out.println("this is block med income " + b.getNeighborhoodMedianIncome());
 //  System.out.println("old rent is " + b.getMedianRent());
   	double d=0.0;
@@ -214,3 +214,4 @@ System.out.println("this is rent: " + rent);
 
 
 
+*/

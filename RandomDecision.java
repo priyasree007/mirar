@@ -13,7 +13,7 @@ import uchicago.src.sim.util.Random;
  *
  */
 
-public class RandomDecision extends AgentDecision {
+/*public class RandomDecision extends AgentDecision {
     public RandomDecision() {} // Priyasree_DeadCode : Unreachable code_
  //   public RandomDecision(Agent agent) {
    //     this.agent = agent;
@@ -27,9 +27,9 @@ public class RandomDecision extends AgentDecision {
         return h;
         
     }
-    /**
+    *//**
      * @see edu.ucla.stat.mirar.AgentDecision#computeUtility(edu.ucla.stat.mirar.Block)
-     */
+     *//*
     public double computeUtility(Block b, Agent agent, int tenure) { // Priyasree_DeadCode : Unreachable code_
         return 0;
     }
@@ -56,3 +56,4 @@ public class RandomDecision extends AgentDecision {
 	}
 	
 }
+*/

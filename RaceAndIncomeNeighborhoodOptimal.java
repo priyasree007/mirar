@@ -28,7 +28,7 @@ import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete
  * in proportion own group (continuous function)
  */
 
-public class RaceAndIncomeNeighborhoodOptimal extends AgentDecision {
+/*public class RaceAndIncomeNeighborhoodOptimal extends AgentDecision {
     
 
     public RaceAndIncomeNeighborhoodOptimal() {
@@ -40,8 +40,8 @@ public class RaceAndIncomeNeighborhoodOptimal extends AgentDecision {
    // }
 
 
-/** @return block number of destination block
- */
+*//** @return block number of destination block
+ *//*
 public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) {
    // this.possibleHousingUnitList.addAll(possibleHousingUnitList);
     ArrayList availableUnits = new ArrayList();
@@ -126,3 +126,4 @@ public String toString() {
     return "RaceAndIncomeNeighborhoodOptimal";
 }
 }
+*/

@@ -40,15 +40,6 @@ import uchicago.src.reflector.ListPropertyDescriptor;
  */
 public class Mirar extends SimModelImpl {
     
-    JUMPWorkbench wb; // Priyasree_DeadCode : Unreachable code_
-    WorkbenchFrame frame; // Priyasree_DeadCode : Unreachable code_
-    WorkbenchContext workbenchContext; // Priyasree_DeadCode : Unreachable code_
-    IndexedFeatureCollection fc1; // Priyasree_DeadCode : Unreachable code_
-    FeatureDataset fc11; // Priyasree_DeadCode : Unreachable code_
-	IndexedFeatureCollection fc2; // Priyasree_DeadCode : Unreachable code_
-	IndexedFeatureCollection fc3; // Priyasree_DeadCode : Unreachable code_
-	ArrayList featureList; // Priyasree_DeadCode : Unreachable code_
-    Layer blockLayer; // Priyasree_DeadCode : Unreachable code_
     private Schedule schedule;	
     
    private Mediator mediator = new Mediator();
@@ -63,8 +54,9 @@ public class Mirar extends SimModelImpl {
         Vector v = new Vector();
         v.add("PSID_IncomeOnly");
         v.add("PSID_RaceOnly");
+        v.add("PSID_Test"); //Priyasree_Test
         v.add("PSID_RaceIncome");
-        v.add("MCSUIdecision");
+        /*v.add("MCSUIdecision");
         v.add("ThresholdRace");
         v.add("StaircaseRace");
         v.add("ContsRace");
@@ -75,7 +67,7 @@ public class Mirar extends SimModelImpl {
         v.add("Random");
         v.add("CensusPumsIncOnly");
         v.add("CensusPumsRaceInc");
-        v.add("CensusPumsRaceOnly");
+        v.add("CensusPumsRaceOnly");*/
         ListPropertyDescriptor pd = new ListPropertyDescriptor("AgentDecisionType", v);
         
         
@@ -260,7 +252,7 @@ public class Mirar extends SimModelImpl {
     public void setAgentDecisionType(String type) { // Priyasree_DeadCode : Unreachable code_
         MirarUtils.AGENT_DECISION_STRING = type;
         if (MirarUtils.AGENT_DECISION == null ) {
-            if (type.equalsIgnoreCase("ThresholdRace")) {
+  /*          if (type.equalsIgnoreCase("ThresholdRace")) {
                 MirarUtils.AGENT_DECISION = new ThresholdRace();
             }
             else if (type.equalsIgnoreCase("RaceAndIncomeNeighborhood")) {
@@ -281,8 +273,12 @@ public class Mirar extends SimModelImpl {
                 MirarUtils.AGENT_DECISION = new ThresholdIncome();
                 
             }
-            else if(type.equalsIgnoreCase("PSID_RaceOnly")){
+            else */ if(type.equalsIgnoreCase("PSID_RaceOnly")){
                 MirarUtils.AGENT_DECISION = new PSID_RaceOnly();
+                
+            }
+            else if(type.equalsIgnoreCase("PSID_Test")){ //Priyasree_Test
+                MirarUtils.AGENT_DECISION = new PSID_Test();
                 
             }
             else if(type.equalsIgnoreCase("PSID_IncomeOnly")){
@@ -292,7 +288,7 @@ public class Mirar extends SimModelImpl {
             else if(type.equalsIgnoreCase("PSID_RaceIncome")){
                 MirarUtils.AGENT_DECISION = new PSID_RaceIncome();
                 
-            }
+            }/*
             else if(type.equalsIgnoreCase("MCSUIdecision")){
                 MirarUtils.AGENT_DECISION = new MCSUIdecision(); 
                 
@@ -305,7 +301,7 @@ public class Mirar extends SimModelImpl {
             }
             else if(type.equalsIgnoreCase("CensusPumsIncOnly")) {
                 MirarUtils.AGENT_DECISION = new CensusPumsIncOnly();	
-            }
+            }*/
             else {
                 ErrorLog.getInstance().logError("Mirar#setAgentDeccisionType:  new Agent: no agent specified; random agent");
             }
@@ -416,7 +412,7 @@ public class Mirar extends SimModelImpl {
         if (args.length > 6) {
             if (MirarUtils.AGENT_DECISION == null) {
                 
-                if (args[6].equalsIgnoreCase("ThresholdRace")) {
+                /*if (args[6].equalsIgnoreCase("ThresholdRace")) {
                     MirarUtils.AGENT_DECISION = new ThresholdRace();
                 }
                 else if (args[6].equalsIgnoreCase("RaceAndIncomeNeighborhood")) {
@@ -434,16 +430,20 @@ public class Mirar extends SimModelImpl {
                 else if (args[6].equalsIgnoreCase("ThresholdIncome")) {
                     MirarUtils.AGENT_DECISION = new ThresholdIncome();
                 } 
-                else if (args[6].equalsIgnoreCase("PSID_RaceIncome")) {
+                else*/ if (args[6].equalsIgnoreCase("PSID_RaceIncome")) {
                     MirarUtils.AGENT_DECISION = new PSID_RaceIncome();
                 } 
                 else if (args[6].equalsIgnoreCase("PSID_IncomeOnly")) {
                     MirarUtils.AGENT_DECISION = new PSID_IncomeOnly();
                 } 
                 else if (args[6].equalsIgnoreCase("PSID_RaceOnly")) {
-                    MirarUtils.AGENT_DECISION = new PSID_RaceOnly();
+                    MirarUtils.AGENT_DECISION = new PSID_RaceOnly();             
                     
-                } else if(args[6].equalsIgnoreCase("MCSUIdecision")){
+                }
+                else if (args[6].equalsIgnoreCase("PSID_Test")) { //Priyasree_Test
+                    MirarUtils.AGENT_DECISION = new PSID_Test();
+                }
+                /*else if(args[6].equalsIgnoreCase("MCSUIdecision")){
                 	MirarUtils.AGENT_DECISION = new MCSUIdecision();
                 	
                 } else if(args[6].equalsIgnoreCase("CensusPumsRaceOnly")){
@@ -454,7 +454,7 @@ public class Mirar extends SimModelImpl {
                
                 } else if(args[6].equalsIgnoreCase("CensusPumsIncOnly")){
                 	MirarUtils.AGENT_DECISION = new CensusPumsIncOnly();
-                }  else {
+                }*/  else {
                     ErrorLog.getInstance().logError("Mirar#main could not find agent decision class to intialize model with");
                 }
             }

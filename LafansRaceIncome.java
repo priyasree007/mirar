@@ -14,23 +14,23 @@ import java.util.ArrayList;
 import cern.colt.list.DoubleArrayList;
 
 
-public class LafansRaceIncome extends AgentDecision {
+/*public class LafansRaceIncome extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public LafansRaceIncome() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
+	 (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#select(java.util.ArrayList, edu.ucla.stat.mirar.HousingUnit, edu.ucla.stat.mirar.Agent)
-	 */
+	 
 	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
        // System.out.println("number of available units is " + possibleHousingUnitList.size());
   	
-        /*PrintWriter testSelect = null;
+        PrintWriter testSelect = null;
         try {
             testSelect = new PrintWriter(new FileOutputStream("testSelect.txt", true));
             
@@ -38,7 +38,7 @@ public class LafansRaceIncome extends AgentDecision {
             
         }    
         
-*/
+
         
       //  this.possibleHousingUnitList.addAll(possibleHousingUnitList);
         
@@ -97,7 +97,7 @@ public class LafansRaceIncome extends AgentDecision {
     }
     
       public double computeUtility(Block b, Agent a, int tenure) { // Priyasree_DeadCode : Unreachable code_
-      	/*
+      	
 ------------------------------------------------------------------------------
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -124,7 +124,7 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
  _IwaXwap2_1 |   3.107685    .344174     9.03   0.000     2.433116    3.782253
   numRenters |   .1663566   .0733666     2.27   0.023     .0225606    .3101525
    numOwners |      .1053   .0605236     1.74   0.082     -.013324     .223924 
-*/
+
 
   
       	double utility= -12.0;
@@ -160,7 +160,7 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
         return utility;
     }
 
-/*
+
  * ------------------------------------------------------------------------------
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -187,28 +187,28 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
  _IwaXwap2_1 |   3.107685    .344174     9.03   0.000     2.433116    3.782253
   numRenters |   .1663566   .0733666     2.27   0.023     .0225606    .3101525
    numOwners |      .1053   .0605236     1.74   0.082     -.013324     .223924 
-*/
+
  
       public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
-	    /**
+	    *//**
 	     * note that I cap D to keep it from going to infinity
-	     */       
+	     *//*       
       	
       	Block b = currUnit.getBlock();  //  block;
 	            double utility = -12.0;
 	       		double wap = this.getPctWhiteInNeighborhood(b) + this.getPctAsianInNeighborhood(b);
 	            double d = 7.0; 
-	       		/* if(units.size()<1651) {
+	       		 if(units.size()<1651) {
 	       		d = 17.01163 - Math.log(1651/units.size());
 	            } else {
 	             d = 17.01163;
 	            }
-	            */
+	            
 	       	//	System.out.println("this is number of choices " + units.size() + " and this is exp(d) " + Math.exp(d));
 	            double ratio = (b.getNeighborhoodPercentileRent(.2, a.getTenure())*12.0)/a.getIncome();
 	         
 	            
-	            /* PrintWriter testUtil = null;
+	             PrintWriter testUtil = null;
 	            try {
 	                testUtil = new PrintWriter(new FileOutputStream("testUtil.txt", true));
 	                
@@ -216,7 +216,7 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
 	                
 	            } 
 	            
-	            */
+	            
 	            
 	            // testUtil.println("block ID is " + b.getSTFID());
 	        	// testUtil.println("this is number of agents in neighborhood " + b.getTotalAgentsInNeighborhood());
@@ -261,10 +261,10 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
 
 	    
 	    public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
-	    	/**
+	    	*//**
 	    	 * For now, not using market clearing rents with the LA FANS choice
 	    	 * functions.. so these classes are undefined. 
-	    	 */
+	    	 *//*
 	    	double t=0; 
 	    	return t; 
 	    }
@@ -281,3 +281,4 @@ _Id_iXwap2_1 |  -6.924077   2.505621    -2.76   0.006      -11.835   -2.013149
 
 }
 
+*/

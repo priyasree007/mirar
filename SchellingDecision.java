@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 import cern.colt.list.DoubleArrayList;
 
-public class SchellingDecision extends AgentDecision {
+/*public class SchellingDecision extends AgentDecision {
 
 	public SchellingDecision() { // Priyasree_DeadCode : Unreachable code_
 	}
@@ -20,8 +20,8 @@ public class SchellingDecision extends AgentDecision {
 //		this.agent = agent;
 //	}
 
-	public HousingUnit select(ArrayList possibleHousingUnitList,
-			HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
+	public HousingUnit select(ArrayList possibleHousingUnitList, // Priyasree_DeadCode : Unreachable code_
+			HousingUnit currUnit, Agent agent) { 
 		System.out.println("possibleHousingUnitList size is " + possibleHousingUnitList.size());
 		possibleHousingUnitList.addAll(possibleHousingUnitList);
 			ArrayList availableUnits = agent.getPossibleHousingUnitList();
@@ -115,20 +115,21 @@ public class SchellingDecision extends AgentDecision {
 	  return utility;
 	}
 
-	/* (non-Javadoc)
+	 (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#computeMarginalUtility(edu.ucla.stat.mirar.Block)
-	 */
+	 
 	public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	/* (non-Javadoc)
+	 (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#solveForPrice(double, edu.ucla.stat.mirar.Block)
-	 */
+	 
 	public double solveForPrice(double marginalUtil, Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 }
+*/

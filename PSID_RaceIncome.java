@@ -17,9 +17,9 @@ public class PSID_RaceIncome extends AgentDecision {
 	/**
 	 * 
 	 */
-	public PSID_RaceIncome() { // Priyasree_DeadCode : Unreachable code_
+	/*public PSID_RaceIncome() { // Priyasree_DeadCode : Unreachable code_
 		super();
-	}
+	}*/
 
 	  public HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
 	        availableUnits.clear();
@@ -46,7 +46,7 @@ public class PSID_RaceIncome extends AgentDecision {
 	        }
 	        utilities.add(utilityCurrentUnit);
 	        availableUnits.add(currUnit);
-	      /*
+	      
 	           for(int i=0; i<availableUnits.size(); i++){
 	       	if(Double.isNaN(utilities.get(i)) | Double.isInfinite((utilities.get(i)))){
 	        		System.out.println("utility " + i + " is " + utilities.get(i));
@@ -60,7 +60,7 @@ public class PSID_RaceIncome extends AgentDecision {
 	        		System.out.println("agent's race is " + agent.getRace() + " and its income is: " + agent.getIncome());
 	        }
 	        }
-	        */ 
+	         
 	   
 	        int choice = MirarUtils.sampleFromRawDistribution(utilities);
 	  if (choice == -1) {

@@ -14,34 +14,34 @@ import java.util.ArrayList;
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-public class RaceIncomePricesTestFunction extends AgentDecision {
+/*public class RaceIncomePricesTestFunction extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public RaceIncomePricesTestFunction() { // Priyasree_DeadCode : Unreachable code_
 		super();
 	}
 
-	/**
+	*//**
 	 * @param agent
-	 */
+	 *//*
 //	public RaceIncomePricesTestFunction(Agent agent) {
 //		super(agent);
 //	}
 
-	/* (non-Javadoc)
+	 (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#select(java.util.ArrayList, edu.ucla.stat.mirar.HousingUnit)
-	 */
-	public HousingUnit select(
+	 
+	public HousingUnit select(     // Priyasree_DeadCode : Unreachable code_
 		ArrayList possibleHousingUnitList,
-		HousingUnit currUnit, Agent agent) { // Priyasree_DeadCode : Unreachable code_
+		HousingUnit currUnit, Agent agent) { 
 		return null;
 	}
 
-	/* (non-Javadoc)
+	 (non-Javadoc)
 	 * @see edu.ucla.stat.mirar.AgentDecision#computeUtility(edu.ucla.stat.mirar.Block)
-	 */
+	 
 	public double computeUtility(Block b, Agent agent, int tenure) { // Priyasree_DeadCode : Unreachable code_
 		return 0;
 	}
@@ -65,3 +65,4 @@ public class RaceIncomePricesTestFunction extends AgentDecision {
 	    return "RaceIncomePricesTestFunction";
 	}
 }
+*/

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 import cern.colt.list.DoubleArrayList;
 
-public class ThresholdIncome extends AgentDecision {
+/*public class ThresholdIncome extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public ThresholdIncome() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
@@ -77,7 +77,7 @@ public class ThresholdIncome extends AgentDecision {
 			//		       	} else if( b.getPctWhite()<.20){
                		//utility = Math.exp(-100.0);
 			// 	}
-			/*  } else if(a.getRace()==Agent.BLACK){
+			  } else if(a.getRace()==Agent.BLACK){
             	if(b.getPctBlack()>=.20){
                  	if(ratio<=0.3){
                         utility = Math.exp((-0.425*ratio) + (0.00000204)*b.getNeighborhoodMedianIncome());
@@ -107,7 +107,7 @@ public class ThresholdIncome extends AgentDecision {
             	} else if(b.getPctAsian()<.20){
             		utility = Math.exp(-100.0);
             	}
-		} */       
+		}        
              else {
                    System.out.println("!!!!!! Could not find race !!!!!! ");
                 } 
@@ -130,7 +130,7 @@ public class ThresholdIncome extends AgentDecision {
         	} else if (ratio>0.3) {
         		utility = Math.exp(-100.0);
         	} 
-		/* 	} else if( b.getPctWhite()<.20){
+		 	} else if( b.getPctWhite()<.20){
            		utility = Math.exp(-100.0);
            	}
            } else if(a.getRace()==Agent.BLACK){
@@ -164,7 +164,7 @@ public class ThresholdIncome extends AgentDecision {
         		utility = Math.exp(-100.0);
         	}
          }  
-		*/else {
+		else {
                 System.out.println("!!!!!! Could not find race !!!!!! ");
             }
        return utility; 
@@ -223,9 +223,9 @@ public class ThresholdIncome extends AgentDecision {
         	}
         }
         
-        /**
+        *//**
          * we check each interval between the minimum and maximum rents
-         */
+         *//*
   //  System.out.println("this is block med income " + b.getNeighborhoodMedianIncome());
   //  System.out.println("old rent is " + b.getMedianRent());
     	double d=0.0;
@@ -281,3 +281,4 @@ System.out.println("this is rent: " + rent);
         return "ThresholdIncome";
     }
 }
+*/

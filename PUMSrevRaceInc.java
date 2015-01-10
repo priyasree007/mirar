@@ -16,22 +16,22 @@ import cern.colt.list.DoubleArrayList;
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-public class PUMSrevRaceInc extends AgentDecision {
+/*public class PUMSrevRaceInc extends AgentDecision {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	public PUMSrevRaceInc() { // Priyasree_DeadCode : Unreachable code_
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/*
+	
 	 * Created on Nov 10, 2005
 	 *
 	 * To change the template for this generated file go to
 	 * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
-	 */
+	 
 
 
 
@@ -88,7 +88,7 @@ if (choice == -1) {
         double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b);
         double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b);
         if(tenure==Agent.RENTER){
-            /* ASIAN
+             ASIAN
 ------------------------------------------------------------------------------
       choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -108,7 +108,7 @@ if (choice == -1) {
       offset |   (offset)
 ------------------------------------------------------------------------------
 
-             */
+             
             if(a.getRace()==Agent.ASIAN){
                 utility = Math.exp( 
                 		.0110718*rent + -0.00000244*rent*rent
@@ -120,7 +120,7 @@ if (choice == -1) {
                         +.2083493*pctWhiteInNeighborhood);	        		
             }	else if(a.getRace()==Agent.WHITE) {
                 
-                /* WHITE
+                 WHITE
 ------------------------------------------------------------------------------
       choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -139,7 +139,7 @@ if (choice == -1) {
          wp2 |  -3.935416   .1647653   -23.88   0.000     -4.25835   -3.612482
       offset |   (offset)
 ------------------------------------------------------------------------------
-                 */ 
+                  
                 utility = Math.exp( 
                 		.0074767*rent + -0.00000141*rent*rent
                         + -13.7593*ratio + 1.0231*ratio*ratio
@@ -149,7 +149,7 @@ if (choice == -1) {
                         +-6.530174*pctAsianInNeighborhood+ 0.3025913*pctAsianInNeighborhood*pctAsianInNeighborhood
                         +-3.935416 *pctWhiteInNeighborhood);	        		
             } else if(a.getRace()==Agent.BLACK) {
-                /* BLACK
+                 BLACK
 ------------------------------------------------------------------------------
       choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -168,7 +168,7 @@ if (choice == -1) {
          wp2 |  -9.760022   .4668376   -20.91   0.000    -10.67501   -8.845037
       offset |   (offset)
 ------------------------------------------------------------------------------
-                 */   
+                    
                 utility = Math.exp( 
                 		.0107934* rent + -0.00000321*rent*rent
                        - 6.787745*ratio  -7.148086*ratio*ratio
@@ -178,7 +178,7 @@ if (choice == -1) {
                         +-.6815458*pctAsianInNeighborhood+-12.24857*pctAsianInNeighborhood*pctAsianInNeighborhood
                         -9.760022*pctWhiteInNeighborhood);
             } else if(a.getRace()==Agent.HISPANIC){
-                /* 	 
+                 	 
                  HISPANIC
 ------------------------------------------------------------------------------
       choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
@@ -198,7 +198,7 @@ if (choice == -1) {
          wp2 |  -1.317926   .1455236    -9.06   0.000    -1.603147   -1.032705
       offset |   (offset)
 ------------------------------------------------------------------------------
-                 */  
+                   
                 utility = Math.exp( 
                 		 .0060138*rent + -0.00000183*rent*rent
                         + -6.66967*ratio-4.824713*ratio*ratio
@@ -209,7 +209,7 @@ if (choice == -1) {
                         + -1.317926*pctWhiteInNeighborhood);		} 
         } else if(tenure==Agent.OWNER){
             if(a.getRace()==Agent.ASIAN){
-                /* ASIAN
+                 ASIAN
 ------------------------------------------------------------------------------
       choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -228,7 +228,7 @@ if (choice == -1) {
          wp2 |  -2.579125   .5686267    -4.54   0.000    -3.693613   -1.464637
       offset |   (offset)
 ------------------------------------------------------------------------------
-                 */
+                 
                 utility = Math.exp(
                 		.0041999*rent + - 0.000000447*rent*rent
                         + 14.39926*ratio -30.10154*ratio*ratio
@@ -238,7 +238,7 @@ if (choice == -1) {
                         +13.96843*pctAsianInNeighborhood+ -3.938367*pctAsianInNeighborhood*pctAsianInNeighborhood
                         +-2.579125*pctWhiteInNeighborhood);
             }	else if(a.getRace()==Agent.WHITE) {
-                /* WHITE      
+                 WHITE      
 ------------------------------------------------------------------------------
       choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -257,7 +257,7 @@ if (choice == -1) {
          wp2 |  -5.575379   .3060228   -18.22   0.000    -6.175173   -4.975586
       offset |   (offset)
 ------------------------------------------------------------------------------
-                 */
+                 
                 utility = Math.exp( 
                 		.0018232*rent + -0.000000133*rent*rent
                         + 13.8991*ratio -29.5869*ratio*ratio
@@ -267,7 +267,7 @@ if (choice == -1) {
                         + -13.8648*pctAsianInNeighborhood+7.737586*pctAsianInNeighborhood*pctAsianInNeighborhood
                         +-5.575379*pctWhiteInNeighborhood);		
             } else if(a.getRace()==a.BLACK) {
-                /* 
+                 
                  /*
                   BLACK     
 ------------------------------------------------------------------------------
@@ -288,7 +288,7 @@ if (choice == -1) {
          wp2 |  -36.59448   1.905652   -19.20   0.000    -40.32949   -32.85947
       offset |   (offset)
 ------------------------------------------------------------------------------    
-                  */ 
+                   
                 utility = Math.exp( 
                 		 .0030656*rent + -0.00000107*rent*rent 
                         +96.62042 *ratio -116.256*ratio*ratio
@@ -298,7 +298,7 @@ if (choice == -1) {
                         + -28.80547*pctAsianInNeighborhood+-.8614868*pctAsianInNeighborhood*pctAsianInNeighborhood
                         +-36.59448*pctWhiteInNeighborhood);						
                 } else if(a.getRace()==Agent.HISPANIC){
-                            /* 
+                             
                              HISP
 ------------------------------------------------------------------------------
       choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
@@ -319,7 +319,7 @@ if (choice == -1) {
       offset |   (offset)
 ------------------------------------------------------------------------------
    
-                             */ 
+                              
                             utility = Math.exp(
                             		.0024295*rent + -0.000000793
                                     + 21.19439*ratio -25.86543*ratio*ratio
@@ -336,9 +336,9 @@ if (choice == -1) {
   }
 
 public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, Agent a) { // Priyasree_DeadCode : Unreachable code_
-    /**
+    *//**
      * note that I cap D to keep it from going to infinity
-     */       
+     *//*       
   	int tenure = a.getTenure();
   	
   	Block b = currUnit.getBlock();  //  block;
@@ -355,7 +355,7 @@ public double computeUtilitityForOwnUnit(ArrayList units, HousingUnit currUnit, 
 		
   	double utility= -12.0;
     if(tenure==Agent.RENTER){
-        /* ASIAN
+         ASIAN
 ------------------------------------------------------------------------------
   choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -375,7 +375,7 @@ rentgrs2 |  -2.44e-06   1.08e-07   -22.56   0.000    -2.65e-06   -2.23e-06
   offset |   (offset)
 ------------------------------------------------------------------------------
 
-         */
+         
         if(a.getRace()==Agent.ASIAN){
             utility = Math.exp( 
             		.0110718*rent + -0.00000244*rent*rent
@@ -387,7 +387,7 @@ rentgrs2 |  -2.44e-06   1.08e-07   -22.56   0.000    -2.65e-06   -2.23e-06
                     +.2083493*pctWhiteInNeighborhood);	        		
         }	else if(a.getRace()==Agent.WHITE) {
             
-            /* WHITE
+             WHITE
 ------------------------------------------------------------------------------
   choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -406,7 +406,7 @@ rentgrs2 |  -1.41e-06   3.89e-08   -36.35   0.000    -1.49e-06   -1.34e-06
      wp2 |  -3.935416   .1647653   -23.88   0.000     -4.25835   -3.612482
   offset |   (offset)
 ------------------------------------------------------------------------------
-             */ 
+              
             utility = Math.exp( 
             		.0074767*rent + -0.00000141*rent*rent
                     + -13.7593*ratio + 1.0231*ratio*ratio
@@ -416,7 +416,7 @@ rentgrs2 |  -1.41e-06   3.89e-08   -36.35   0.000    -1.49e-06   -1.34e-06
                     +-6.530174*pctAsianInNeighborhood+ 0.3025913*pctAsianInNeighborhood*pctAsianInNeighborhood
                     +-3.935416 *pctWhiteInNeighborhood);	        		
         } else if(a.getRace()==Agent.BLACK) {
-            /* BLACK
+             BLACK
 ------------------------------------------------------------------------------
   choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -435,7 +435,7 @@ rentgrs2 |  -3.21e-06   2.08e-07   -15.47   0.000    -3.62e-06   -2.81e-06
      wp2 |  -9.760022   .4668376   -20.91   0.000    -10.67501   -8.845037
   offset |   (offset)
 ------------------------------------------------------------------------------
-             */   
+                
             utility = Math.exp( 
             		.0107934* rent + -0.00000321*rent*rent
                    - 6.787745*ratio  -7.148086*ratio*ratio
@@ -445,7 +445,7 @@ rentgrs2 |  -3.21e-06   2.08e-07   -15.47   0.000    -3.62e-06   -2.81e-06
                     +-.6815458*pctAsianInNeighborhood+-12.24857*pctAsianInNeighborhood*pctAsianInNeighborhood
                     -9.760022*pctWhiteInNeighborhood);
         } else if(a.getRace()==Agent.HISPANIC){
-            /* 	 
+             	 
              HISPANIC
 ------------------------------------------------------------------------------
   choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
@@ -465,7 +465,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
      wp2 |  -1.317926   .1455236    -9.06   0.000    -1.603147   -1.032705
   offset |   (offset)
 ------------------------------------------------------------------------------
-             */  
+               
             utility = Math.exp( 
             		 .0060138*rent + -0.00000183*rent*rent
                     + -6.66967*ratio-4.824713*ratio*ratio
@@ -476,7 +476,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
                     + -1.317926*pctWhiteInNeighborhood);		} 
     } else if(tenure==Agent.OWNER){
         if(a.getRace()==Agent.ASIAN){
-            /* ASIAN
+             ASIAN
 ------------------------------------------------------------------------------
   choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -495,7 +495,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
      wp2 |  -2.579125   .5686267    -4.54   0.000    -3.693613   -1.464637
   offset |   (offset)
 ------------------------------------------------------------------------------
-             */
+             
             utility = Math.exp(
             		.0041999*rent + - 0.000000447*rent*rent
                     + 14.39926*ratio -30.10154*ratio*ratio
@@ -505,7 +505,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
                     +13.96843*pctAsianInNeighborhood+ -3.938367*pctAsianInNeighborhood*pctAsianInNeighborhood
                     +-2.579125*pctWhiteInNeighborhood);
         }	else if(a.getRace()==Agent.WHITE) {
-            /* WHITE      
+             WHITE      
 ------------------------------------------------------------------------------
   choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
@@ -524,7 +524,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
      wp2 |  -5.575379   .3060228   -18.22   0.000    -6.175173   -4.975586
   offset |   (offset)
 ------------------------------------------------------------------------------
-             */
+             
             utility = Math.exp( 
             		.0018232*rent + -0.000000133*rent*rent
                     + 13.8991*ratio -29.5869*ratio*ratio
@@ -534,7 +534,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
                     + -13.8648*pctAsianInNeighborhood+7.737586*pctAsianInNeighborhood*pctAsianInNeighborhood
                     +-5.575379*pctWhiteInNeighborhood);		
         } else if(a.getRace()==a.BLACK) {
-            /* 
+             
              /*
               BLACK     
 ------------------------------------------------------------------------------
@@ -555,7 +555,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
      wp2 |  -36.59448   1.905652   -19.20   0.000    -40.32949   -32.85947
   offset |   (offset)
 ------------------------------------------------------------------------------    
-              */ 
+               
             utility = Math.exp( 
             		 .0030656*rent + -0.00000107*rent*rent 
                     +96.62042 *ratio -116.256*ratio*ratio
@@ -565,7 +565,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
                     + -28.80547*pctAsianInNeighborhood+-.8614868*pctAsianInNeighborhood*pctAsianInNeighborhood
                     +-36.59448*pctWhiteInNeighborhood);						
             } else if(a.getRace()==Agent.HISPANIC){
-                        /* 
+                         
                          HISP
 ------------------------------------------------------------------------------
   choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
@@ -586,7 +586,7 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
   offset |   (offset)
 ------------------------------------------------------------------------------
 
-                         */ 
+                          
                         utility = Math.exp(
                         		.0024295*rent + -0.000000793
                                 + 21.19439*ratio -25.86543*ratio*ratio
@@ -607,10 +607,10 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
 
     
     public double computeMarginalUtility(Block b, int tenure) { // Priyasree_DeadCode : Unreachable code_
-    	/**
+    	*//**
     	 * For now, not using market clearing rents with the LA FANS choice
     	 * functions.. so these classes are undefined. 
-    	 */
+    	 *//*
     	double t=0; 
     	return t; 
     }
@@ -628,3 +628,4 @@ rentgrs2 |  -1.83e-06   8.00e-08   -22.85   0.000    -1.99e-06   -1.67e-06
 
 
 
+*/

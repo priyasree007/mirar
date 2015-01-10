@@ -18,18 +18,18 @@ import cern.jet.stat.*;
 public abstract class AgentDecision {
 
 
-    public AgentDecision() { // Priyasree_DeadCode : Unreachable code_AgentDecision()
+    /*public AgentDecision() { // Priyasree_DeadCode : Unreachable code_AgentDecision()
 
-    }
+    }*/
 
 
     public abstract HousingUnit select(ArrayList possibleHousingUnitList, HousingUnit currUnit, Agent agent); // Priyasree_DeadCode : Unreachable code_
     
-    public abstract double computeUtility(Block b, Agent agent, int tenure); // Priyasree_DeadCode : Unreachable code_
+    public abstract double computeUtility(Block b, Agent agent, int tenure); 
     
-    public abstract double computeMarginalUtility(Block b, int tenure); // Priyasree_DeadCode : Unreachable code_double computeMarginalUtility(Block b, int tenure)
+    public abstract double computeMarginalUtility(Block b, int tenure); 
     
-    public abstract double solveForPrice(double marginalUtil, Block b, int tenure); // Priyasree_DeadCode : Unreachable code_
+    public abstract double solveForPrice(double marginalUtil, Block b, int tenure); 
     
 	/**
 	 * Returns utilities for a given list of housing units. 
@@ -38,7 +38,7 @@ public abstract class AgentDecision {
 	 *            list of housing units
 	 * @return list of utilities associated with housing units
 	 */
-    public DoubleArrayList getUtilitiesByHousingUnit(ArrayList housingUnits, Agent agent) { // Priyasree_DeadCode : Unreachable code_
+    public DoubleArrayList getUtilitiesByHousingUnit(ArrayList housingUnits, Agent agent) { 
         DoubleArrayList utilities = new DoubleArrayList();
         int numUnits = housingUnits.size();
 
@@ -57,7 +57,7 @@ public abstract class AgentDecision {
 	 *            housing unit
 	 * @return utility associated with block that contains housing unit
 	 */
-    public double getUtility(HousingUnit hu, Agent agent) { // Priyasree_DeadCode : Unreachable code_
+    public double getUtility(HousingUnit hu, Agent agent) { 
        
             Block b = hu.getBlock();
             return b.getUtility(agent);    
@@ -73,7 +73,7 @@ public abstract class AgentDecision {
      * @return list of blocks where the specified proportion of incomes are
      *         less than or equal to the agent's income.
      */
-    public ArrayList findBlocksByQuantile(double quantile, Agent agent) { // Priyasree_DeadCode : Unreachable code_ArrayList findBlocksByQuantile(double quantile, Agent agent)
+    /*public ArrayList findBlocksByQuantile(double quantile, Agent agent) { // Priyasree_DeadCode : Unreachable code_ArrayList findBlocksByQuantile(double quantile, Agent agent)
 
         ArrayList units = agent.getPossibleHousingUnitList();
         DoubleArrayList incList = new DoubleArrayList();
@@ -88,7 +88,7 @@ public abstract class AgentDecision {
             }
         }
         return availableBlocks;
-    }
+    }*/
     
 	/**
 	 * Returns all units where at least x percent of incomes for block are
@@ -99,7 +99,7 @@ public abstract class AgentDecision {
 	 * @return list of units where the specified proportion of neighborhood incomes are
 	 *         less than or equal to the agent's income.
 	 */
-    public ArrayList findUnitsByQuantile(double quantile, Agent agent, ArrayList possibleHousingUnitList) { // Priyasree_DeadCode : Unreachable code_
+    /*public ArrayList findUnitsByQuantile(double quantile, Agent agent, ArrayList possibleHousingUnitList) { // Priyasree_DeadCode : Unreachable code_
         ArrayList units = new ArrayList();
         units.addAll(possibleHousingUnitList);
         DoubleArrayList incList = new DoubleArrayList();
@@ -117,7 +117,7 @@ public abstract class AgentDecision {
             }
         }
         return availableUnits;
-    }
+    }*/
 	/**
 	 * Returns all units where the rent is less than or equal to the agent's 
 	 * income.
@@ -125,7 +125,7 @@ public abstract class AgentDecision {
 	 * @return list of housing units where the unit rent is less than or 
 	 * equal to the agent's income
 	 */
-    public ArrayList selectAffordableUnits(Agent agent) { // Priyasree_DeadCode : Unreachable code_
+    /*public ArrayList selectAffordableUnits(Agent agent) { // Priyasree_DeadCode : Unreachable code_
         double income = agent.getIncome();
         double threshold = (income/12.0)*0.3;
         ArrayList housingUnits = new ArrayList();
@@ -140,10 +140,10 @@ public abstract class AgentDecision {
             }
         }
         return units;
-    }
+    }*/
     
     
-    public ArrayList findBlocksAvgIncomeAbove(double income, boolean inclusive) { // Priyasree_DeadCode : Unreachable code_
+    /*public ArrayList findBlocksAvgIncomeAbove(double income, boolean inclusive) { // Priyasree_DeadCode : Unreachable code_
         ArrayList resultList = new ArrayList();
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         while (blockIter.hasNext()) {
@@ -160,9 +160,9 @@ public abstract class AgentDecision {
             }
         }
         return resultList;
-    }
+    }*/
 
-    public ArrayList findBlocksAvgIncomeBetween(double incomeLow,
+    /*public ArrayList findBlocksAvgIncomeBetween(double incomeLow,
             boolean includeLow, double incomeHigh, boolean includeHigh, Agent agent) { // Priyasree_DeadCode : Unreachable code_
         ArrayList resultList = new ArrayList();
             Iterator blockIter = MirarUtils.BLOCKS.iterator();
@@ -198,8 +198,8 @@ public abstract class AgentDecision {
         }
         return resultList;
     }
-
-    public ArrayList findBlocksAvgIncomeBelow(double income, boolean inclusive) { // Priyasree_DeadCode : Unreachable code_
+*/
+   /* public ArrayList findBlocksAvgIncomeBelow(double income, boolean inclusive) { // Priyasree_DeadCode : Unreachable code_
         ArrayList blocks = getAllBlocks();
         ArrayList resultList = new ArrayList();
         for (int i = 0; i < blocks.size(); i++) {
@@ -216,7 +216,7 @@ public abstract class AgentDecision {
             }
         }
         return resultList;
-    }
+    }*/
     
     
 	/**
@@ -226,7 +226,7 @@ public abstract class AgentDecision {
 	 *            
 	 * @return list of blocks where the specified race group is the dominant race.
 	 */
-    public ArrayList findBlocksByRace(int race) { // Priyasree_DeadCode : Unreachable code_
+    /*public ArrayList findBlocksByRace(int race) { // Priyasree_DeadCode : Unreachable code_
         ArrayList resultList = new ArrayList();
         Iterator iter = MirarUtils.BLOCKS.iterator();
            while (iter.hasNext()) { 
@@ -234,24 +234,24 @@ public abstract class AgentDecision {
             if (race == (int) b.getRacePct()) resultList.add(b);
         }
         return resultList;
-    }
+    }*/
 
     public ArrayList getAllBlocks() { // Priyasree_DeadCode : Unreachable code_
         return MirarUtils.BLOCKS;
     }
 
-    public ArrayList getBlockNeighbors(int blockNum) { // Priyasree_DeadCode : Unreachable code_
+    /*public ArrayList getBlockNeighbors(int blockNum) { // Priyasree_DeadCode : Unreachable code_
         return (ArrayList) CensusUnitHandler.getInstance().getBlock(blockNum).getNeighbors(); //Priyasree_Audit: Unnecessary type cast to ArrayList_Delete the unnecessary cast.
-    }
+    }*/
 
-    public int numNeighbors(int blockNum) { // Priyasree_DeadCode : Unreachable code_
+    /*public int numNeighbors(int blockNum) { // Priyasree_DeadCode : Unreachable code_
         return ((ArrayList) CensusUnitHandler.getInstance().getBlock(blockNum).getNeighbors()) //Priyasree_Audit: Unnecessary type cast to ArrayList_Delete the unnecessary cast.
                 .size();
-    }
+    }*/
     
   
     
-    public int getTotalAgentsInNeighborhoodOld(Block b) {// Priyasree_DeadCode : Unreachable code_
+    /*public int getTotalAgentsInNeighborhoodOld(Block b) {// Priyasree_DeadCode : Unreachable code_
         ArrayList neighborhood = new ArrayList();
         neighborhood.addAll(b.getNeighbors());
         neighborhood.add(b);
@@ -264,7 +264,7 @@ public abstract class AgentDecision {
         }
         
         return totalAgents;
-    }
+    }*/
 
 	// rriolo version of these *Old versions.
 	// the *Old versions would run ok, but use more and more
@@ -277,7 +277,7 @@ public abstract class AgentDecision {
 	// thar arent needed so slow it down anyway.
 
 
-    public int getTotalAgentsInNeighborhood(Block b) { // Priyasree_DeadCode : Unreachable code_
+    public int getTotalAgentsInNeighborhood(Block b) { 
         int totalAgents = b.getNumAgents();
 		for ( Object tb : b.getNeighbors() ) {
 			totalAgents += ((Block) tb).getNumAgents();
@@ -287,7 +287,7 @@ public abstract class AgentDecision {
     }
 
 
-    public double getPctRaceInNeighborhoodOld(int r, Block b) {// Priyasree_DeadCode : Unreachable code_double getPctRaceInNeighborhoodOld(int r, Block b)
+    /*public double getPctRaceInNeighborhoodOld(int r, Block b) {// Priyasree_DeadCode : Unreachable code_double getPctRaceInNeighborhoodOld(int r, Block b)
 
         ArrayList neighborhood = new ArrayList();
         neighborhood.addAll(b.getNeighbors());
@@ -300,10 +300,10 @@ public abstract class AgentDecision {
         }
         
         return ( (totalAgents*1.0)/ (this.getTotalAgentsInNeighborhood(b)*1.0)) ;
-    }
+    }*/
     
 
-    public double getPctRaceInNeighborhood(int r, Block b) { // Priyasree_DeadCode : Unreachable code_
+    /*public double getPctRaceInNeighborhood(int r, Block b) { // Priyasree_DeadCode : Unreachable code_
         int totalRAgents = b.getNumAgents();
 		for ( Object tb : b.getNeighbors() ) {
 			totalRAgents += ((Block) tb).getNumRace(r);
@@ -314,9 +314,9 @@ public abstract class AgentDecision {
 			return totalRAgents / totalAgentsInNeighborhood ;
 		} 
 	   	return 0.0;
-    }
+    }*/
     
-    public double getPctWhiteInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
+    /*public double getPctWhiteInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
         ArrayList neighborhood = new ArrayList();
         neighborhood.addAll(b.getNeighbors());
         neighborhood.add(b);
@@ -333,9 +333,9 @@ public abstract class AgentDecision {
     } else {
     	return 0;
     }
-    }
+    }*/
 
-    public double getPctWhiteInNeighborhood(Block b) { // Priyasree_DeadCode : Unreachable code_
+    public double getPctWhiteInNeighborhood(Block b) { 
         int totalWAgents = b.getNumWhite();
 		for ( Object tb : b.getNeighbors() ) {
 			totalWAgents += ((Block) tb).getNumWhite();
@@ -348,7 +348,7 @@ public abstract class AgentDecision {
 	   	return 0.0;
     }
 
-    public double getPctBlackInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
+    /*public double getPctBlackInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
         ArrayList neighborhood = new ArrayList();
         neighborhood.addAll(b.getNeighbors());
         int totalAgentsInNeighborhood = this.getTotalAgentsInNeighborhood(b);
@@ -364,9 +364,9 @@ public abstract class AgentDecision {
         } else {
             return 0;
         }
-    }   
+    }  */ 
  
-    public double getPctBlackInNeighborhood(Block b) { // Priyasree_DeadCode : Unreachable code_
+    public double getPctBlackInNeighborhood(Block b) { 
         int totalBAgents = b.getNumBlack();
 		for ( Object tb : b.getNeighbors() ) {
 			totalBAgents += ((Block) tb).getNumBlack();
@@ -379,7 +379,7 @@ public abstract class AgentDecision {
 	   	return 0.0;
     }
     
-    public double getPctAsianInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_double getPctAsianInNeighborhoodOld(Block b)
+    /*public double getPctAsianInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_double getPctAsianInNeighborhoodOld(Block b)
         ArrayList neighborhood = new ArrayList();
         neighborhood.addAll(b.getNeighbors());
         int totalAgentsInNeighborhood = this.getTotalAgentsInNeighborhood(b);
@@ -395,9 +395,9 @@ public abstract class AgentDecision {
         } else {
             return 0;
         }
-    }
+    }*/
     
-    public double getPctAsianInNeighborhood(Block b) { // Priyasree_DeadCode : Unreachable code_
+    public double getPctAsianInNeighborhood(Block b) { 
         int totalAAgents = b.getNumAsian();
 		for ( Object tb : b.getNeighbors() ) {
 			totalAAgents += ((Block) tb).getNumAsian();
@@ -410,7 +410,7 @@ public abstract class AgentDecision {
 	   	return 0.0;
     }
     
-    public double getPctHispanicInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
+    /*public double getPctHispanicInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
         ArrayList neighborhood = new ArrayList();
         neighborhood.addAll(b.getNeighbors());
         int totalAgentsInNeighborhood = this.getTotalAgentsInNeighborhood(b);
@@ -426,9 +426,9 @@ public abstract class AgentDecision {
         } else {
             return 0;
         }
-    }
+    }*/
 
-    public double getPctHispanicInNeighborhood(Block b) { // Priyasree_DeadCode : Unreachable code_
+    public double getPctHispanicInNeighborhood(Block b) { 
         int totalHAgents = b.getNumHispanic();
 		for ( Object tb : b.getNeighbors() ) {
 			totalHAgents += ((Block) tb).getNumHispanic();

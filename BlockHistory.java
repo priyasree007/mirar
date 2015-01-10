@@ -67,7 +67,7 @@ public class BlockHistory {
     
     public BlockHistory(int numVacantHousingUnits,
             IntArrayList raceAndIncomeList, double medianRent, double neighPctBlk, double neighPctWht,
-            double quantile1, double quantile3, double quantile5, double quantile6, double quantile9) { // Priyasree_DeadCode : Unreachable code_
+            double quantile1, double quantile3, double quantile5, double quantile6, double quantile9) { 
         super();
         this.numVacantHousingUnits = numVacantHousingUnits;
         this.raceAndIncomeList.addAllOf(raceAndIncomeList);
@@ -82,7 +82,7 @@ public class BlockHistory {
         this.quantile9 = quantile9;
     }
     
-    public BlockHistory(BlockHistory bh, int stepNum) { // Priyasree_DeadCode : Unreachable code_
+    public BlockHistory(BlockHistory bh, int stepNum) { 
         super();
         this.stfid = bh.getStfid();
         this.numVacantHousingUnits = bh.getNumVacantHousingUnits();
@@ -95,20 +95,20 @@ public class BlockHistory {
         this.stepNum = stepNum;
     }
     
-    public int getNumVacantHousingUnits() { // Priyasree_DeadCode : Unreachable code_
+    public int getNumVacantHousingUnits() { 
         return numVacantHousingUnits;
     }
-    public void setNumVacantHousingUnits(int numVacantHousingUnits) { // Priyasree_DeadCode : Unreachable code_
+   /* public void setNumVacantHousingUnits(int numVacantHousingUnits) { // Priyasree_DeadCode : Unreachable code_
         this.numVacantHousingUnits = numVacantHousingUnits;
-    }
-    public IntArrayList getRaceAndIncomeList() { // Priyasree_DeadCode : Unreachable code_
+    }*/
+    public IntArrayList getRaceAndIncomeList() { 
         return raceAndIncomeList;
     }
-    public void setRaceAndIncomeList(IntArrayList raceAndIncomeList) { // Priyasree_DeadCode : Unreachable code_
+    /*public void setRaceAndIncomeList(IntArrayList raceAndIncomeList) { // Priyasree_DeadCode : Unreachable code_
         this.raceAndIncomeList = raceAndIncomeList;
-    }
+    }*/
     
-    public String toString() { // Priyasree_DeadCode : Unreachable code_
+    public String toString() { 
         StringBuffer s = new StringBuffer();
         s.append(stepNum + ",");
         s.append(" "); // Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
@@ -135,36 +135,36 @@ public class BlockHistory {
         s.append(", " + this.quantile9);
         return s.toString();
     }
-    public String getStfid() { // Priyasree_DeadCode : Unreachable code_
+    public String getStfid() { 
         return stfid;
     }
-    public void setStfid(String stfid) { // Priyasree_DeadCode : Unreachable code_
+    /*public void setStfid(String stfid) { // Priyasree_DeadCode : Unreachable code_
         this.stfid = stfid;
-    }
+    }*/
     
     
-	public int getStepNum() { // Priyasree_DeadCode : Unreachable code_
+	public int getStepNum() { 
 		return stepNum;
 	}
 	
-	public double getQuantile1(){ // Priyasree_DeadCode : Unreachable code_
+	/*public double getQuantile1(){ // Priyasree_DeadCode : Unreachable code_
 		return quantile1; 
-	}
+	}*/
 	
-	public double getQuantile3(){ // Priyasree_DeadCode : Unreachable code_
+	/*public double getQuantile3(){ // Priyasree_DeadCode : Unreachable code_
 		return quantile3; 
-	}
+	}*/
 	
-	public double getQuantile5(){ // Priyasree_DeadCode : Unreachable code_
+	/*public double getQuantile5(){ // Priyasree_DeadCode : Unreachable code_
 		return quantile5; 
-	}
-	public double getQuantile6(){ // Priyasree_DeadCode : Unreachable code_
+	}*/
+	/*public double getQuantile6(){ // Priyasree_DeadCode : Unreachable code_
 		return quantile6; 
-	}
-	public double getQuantile9(){ // Priyasree_DeadCode : Unreachable code_
+	}*/
+	/*public double getQuantile9(){ // Priyasree_DeadCode : Unreachable code_
 		return quantile9; 
-	}
-	public void setStepNum(int stepNum) { // Priyasree_DeadCode : Unreachable code_
+	}*/
+	/*public void setStepNum(int stepNum) { // Priyasree_DeadCode : Unreachable code_
 		this.stepNum = stepNum;
-	}
+	}*/
 }
