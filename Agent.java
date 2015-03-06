@@ -21,8 +21,8 @@ import java.util.*;
 
 public class Agent {
 
-    
-    
+	public static int Block = 0; //Priyasree
+    public static int CountComputeUtility = 0; //Priyasree
     private double income = -1.0; // Priyasree_DeadCode : Unreachable code_
     private int incomeCategory = - 1; // Priyasree_DeadCode : Unreachable code_
     private int race; // Priyasree_DeadCode : Unreachable code_
@@ -51,7 +51,6 @@ public class Agent {
   
 
     public Agent() { 
-       
     }
 
     /**
@@ -59,7 +58,6 @@ public class Agent {
      * @param empty
      */
     public Agent(int empty) {
-        
     }
     
   
@@ -190,6 +188,7 @@ public class Agent {
         this.setHousingUnitNum(h.getHousingUnitNum());
         this.setHousingUnit(h);
         if (h.getAgent() == null ) ErrorLog.getInstance().logError("Agent#MoveIn  agent moveIn HousingUnit.getAgent() agent is null");
+        
     }
     
     /**
@@ -213,6 +212,7 @@ public class Agent {
     }
     
     public double computeUtility(Block b, int tenure) { 
+    	CountComputeUtility++;
         return MirarUtils.AGENT_DECISION.computeUtility(b, this, tenure);
     }
     
@@ -241,9 +241,9 @@ public class Agent {
         this.blockNum = blockNum;
     }*/
 
-   /* public Block getBlock() { // Priyasree_DeadCode : Unreachable code_
+    public Block getBlock() {     Block++;  // Priyasree_DeadCode : Unreachable code_
         return (Block) CensusUnitHandler.getInstance().getBlock(this.blockNum); // Priyasree_Audit : Unnecessary type cast to Block_Delete the unnecessary cast.
-    }*/
+    }
   
     public double getIncome() {
         return income;

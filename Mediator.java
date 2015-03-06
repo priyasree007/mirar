@@ -8,6 +8,7 @@ package mirar;
 import java.util.*;
 
 import javax.swing.*; // Priyasree_Audit: Unnecessary import: null 
+
 import java.awt.*; // Priyasree_Audit: Unnecessary import: null
 import java.awt.event.WindowAdapter; // Priyasree_Audit: Unnecessary import: Delete the import.
 import java.awt.event.WindowEvent; // Priyasree_Audit: Unnecessary import: Delete the import.
@@ -17,9 +18,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.regex.*;
-import javax.swing.*; //Priyasree_Audit: Duplicate import: import javax.swing.*;_Delete the duplicate import. // Priyasree_Audit: Unnecessary import: null 
-import java.io.*;
 
+import javax.swing.*; //Priyasree_Audit: Duplicate import: import javax.swing.*;_Delete the duplicate import. // Priyasree_Audit: Unnecessary import: null 
+
+import java.io.*;
 
 import cern.colt.list.DoubleArrayList;
 import cern.jet.stat.Descriptive; // Priyasree_Audit: Unnecessary import: Delete the import.
@@ -51,7 +53,6 @@ import uchicago.src.sim.util.Random; // Priyasree_Audit: Unnecessary import: Del
  *  
  */
 public class Mediator {
-
    // public Mirar mirar; // Priyasree_DeadCode : Unreachable code_
     public AgentHandler agentHandler;
     public HousingMarket housingMarket;
@@ -71,13 +72,14 @@ public class Mediator {
   //  int stepNum;
     Layer blockLayer;
 
-    private String blockShpFile = "Data" + File.separator  + "LACounty" + File.separator  + "tgr06037blk00.shp";
+    //Priyasree_Remove scattered Parameters
+    /*private String blockShpFile = "Data" + File.separator  + "LACounty" + File.separator  + "tgr06037blk00.shp";
     private String blockGroupShpFile = "Data" + File.separator + "LACounty" + File.separator  
             + "tgr06037grp00.shp";
     private String censusTractShpFile = "Data" + File.separator + "LACounty" + File.separator 
-            + "tgr06037trt00.shp";
+            + "tgr06037trt00.shp";*/
 
-    double sampleProportion = .1;
+  // double sampleProportion = .1; Priyasree_Remove scattered Parameters 
 
     private JUMPHandler jumpHandler;
     CensusUnitHandler censusUnitHandler;
@@ -419,15 +421,26 @@ public class Mediator {
             int numOwnerAgents_AH = AgentHandler.getInstance().getOwnerAgentList().size();
             int numRenterAgents_AH = AgentHandler.getInstance().getRenterAgentList().size();
             
-            if(MirarUtils.STEP_NUM==1){
-            	System.out.println("The city is... " + MirarUtils.CITY);
+            //if(MirarUtils.STEP_NUM==1){
+            System.out.println("The city is... " + MirarUtils.CITY);
+            System.out.println("Total Number of Agents:   " + (numOwnerAgents_AH + numRenterAgents_AH));
             System.out.println("numOwnerAgents_AH:   " + numOwnerAgents_AH  + "   numRenterAgents_AH:   " +  numRenterAgents_AH);
             System.out.println("numOwners_B:   " + numOwners_B  + "   numRenters_B:   " +  numRenters_B);
             System.out.println("numWhites:   " + numWhites_B  + "   numBlacks:   " +  numBlacks_B
             		+ "   numHisps:   " +  numHisps_B + "   numAsians:   " +  numAsians_B);
             
+            System.out.println("BLACK  : " + AgentHandler.BlackAgents);
+            System.out.println("WHITE  : " + AgentHandler.WhiteAgents);
+            System.out.println("ASIAN  : " + AgentHandler.AsianAgents);
+            System.out.println("HISPANIC  : " + AgentHandler.HispanicAgents);
+            System.out.println("BLACK % Estimation : " + (AgentHandler.totBlackInNeighborhood/numBlacks_B));
+            System.out.println("WHITE % Estimation : " + (AgentHandler.totWhiteInNeighborhood/numWhites_B));
+            System.out.println("NumAgentHandler :" + AgentHandler.NumAgentHandler); //Priyasree
+            System.out.println("NumBlock :" + Block.NumBlock);                      //Priyasree
+            System.out.println("NumHousingUnit :" + HousingUnit.NumHousingUnit);    //Priyasree
+            System.out.println("BLOCK : " + Agent.Block);                           //Priyasree
             System.out.println("Agent sample prop. is: " + MirarUtils.RENTER_AGENT_SAMPLE + " -- " + "Vacant unit sample prop. is " + MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE);
-            }
+            //}
             
             this.blocksForUpdating_Renter.clear();
             this.blocksForUpdating_Owner.clear();
@@ -442,7 +455,6 @@ public class Mediator {
     }
 
     public void setup() {
-
         // read in shapefiles
 
         // loadShapefiles();
@@ -506,13 +518,13 @@ public class Mediator {
      *  
      */
 
-    public void addAgent(int race, double income, String agentDecision) {
-
+/*    public void addAgent(int race, double income, String agentDecision) {
+    	System.out.println("Add Agent 4"); //Priyasree_No response
     }
 
     public void addAgent(int race, int income, String agentDecision) {
-
-    }
+    	System.out.println("Add Agent 5"); //Priyasree_No response
+    }*/
 
     /**
      * load data from dbf, shp and other files
@@ -825,7 +837,7 @@ public class Mediator {
                 if (result == null) System.out.println("Load Agent Data:: result string for data is NULL");
              //   else System.out.println("Load Agent Data:: result string length  "  + result.length);
                
-                  System.out.println("Mediator#loadAgentData:  stfid " + result[0] + "  bg:  " + result[1] + "  get block group"); 
+//PriyasreeComment System.out.println("Mediator#loadAgentData:  stfid " + result[0] + "  bg:  " + result[1] + "  get block group"); 
            //     System.out.println("Mediator#loadAgentData: censusUnitHandler.getBlockGroup");
                 BlockGroup bg = censusUnitHandler.getBlockGroup(Integer
                         .parseInt(result[0]), Integer.parseInt(result[1]));
@@ -834,8 +846,9 @@ public class Mediator {
                 //                        Integer.parseInt(result[0]), censusUnitHandler);
 
                 if (bg == null)
-                    System.out
-                            .println("load agent data - can't find blockgroup");
+                	continue;
+                	/*System.out   //PriyasreeComment
+                            .println("load agent data - can't find blockgroup");*/
                 else {
 //                    System.out.println("Mediator#loadAgentData: set block group data");
                  //   bg.setNumOwnerOccupiedUnits( Double.parseDouble(result[2]));
@@ -962,7 +975,7 @@ public class Mediator {
                 if (result == null) System.out.println("Load Agent Data:: result string for data is NULL");
              //   else System.out.println("Load Agent Data:: result string length  "  + result.length);
                
-                System.out.println("Mediator#loadAgentData:  stfid " + result[0] + "  bg:  " + result[1] + "  get block group");
+//PriyasreeComment System.out.println("Mediator#loadAgentData:  stfid " + result[0] + "  bg:  " + result[1] + "  get block group");
            //     System.out.println("Mediator#loadAgentData: censusUnitHandler.getBlockGroup");
                 BlockGroup bg = censusUnitHandler.getBlockGroup(Integer
                         .parseInt(result[0]), Integer.parseInt(result[1]));
@@ -971,8 +984,9 @@ public class Mediator {
                 //                        Integer.parseInt(result[0]), censusUnitHandler);
 
                 if (bg == null)
-                    System.out
-                            .println("load agent data - can't find blockgroup");
+                	continue;
+                    /*System. //PriyasreeComment
+                    out.println("load agent data - can't find blockgroup");*/
                 else {
 //                    System.out.println("Mediator#loadAgentData: set block group data");
                //     bg.setNumOccupiedUnits( Double.parseDouble(result[2]));
@@ -1245,7 +1259,6 @@ public class Mediator {
      * @postcondition map is added to the JUMP display
      */
     public void buildDisplay() {
-        
         if (MirarUtils.BLOCK_SHP_FILE == null) {
         	MirarUtils.BLOCK_SHP_FILE = "Data" + File.separator  + "subset" + File.separator + "blk_subset.shp";
         	System.out.println("Block File Missing... ");
@@ -1294,9 +1307,30 @@ public class Mediator {
         }
         
         setupUtilities();
-        System.out.println("Decision rule is: " + MirarUtils.AGENT_DECISION);
-        //System.out.println("Owner Agent Sample is: " + MirarUtils.OWNER_AGENT_SAMPLE);  
-        //System.out.println("Renter Agent Sample is: " + MirarUtils.RENTER_AGENT_SAMPLE);    
+        System.out.println("Renter Agent Sample is: " + MirarUtils.RENTER_AGENT_SAMPLE);//PriyasreeUncomment
+        System.out.println("Owner Agent Sample is: " + MirarUtils.OWNER_AGENT_SAMPLE);  //PriyasreeUncomment 
+        System.out.println("Decision rule is: " + MirarUtils.AGENT_DECISION); 
+        System.out.println("Renter Data Sample Proportion is: " + MirarUtils.RENTER_DATA_SAMPLE);//Priyasree
+        System.out.println("Owner Data Sample Proportion is: " + MirarUtils.OWNER_DATA_SAMPLE);//Priyasree
+        System.out.println("Rent Type is: " + MirarUtils.RENT_TYPE);//Priyasree
+        System.out.println("Owner Vacant Housing Unit Sample Proportion is: " + MirarUtils.OWNER_VACANT_HOUSING_UNIT_SAMPLE);//Priyasree
+        System.out.println("Renter Vacant Housing Unit Sample Proportion is: "  + MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE);//Priyasree
+        System.out.println("Steps To Run is: " + MirarUtils.STEPS_TO_RUN);//Priyasree
+        System.out.println("Print Interval is: " + MirarUtils.PRINT_INTERVAL);//Priyasree
+        System.out.println("RENTS_UPDATE_INTERVAL is: " + MirarUtils.RENTS_UPDATE_INTERVAL);//Priyasree
+        System.out.println("Subset Data is: " + MirarUtils.SUBSET_DATA);//Priyasree
+        System.out.println("Agent Memory is: " + MirarUtils.AGENT_MEMORY);//Priyasree
+        System.out.println("Block History is: " + MirarUtils.BLOCK_HISTORY);//Priyasree
+        
+        System.out.println("Display Update Interval is: " + MirarUtils.DISPLAY_UPDATE_INTERVAL);//Priyasree
+        System.out.println("Renter Data File is: " + MirarUtils.RENTER_DATA_FILE);//Priyasree
+        System.out.println("Owner Data File is: " + MirarUtils.OWNER_DATA_FILE);//Priyasree
+        System.out.println("Neighborhood Data File is: " + MirarUtils.NEIGHBORHOOD_DATA_FILE);//Priyasree
+        System.out.println("Block Shp File is: " + MirarUtils.BLOCK_SHP_FILE);//Priyasree
+        System.out.println("Block Group Shp File is: " + MirarUtils.BLOCK_GROUP_SHP_FILE);//Priyasree
+        System.out.println("Census Tract Shp File is: " + MirarUtils.CENSUS_TRACT_SHP_FILE);//Priyasree
+        System.out.println("Run Mode is: " + MirarUtils.RUN_Mode);//Priyasree
+        
        // setupRents();
     }
 

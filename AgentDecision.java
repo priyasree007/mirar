@@ -334,7 +334,8 @@ public abstract class AgentDecision {
     	return 0;
     }
     }*/
-
+//priyaComm: statistics collector objects, d entire thing can be minimized, Predicate class. Call the method once, 
+   // collector obj: 2.9,2.10, 2.11
     public double getPctWhiteInNeighborhood(Block b) { 
         int totalWAgents = b.getNumWhite();
 		for ( Object tb : b.getNeighbors() ) {

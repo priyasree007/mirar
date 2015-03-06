@@ -17,24 +17,24 @@ public class MirarUtils {
     
     
     // owner
-    public static double OWNER_VACANT_HOUSING_UNIT_SAMPLE=1.0;// = 1.0; // Priyasree_DeadCode : Unreachable code_
-    public static double OWNER_AGENT_SAMPLE=0.2; //0.1; // Priyasree_DeadCode : Unreachable code_
-    public static double OWNER_DATA_SAMPLE=0.2 ; // percent of all data used // Priyasree_DeadCode : Unreachable code_
+    public static double OWNER_VACANT_HOUSING_UNIT_SAMPLE; // Priyasree_DeadCode : Unreachable code_
+    public static double OWNER_AGENT_SAMPLE; // Priyasree_DeadCode : Unreachable code_
+    public static double OWNER_DATA_SAMPLE; // percent of all data used // Priyasree_DeadCode : Unreachable code_
     
     // renter
-    public static double RENTER_VACANT_HOUSING_UNIT_SAMPLE=0.01; // Priyasree_DeadCode : Unreachable code_
-    public static double RENTER_AGENT_SAMPLE=0.001; //0.1; // Priyasree_DeadCode : Unreachable code_
-    public static double RENTER_DATA_SAMPLE = 0.2 ; // percent of all data used // Priyasree_DeadCode : Unreachable code_
+    public static double RENTER_VACANT_HOUSING_UNIT_SAMPLE; // Priyasree_DeadCode : Unreachable code_
+    public static double RENTER_AGENT_SAMPLE; // Priyasree_DeadCode : Unreachable code_
+    public static double RENTER_DATA_SAMPLE; // percent of all data used // Priyasree_DeadCode : Unreachable code_
  
     public static double ALL_VACANT_HOUSING_UNIT_SAMPLE = 1.0; // Priyasree_DeadCode : Unreachable code_
     
     public static String AGENT_DECISION_STRING;// = new String(); // Priyasree_DeadCode : Unreachable code_
     public static int DISPLAY_UPDATE_INTERVAL; // Priyasree_DeadCode : Unreachable code_
-    public static int PRINT_INTERVAL = 10; // Priyasree_DeadCode : Unreachable code_
-    public static int RENTS_UPDATE_INTERVAL = 2; // Priyasree_DeadCode : Unreachable code_
+    public static int PRINT_INTERVAL; // Priyasree_DeadCode : Unreachable code_
+    public static int RENTS_UPDATE_INTERVAL; // Priyasree_DeadCode : Unreachable code_
     public static boolean NO_GUI = true; // Priyasree_DeadCode : Unreachable code_
     public static int STEP_NUM; // Priyasree_DeadCode : Unreachable code_
-    public static int STEPS_TO_RUN = 20; // Priyasree_DeadCode : Unreachable code_
+    public static int STEPS_TO_RUN; // Priyasree_DeadCode : Unreachable code_
     public static int RACE_INCOME_SIZE; // Priyasree_DeadCode : Unreachable code_
     public static int NUM_INCOMES; // Priyasree_DeadCode : Unreachable code_
     public static int NUM_RACES = 4; // Priyasree_DeadCode : Unreachable code_
@@ -48,6 +48,7 @@ public class MirarUtils {
     
     public static boolean AGENT_MEMORY = true; 
     public static boolean BLOCK_HISTORY = true; 
+    public static String RUN_Mode;
     
     public static double TOTAL_AGENT_INCOME;  // // Priyasree_DeadCode : Unreachable code_
     public static HashMap NUM_INCOMES_PER_TYPE;  //owners and renters together // Priyasree_DeadCode : Unreachable code_
@@ -55,7 +56,7 @@ public class MirarUtils {
     public static int TOTAL_NUM_AGENTS; // Priyasree_DeadCode : Unreachable code_
     public static DoubleArrayList INCOME_TYPES = new DoubleArrayList(); // Priyasree_DeadCode : Unreachable code_
     
-    public static String RENT_TYPE = "HomogeneousRentWithinBlocks"; // Priyasree_DeadCode : Unreachable code_
+    public static String RENT_TYPE; // Priyasree_DeadCode : Unreachable code_
     public static double HOMOGENEOUS_RENT_QUANTILE = 0.5; // Priyasree_DeadCode : Unreachable code_
     public static double OCCUPANCY_RATE; // Priyasree_DeadCode : Unreachable code_
     public static int NUM_AGENT_TYPES; // Priyasree_DeadCode : Unreachable code_

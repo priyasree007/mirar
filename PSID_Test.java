@@ -57,7 +57,6 @@ public class PSID_Test extends AgentDecision {
 	    }
 	    
       public double computeUtility(Block b, Agent a, int tenure) {
-  
       	double utility= -12.0;
    		//ArrayList blocks = new ArrayList();
         if (b == null) {
@@ -71,7 +70,7 @@ public class PSID_Test extends AgentDecision {
             double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b);
             double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b);
 	    	double ratPrice=(b.getMedianRent(tenure)*12.0)/a.getIncome();
-         //   System.out.println("pct blk = " + pctBlackInNeighborhood + " and pctwhite = " + pctWhiteInNeighborhood); 
+            //System.out.println("pct blk = " + pctBlackInNeighborhood + " and pctwhite = " + pctWhiteInNeighborhood); 
 
    		if(a.getRace()==Agent.ASIAN){
         	utility = Math.exp( 
@@ -94,7 +93,7 @@ public class PSID_Test extends AgentDecision {
     	        		);		
         		}
   }
-       // System.out.println("utility is " + utility); 
+      // System.out.println("utility is " + utility); 
         return utility;
       }
 
@@ -161,11 +160,24 @@ public class PSID_Test extends AgentDecision {
 				   	             + .3502233*pctWhiteInNeighborhood*pctWhiteInNeighborhood
 	    	        			);		
 	        		}
-
         	return utility; 
 	    }
 
-	
+    		/*public double computeAvgPctInNeighbourhood(Block b, Agent a) {
+    			double pctBlackInNeighborhood = this.getPctBlackInNeighborhood(b);
+    	        double pctWhiteInNeighborhood = this.getPctWhiteInNeighborhood(b);
+    	        double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b);
+    	        double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b);
+    	    	double TotPctAsianInNeighborhood = 0;
+    	    	double TotPctWhiteInNeighborhood = 0;
+    	    	double TotPctBlackInNeighborhood = 0;
+    	    	double TotPctHispanicInNeighborhood = 0;
+    	    	
+    	    	if(a.getRace()==Agent.ASIAN){
+    	    		return 
+    	    	}
+    		}*/
+    				
 		    public double computeMarginalUtility(Block b, int tenure) {
 		    	/**
 		    	 * For now, not using market clearing rents with the LA FANS choice

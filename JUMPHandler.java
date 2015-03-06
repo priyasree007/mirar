@@ -483,7 +483,8 @@ public class JUMPHandler {
         try {
            
             // load shapefiles
-
+        	
+        	System.out.println("YAHOOOOOO : " + MirarUtils.BLOCK_SHP_FILE);
             blockShpData = new IndexedFeatureCollection(sfReader
                     .read(new DriverProperties(MirarUtils.BLOCK_SHP_FILE)));
             blockGroupShpData = new IndexedFeatureCollection(sfReader
@@ -746,8 +747,9 @@ public class JUMPHandler {
 
             String datasourceNoSHP = MirarUtils.BLOCK_SHP_FILE.substring(0, MirarUtils.BLOCK_SHP_FILE.length() - 3);
           
-            String dbfString = datasourceNoSHP + "dbf";
+            String dbfString = datasourceNoSHP + "dbf"; 
 
+            
             in = new FileInputStream(dbfString).getChannel();
             dbfFileReader = new DBFReader(dbfString);
             //DbaseFileHeader header = dbfFileReader.getHeader();

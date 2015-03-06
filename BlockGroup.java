@@ -271,7 +271,6 @@ public class BlockGroup {
                                     // add tenure
                                     Agent a = AgentHandler.getInstance().addAgent(raceIndex,incomeIndex, b.getSTFID(), Agent.RENTER);
                                     
-                                    
                                     // add hu set rent and agent
                   //                  System.out.println("BlockGroup#initializeHousingUnits: - block add HousingUnit");
                                     if (a == null) System.out.println("3333  block group init renter hu - agent is null");
@@ -355,7 +354,7 @@ public class BlockGroup {
             b.setRaceIncomeRent_Renters(rirList);   
             bgTotalAgents +=totalAgents;
             if (totalAgents ==0 ) {
-                System.out.println("\t\t ---------------------> block " + b.getSTFID() + " has no agents -- the rest of the block group " + this.getBlockGroupNum() + " has " + bgTotalAgents + " agents");
+//PriyasreeComment System.out.println("\t\t ---------------------> block " + b.getSTFID() + " has no agents -- the rest of the block group " + this.getBlockGroupNum() + " has " + bgTotalAgents + " agents");
             }
       //      System.out.println("\t\t +++ BG inithu - block " + b.getSTFID() + " numAgents  " + totalAgents);
             totalAgents = 0;

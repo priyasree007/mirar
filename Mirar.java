@@ -1,12 +1,15 @@
 package mirar;
 
 import java.util.*;
+import java.lang.reflect.*; //Priyasree
+
 import javax.swing.*;
+
 import java.awt.*; // Priyasree_Audit: Unnecessary import: null 
 import java.awt.event.WindowAdapter; // Priyasree_Audit: Unnecessary import: Delete the import.
 import java.awt.event.WindowEvent; // Priyasree_Audit: Unnecessary import: Delete the import.
 import java.io.*;
-
+import java.lang.reflect.Field;
 
 import com.vividsolutions.jump.io.datasource.*; // Priyasree_Audit: Unnecessary import: null 
 import com.vividsolutions.jump.io.*; // Priyasree_Audit: Unnecessary import: null 
@@ -23,7 +26,6 @@ import com.vividsolutions.jump.workbench.ui.renderer.style.*; // Priyasree_Audit
 import com.vividsolutions.jump.util.Range.RangeTreeMap; // Priyasree_Audit: Unnecessary import: Delete the import.
 import com.vividsolutions.jump.util.*; // Priyasree_Audit: Unnecessary import: null 
 
-
 import uchicago.src.sim.analysis.Sequence; // Priyasree_Audit: Unnecessary import: Delete the import.
 import uchicago.src.sim.engine.BasicAction;
 import uchicago.src.sim.engine.Controller; // Priyasree_Audit: Unnecessary import: Delete the import.
@@ -38,19 +40,19 @@ import uchicago.src.reflector.ListPropertyDescriptor;
 /**
  * 
  */
+
 public class Mirar extends SimModelImpl {
     
-    private Schedule schedule;	
+   private Schedule schedule;	
     
    private Mediator mediator = new Mediator();
     
-    
-    public Mirar() {
+   public Mirar() {
         
         /**
          * These vectors are the information that go into the REPAST Gui
          */
-        
+// priyaComm: put in an array  l-exp      
         Vector v = new Vector();
         v.add("PSID_IncomeOnly");
         v.add("PSID_RaceOnly");
@@ -85,18 +87,15 @@ public class Mirar extends SimModelImpl {
     
     public void reset() { // Priyasree_DeadCode : Unreachable code_
         this.schedule = null;	
-     
         System.gc();
 
         // get the new input paramenters
-        this.getInitParam();
-        
+        this.getInitParam(); 
         Random.createUniform();
         Random.createNormal(0.0, 1.0);
     }
     
     public void buildModel() {
- 
     }
     
     public void buildDisplay()  {
@@ -127,13 +126,12 @@ public class Mirar extends SimModelImpl {
     }
     
     public void begin() {
-
         buildModel();
         buildDisplay();
         buildSchedule();
         MirarData.getInstance().initialize();
         if (MirarUtils.OWNER_DATA_FILE.contains("LA")) {
-        	MirarUtils.CITY = "LosAngeles";
+        	MirarUtils.CITY = "LosAngeles"; //priyaComm : use enum
         } else if (MirarUtils.OWNER_DATA_FILE.contains("ATL")) {
         	MirarUtils.CITY = "Atlanta";
         } else {
@@ -142,7 +140,6 @@ public class Mirar extends SimModelImpl {
     }
     
     public void step() { // Priyasree_DeadCode : Unreachable code_
-        
         if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             if (MirarUtils.STEPS_TO_RUN == MirarUtils.STEP_NUM) {
                 this.stop();
@@ -152,16 +149,15 @@ public class Mirar extends SimModelImpl {
         else mediator.step();
 	}
     
-    
+//priyaComm: use aspects to create a run log which will display the parameter values.    
     public void setup() {
-        
-    	
-        MirarUtils.RENTER_AGENT_SAMPLE = 0.001;
+    	//Priyasree_Remove scattered Parameters
+        /*MirarUtils.RENTER_AGENT_SAMPLE = 0.001;
         MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE = 0.01;
         MirarUtils.OWNER_AGENT_SAMPLE = 0.001;
         MirarUtils.OWNER_VACANT_HOUSING_UNIT_SAMPLE = 0.01;
         // MirarUtils.AGENT_DECISION_STRING = "RaceAndIncomeNeighborhood";
-        MirarUtils.DISPLAY_UPDATE_INTERVAL = 5;
+        MirarUtils.DISPLAY_UPDATE_INTERVAL = 5;*/
         schedule = null;
         schedule = new Schedule();
 
@@ -169,16 +165,16 @@ public class Mirar extends SimModelImpl {
         AbstractGUIController.CONSOLE_OUT = false;
         AbstractGUIController.ALPHA_ORDER = false;
         MirarUtils.STEP_NUM = 0;
-        mediator.setup();
+        //mediator.setup(); //Priyasree_removed from here to getSchedule 
  }
     
     public String getName() {
-        
         return "Model of Race, Income, And Residence (MIRAR) ";
     }
     
     public Schedule getSchedule() {
-        return schedule;
+	mediator.setup(); //Priyasree_added
+    return schedule;
     }
     
     /**
@@ -189,9 +185,9 @@ public class Mirar extends SimModelImpl {
     {
                 "AgentDecisionType", "RentType", "renterAgent_SampleProportion",  "ownerAgent_SampleProportion",  "renterVacantHousingUnit_SampleProportion",  
                 "ownerVacantHousingUnit_SampleProportion", "renterData_SampleProportion", "ownerData_SampleProportion", "DisplayUpdateInterval" , "StepsToRun", "PrintInterval", 
-                "RENTS_UPDATE_INTERVAL", "SubsetData", "AgentMemory", "BlockHistory"
+                "RENTS_UPDATE_INTERVAL", "SubsetData", "AgentMemory", "BlockHistory", "DisplayUpdateInterval", "RenterDataFile", "OwnerDataFile", "NeighborhoodDataFile" ,
+                "BlockShpFile" , "BlockGroupShpFile" , "CensusTractShpFile" , "RunMode"
     };
-       
         return params;
     }
         
@@ -307,7 +303,7 @@ public class Mirar extends SimModelImpl {
             }
         }
     }
-
+//priyaComm:refactor the above to use these methods once. there sudnt b 2 similar functionality(the set and this one)
     
     public String getRentType() {
         return MirarUtils.RENT_TYPE;
@@ -344,8 +340,6 @@ public class Mirar extends SimModelImpl {
         return MirarUtils.STEPS_TO_RUN;
     }
     
-  
-    
     
     public int getPrintInterval() {
         return MirarUtils.PRINT_INTERVAL;
@@ -379,40 +373,120 @@ public class Mirar extends SimModelImpl {
         MirarUtils.AGENT_MEMORY = data;
     }
     
-        
+    //Priyasree_Remove scattered Parameters
+    public String getRenterDataFile() {
+        return MirarUtils.RENTER_DATA_FILE;
+    }
+    
+    public void setRenterDataFile(String file) {
+        MirarUtils.RENTER_DATA_FILE = file;
+    }
+    
+    public String getOwnerDataFile() {
+        return MirarUtils.OWNER_DATA_FILE;
+    }
+    
+    public void setOwnerDataFile(String file) {
+        MirarUtils.OWNER_DATA_FILE = file;
+    }
+    
+    public String getNeighborhoodDataFile() {
+        return MirarUtils.NEIGHBORHOOD_DATA_FILE;
+    }
+    
+    public void setNeighborhoodDataFile(String file) {
+        MirarUtils.NEIGHBORHOOD_DATA_FILE = file;
+    }
+    
+    public String getBlockShpFile() {
+        return MirarUtils.BLOCK_SHP_FILE;
+    }
+    
+    public void setBlockShpFile(String file) {
+        MirarUtils.BLOCK_SHP_FILE = file;
+    }
+    
+    public String getBlockGroupShpFile() {
+        return MirarUtils.BLOCK_GROUP_SHP_FILE;
+    }
+    
+    public void setBlockGroupShpFile(String file) {
+        MirarUtils.BLOCK_GROUP_SHP_FILE = file;
+    }
+    
+    public String getCensusTractShpFile() {
+        return MirarUtils.CENSUS_TRACT_SHP_FILE;
+    }
+    
+    public void setCensusTractShpFile(String file) {
+        MirarUtils.CENSUS_TRACT_SHP_FILE = file;
+    }
+    
+    public String getRunMode() {
+        return MirarUtils.RUN_Mode;
+    }
+    
+    public void setRunMode(String mode) {
+        MirarUtils.RUN_Mode = mode;
+    }
+    
+    
     public static void main(String[] args) {
-        
-        
         uchicago.src.sim.engine.SimInit init = new uchicago.src.sim.engine.SimInit();
         
 		Mirar model = new Mirar();
-
+		
         // setup the Error Log class
         ErrorLog.getInstance().setup();
-		if (args.length > 0) {
+        
+        /*if (args.length >3) {
+        if (args[3].equalsIgnoreCase("batch")) */
+    {
+        if (MirarUtils.RUN_Mode == "batch") {
+            MirarUtils.NO_GUI = true;
+        }
+    }
+        
+        if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
+            init.loadModel(model, "./mirarParams.pf", true);
+        }
+        else{ // using the GUI
+            try {
+                String nativeLF = UIManager.getSystemLookAndFeelClassName();
+                UIManager.setLookAndFeel(nativeLF);
+            } catch (Exception e) { // Priyasree_Audit: Empty catch clause for exception e_Delete the empty catch clause. // Priyasree_Audit: Caught exception not logged_Use one of the logging methods to log the exception.
+            }
+            init.loadModel(model, null, false);
+        }
+        
+        
+      //Priyasree_Remove scattered Parameters
+        
+		/*if (args.length > 0) {
 		    MirarUtils.RENTER_DATA_FILE = args[0];
 		}
 		if (args.length > 1) {
 		    MirarUtils.OWNER_DATA_FILE = args[1];
 		}
+		if (args.length >0) {
+		    MirarUtils.NEIGHBORHOOD_DATA_FILE = args[0];
+		}*/
+		/*if (args.length >0) {
+		    MirarUtils.BLOCK_SHP_FILE = args[0];
+		    //System.out.println("BLOCK_SHP_FILE : " + MirarUtils.BLOCK_SHP_FILE);//PU
+		}
+		if (args.length >1) {
+		    MirarUtils.BLOCK_GROUP_SHP_FILE = args[1];
+		}
 		if (args.length >2) {
-		    MirarUtils.NEIGHBORHOOD_DATA_FILE = args[2];
-		}
-		if (args.length >3) {
-		    MirarUtils.BLOCK_SHP_FILE = args[3];
-		}
-		if (args.length >4) {
-		    MirarUtils.BLOCK_GROUP_SHP_FILE = args[4];
-		}
-		if (args.length >5) {
-		    MirarUtils.CENSUS_TRACT_SHP_FILE = args[5];
-		}
+		    MirarUtils.CENSUS_TRACT_SHP_FILE = args[2];
+		}*/
        
       
-        if (args.length > 6) {
+          /*if (args.length > 6) {
             if (MirarUtils.AGENT_DECISION == null) {
                 
-                /*if (args[6].equalsIgnoreCase("ThresholdRace")) {
+                if (args[6].equalsIgnoreCase("ThresholdRace")) {
                     MirarUtils.AGENT_DECISION = new ThresholdRace();
                 }
                 else if (args[6].equalsIgnoreCase("RaceAndIncomeNeighborhood")) {
@@ -430,7 +504,7 @@ public class Mirar extends SimModelImpl {
                 else if (args[6].equalsIgnoreCase("ThresholdIncome")) {
                     MirarUtils.AGENT_DECISION = new ThresholdIncome();
                 } 
-                else*/ if (args[6].equalsIgnoreCase("PSID_RaceIncome")) {
+                else if (args[6].equalsIgnoreCase("PSID_RaceIncome")) {
                     MirarUtils.AGENT_DECISION = new PSID_RaceIncome();
                 } 
                 else if (args[6].equalsIgnoreCase("PSID_IncomeOnly")) {
@@ -443,7 +517,7 @@ public class Mirar extends SimModelImpl {
                 else if (args[6].equalsIgnoreCase("PSID_Test")) { //Priyasree_Test
                     MirarUtils.AGENT_DECISION = new PSID_Test();
                 }
-                /*else if(args[6].equalsIgnoreCase("MCSUIdecision")){
+                else if(args[6].equalsIgnoreCase("MCSUIdecision")){
                 	MirarUtils.AGENT_DECISION = new MCSUIdecision();
                 	
                 } else if(args[6].equalsIgnoreCase("CensusPumsRaceOnly")){
@@ -454,19 +528,16 @@ public class Mirar extends SimModelImpl {
                
                 } else if(args[6].equalsIgnoreCase("CensusPumsIncOnly")){
                 	MirarUtils.AGENT_DECISION = new CensusPumsIncOnly();
-                }*/  else {
+                }  else {
                     ErrorLog.getInstance().logError("Mirar#main could not find agent decision class to intialize model with");
                 }
             }
         }
-
+*/
          
-    if (args.length >7) {
-        if (args[7].equalsIgnoreCase("batch")) {
-            MirarUtils.NO_GUI = true;
-        }
-    }
-        if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
+    
+/*        if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
+        	//System.out.println("RENTER_DATA_FILE 1: " + MirarUtils.RENTER_DATA_FILE);//PU
             init.loadModel(model, "./mirarParams.pf", true);
         }
         else{ // using the GUI
@@ -476,10 +547,9 @@ public class Mirar extends SimModelImpl {
             } catch (Exception e) { // Priyasree_Audit: Empty catch clause for exception e_Delete the empty catch clause. // Priyasree_Audit: Caught exception not logged_Use one of the logging methods to log the exception.
             }
             init.loadModel(model, null, false);
-        }
-       
-    }
-    
+        }*/
+    }  
+		
 }// end Model
 
 

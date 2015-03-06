@@ -20,7 +20,7 @@ import cern.jet.stat.Descriptive;
  */
 
 public class Block {
-
+	public static int NumBlock;
 	private ArrayList neighborList = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
 
 	private int blockNum; // Priyasree_DeadCode : Unreachable code_
@@ -215,8 +215,8 @@ public class Block {
      * @param agent 
      */
 	public void addAgent(Agent agent) { 
+		NumBlock++;
 		numAgents++;
-   
 		int position = ((agent.getRace() * MirarUtils.NUM_INCOMES) + agent.getIncomeCategory());
 		if (raceAndIncomeList == null ) System.out.println("Block  - raceAndIncomeList is NULL");
 		int num = raceAndIncomeList.get(position);
@@ -232,7 +232,7 @@ public class Block {
 			numAsian++;
 		else if (race == 3)
 			numHispanic++;
-
+//priyaComm: create a hash table with index vs race, ask for their race n increment the corresponding entry 
 		//add income
 		this.totalIncome += agent.getIncome();
 		incomeList.add((double) agent.getIncome()); //Priyasree_Audit: Unnecessary type cast to double_Delete the unnecessary cast.
@@ -578,7 +578,7 @@ public class Block {
 		int sampleNum = MirarUtils.probabilisticInterpolation(units.size(),
 				proportion);
 		ArrayList result = new ArrayList(sampleNum);
-		for (int i = 0; i < sampleNum; i++) {
+		for (int i = 0; i < sampleNum; i++) {//priyaComm: may be random selection is req, chk how used
 			System.out.println("I am here " + i); //Priyasree_Test
 		//	int choice = Random.uniform.nextIntFromTo(0, units.size());
 			result.add(units.get(i));
@@ -1109,7 +1109,7 @@ public class Block {
         // first get renter incomes
          huIter = housingUnitList_Renters.iterator();
         
-		while (huIter.hasNext()) {
+		while (huIter.hasNext()) {//priyaComm: use java streams
 		    HousingUnit hu =  (HousingUnit)huIter.next();
 		    if(hu.isOccupied()){
 				incomes.add(hu.getIncome());
@@ -1453,7 +1453,7 @@ public class Block {
         Iterator iter = neighborhood.iterator();
         while(iter.hasNext()) {
             Block block = (Block)iter.next();
-            totalAgents += block.getNumWhite();            
+            totalAgents += block.getNumWhite(); 
         }
         if(this.getTotalAgentsInNeighborhood()!=0) {
             return ( (totalAgents*1.0)/ (this.getTotalAgentsInNeighborhood()*1.0)) ;           
