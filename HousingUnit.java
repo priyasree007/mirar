@@ -16,7 +16,6 @@ import java.util.*; // Priyasree_Audit: Unnecessary import: import java.util.*;_
 
 public class HousingUnit {
   //private int blockNum; // Priyasree_DeadCode : Unreachable code_
-	public static int NumHousingUnit;//Priyasree
     private int housingUnitNum; // Priyasree_DeadCode : Unreachable code_
     private Agent agent; // Priyasree_DeadCode : Unreachable code_
   //private int agentNum; // Priyasree_DeadCode : Unreachable code_
@@ -62,8 +61,7 @@ public class HousingUnit {
         this.agent = agent;
     }
 
-    public void addAgent(Agent agent) { 
-    	NumHousingUnit++;   	
+    public void addAgent(Agent agent) { 	
         if (agent == null) System.out.println("000010101 Housing Unit - add Agent - agent is null");
         this.setOccupied(true);
         //this.setAgentNum(agent.getAgentNum());

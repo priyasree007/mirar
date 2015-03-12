@@ -21,14 +21,6 @@ import uchicago.src.sim.util.Random;
  */
 public class AgentHandler {
  // private ArrayList allAgentList = new ArrayList(); 
-	public static int WhiteAgents;//Priyasree
-	public static int BlackAgents;//Priyasree
-	public static int AsianAgents;//Priyasree
-	public static int HispanicAgents; //Priyasree
-	public static double pctWhiteInNeighborhood_H;//Priyasree
-	public static double pctBlackInNeighborhood_H = 0.00000000000;;//Priyasree
-	public static double totBlackInNeighborhood = 0.00000000000; //Priyasree
-	public static double totWhiteInNeighborhood = 0.0; //Priyasree
     private ArrayList renterAgentList = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
     private ArrayList ownerAgentList = new ArrayList();
     private ArrayList renterTestAgents = new ArrayList(); // arraylist of theoretical agents used for utility testing // Priyasree_DeadCode : Unreachable code_
@@ -37,7 +29,6 @@ public class AgentHandler {
  // private HashSet blocksToUpdate_All = new HashSet(); // Priyasree_DeadCode : Unreachable code_
  // private HashSet blocksToUpdate_Owner = new HashSet(); // Priyasree_DeadCode : Unreachable code_
    
-    public static int NumAgentHandler;
     private static AgentHandler instance = new AgentHandler(); 
 
     /*private AgentHandler() { // Priyasree_DeadCode : Unreachable code_
@@ -437,8 +428,7 @@ public class AgentHandler {
      * @param tenure
      * @return
      */
-    public Agent addAgent(int race, int incomeCategory, String stfid, int tenure) { 
-    	NumAgentHandler++;    	
+    public Agent addAgent(int race, int incomeCategory, String stfid, int tenure) {  	
         Agent agent = null;
          if (tenure == Agent.RENTER) {
              if (renterAgentList == null) {
@@ -454,30 +444,6 @@ public class AgentHandler {
                   agent = new Agent(ownerAgentList.size(), race, incomeCategory, stfid, tenure);
                  ownerAgentList.add(agent);
              }
-         
-     	{
-        	if (agent.getRace() == Agent.WHITE) {WhiteAgents++;
-        	pctWhiteInNeighborhood_H = MirarUtils.AGENT_DECISION.getPctWhiteInNeighborhood(agent.getBlock());  //Priyasree
-        	totWhiteInNeighborhood = totWhiteInNeighborhood + pctWhiteInNeighborhood_H;
-        	if (WhiteAgents < 5){
-        		System.out.println("pctWhiteInNeighborhood_H is : " + pctWhiteInNeighborhood_H + "and totWhiteInNeighborhood is : " + totWhiteInNeighborhood);
-        	}
-        	
-        	} else 
-        		if  (agent.getRace() == Agent.BLACK) {BlackAgents++;
-        	pctBlackInNeighborhood_H = MirarUtils.AGENT_DECISION.getPctBlackInNeighborhood(agent.getBlock());  //Priyasree
-        	totBlackInNeighborhood = totBlackInNeighborhood + pctBlackInNeighborhood_H;
-        	if (BlackAgents < 10){
-        		System.out.println("pctBlackInNeighborhood_H is : " + pctBlackInNeighborhood_H + "and totBlackInNeighborhood is : " + totBlackInNeighborhood);
-        	}
-        	} else
-        		if  (agent.getRace() == Agent.ASIAN) {AsianAgents++;    		
-        	}else
-        		if  (agent.getRace() == Agent.HISPANIC) {HispanicAgents++;    		
-        	}
-        	
-        	}
-         
              return agent;
          
      }
@@ -604,3 +570,4 @@ public class AgentHandler {
         this.ownerTestAgents = ownerTestAgents;
     }*/
 } // end AgentHandler
+

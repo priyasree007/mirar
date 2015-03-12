@@ -20,7 +20,12 @@ import cern.jet.stat.Descriptive;
  */
 
 public class Block {
-	public static int NumBlock;
+	//Priyasree_B$WStatistics===========================//
+	public static double pctWhiteInNeighborhood_B;
+	public static double pctBlackInNeighborhood_B;
+	public static double totBlackInNeighborhood_B = 0.0; 
+	public static double totWhiteInNeighborhood_B = 0.0; 
+	//Priyasree_B$WStatistics===========================//
 	private ArrayList neighborList = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
 
 	private int blockNum; // Priyasree_DeadCode : Unreachable code_
@@ -215,7 +220,6 @@ public class Block {
      * @param agent 
      */
 	public void addAgent(Agent agent) { 
-		NumBlock++;
 		numAgents++;
 		int position = ((agent.getRace() * MirarUtils.NUM_INCOMES) + agent.getIncomeCategory());
 		if (raceAndIncomeList == null ) System.out.println("Block  - raceAndIncomeList is NULL");
@@ -244,6 +248,13 @@ public class Block {
                 this.renterHistory.add(new BlockHistory(this.getNumVacantHousingUnits(), this.getRaceAndIncomeList(), 
                         this.getMedianRent(Agent.RENTER), this.getPctBlkInNeighborhood(), this.getPctWhtInNeighborhood(), 
                         this.getPercentileRent(.1, Agent.RENTER), this.getPercentileRent(.3, Agent.RENTER), this.getPercentileRent(.5, Agent.RENTER), this.getPercentileRent(.6, Agent.RENTER), this.getPercentileRent(.9, Agent.RENTER)));
+                //Priyasree_B$WStatistics===========================//
+                pctBlackInNeighborhood_B = this.getPctBlkInNeighborhood();
+                totBlackInNeighborhood_B = totBlackInNeighborhood_B + pctBlackInNeighborhood_B;
+                
+                pctWhiteInNeighborhood_B = this.getPctWhtInNeighborhood();
+                totWhiteInNeighborhood_B = totWhiteInNeighborhood_B + pctWhiteInNeighborhood_B;
+              //Priyasree_B$WStatistics===========================//
             }
             else {
                 this.ownerHistory.add(new BlockHistory(this.getNumVacantHousingUnits(), this.getRaceAndIncomeList(), 
@@ -2063,3 +2074,4 @@ public class Block {
         this.transitionProbabilityList_All = transitionProbabilityList;
     }*/
 } // end Block
+

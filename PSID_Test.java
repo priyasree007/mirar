@@ -10,7 +10,6 @@ import cern.colt.list.DoubleArrayList;
  * Note that this implements the PSID choice functions, which do not distinguish among renters and owners
  */
 public class PSID_Test extends AgentDecision {
-
 	/**
 	 * 
 	 */

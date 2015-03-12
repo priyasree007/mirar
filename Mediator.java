@@ -421,24 +421,25 @@ public class Mediator {
             int numOwnerAgents_AH = AgentHandler.getInstance().getOwnerAgentList().size();
             int numRenterAgents_AH = AgentHandler.getInstance().getRenterAgentList().size();
             
-            //if(MirarUtils.STEP_NUM==1){
+            if(MirarUtils.STEP_NUM==1){
             System.out.println("The city is... " + MirarUtils.CITY);
             System.out.println("Total Number of Agents:   " + (numOwnerAgents_AH + numRenterAgents_AH));
             System.out.println("numOwnerAgents_AH:   " + numOwnerAgents_AH  + "   numRenterAgents_AH:   " +  numRenterAgents_AH);
             System.out.println("numOwners_B:   " + numOwners_B  + "   numRenters_B:   " +  numRenters_B);
             System.out.println("numWhites:   " + numWhites_B  + "   numBlacks:   " +  numBlacks_B
             		+ "   numHisps:   " +  numHisps_B + "   numAsians:   " +  numAsians_B);
-            
-            System.out.println("BLACK  : " + AgentHandler.BlackAgents);
-            System.out.println("WHITE  : " + AgentHandler.WhiteAgents);
-            System.out.println("ASIAN  : " + AgentHandler.AsianAgents);
-            System.out.println("HISPANIC  : " + AgentHandler.HispanicAgents);
-            System.out.println("BLACK % Estimation : " + (AgentHandler.totBlackInNeighborhood/numBlacks_B));
-            System.out.println("WHITE % Estimation : " + (AgentHandler.totWhiteInNeighborhood/numWhites_B));
-            System.out.println("NumAgentHandler :" + AgentHandler.NumAgentHandler); //Priyasree
-            System.out.println("NumBlock :" + Block.NumBlock);                      //Priyasree
-            System.out.println("NumHousingUnit :" + HousingUnit.NumHousingUnit);    //Priyasree
-            System.out.println("BLOCK : " + Agent.Block);                           //Priyasree
+            }
+            System.out.println("BlockAgents  : " + MirarData.BlockAgents);
+            System.out.println("TOTAL BLACK % Estimation_B : " + (Block.totBlackInNeighborhood_B));
+            System.out.println("TOTAL WHITE % Estimation_B : " + (Block.totWhiteInNeighborhood_B));
+            if(MirarData.BlockAgents != 0) {
+                System.out.println("BLACK % Estimation_B : " + (Block.totBlackInNeighborhood_B/MirarData.BlockAgents));
+                System.out.println("WHITE % Estimation_B : " + (Block.totWhiteInNeighborhood_B/MirarData.BlockAgents));
+                MirarData.BlockAgents = 0;
+                }
+            Block.totBlackInNeighborhood_B = 0;
+            Block.totWhiteInNeighborhood_B = 0;
+                        
             System.out.println("Agent sample prop. is: " + MirarUtils.RENTER_AGENT_SAMPLE + " -- " + "Vacant unit sample prop. is " + MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE);
             //}
             
@@ -1307,7 +1308,7 @@ public class Mediator {
         }
         
         setupUtilities();
-        System.out.println("Renter Agent Sample is: " + MirarUtils.RENTER_AGENT_SAMPLE);//PriyasreeUncomment
+        /*System.out.println("Renter Agent Sample is: " + MirarUtils.RENTER_AGENT_SAMPLE);//PriyasreeUncomment
         System.out.println("Owner Agent Sample is: " + MirarUtils.OWNER_AGENT_SAMPLE);  //PriyasreeUncomment 
         System.out.println("Decision rule is: " + MirarUtils.AGENT_DECISION); 
         System.out.println("Renter Data Sample Proportion is: " + MirarUtils.RENTER_DATA_SAMPLE);//Priyasree
@@ -1330,7 +1331,7 @@ public class Mediator {
         System.out.println("Block Group Shp File is: " + MirarUtils.BLOCK_GROUP_SHP_FILE);//Priyasree
         System.out.println("Census Tract Shp File is: " + MirarUtils.CENSUS_TRACT_SHP_FILE);//Priyasree
         System.out.println("Run Mode is: " + MirarUtils.RUN_Mode);//Priyasree
-        
+*/        
        // setupRents();
     }
 
@@ -1442,3 +1443,4 @@ public class Mediator {
         return jumpHandler;
     }
 } // end Mediator
+

@@ -30,6 +30,7 @@ public class MirarData {
     File agentDir; // Priyasree_DeadCode : Unreachable code_
     File blockDir; // Priyasree_DeadCode : Unreachable code_  
     int numOutputs = 0; // Priyasree_DeadCode : Unreachable code_
+    static int BlockAgents;
     
     private static MirarData instance = new MirarData(); // Priyasree_DeadCode : Unreachable code_
 
@@ -187,7 +188,7 @@ public class MirarData {
                 blockOut_Owners.println("stfid,tick,vacancies,medianRent, neighPctBlk, neighPctWht, wht_0100,wht_0150,wht_0200,wht_0250,wht_0300,wht_0350,wht_0400,wht_0450,wht_0500,wht_0600,wht_0750,wht_01000,wht_01250,wht_01500,wht_02000,wht_0m200,blk_0100,blk_0150,blk_0200,blk_0250,blk_0300,blk_0350,blk_0400,blk_0450,blk_0500,blk_0600,blk_0750,blk_01000,blk_01250,blk_01500,blk_02000,blk_0m200,asn_0100,asn_0150,asn_0200,asn_0250,asn_0300,asn_0350,asn_0400,asn_0450,asn_0500,asn_0600,asn_0750,asn_01000,asn_01250,asn_01500,asn_02000,asn_0m200,hsp_0100,hsp_0150,hsp_0200,hsp_0250,hsp_0300,hsp_0350,hsp_0400,hsp_0450,hsp_0500,hsp_0600,hsp_0750,hsp_01000,hsp_01250,hsp_01500,hsp_02000,hsp_0m200,quantile1, quantile3, quantile5, quantile6, quantile9");                          
                 }
             Iterator blockIter = MirarUtils.BLOCKS.iterator();
-            while (blockIter.hasNext()) {
+            while (blockIter.hasNext()) {BlockAgents++;
                 blockOut_Renters.println(((Block)blockIter.next()).historyToString_Renter());
                 
               //  blockOut_Owners.println(((Block)blockIter.next()).historyToString_Owner());
@@ -257,3 +258,4 @@ public class MirarData {
     }
 
 }
+
