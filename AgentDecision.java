@@ -336,7 +336,7 @@ public abstract class AgentDecision {
     }*/
 //priyaComm: statistics collector objects, d entire thing can be minimized, Predicate class. Call the method once, 
    // collector obj: 2.9,2.10, 2.11
-    public double getPctWhiteInNeighborhood(Block b) { 
+/*    public double getPctWhiteInNeighborhood(Block b) { //Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
         int totalWAgents = b.getNumWhite();
 		for ( Object tb : b.getNeighbors() ) {
 			totalWAgents += ((Block) tb).getNumWhite();
@@ -347,7 +347,7 @@ public abstract class AgentDecision {
 			return totalWAgents / totalAgentsInNeighborhood ;
 		} 
 	   	return 0.0;
-    }
+    }*/
 
     /*public double getPctBlackInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
         ArrayList neighborhood = new ArrayList();
@@ -367,7 +367,7 @@ public abstract class AgentDecision {
         }
     }  */ 
  
-    public double getPctBlackInNeighborhood(Block b) { 
+    /*public double getPctBlackInNeighborhood(Block b) {  //Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
         int totalBAgents = b.getNumBlack();
 		for ( Object tb : b.getNeighbors() ) {
 			totalBAgents += ((Block) tb).getNumBlack();
@@ -378,7 +378,7 @@ public abstract class AgentDecision {
 			return totalBAgents / totalAgentsInNeighborhood ;
 		} 
 	   	return 0.0;
-    }
+    }*/
     
     /*public double getPctAsianInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_double getPctAsianInNeighborhoodOld(Block b)
         ArrayList neighborhood = new ArrayList();
@@ -398,7 +398,7 @@ public abstract class AgentDecision {
         }
     }*/
     
-    public double getPctAsianInNeighborhood(Block b) { 
+    /*public double getPctAsianInNeighborhood(Block b) { //Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
         int totalAAgents = b.getNumAsian();
 		for ( Object tb : b.getNeighbors() ) {
 			totalAAgents += ((Block) tb).getNumAsian();
@@ -409,7 +409,7 @@ public abstract class AgentDecision {
 			return totalAAgents / totalAgentsInNeighborhood ;
 		} 
 	   	return 0.0;
-    }
+    }*/
     
     /*public double getPctHispanicInNeighborhoodOld(Block b) { // Priyasree_DeadCode : Unreachable code_
         ArrayList neighborhood = new ArrayList();
@@ -429,7 +429,7 @@ public abstract class AgentDecision {
         }
     }*/
 
-    public double getPctHispanicInNeighborhood(Block b) { 
+/*    public double getPctHispanicInNeighborhood(Block b) { //Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
         int totalHAgents = b.getNumHispanic();
 		for ( Object tb : b.getNeighbors() ) {
 			totalHAgents += ((Block) tb).getNumHispanic();
@@ -440,7 +440,7 @@ public abstract class AgentDecision {
 			return totalHAgents / totalAgentsInNeighborhood ;
 		} 
 	   	return 0.0;
-    }
+    }*/
     
 }
  // end AgentDecision

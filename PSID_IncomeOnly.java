@@ -67,10 +67,10 @@ public class PSID_IncomeOnly extends AgentDecision {
 	        else {
 	        	double medInc = b.getNeighborhoodMedianIncome()/1000; 
               double ratIncome =  a.getIncome()/b.getNeighborhoodMedianIncome();
-              double pctBlackInNeighborhood = this.getPctBlackInNeighborhood(b);
-              double pctWhiteInNeighborhood = this.getPctWhiteInNeighborhood(b);
-              double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b);
-              double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b);
+              double pctBlkInNeighborhood = b.getPctBlkInNeighborhood();
+              double pctWhtInNeighborhood = b.getPctWhtInNeighborhood();
+              double pctHispInNeighborhood = b.getPctHispInNeighborhood();
+              double pctAsnInNeighborhood = b.getPctAsnInNeighborhood();
   	    	double ratPrice=(b.getMedianRent(tenure)*12.0)/a.getIncome();
            //   System.out.println("pct blk = " + pctBlackInNeighborhood + " and pctwhite = " + pctWhiteInNeighborhood); 
 

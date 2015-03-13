@@ -1,5 +1,10 @@
 package mirar;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Date;
 import java.util.ArrayList;
 
 import cern.colt.list.DoubleArrayList;
@@ -13,6 +18,14 @@ public class PSID_Test extends AgentDecision {
 	/**
 	 * 
 	 */
+	
+	String path = System.getProperty("user.dir");
+    String subDir = (path + "/" + "Run");
+    Date startDate = new Date();
+    String logpathName = (subDir + "/LogFile" + startDate + ".txt");
+    boolean subFolder = (new File(subDir)).mkdir();
+	
+	
 	public PSID_Test() {
 		super();
 	}
@@ -64,31 +77,52 @@ public class PSID_Test extends AgentDecision {
         else {
         	double medInc = b.getNeighborhoodMedianIncome()/1000; 
             double ratIncome =  a.getIncome()/b.getNeighborhoodMedianIncome();
-            double pctBlackInNeighborhood = this.getPctBlackInNeighborhood(b);
-            double pctWhiteInNeighborhood = this.getPctWhiteInNeighborhood(b);
-            double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b);
-            double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b);
+        	
+            //double pctBlackInNeighborhood = this.getPctBlackInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+            double pctBlkInNeighborhood = b.getPctBlkInNeighborhood();
+            //double pctWhiteInNeighborhood = this.getPctWhiteInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+            double pctWhtInNeighborhood = b.getPctWhtInNeighborhood();
+            //double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+            double pctHispInNeighborhood = b.getPctHispInNeighborhood();
+            //double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+            double pctAsnInNeighborhood = b.getPctAsnInNeighborhood();
 	    	double ratPrice=(b.getMedianRent(tenure)*12.0)/a.getIncome();
+	    	
+/*	    	try {
+	    		FileWriter fstream = new FileWriter(logpathName, true);
+	    		BufferedWriter out = new BufferedWriter(fstream);
+	    		out.write(pctWhiteInNeighborhood + "," + pctWhtInNeighborhood + "," +
+	    				  (pctWhiteInNeighborhood-pctWhtInNeighborhood));
+	    		out.newLine();
+	    		out.close();
+	    		}
+	    	catch (Exception e) {
+    		e.printStackTrace();
+    		}*/
             //System.out.println("pct blk = " + pctBlackInNeighborhood + " and pctwhite = " + pctWhiteInNeighborhood); 
 
    		if(a.getRace()==Agent.ASIAN){
         	utility = Math.exp( 
-        			5*pctAsianInNeighborhood
+//        			5*pctAsianInNeighborhood                Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+        			5*pctAsnInNeighborhood
         			);	
         	
         	}	else if(a.getRace()==Agent.WHITE) {
         	utility = Math.exp( 
-        			5*pctWhiteInNeighborhood
+//        			5*pctWhiteInNeighborhood                Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+        			5*pctWhtInNeighborhood
         			);	
         	
         	} else if(a.getRace()==Agent.BLACK) {
         	utility = Math.exp( 
-        			5*pctBlackInNeighborhood    			
+//        			5*pctBlackInNeighborhood    			Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+        			5*pctBlkInNeighborhood    			
         			);	
         	
         		} else if(a.getRace()==Agent.HISPANIC){
     	        	utility = Math.exp(  
-   		        		 5*pctHispanicInNeighborhood 
+//   		             5*pctHispanicInNeighborhood       Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+   		        		 5*pctHispInNeighborhood 
     	        		);		
         		}
   }
@@ -101,62 +135,68 @@ public class PSID_Test extends AgentDecision {
     	double medInc = b.getNeighborhoodMedianIncome()/1000; 
         double ratIncome =  a.getIncome()/b.getNeighborhoodMedianIncome();
     	double ratPrice=(b.getMedianRent(a.getTenure())*12.0)/a.getIncome();
-        double pctBlackInNeighborhood = this.getPctBlackInNeighborhood(b);
-        double pctWhiteInNeighborhood = this.getPctWhiteInNeighborhood(b);
-        double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b);
-        double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b);
+    	
+        //double pctBlackInNeighborhood = this.getPctBlackInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+        double pctBlkInNeighborhood = b.getPctBlkInNeighborhood();
+        //double pctWhiteInNeighborhood = this.getPctWhiteInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+        double pctWhtInNeighborhood = b.getPctWhtInNeighborhood();
+        //double pctHispanicInNeighborhood = this.getPctHispanicInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+        double pctHispInNeighborhood = b.getPctHispInNeighborhood();
+        //double pctAsianInNeighborhood = this.getPctAsianInNeighborhood(b); Priyasree_remove pctBlackInNeighborhood calculation in AgentDecision
+        double pctAsnInNeighborhood = b.getPctAsnInNeighborhood();
+        
       	double utility= -12.0;
 
        		if(a.getRace()==Agent.ASIAN){
 	        	utility = Math.exp( 
-		        		 +-.4207741*pctBlackInNeighborhood -3.082691*pctBlackInNeighborhood*pctBlackInNeighborhood
-		   	             + -2.143601*pctHispanicInNeighborhood -.3641764*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-		   	             + (-1.61123 + 14.98459)*pctAsianInNeighborhood + (-1.049479 + -17.68683)*pctAsianInNeighborhood*pctAsianInNeighborhood
-		   	             + -2.242075*pctWhiteInNeighborhood*pctWhiteInNeighborhood
+		        		 +-.4207741*pctBlkInNeighborhood -3.082691*pctBlkInNeighborhood*pctBlkInNeighborhood
+		   	             + -2.143601*pctHispInNeighborhood -.3641764*pctHispInNeighborhood*pctHispInNeighborhood
+		   	             + (-1.61123 + 14.98459)*pctAsnInNeighborhood + (-1.049479 + -17.68683)*pctAsnInNeighborhood*pctAsnInNeighborhood
+		   	             + -2.242075*pctWhtInNeighborhood*pctWhtInNeighborhood
 			   	         /*+  5.983235 */
-	        		 + -3.002274*pctBlackInNeighborhood + 6.126364*pctBlackInNeighborhood*pctBlackInNeighborhood
-	   	             + -1.487786*pctHispanicInNeighborhood + 2.698027*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-	   	             + (5.805005 + -12.25118)*pctAsianInNeighborhood + (-10.83766+22.0611)*pctAsianInNeighborhood*pctAsianInNeighborhood
-	   	             + .3502233*pctWhiteInNeighborhood*pctWhiteInNeighborhood
+	        		 + -3.002274*pctBlkInNeighborhood + 6.126364*pctBlkInNeighborhood*pctBlkInNeighborhood
+	   	             + -1.487786*pctHispInNeighborhood + 2.698027*pctHispInNeighborhood*pctHispInNeighborhood
+	   	             + (5.805005 + -12.25118)*pctAsnInNeighborhood + (-10.83766+22.0611)*pctAsnInNeighborhood*pctAsnInNeighborhood
+	   	             + .3502233*pctWhtInNeighborhood*pctWhtInNeighborhood
 	   	             );	
 	        	
 	        	}	else if(a.getRace()==Agent.WHITE) {
 	        	utility = Math.exp( 
-		        		 +-.4207741*pctBlackInNeighborhood -3.082691*pctBlackInNeighborhood*pctBlackInNeighborhood
-		   	             + -2.143601*pctHispanicInNeighborhood -.3641764*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-		   	             + (-1.61123)*pctAsianInNeighborhood + (-1.049479)*pctAsianInNeighborhood*pctAsianInNeighborhood
-		   	             + (-2.242075+2.009974)*pctWhiteInNeighborhood*pctWhiteInNeighborhood
+		        		 +-.4207741*pctBlkInNeighborhood -3.082691*pctBlkInNeighborhood*pctBlkInNeighborhood
+		   	             + -2.143601*pctHispInNeighborhood -.3641764*pctHispInNeighborhood*pctHispInNeighborhood
+		   	             + (-1.61123)*pctAsnInNeighborhood + (-1.049479)*pctAsnInNeighborhood*pctAsnInNeighborhood
+		   	             + (-2.242075+2.009974)*pctWhtInNeighborhood*pctWhtInNeighborhood
 			   	         /*+  5.983235 */
-		        		 + -3.002274*pctBlackInNeighborhood + 6.126364*pctBlackInNeighborhood*pctBlackInNeighborhood
-		   	             + -1.487786*pctHispanicInNeighborhood + 2.698027*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-		   	             + (5.805005)*pctAsianInNeighborhood + (-10.83766)*pctAsianInNeighborhood*pctAsianInNeighborhood
-		   	             + (-.9886524+.3502233)*pctWhiteInNeighborhood*pctWhiteInNeighborhood
+		        		 + -3.002274*pctBlkInNeighborhood + 6.126364*pctBlkInNeighborhood*pctBlkInNeighborhood
+		   	             + -1.487786*pctHispInNeighborhood + 2.698027*pctHispInNeighborhood*pctHispInNeighborhood
+		   	             + (5.805005)*pctAsnInNeighborhood + (-10.83766)*pctAsnInNeighborhood*pctAsnInNeighborhood
+		   	             + (-.9886524+.3502233)*pctWhtInNeighborhood*pctWhtInNeighborhood
 	        			);	
 	        	
 	        	} else if(a.getRace()==Agent.BLACK) {
 	        	utility = Math.exp( 
-		        		 +(-.4207741+5.146369)*pctBlackInNeighborhood + (-3.082691-.5826424)*pctBlackInNeighborhood*pctBlackInNeighborhood
-		   	             + (-2.143601+1.386053)*pctHispanicInNeighborhood + (-.3641764-.7654816)*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-		   	             + (-1.61123)*pctAsianInNeighborhood + (-1.049479)*pctAsianInNeighborhood*pctAsianInNeighborhood
-		   	             + -2.242075*pctWhiteInNeighborhood*pctWhiteInNeighborhood         			
+		        		 +(-.4207741+5.146369)*pctBlkInNeighborhood + (-3.082691-.5826424)*pctBlkInNeighborhood*pctBlkInNeighborhood
+		   	             + (-2.143601+1.386053)*pctHispInNeighborhood + (-.3641764-.7654816)*pctHispInNeighborhood*pctHispInNeighborhood
+		   	             + (-1.61123)*pctAsnInNeighborhood + (-1.049479)*pctAsnInNeighborhood*pctAsnInNeighborhood
+		   	             + -2.242075*pctWhtInNeighborhood*pctWhtInNeighborhood         			
 			   	         /*+  5.983235 */
-		        		 + (-3.002274+-1.935416)*pctBlackInNeighborhood + (6.126364-1.940417)*pctBlackInNeighborhood*pctBlackInNeighborhood
-		   	             + (3.03592-1.487786)*pctHispanicInNeighborhood + (-3.159731+2.698027)*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-		   	             + (5.805005)*pctAsianInNeighborhood + (-10.83766)*pctAsianInNeighborhood*pctAsianInNeighborhood
-		   	             + .3502233*pctWhiteInNeighborhood*pctWhiteInNeighborhood
+		        		 + (-3.002274+-1.935416)*pctBlkInNeighborhood + (6.126364-1.940417)*pctBlkInNeighborhood*pctBlkInNeighborhood
+		   	             + (3.03592-1.487786)*pctHispInNeighborhood + (-3.159731+2.698027)*pctHispInNeighborhood*pctHispInNeighborhood
+		   	             + (5.805005)*pctAsnInNeighborhood + (-10.83766)*pctAsnInNeighborhood*pctAsnInNeighborhood
+		   	             + .3502233*pctWhtInNeighborhood*pctWhtInNeighborhood
 	        			);	
 	        	
 	        		} else if(a.getRace()==Agent.HISPANIC){
 	    	        	utility = Math.exp( 
-		   		        		 +(.3592121+-.4207741)*pctBlackInNeighborhood + (-3.082691+.2229024)*pctBlackInNeighborhood*pctBlackInNeighborhood
-		   		   	             + (-2.143601+8.121124)*pctHispanicInNeighborhood + (-.3641764-3.704257)*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-		   		   	             + (-1.61123)*pctAsianInNeighborhood + (-1.049479)*pctAsianInNeighborhood*pctAsianInNeighborhood
-		   		   	             + -2.242075*pctWhiteInNeighborhood*pctWhiteInNeighborhood      
+		   		        		 +(.3592121+-.4207741)*pctBlkInNeighborhood + (-3.082691+.2229024)*pctBlkInNeighborhood*pctBlkInNeighborhood
+		   		   	             + (-2.143601+8.121124)*pctHispInNeighborhood + (-.3641764-3.704257)*pctHispInNeighborhood*pctHispInNeighborhood
+		   		   	             + (-1.61123)*pctAsnInNeighborhood + (-1.049479)*pctAsnInNeighborhood*pctAsnInNeighborhood
+		   		   	             + -2.242075*pctWhtInNeighborhood*pctWhtInNeighborhood      
 					   	         /*+  5.983235 */
-				        		 + (-3.002274+4.366643)*pctBlackInNeighborhood + (6.126364+-2.746321)*pctBlackInNeighborhood*pctBlackInNeighborhood
-				   	             + (.1024769-1.487786)*pctHispanicInNeighborhood + (2.698027+-1.666003)*pctHispanicInNeighborhood*pctHispanicInNeighborhood
-				   	             + (5.805005)*pctAsianInNeighborhood + (-10.83766)*pctAsianInNeighborhood*pctAsianInNeighborhood
-				   	             + .3502233*pctWhiteInNeighborhood*pctWhiteInNeighborhood
+				        		 + (-3.002274+4.366643)*pctBlkInNeighborhood + (6.126364+-2.746321)*pctBlkInNeighborhood*pctBlkInNeighborhood
+				   	             + (.1024769-1.487786)*pctHispInNeighborhood + (2.698027+-1.666003)*pctHispInNeighborhood*pctHispInNeighborhood
+				   	             + (5.805005)*pctAsnInNeighborhood + (-10.83766)*pctAsnInNeighborhood*pctAsnInNeighborhood
+				   	             + .3502233*pctWhtInNeighborhood*pctWhtInNeighborhood
 	    	        			);		
 	        		}
         	return utility; 
