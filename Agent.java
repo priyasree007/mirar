@@ -112,7 +112,7 @@ public class Agent {
      * @return HousingUnit
      * 		destination housing unit (may be agent's current unit)
      */
-    public HousingUnit move(ArrayList housingUnitList) { // Priyasree_DeadCode : Unreachable code_
+    public HousingUnit move(ArrayList housingUnitList) {
         boolean notThere = false;
         if (this.getHousingUnit().getAgent() == null) notThere = true;
        
@@ -171,7 +171,6 @@ public class Agent {
             moveIn(moveToUnit);
             this.addToMemory();
         }
-       // possibleHousingUnitList.clear();
         return moveToUnit;
     }
  
@@ -181,7 +180,7 @@ public class Agent {
      * 
      * @param hu
      */
-    public void moveIn(HousingUnit h) { // Priyasree_DeadCode : Unreachable code_
+    public void moveIn(HousingUnit h) { 
         if (h == null) ErrorLog.getInstance().logError("Agent#MoveIn could not get housing Unit to move in to");
         h.addAgent(this);
         this.setSTFID(h.getBlock().getSTFID());
@@ -195,7 +194,7 @@ public class Agent {
      * removes agent from current hu
      *
      */
-    public void moveOut() { // Priyasree_DeadCode : Unreachable code_
+    public void moveOut() { 
         if (this.getHousingUnit().getAgent() == null)ErrorLog.getInstance().logError("Agent#MoveOut  agent moveIn HousingUnit.getAgent() agent is null");
         this.housingUnit.removeAgent();
     }
@@ -216,34 +215,18 @@ public class Agent {
         return MirarUtils.AGENT_DECISION.computeUtility(b, this, tenure);
     }
     
-    public double computeMarginalUtility(Block b, int tenure){ // Priyasree_DeadCode : Unreachable code_
+    public double computeMarginalUtility(Block b, int tenure){ 
     	return MirarUtils.AGENT_DECISION.computeMarginalUtility(b, tenure);
     }
     
-    public double computePrice(double marginalUtil, Block b, int tenure){ // Priyasree_DeadCode : Unreachable code_
+    public double computePrice(double marginalUtil, Block b, int tenure){ 
     	return MirarUtils.AGENT_DECISION.solveForPrice(marginalUtil, b, tenure);
     }
     
-  
 
-    /**
-     * @return Returns the block.
-     */
-    /*public int getBlockNum() { // Priyasree_DeadCode : Unreachable code_
-        return blockNum;
-    }*/
-
-    /**
-     * @param blockNum
-     *            sets the blockNumber of the Block that the agent occupies
-     */
-    /*public void setBlockNum(int blockNum) { // Priyasree_DeadCode : Unreachable code_
-        this.blockNum = blockNum;
-    }*/
-
-    public Block getBlock() {     Block++;  // Priyasree_DeadCode : Unreachable code_
+    /*public Block getBlock() {     Block++;  // Priyasree_DeadCode : Unreachable code_
         return (Block) CensusUnitHandler.getInstance().getBlock(this.blockNum); // Priyasree_Audit : Unnecessary type cast to Block_Delete the unnecessary cast.
-    }
+    }*/
   
     public double getIncome() {
         return income;
@@ -255,7 +238,6 @@ public class Agent {
      * @param income
      */ 
     public void setIncome(double income) { 
-      //  MirarUtils.subtractIncome(this.income);  ### don't need to subtract in version 1
         this.income = income;
         if (this.addToIncomeList == true) {  // Priyasree_Audit : Equality test with boolean literal: true_ Remove the comparison with true. 
             MirarUtils.addIncome(income);
@@ -279,18 +261,21 @@ public class Agent {
     }
 
    
-    /*public void setRace(int race) { // Priyasree_DeadCode : Unreachable code_
+   /* public void setRace(int race) { // Priyasree_DeadCode : Unreachable code_
         this.race = race;
     }*/
     public int getHousingUnitNum() { 
         return this.getHousingUnit().getHousingUnitNum();
     }
+    
     public void setHousingUnitNum(int housingUnitNum) { 
         this.housingUnitNum = housingUnitNum;
     }
+    
     public HousingUnit getHousingUnit() { 
             return CensusUnitHandler.getInstance().getHousingUnit(this.stfid, this.housingUnitNum, this.getTenure());
     }
+    
     public void setHousingUnit(HousingUnit housingUnit) {
         this.housingUnit = housingUnit;
        
@@ -302,15 +287,15 @@ public class Agent {
     public ArrayList getPossibleHousingUnitList() { // Priyasree_DeadCode : Unreachable code_
         return possibleHousingUnitList;
     }
-    /*public void setPossibleHousingUnitList(ArrayList possibleHousingUnitList) { // Priyasree_DeadCode : Unreachable code_
+    public void setPossibleHousingUnitList(ArrayList possibleHousingUnitList) { // Priyasree_DeadCode : Unreachable code_
         this.possibleHousingUnitList = possibleHousingUnitList;
-    }*/
+    }
     public int getAgentNum() { // Priyasree_DeadCode : Unreachable code_
         return agentNum;
     }
-    /*public void setAgentNum(int agentNum) { // Priyasree_DeadCode : Unreachable code_
+    public void setAgentNum(int agentNum) { // Priyasree_DeadCode : Unreachable code_
         this.agentNum = agentNum;
-    }*/
+    }
     
     public String getSTFID() { 
         return stfid;
@@ -320,23 +305,12 @@ public class Agent {
         this.stfid = stfid;
     }
     
-    /*public ArrayList getMemory() { // Priyasree_DeadCode : Unreachable code_
-        return memory;
-    }*/
-    /*public void setMemory(ArrayList memory) { // Priyasree_DeadCode : Unreachable code_
-        this.memory = memory;
-    }*/
-    /*public boolean isSampled() { // Priyasree_DeadCode : Unreachable code_
-        return sampled;
-    }*/
-    /*public void setSampled(boolean sampled) { // Priyasree_DeadCode : Unreachable code_
-        this.sampled = sampled;
-    }*/
+
     
-    /*public String toString() { // Priyasree_DeadCode : Unreachable code_
+    public String toString() { // Priyasree_DeadCode : Unreachable code_
         return ("agent num: " + this.agentNum + " STFID: " + this.stfid + " housing unit: " + this.housingUnitNum
                 + " race: " + this.raceToString() + " income: " + this.getIncome()); 
-    }*/
+    }
     
     /**
      * call the createMemoryString function with two parameters:  the current step number and the value
@@ -353,51 +327,20 @@ public class Agent {
         // first print interval of the model.  agent is considered sampled for step 0
         if (carryOverMemory == null) {
             return createMemoryString(MirarUtils.STEP_NUM, 1 );
-        }
-       // else {  // there is a carryOverHistory
-           
-            // there are no histories in the list thus the agent was not sampled for the 
-            // first tick of the interval
+            }    
+        // there are no histories in the list thus the agent was not sampled for the 
+        // first tick of the interval
         else   if (this.memory.size() == 0) { 
-                memory.add(carryOverMemory);
-           //    if (carryOverMemory.getStepNum() == (MirarUtils.STEP_NUM +1)) 
-           //        System.out.println("*++++  Agent#memoryToString add memory to mem size== 0) : carryOverMem:  " + carryOverMemory.getStepNum() + 
-           //                 " cueeStepNum " + MirarUtils.STEP_NUM);
-         //       System.out.println("Agent#memoryToString add memory to mem size 0:  carry over StepNum:  " + carryOverMemory.getStepNum()  + " currentStepNUM " + MirarUtils.STEP_NUM);
-                return createMemoryString(MirarUtils.PRINT_INTERVAL, 2);
+            memory.add(carryOverMemory);
+            return createMemoryString(MirarUtils.PRINT_INTERVAL, 2);
             }
-           // else {
-              
-                //memory.0 is the same step as the carry over history - don't need the carry over memory
-                // agent was sampled for the first tick of the print interval
-            else    if (((AgentMemory)this.memory.get(0)).getStepNum() == carryOverMemory.getStepNum()) {
-                    
-                  //  if (carryOverMemory.getStepNum() == (MirarUtils.STEP_NUM +1)) 
-                 //       System.out.println("*------  Agent#memoryToString add memory to mem size  0 : carryOverMem:  " + carryOverMemory.getStepNum() + 
-                 //               " cueeStepNum " + MirarUtils.STEP_NUM);
-                  //  System.out.println("Agent#memoryToString Don;t add memory to mem size (not 0) : " + memory.size() +
-                    //        "   carry over StepNum:  " + carryOverMemory.getStepNum()  + " currentStepNUM " +
-                    //        MirarUtils.STEP_NUM  + "memory 0 step NUm  "+ ((AgentMemory)this.memory.get(0)).getStepNum());
-                    
-                    
-                    return createMemoryString(MirarUtils.PRINT_INTERVAL, 1);
-                }
-                else { 
-                    // need to use the carry over history
-                    //the agent was not sampled for the 
-                    // first tick of the interval
-                    this.memory.add(0, carryOverMemory);
-                //    if (carryOverMemory.getStepNum() == (MirarUtils.STEP_NUM )) 
-                //        System.out.println("*++++  Agent#memoryToString add memory to mem size (not 0) : carryOverMem:  " + carryOverMemory.getStepNum() + 
-                 //               " cueeStepNum " + MirarUtils.STEP_NUM);
-             //       System.out.println("Agent#memoryToString add memory to mem size (not 0) : " + memory.size() + "   carry over StepNum:  " + carryOverMemory.getStepNum()  + " currentStepNUM " + MirarUtils.STEP_NUM);
-                    // return createHistoryString();
-                    return createMemoryString(MirarUtils.PRINT_INTERVAL, 2);
-                }
-           // }
-       // }
-        
-       
+        else    if (((AgentMemory)this.memory.get(0)).getStepNum() == carryOverMemory.getStepNum()) { 
+            return createMemoryString(MirarUtils.PRINT_INTERVAL, 1);
+            }
+        else { 
+            this.memory.add(0, carryOverMemory);
+            return createMemoryString(MirarUtils.PRINT_INTERVAL, 2);
+                }       
     }
     
     /**
@@ -421,9 +364,6 @@ public class Agent {
         // add race-income type  
         result.append((this.getRace()*MirarUtils.NUM_INCOMES) + this.getIncomeCategory() + ",") ;// Priyasree_Audit :  Accidental Concatenation_Enclose the sub-expression in parentheses. 
         //add stfid from 1st step - initialization
-     //  if (((AgentMemory)memory.get(0)).getStepNum() == (MirarUtils.STEP_NUM + 1)) 
-          // System.out.println("***********  prepend mem == StepNUm+1 prepend:  " + ((AgentMemory)memory.get(0)).getStepNum() + 
-           //        " cueeStepNum " + MirarUtils.STEP_NUM);
         result.append("" + firstMemoryPrepend + "" + ((AgentMemory)memory.get(0)).getSTFID() + "," );
      
         // add remaining memory STFIDs - for 1 through last set of model
@@ -478,44 +418,7 @@ public class Agent {
         return result.toString();
     }
     
-    /*public String testMemoryToString() { // Priyasree_DeadCode : Unreachable code_
-        StringBuffer result = new StringBuffer();
-        result.append("" + MirarUtils.STEP_NUM + ",") ;
-        int memoryLength = memory.size();
-        int totalMemory = memoryLength;
-        int stepNum = 1;
-        for (int i=0; i<memoryLength; i++) {
-        	int currStep =  ((AgentMemory)memory.get(i)).getStepNum();
-        	
-        	// check for steps before the initial move of the agents
-        	if (i>0) {
-        		int prevStep =  ((AgentMemory)memory.get(i-1)).getStepNum();
-        		
-        		int difference = currStep - prevStep;
-        		if (difference > 1) {
-        			for(int j=1;j<difference;j++){
-        				result.append("2 " + ((AgentMemory)memory.get(i-1)).toString() +  "  stepNUM: " + ((AgentMemory)memory.get(i-1)).getStepNum() + " added first IF  ,");
-        				totalMemory++;
-        				stepNum++;
-        			}
-        		}
-        	}
-        	result.append("1 " + ((AgentMemory)memory.get(i)).toString() +  "  stepNUM: " + ((AgentMemory)memory.get(i)).getStepNum() + " added no IF ,");
-        stepNum++;
-        }
-        
-        // this should take care of the remains at the end
-        if (totalMemory < MirarUtils.STEP_NUM + 1) {
-    		for (int k=totalMemory; k<MirarUtils.STEP_NUM+1; k++) {
-    			result.append("2 " + ((AgentMemory)memory.get(memoryLength-1)).toString() +  "  stepNUM: " + ((AgentMemory)memory.get(memoryLength-1)).getStepNum() + " added Last IF , total Mem: " + totalMemory + " ,");
-    			stepNum++;
-    		}
-    	}
-        result.deleteCharAt(result.length()-1);
-        return result.toString();
-    }
-    */
-    /*public String raceToString() { // Priyasree_DeadCode : Unreachable code_
+    public String raceToString() { // Priyasree_DeadCode : Unreachable code_
         switch (this.getRace()) {
             case 0 : return "white"; 
             case 1 : return "black"; 
@@ -523,13 +426,13 @@ public class Agent {
             case 3 : return "hispanic"; 
             default : return "race not specified"; 
         }
-    }*/
+    }
 
     public int getTenure() { 
         return tenure;
     }
 
-    /*public void setTenure(int tenure) { // Priyasree_DeadCode : Unreachable code_
+    public void setTenure(int tenure) { // Priyasree_DeadCode : Unreachable code_
         this.tenure = tenure;
-    }*/
+    }
 } // end Agent

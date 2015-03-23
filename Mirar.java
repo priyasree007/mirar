@@ -151,13 +151,6 @@ public class Mirar extends SimModelImpl {
     
 //priyaComm: use aspects to create a run log which will display the parameter values.    
     public void setup() {
-    	//Priyasree_Remove scattered Parameters
-        /*MirarUtils.RENTER_AGENT_SAMPLE = 0.001;
-        MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE = 0.01;
-        MirarUtils.OWNER_AGENT_SAMPLE = 0.001;
-        MirarUtils.OWNER_VACANT_HOUSING_UNIT_SAMPLE = 0.01;
-        // MirarUtils.AGENT_DECISION_STRING = "RaceAndIncomeNeighborhood";
-        MirarUtils.DISPLAY_UPDATE_INTERVAL = 5;*/
         schedule = null;
         schedule = new Schedule();
 
@@ -458,96 +451,6 @@ public class Mirar extends SimModelImpl {
             }
             init.loadModel(model, null, false);
         }
-        
-        
-      //Priyasree_Remove scattered Parameters
-        
-		/*if (args.length > 0) {
-		    MirarUtils.RENTER_DATA_FILE = args[0];
-		}
-		if (args.length > 1) {
-		    MirarUtils.OWNER_DATA_FILE = args[1];
-		}
-		if (args.length >0) {
-		    MirarUtils.NEIGHBORHOOD_DATA_FILE = args[0];
-		}*/
-		/*if (args.length >0) {
-		    MirarUtils.BLOCK_SHP_FILE = args[0];
-		    //System.out.println("BLOCK_SHP_FILE : " + MirarUtils.BLOCK_SHP_FILE);//PU
-		}
-		if (args.length >1) {
-		    MirarUtils.BLOCK_GROUP_SHP_FILE = args[1];
-		}
-		if (args.length >2) {
-		    MirarUtils.CENSUS_TRACT_SHP_FILE = args[2];
-		}*/
-       
-      
-          /*if (args.length > 6) {
-            if (MirarUtils.AGENT_DECISION == null) {
-                
-                if (args[6].equalsIgnoreCase("ThresholdRace")) {
-                    MirarUtils.AGENT_DECISION = new ThresholdRace();
-                }
-                else if (args[6].equalsIgnoreCase("RaceAndIncomeNeighborhood")) {
-                    MirarUtils.AGENT_DECISION = new RaceAndIncomeNeighborhood();
-                }
-                else if (args[6].equalsIgnoreCase("RaceAndIncomeNeighborhoodOptimal")) {
-                    MirarUtils.AGENT_DECISION = new RaceAndIncomeNeighborhoodOptimal();
-                }
-                else if (args[6].equalsIgnoreCase("ContsRace")) {
-                   MirarUtils.AGENT_DECISION = new ContsRace();
-                }
-                else if (args[6].equalsIgnoreCase("StaircaseRace")) {
-                    MirarUtils.AGENT_DECISION = new StaircaseRace();
-                }
-                else if (args[6].equalsIgnoreCase("ThresholdIncome")) {
-                    MirarUtils.AGENT_DECISION = new ThresholdIncome();
-                } 
-                else if (args[6].equalsIgnoreCase("PSID_RaceIncome")) {
-                    MirarUtils.AGENT_DECISION = new PSID_RaceIncome();
-                } 
-                else if (args[6].equalsIgnoreCase("PSID_IncomeOnly")) {
-                    MirarUtils.AGENT_DECISION = new PSID_IncomeOnly();
-                } 
-                else if (args[6].equalsIgnoreCase("PSID_RaceOnly")) {
-                    MirarUtils.AGENT_DECISION = new PSID_RaceOnly();             
-                    
-                }
-                else if (args[6].equalsIgnoreCase("PSID_Test")) { //Priyasree_Test
-                    MirarUtils.AGENT_DECISION = new PSID_Test();
-                }
-                else if(args[6].equalsIgnoreCase("MCSUIdecision")){
-                	MirarUtils.AGENT_DECISION = new MCSUIdecision();
-                	
-                } else if(args[6].equalsIgnoreCase("CensusPumsRaceOnly")){
-                	MirarUtils.AGENT_DECISION = new CensusPumsRaceOnly();
-               
-                } else if(args[6].equalsIgnoreCase("CensusPumsRaceInc")){
-                	MirarUtils.AGENT_DECISION = new CensusPumsRaceInc();
-               
-                } else if(args[6].equalsIgnoreCase("CensusPumsIncOnly")){
-                	MirarUtils.AGENT_DECISION = new CensusPumsIncOnly();
-                }  else {
-                    ErrorLog.getInstance().logError("Mirar#main could not find agent decision class to intialize model with");
-                }
-            }
-        }
-*/
-         
-    
-/*        if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
-        	//System.out.println("RENTER_DATA_FILE 1: " + MirarUtils.RENTER_DATA_FILE);//PU
-            init.loadModel(model, "./mirarParams.pf", true);
-        }
-        else{ // using the GUI
-            try {
-                String nativeLF = UIManager.getSystemLookAndFeelClassName();
-                UIManager.setLookAndFeel(nativeLF);
-            } catch (Exception e) { // Priyasree_Audit: Empty catch clause for exception e_Delete the empty catch clause. // Priyasree_Audit: Caught exception not logged_Use one of the logging methods to log the exception.
-            }
-            init.loadModel(model, null, false);
-        }*/
     }  
 		
 }// end Model
