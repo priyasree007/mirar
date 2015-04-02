@@ -20,12 +20,10 @@ public class CensusUnitHandler {
   /**
    * proportion of STF data to use to create agents. 
    */
-   // private double sampleProportion = .1; // Priyasree_DeadCode : Unreachable code_double sampleProportion
     
     private ArrayList censusTractList = new ArrayList(); 
     private ArrayList blockGroupList = new ArrayList(); 
     private ArrayList blockList = null; 
-  //  public Mediator mediator; 
 
     private static CensusUnitHandler instance = new CensusUnitHandler();
 
@@ -43,19 +41,14 @@ public class CensusUnitHandler {
         for (int i=0; i<stfidList.size(); i++) {
             int censusTractNum = Integer.parseInt(((String)stfidList.get(i)).substring(5, 11));
             CensusTract ct = this.getCensusTract(censusTractNum);
-            //System.out.println("CUH: prepareCensusUnits - tractNum: " + censusTractNum);
+            
             if ( ct == null) {
                 ct = new CensusTract(censusTractNum);
                 censusTractList.add(ct);
-                //System.out.println("\t CensusTract null: " + censusTractNum);
             }
-           // else System.out.println("Alread had censusTract: " + censusTractNum);
-            //censusTractNum = Integer.parseInt(stfid.substring(5, 11));
             int blockGroupNum = Integer.parseInt(((String)stfidList.get(i)).substring(11, 12));
             ct.addBlockGroup(blockGroupNum);
             ct.addBlock(blockGroupNum,Integer.parseInt(((String)stfidList.get(i)).substring(11)), ((String)stfidList.get(i)).substring(5));
-           // this.blockGroupNum = Integer.parseInt(stfid.substring(11, 12));
-            //this.blockNum = Integer.parseInt(stfid.substring(11));   
             
             
         }
@@ -72,7 +65,6 @@ public class CensusUnitHandler {
 
 
   public ArrayList getBlockGroupList() {  
-  //      System.out.println("CensusUnit handler: get BlockGroupList -- " + blockGroupList.size() );
         return blockGroupList;
     } // end getBlockGroups        
 
@@ -98,14 +90,6 @@ public class CensusUnitHandler {
     
     return blocks;
         
-        /*if (blockList == null || blockList.size() == 0) {
-        //ArrayList
-            blockList = new ArrayList();
-            for (int i=0; i<censusTractList.size(); i++) {
-                blockList.addAll( ((CensusTract)censusTractList.get(i)).getAllBlocks() );
-            }
-        }
-        return blockList;*/
     }
     
     public ArrayList getBlocks(ArrayList stfidList) {
@@ -117,31 +101,13 @@ public class CensusUnitHandler {
         }
         return blocks;
     }
-    
-    
-    /* not used ? RN - 9-21-05
-     * 
-     * public ArrayList sampleAgents() {
-    //    ArrayList blocks = this.getAllBlocks();
-        ArrayList agentList = new ArrayList();
-        
-        //for (int i=0; i<blocks.size(); i++) {
-        Iterator blockIter = MirarUtils.BLOCKS.iterator();
-        while (blockIter.hasNext() ) {
-            agentList.addAll( ((Block)blockIter.next()).sampleAgents() );
-        }
-        return agentList;
-    }
-    */
+
     
     public ArrayList getAllAgents() {
-        //ArrayList blocks = this.getAllBlocks();
         ArrayList housingUnitList = new ArrayList();
         ArrayList agentList = new ArrayList();
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         while (blockIter.hasNext()) {
-        //for (int i=0; i<blocks.size(); i++) {
-//            housingUnitList_Renters.addAll( ((Block)blocks.get(i)).getHousingUnitList() );
             housingUnitList.addAll( ((Block)blockIter.next()).getHousingUnitList_Renters() );
         }
         for (int i=0; i<housingUnitList.size(); i++) {
@@ -154,30 +120,20 @@ public class CensusUnitHandler {
     }
     
     public ArrayList sampleVacantHousingUnits(int tenure) {
-        //ArrayList blocks = this.getAllBlocks();
         ArrayList housingUnitList = new ArrayList();
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         while (blockIter.hasNext()) {
-        //for (int i=0; i<blocks.size(); i++) {
-//            housingUnitList_Renters.addAll( ((Block)blocks.get(i)).sampleVacantHousingUnits() );
             housingUnitList.addAll( ((Block)blockIter.next() ).sampleVacantHousingUnits(tenure) );
         }
-       // System.out.println("\t+++++++   CUH vacantUnitlise size" + housingUnitList_Renters.size());
-      //  blocks.clear();
         return housingUnitList;
     }
     
     public ArrayList sampleVacantHousingUnits() {
-        //ArrayList blocks = this.getAllBlocks();
         ArrayList housingUnitList = new ArrayList();
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         while (blockIter.hasNext()) {
-        //for (int i=0; i<blocks.size(); i++) {
-//            housingUnitList_Renters.addAll( ((Block)blocks.get(i)).sampleVacantHousingUnits() );
             housingUnitList.addAll( ((Block)blockIter.next() ).sampleVacantHousingUnits() );
         }
-       // System.out.println("\t+++++++   CUH vacantUnitlise size" + housingUnitList_Renters.size());
-      //  blocks.clear();
         return housingUnitList;
     }
     
@@ -221,43 +177,16 @@ public class CensusUnitHandler {
         ArrayList housingUnitList = new ArrayList();
         
        for (int i=0; i<blocks.size(); i++) {
-      //  Iterator blockIter = MirarUtils.BLOCKS.iterator();
-     //   while (blockIter.hasNext()) {
-   //     	System.out.println(((Block)blockIter.next()).getHousingUnitList_Owners() );
-   //     	System.out.println("size of housing unit list " + housingUnitList.size());
-       // housingUnitList_Renters.addAll( ((Block)blocks.get(i)).getHousingUnitList() );
-        	//System.out.println(((Block)blockIter.next()).getSTFID());
         housingUnitList.addAll( ((Block)blocks.get(i)).getHousingUnitList_Renters() );
-        //	System.out.println(((Block)blockIter.next()).getSTFID());
         housingUnitList.addAll( ((Block)blocks.get(i)).getHousingUnitList_Owners() );
-        //    System.out.println("Done with loop");
         }
         return housingUnitList;
     }
     
-    /*
-     * not used ? RN Sep. 30, 2005
-     * 
-     * public void updateHousingUnit(String stfid, int huNum, boolean occupied, Agent agent) {
-        Block b = this.getBlock(stfid);
-        b.updateHousingUnit(huNum, occupied, agent);
-    }*/
-    
-   /* public ArrayList getBlockList() {        
-        return blockList;
-    } // end getBlocks        
-*/
     public void setBlocks(ArrayList list) {        
         this.blockList = list;
     } // end setBlocks        
 
-    
-   /* public void addBlock(int blockNum) {
-        if (blockList == null) {
-            this.blockList = new ArrayList();
-        }
-        blockList.add(new Block(blockNum));
-    }*/
     
     public void addBlock(String stfid) {
         if (blockList == null) {
@@ -267,7 +196,6 @@ public class CensusUnitHandler {
         {
             for (int i=0; i<blockList.size(); i++) {
                 if (stfid.equals(((Block)blockList.get(i)).getSTFID())) {
-                  //  System.out.println("repeat block stfid");
                     return;
                     
                 }
@@ -285,7 +213,6 @@ public class CensusUnitHandler {
         {
             for (int i=0; i<blockList.size(); i++) {
                 if (block.getSTFID().equals(((Block)blockList.get(i)).getSTFID())) {
-                  //  System.out.println("repeat block stfid");
                     return;
                     
                 }
@@ -300,7 +227,6 @@ public class CensusUnitHandler {
         if (bg == null) {
             bg = new BlockGroup(block.getCensusTractNum(), block.getBlockGroupNum());
             addBlockGroup(block.getCensusTractNum(), block.getBlockGroupNum());
-            //bg = getBlockGroup(block.getBlockGroupNum(), bg.getCensusTractNum());
         }
         bg.addBlock(block.getBlockNum());
     }
@@ -330,13 +256,9 @@ public class CensusUnitHandler {
  * @param blockNum block number requested corresponds to BLOCK2000 in shp file and features
  */
     public Block getBlock(int blockNum) {       
-        //ArrayList blocks = getAllBlocks();
-        // search blockLIst for correct blockNum
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         Block b = null;
-        //for (int i=0; i<blocks.size(); i++) {
         while (blockIter.hasNext()) {   
-//        if ( ((Block)blocks.get(i)).getBlockNum() == blockNum ) {
             b = (Block) blockIter.next();
             if ( b.getBlockNum() == blockNum ) {
                 return b;
@@ -376,7 +298,6 @@ public class CensusUnitHandler {
     }
     
     public Block getBlock(int censusTractNum, int blockGroupNum, int blockNum) {
-        //Block b = null;
         if (this.hasCensusTract(censusTractNum) ) {
             CensusTract ct = (CensusTract)this.getCensusTract(censusTractNum); //Priyasree_Audit: Unnecessary type cast to CensusTract_Delete the unnecessary cast.
             if (ct.hasBlockGroup(blockGroupNum) ) {
@@ -385,7 +306,6 @@ public class CensusUnitHandler {
                      return bg.getBlock(blockNum);
                 }
             }
-            //return ().getBlock(blockGroupNum, blockNum);
         }
         return null;
     }
@@ -395,19 +315,9 @@ public class CensusUnitHandler {
         int blockGroupNum = Integer.parseInt(bgString.substring(0,1));
         Block b =  this.getBlock(censusTractNum, blockGroupNum, blockNum);
         return b;
-        //((CensusTract)censusTractList.get(censusTractNum)).getBlock(blockGroupNum, blockNum);
     }
     
     public Block getBlock(String stfid) {
-        
-        // parse stfid:
-        /*
-         * censusTractNum = Integer.parseInt(stfid.substring(5, 11));
-        this.blockGroupNum = Integer.parseInt(stfid.substring(11, 12));
-        this.blockNum = Integer.parseInt(stfid.substring(11));
-         */
-   //     return this.getBlock(Integer.parseInt(stfid.substring(5,11)), Integer.parseInt(stfid.substring(11,12)), Integer.parseInt(stfid.substring(11)) );
-   
         return this.getBlock(Integer.parseInt(stfid.substring(0,6)), Integer.parseInt(stfid.substring(6,7)), Integer.parseInt(stfid.substring(6)) );
     }
     
@@ -416,7 +326,6 @@ public class CensusUnitHandler {
         Block b = this.getBlock(stfid);
         return b.getHousingUnit(housingUnitNum, tenure);
     }
-    //public Block getBlockNum(in)
 
     
     public BlockGroup getBlockGroup(String tractString, String groupString) {
@@ -438,25 +347,10 @@ public class CensusUnitHandler {
         if (ct == null) return null;
         
         BlockGroup bg = ct.getBlockGroup(groupNum);
-            //((CensusTract)this.getCensusTract(tractNum)).getBlockGroup(groupNum);
         
         if (bg != null) 
             return bg; 
         else return null;
-        //      search blockGroupLIst for correct groupNum
-     /*   if (blockGroupList == null) {
-            // add block Group to list then return it
-            BlockGroup bg = new  BlockGroup(tractNum, groupNum, this);
-            addBlockGroup(bg);
-            return bg;
-        }
-        for (int i=0; i<blockGroupList.size(); i++) {
-            if ( ((BlockGroup)blockGroupList.get(i)).getBlockGroupNum() == groupNum &&
-                    ((BlockGroup)blockGroupList.get(i)).getCensusTractNum() == tractNum ) {
-                return (BlockGroup)blockGroupList.get(i);
-            }
-        }*/
-        //return null;
     } // end getBlockGroup        
 
     public CensusTract getCensusTract(String tractString){ 
@@ -483,24 +377,7 @@ public class CensusUnitHandler {
         return null;
     } // end getCensusTract        
 
-    /**
-     * @return Returns the sampleProportion.
-     */
-    /*public double getSampleProportion() { // Priyasree_DeadCode : Unreachable code_double getSampleProportion()
-        return sampleProportion;
-    }*/
-    /**
-     * @param sampleProportion The sampleProportion to set.
-     */
-    /*public void setSampleProportion(double sampleProportion) { // Priyasree_DeadCode : Unreachable code_void setSampleProportion(double sampleProportion)
-        this.sampleProportion = sampleProportion;
-    }*/
-  /* public Mediator getMediator() {
-        return mediator;
-    }
-    public void setMediator(Mediator mediator) {
-        this.mediator = mediator;
-    }*/
+
     public void setBlockGroupList(ArrayList blockGroupList) {
         this.blockGroupList = blockGroupList;
     }
@@ -513,13 +390,8 @@ public class CensusUnitHandler {
     
     public String blockHistoriesToString_Renters() {
         StringBuffer s = new StringBuffer();
-//        ArrayList blocks = this.getAllBlocks();
-        
-      //  int numBlocks = blocks.size();
-        //for (int i=0; i<numBlocks; i++) {
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         while (blockIter.hasNext()) {
-//            s.append( ((Block)blocks.get(i)).historyToString());
             s.append( ((Block)blockIter.next()).historyToString_Renter());
         }
         return s.toString();
@@ -527,13 +399,8 @@ public class CensusUnitHandler {
     
     public String blockHistoriesToString_Owners() {
         StringBuffer s = new StringBuffer();
-//        ArrayList blocks = this.getAllBlocks();
-        
-      //  int numBlocks = blocks.size();
-        //for (int i=0; i<numBlocks; i++) {
         Iterator blockIter = MirarUtils.BLOCKS.iterator();
         while (blockIter.hasNext()) {
-//            s.append( ((Block)blocks.get(i)).historyToString());
             s.append( ((Block)blockIter.next()).historyToString_Owner());
         }
         return s.toString();

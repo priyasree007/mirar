@@ -41,7 +41,7 @@ public class CensusTract {
         numHispanic = 0;
         numTotalPeople = 0;
         totalIncome = 0;
-//       System.out.println("CT update:");
+
         // go throught the blockList and add up the num of each race typ in each block
         int numBlockGroups = blockGroupList.size();
         for (int i=0; i<numBlockGroups; i++) {
@@ -59,53 +59,26 @@ public class CensusTract {
     
     
     public double getRacePct() { 
-        // white == 0
-        //black == 1
-        // asian == 2
-        // hispanic ==3
         double pct = 0.0;
         
-       // System.out.println("BG getRacePct: total p: " + numTotalPeople );
         // white is highest
         if (numWhite > numBlack && numWhite > numAsian
                 && numWhite > numHispanic) {
-          /* pct =  getPctWhite();
-           if (pct == 1.0) {
-               return (pct - 0.001); 
-           }
-           else return pct;*/
             return ((numWhite*1.0)/(numTotalPeople*1.0));
         }
         // black is highest
         else if (numBlack > numWhite && numBlack > numAsian
                 && numBlack > numHispanic) {
-            
-         /*   pct =  getPctBlack();
-            if (pct == 1.0) {
-                return (1 + (pct - 0.001)); 
-            }
-            else return (1 + pct);*/
            return (1 + ((numBlack*1.0)/(numTotalPeople*1.0)));
         }
         // asian is highest
         else if (numAsian > numWhite && numAsian > numBlack
                 && numAsian > numHispanic) {
-            
-         //   pct =  getPctAsian();
-           /* if (pct == 1.0) {
-                return (2 + (pct - 0.001)); 
-            }
-            else return (2 + pct);*/
            return (2 + ((numAsian*1.0)/(numTotalPeople*1.0)));
         }
         //hispanic is highest
         else if (numHispanic > numWhite && numHispanic > numBlack
                 && numHispanic > numAsian) {
-           // pct =  getPctHispanic();
-          /*  if (pct == 1.0) {
-                return (3 + (pct - 0.001)); 
-            }
-            else return (3 + pct);*/
             return (3 + ((numHispanic*1.0)/(numTotalPeople*1.0)));
         }
         // all are equal
@@ -115,10 +88,7 @@ public class CensusTract {
     }
     
     public double getMedianIncome(){ 
-        // if (totalIncome > 0.0) {
              return (totalIncome/(numTotalPeople*1.0));
-        // }
-        // else return ((totalIncomeCategory*1.0)/(numTotalPeople*1.0));
      }
     
     public void addBlockGroup(int groupNum) { 

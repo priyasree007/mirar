@@ -31,81 +31,20 @@ public class AgentHandler {
    
     private static AgentHandler instance = new AgentHandler(); 
 
-    /*private AgentHandler() { // Priyasree_DeadCode : Unreachable code_
-    	super();
-    }*/
 
     public static AgentHandler getInstance() { 
       return instance;
     }
     
-   /* public void moveAgents() {
-        if (MirarUtils.TENURE_MATTERS==true) {
-        moveRenterAgents();
-        moveOwnerAgents();
-        } else {
-        	moveAllAgents(); 
-        }
-    }
-    */
+
     /**
      *  goes through each of the renter units and moves them into one of the vacant (renter) housing units
      *  
      * calls the Agent#move function for each renter agent, passing in the list of vacant housing units
      */
     
-   /* public void moveAllAgents() { // Priyasree_DeadCode : Unreachable code_
-        blocksToUpdate_All.clear(); // clear class list of blocks to update
-        
-        ArrayList agents =   new ArrayList();
-        agents.addAll(this.sampleAllAgents());
-        
-        ArrayList vacantHousingUnitList =   new ArrayList();
-        
-        
-        // get all vacant housing units - agents can only move into vacant housing units
-        
  
-        // note that if the move rules are "race only" all agents can move into all vacant housing units
-        vacantHousingUnitList.addAll(CensusUnitHandler.getInstance().sampleVacantHousingUnits());
-        
-        vacantHousingUnitList.trimToSize();
-        System.out.println("AgentHandler#MoveAllAgents: total number of housing units is :" + vacantHousingUnitList.size());
-        
-        ArrayList selectedAgents = new ArrayList();
-        
-        ArrayList updateHousingUnits = new ArrayList();
-        HousingUnit h = null;
-        for (int i=0; i<agents.size(); i++) {
-            
-            Agent agent = (Agent)agents.get(i);
-            if (agent.getHousingUnit().getAgent() == null) ErrorLog.getInstance().logError("Agent#moveAllAgents -- agent.getHousingUnit().getAgent() == null");
-            if (selectedAgents.contains(agent) ) continue;
-            selectedAgents.add(agent);
-            h = agent.getHousingUnit();
-            if (h == null) {
-                ErrorLog.getInstance().logError("Agent#moveAllAgents    ;   pre AgentDecision could not find HU: " + agent.getSTFID() + " " +  agent.getHousingUnitNum());
-            }
-            updateHousingUnits.add(h);
-            
-            HousingUnit selectedHU = agent.move(vacantHousingUnitList);
-            h = CensusUnitHandler.getInstance().getHousingUnit(agent.getSTFID(), agent.getHousingUnitNum(), agent.getTenure());
-            if (h == null) {
-                ErrorLog.getInstance().logError("Agent#moveAllAgents ;  post AgentDecision could not find HU: " + agent.getSTFID() + " " +  agent.getHousingUnitNum());
-            }
-            updateHousingUnits.add(selectedHU);
-            vacantHousingUnitList.remove(selectedHU);
-        }
-        
-        // have to get the list of hu's (blocks) that agents moved into and out of
-        blocksToUpdate_All.addAll(getBlocksToUpdate(updateHousingUnits));
-        updateBlocks(blocksToUpdate_All);
-        vacantHousingUnitList.clear();
-        agents.clear();
-        selectedAgents.clear();
-    }
-    */
-    public void moveRenterAgents() { // Priyasree_DeadCode : Unreachable code_
+    public void moveRenterAgents() { 
         blocksToUpdate_Renter.clear(); // clear class list of blocks to update
         
         ArrayList agents =   new ArrayList();
@@ -160,67 +99,11 @@ public class AgentHandler {
      *  
      * calls the Agent#move function for each owner agent, passing in the list of vacant housing units
      */
-   /* public void moveOwnerAgents() { // Priyasree_DeadCode : Unreachable code_
-        blocksToUpdate_Renter.clear(); // clear class list of blocks to update
-        
-        ArrayList agents =   this.sampleOwnerAgents();
-        
-        ArrayList vacantHousingUnitList =   new ArrayList();
-        
-        
-        // get all vacant housing units - agents can only move into vacant housing units
-        vacantHousingUnitList.addAll(CensusUnitHandler.getInstance().sampleVacantHousingUnits(Agent.OWNER));
-        vacantHousingUnitList.trimToSize();
-        
-        ArrayList selectedAgents = new ArrayList();
-        
-        ArrayList updateHousingUnits = new ArrayList();
-        HousingUnit h = null;
-        for (int i=0; i<agents.size(); i++) {
-            
-            Agent agent = (Agent)agents.get(i);
-            if (agent.getHousingUnit().getAgent() == null) ErrorLog.getInstance().logError("AgentHandler#moveOwnerAgents - agent.getHousingUnit().getAgent() == null");
-            
-            if (selectedAgents.contains(agent) ) continue;
-            selectedAgents.add(agent);
-            h = agent.getHousingUnit();
-            if (h == null) {
-                ErrorLog.getInstance().logError("AgentHandler#moveOwnerAgents;  pre AgentDecision could not find HU: " + agent.getSTFID() + " " +  agent.getHousingUnitNum());
-            }
-            updateHousingUnits.add(h);
-            
-            HousingUnit selectedHU = agent.move(vacantHousingUnitList);
-            
-            h = CensusUnitHandler.getInstance().getHousingUnit(agent.getSTFID(), agent.getHousingUnitNum(), agent.getTenure());
-            if (h == null) {
-                ErrorLog.getInstance().logError("AgentHandler#moveOwnerAgents;  post AgentDecision could not find HU: " + agent.getSTFID() + " " +  agent.getHousingUnitNum());
-            }
-            updateHousingUnits.add(selectedHU);
-            
-            // remove chiosen unit from list
-            vacantHousingUnitList.remove(selectedHU);
-        }
-        
-        // have to get the list of hu's (blocks) that agents moved into and out of
-        blocksToUpdate_Owner.addAll(getBlocksToUpdate(updateHousingUnits));
-        updateBlocks(blocksToUpdate_Owner, Agent.OWNER);
-        vacantHousingUnitList.clear();
-        agents.clear();
-        selectedAgents.clear();
-        
-    }
-    */
+ 
     public HashSet getBlocksToUpdate_Renter(){ // Priyasree_DeadCode : Unreachable code_
         return blocksToUpdate_Renter; 
     }
     
-    /*public HashSet getBlocksToUpdate_Owner(){ // Priyasree_DeadCode : Unreachable code_
-        return blocksToUpdate_Owner; 
-    }*/
-    
-    /*public HashSet getBlocksToUpdate_All(){ // Priyasree_DeadCode : Unreachable code_
-        return blocksToUpdate_All; 
-    }*/
     
     /**
      * creates a list of theoretical or test agents.  
@@ -270,7 +153,6 @@ public class AgentHandler {
      */
     public void updateUtilities() { // Priyasree_DeadCode : Unreachable code_
         updateRenterUtilities();
-       // updateOwnerUtilities();
     }
      
     
@@ -297,27 +179,6 @@ public class AgentHandler {
       
    }
     
-    
-    /**
-     * updates utilities for owner agents using the test agents to compute utilities 
-     *
-     */
-    /*public void updateOwnerUtilities()  { // Priyasree_DeadCode : Unreachable code_
-       
-        ArrayList testAgents = this.getRenterTestAgents();
-        // go through the list and compute utilities for each agent type
-        int numTestAgents = testAgents.size();
-        Iterator blockIter = MirarUtils.BLOCKS.iterator();
-        while (blockIter.hasNext() ) {
-            Block b = (Block) blockIter.next();
-            for (int j=0; j<numTestAgents; j++) {
-                Agent a = (Agent)testAgents.get(j);
-                double util = a.computeUtility(b, Agent.OWNER);
-                b.addUtility(util, a);
-            }
-        }
-     
-    }*/
     
     /**
      * determines what blocks need to have their utilities updated
@@ -365,10 +226,6 @@ public class AgentHandler {
         else 
             updateOwnerBlocks(blocks);
     }
-    
-    /*public void updateBlocks(HashSet blocks) { // Priyasree_DeadCode : Unreachable code_
-            updateRenterBlocks(blocks); // only need to update renter utilities since renters and owners have same utility 
-    }*/
     
     
     /**
@@ -465,21 +322,6 @@ public class AgentHandler {
         return total;
     }
     
-    /*public ArrayList sampleAllAgents() { // Priyasree_DeadCode : Unreachable code_
-        ArrayList units = new ArrayList(); 
-        units.addAll(renterAgentList);
-        units.addAll(ownerAgentList); 
-        int probInt = MirarUtils.probabilisticInterpolation(units.size(), MirarUtils.RENTER_AGENT_SAMPLE); // RENTER = OWNER samples
-        int sampleNum = Math.min(probInt, units.size());
-        
-        ArrayList result = new ArrayList(sampleNum);
-        for (int i=0; i<sampleNum;i++) {
-            int choice = Random.uniform.nextIntFromTo(0, units.size()-1);
-            result.add(units.get(choice));
-            units.remove(choice);
-        }
-        return result;
-    }*/
     
     /**
      * gets a sample of the Renter agents based on MirarUtils.RENTER_AGENT_SAMPLE
@@ -500,40 +342,11 @@ public class AgentHandler {
         return result;
     }
     
-    /**
-     * gets a sample of the Owner agents based on MirarUtils.RENTER_AGENT_SAMPLE
-     * @return list of sampled agents
-     */
-    /*public ArrayList sampleOwnerAgents() { // Priyasree_DeadCode : Unreachable code_
-        ArrayList units = new ArrayList(); 
-        units.addAll(ownerAgentList);
-        int probInt = MirarUtils.probabilisticInterpolation(units.size(), MirarUtils.OWNER_AGENT_SAMPLE);
-        int sampleNum = Math.min(probInt, units.size());
-        
-        ArrayList result = new ArrayList(sampleNum);
-        for (int i=0; i<sampleNum;i++) {
-            int choice = Random.uniform.nextIntFromTo(0, units.size()-1);
-            result.add(units.get(choice));
-            units.remove(choice);
-        }
-        return result;
-    }*/
-    
-    /*public int getNumAgents(int tenure) { // Priyasree_DeadCode : Unreachable code_
-        if (tenure == Agent.RENTER) {
-            return renterAgentList.size();
-        }
-        else return ownerAgentList.size();
-    }*/
     
     public ArrayList getRenterAgentList() { 
         return renterAgentList;
     } // end getAgentList
 
-    /*public void setRenterAgentList(ArrayList agentList) { // Priyasree_DeadCode : Unreachable code_
-        this.renterAgentList = agentList;
-    } // end setAgentList
-*/
     
     
     
@@ -544,16 +357,7 @@ public class AgentHandler {
         this.renterTestAgents = testAgents;
     }
     
-  /* not used : RN
-    public String memoriesToString() {
-        StringBuffer s = new StringBuffer();
-        int numAgents = renterAgentList.size();
-        for (int i=0; i<numAgents; i++) {
-            s.append(((Agent)renterAgentList.get(i)).memoryToString());
-        }
-        return s.toString();
-    }
-*/
+ 
     public ArrayList getOwnerAgentList() { 
         return ownerAgentList;
     }
@@ -566,8 +370,6 @@ public class AgentHandler {
         return ownerTestAgents;
     }
 
-   /* public void setOwnerTestAgents(ArrayList ownerTestAgents) { // Priyasree_DeadCode : Unreachable code_
-        this.ownerTestAgents = ownerTestAgents;
-    }*/
+
 } // end AgentHandler
 
