@@ -72,45 +72,18 @@ public class JUMPHandler {
     
     private static JUMPHandler instance = new JUMPHandler(); // Priyasree_DeadCode : Unreachable code_JUMPHandler instance 
 
-    /*private JUMPHandler() { // Priyasree_DeadCode : Unreachable code_
-    	super();
-    }*/
 
     public static JUMPHandler getInstance() { 
+    	System.out.println("JumpHandler Get Instance"); //PriyaUnderStand
       return instance;
     }
 
-/*    public JUMPHandler(FeatureDataset blockData, 
-            IndexedFeatureCollection blockGroupShpData,
-            IndexedFeatureCollection censusTractShpData) {
-        this.blockData = blockData;
-        this.blockGroupShpData = blockGroupShpData;
-        this.censusTractShpData = censusTractShpData;
-    }
-
-    public JUMPHandler(FeatureDataset blockData,
-            FeatureDataset blockGroupData,
-            FeatureDataset censusTractData ) {
-            //IndexedFeatureCollection blockGroupShpData,
-            //IndexedFeatureCollection censusTractShpData) {
-        this.blockData = blockData;
-        this.blockGroupData = blockGroupData;
-        this.censusTractData = censusTractData;
-    }
-*/
-    /*
-     * public void updateDisplay() { updateBlockLayer(ArrayList blockList);
-     * //updateBlockGroupLayer(); //updateCensusTractLayer();
-     */
 
     
     public void setup() { 
-     //loadShapefiles( blockShpFile,  blockGroupShpFile,censusTractShpFile);
-     //prepareData();
      setupJUMPWorkbench();
     }
     
-   // public void loadData
     
     /**
      *  for now this only deals with the block data, we'll see about the blockGroup and
@@ -123,7 +96,8 @@ public class JUMPHandler {
      *  @precondition: shp data read in, blocks created and populated with agents
      *  @postcondition: racePct field and data added to block schema
      */
-    public void prepareData() { 
+    public void prepareData() {
+    	System.out.println("JumpHandler Prepare Data"); //PriyaUnderStand
         try {
             
             // for blocks
@@ -134,13 +108,12 @@ public class JUMPHandler {
             FeatureSchema schema = blockShpData.getFeatureSchema();
             int blockShpDataNumAttributes = schema.getAttributeCount();
             schema.addAttribute("racePct", AttributeType.DOUBLE);
-            //if (MirarUtils.test == true) {
                 schema.addAttribute("numWhite", AttributeType.INTEGER);
                 schema.addAttribute("numBlack", AttributeType.INTEGER);
                 schema.addAttribute("numAsian", AttributeType.INTEGER);
                 schema.addAttribute("numHispanic", AttributeType.INTEGER);
                 schema.addAttribute("medianIncome", AttributeType.DOUBLE);
-            //}
+                
             int blockDataNumAttributes = schema.getAttributeCount();
 
             // create new features with new schema
@@ -159,13 +132,7 @@ public class JUMPHandler {
 
                 }
                 newFeatures.add(f11);
-                // create block based on block number
-                //censusUnitHandler.addBlock(Integer.parseInt((String)f11.getAttribute("BLOCK2000")));
-               // censusUnitHandler.addBlock((String) f11.getAttribute("STFID"));
-                stfidList.add((String) f11.getAttribute("STFID"));
-                
-                
-              //  System.out.println((String) f11.getAttribute("STFID"));
+                stfidList.add((String) f11.getAttribute("STFID"));                            
             }
       
             blockData = new FeatureDataset(newFeatures, schema);
@@ -179,23 +146,18 @@ public class JUMPHandler {
             FeatureSchema schemaBG = blockGroupShpData.getFeatureSchema();
             int blockGroupShpDataNumAttributes = schemaBG.getAttributeCount();
             schemaBG.addAttribute("racePct", AttributeType.DOUBLE);
-            //if (MirarUtils.test == true) {
                 schemaBG.addAttribute("numWhite", AttributeType.INTEGER);
                 schemaBG.addAttribute("numBlack", AttributeType.INTEGER);
                 schemaBG.addAttribute("numAsian", AttributeType.INTEGER);
                 schemaBG.addAttribute("numHispanic", AttributeType.INTEGER);
                 schemaBG.addAttribute("medianIncome", AttributeType.DOUBLE);
-            //}
             int blockGroupDataNumAttributes = schemaBG.getAttributeCount();
 
             // create new features with new schema
             // copy old data to new feature
             // add racePct data
             ArrayList newBGFeatures = new ArrayList();
-           // stfidList = new ArrayList();
-            //int m = 0;
             for (Iterator i = blockGroupShpData.iterator(); i.hasNext();) {
-                //m++;
 
                 BasicFeature f1 = (BasicFeature) i.next();
                 BasicFeature f11 = new BasicFeature(schemaBG);
@@ -204,43 +166,29 @@ public class JUMPHandler {
 
                 }
                 newBGFeatures.add(f11);
-                // create block based on block number
-                //censusUnitHandler.addBlock(Integer.parseInt((String)f11.getAttribute("BLOCK2000")));
-               // censusUnitHandler.addBlock((String) f11.getAttribute("STFID"));
-                //stfidList.add((String) f11.getAttribute("STFID"));
             }
       
             blockGroupData = new FeatureDataset(newBGFeatures, schemaBG);
-            
-            
-            
-            // for census tracts
-            
-
-            
+                                   
+            // for census tracts                       
             // add feature and value for it to feature list - this will be used
             // for the range value
             // add feature -- racePct
             FeatureSchema schemaCT = censusTractShpData.getFeatureSchema();
             int censusTractShpDataNumAttributes = schemaCT.getAttributeCount();
             schemaCT.addAttribute("racePct", AttributeType.DOUBLE);
-            //if (MirarUtils.test == true) {
                 schemaCT.addAttribute("numWhite", AttributeType.INTEGER);
                 schemaCT.addAttribute("numBlack", AttributeType.INTEGER);
                 schemaCT.addAttribute("numAsian", AttributeType.INTEGER);
                 schemaCT.addAttribute("numHispanic", AttributeType.INTEGER);
                 schemaCT.addAttribute("medianIncome", AttributeType.DOUBLE);
-            //}
             int censusTractDataNumAttributes = schemaCT.getAttributeCount();
 
             // create new features with new schema
             // copy old data to new feature
             // add racePct data
             ArrayList newCTFeatures = new ArrayList();
-           // stfidList = new ArrayList();
-            //int m = 0;
             for (Iterator i = censusTractShpData.iterator(); i.hasNext();) {
-                //m++;
 
                 BasicFeature f1 = (BasicFeature) i.next();
                 BasicFeature f11 = new BasicFeature(schemaCT);
@@ -249,21 +197,12 @@ public class JUMPHandler {
 
                 }
                 newCTFeatures.add(f11);
-                // create block based on block number
-                //censusUnitHandler.addBlock(Integer.parseInt((String)f11.getAttribute("BLOCK2000")));
-               // censusUnitHandler.addBlock((String) f11.getAttribute("STFID"));
-                //stfidList.add((String) f11.getAttribute("STFID"));
             }
       
             censusTractData = new FeatureDataset(newCTFeatures, schemaCT);
-            
-            
-            
-            
-            
+
         } catch (Exception e) {
             e.printStackTrace();
-            //    System.out.println("could not read file");
         }
     }
     
@@ -272,23 +211,8 @@ public class JUMPHandler {
      *  BlockList
      *  @precondition blocks are create, map data read in
      */
-    public void updateBlockLayer() { 
-       // ArrayList blockList = new ArrayList();
-       // blockList.addAll(blocks);
-        // featureList = new ArrayList(fc1.getFeatures());
-
-        // go through and change the block value for all of tract2000 = 104104
-        //  fc1
-
-        //  FeatureSchema schema = ((Feature)featureList.get(0)).getSchema();
-        //   System.out.println("schema:num attributes: " +
-        // schema.getAttributeCount());
-
-        /*
-         * for (int i=0; i <fc1.size(); i++) { if
-         * (((Feature)featureList.get(i)).getString(3).equals("104104") ) {
-         * ((Feature)featureList.get(i)).setAttribute(4, "5023");
-         */
+    public void updateBlockLayer() {
+    	System.out.println("JumpHandler Update Block Layer"); //PriyaUnderStand
         Block b = null;
         int j=0;
         for (Iterator i = blockData.iterator(); i.hasNext(); ) {
@@ -303,8 +227,6 @@ public class JUMPHandler {
                 double d = b.getRacePct();
                 f.setAttribute("racePct", new Double(d));
                 
-                // if (MirarUtils.test == true) {
-                //   System.out.println("test == true");
                 int numWhite = b.getNumWhite();
                 int numBlack = b.getNumBlack();
                 int numAsian = b.getNumAsian();
@@ -321,20 +243,10 @@ public class JUMPHandler {
                 
                 double medianIncome =  b.getMeanIncome();
                 f.setAttribute("medianIncome", new Double(medianIncome));
-                //  }
                 
                 j++;
             }
         }
-        //    String city = (String) i.next();
-        /*
-         * for (int i=0; i <schema.getAttributeCount(); i++) {
-         * System.out.println(schema.getAttributeName(i));
-         * System.out.println(schema.getAttributeType(i));
-         * System.out.println(((Feature)featureList.get(0)).getString(i));
-         */
-        /*
-         *  }*/
          blockLayer.fireLayerChanged(LayerEventType.APPEARANCE_CHANGED);//
          
     }
@@ -346,22 +258,7 @@ public class JUMPHandler {
      *  @precondition blocks are create, map data read in
      */
     public void updateBlockGroupLayer(ArrayList blockGroupList) {
-       // ArrayList blockList = new ArrayList();
-       // blockList.addAll(blocks);
-        // featureList = new ArrayList(fc1.getFeatures());
-
-        // go through and change the block value for all of tract2000 = 104104
-        //  fc1
-
-        //  FeatureSchema schema = ((Feature)featureList.get(0)).getSchema();
-        //   System.out.println("schema:num attributes: " +
-        // schema.getAttributeCount());
-
-        /*
-         * for (int i=0; i <fc1.size(); i++) { if
-         * (((Feature)featureList.get(i)).getString(3).equals("104104") ) {
-         * ((Feature)featureList.get(i)).setAttribute(4, "5023");
-         */
+    	System.out.println("JumpHandler update Block Group Layer"); //PriyaUnderStand
         BlockGroup bg = null;
         int j=0;
         for (Iterator i = blockGroupData.iterator(); i.hasNext(); ) {
@@ -373,8 +270,6 @@ public class JUMPHandler {
                 f.setAttribute("racePct", new Double(d));
                 
                 
-                // if (MirarUtils.test == true) {
-                //   System.out.println("test == true");
                 int numWhite = bg.getNumWhite();
                 int numBlack = bg.getNumBlack();
                 int numAsian = bg.getNumAsian();
@@ -387,57 +282,30 @@ public class JUMPHandler {
                 
                 double medianIncome =  bg.getMedianIncome();
                 f.setAttribute("medianIncome", new Double(medianIncome));
-                //  }
                 
                 j++;
             }
         }
-        //    String city = (String) i.next();
-        /*
-         * for (int i=0; i <schema.getAttributeCount(); i++) {
-         * System.out.println(schema.getAttributeName(i));
-         * System.out.println(schema.getAttributeType(i));
-         * System.out.println(((Feature)featureList.get(0)).getString(i));
-         */
-        /*
-         *  }*/
+        
          blockGroupLayer.fireLayerChanged(LayerEventType.APPEARANCE_CHANGED);//
          
     }
 
  
-    public void updateCensusTractLayer(ArrayList censusTractList) { 
-        // ArrayList blockList = new ArrayList();
-        // blockList.addAll(blocks);
-         // featureList = new ArrayList(fc1.getFeatures());
-
-         // go through and change the block value for all of tract2000 = 104104
-         //  fc1
-
-         //  FeatureSchema schema = ((Feature)featureList.get(0)).getSchema();
-         //   System.out.println("schema:num attributes: " +
-         // schema.getAttributeCount());
-
-         /*
-          * for (int i=0; i <fc1.size(); i++) { if
-          * (((Feature)featureList.get(i)).getString(3).equals("104104") ) {
-          * ((Feature)featureList.get(i)).setAttribute(4, "5023");
-          */
+    public void updateCensusTractLayer(ArrayList censusTractList) {
+    	System.out.println("JumpHandler updateCensusTractLayer"); //PriyaUnderStand
         CensusTract ct = null;
         int j=0;
         for (Iterator i = censusTractData.iterator(); i.hasNext(); ) {
             Feature f = (Feature)i.next();
             String fTractString = f.getString(3);
             ct = CensusUnitHandler.getInstance().getCensusTract(fTractString);
-//          (CensusTract)censusTractList.get(j);
             if (ct != null ) {
-                ///#######
+ 
                 ct.updateBlockGroupsInfo();
                 double d = ct.getRacePct();
                 f.setAttribute("racePct", new Double(d));
-                
-                // if (MirarUtils.test == true) {
-                //   System.out.println("test == true");
+
                 int numWhite = ct.getNumWhite();
                 int numBlack = ct.getNumBlack();
                 int numAsian = ct.getNumAsian();
@@ -450,21 +318,11 @@ public class JUMPHandler {
                 
                 double medianIncome =  ct.getMedianIncome();
                 f.setAttribute("medianIncome", new Double(medianIncome));
-                //  }
                 
                 j++;
             }
         }
              
-         //    String city = (String) i.next();
-         /*
-          * for (int i=0; i <schema.getAttributeCount(); i++) {
-          * System.out.println(schema.getAttributeName(i));
-          * System.out.println(schema.getAttributeType(i));
-          * System.out.println(((Feature)featureList.get(0)).getString(i));
-          */
-         /*
-          *  }*/
           censusTractLayer.fireLayerChanged(LayerEventType.APPEARANCE_CHANGED);//
           
      }
@@ -474,9 +332,8 @@ public class JUMPHandler {
      * load in shapefile data using Strings indicating filenames
      * 
      */
-//    public void loadShapefiles(String blockShpFile, String blockGroupShpFile, 
- //           String censusTractShpFile) {
         public void loadShapefiles() { 
+        	System.out.println("JumpHandler loadShapefiles"); //PriyaUnderStand
         ImageIcon imageIcon = IconLoader.icon("World.gif");
 
         ShapefileReader sfReader = new ShapefileReader();
@@ -493,7 +350,6 @@ public class JUMPHandler {
                     .read(new DriverProperties(MirarUtils.CENSUS_TRACT_SHP_FILE)));
 
         } catch (com.vividsolutions.jump.io.IllegalParametersException e) {
-           // System.out.println(" didn't read file");
             e.printStackTrace();
         } catch (java.lang.Exception e) {
             e.printStackTrace();
@@ -507,6 +363,7 @@ public class JUMPHandler {
      *
      */
     public void setupJUMPWorkbench() { 
+    	System.out.println("JumpHandler setupJUMPWorkbench"); //PriyaUnderStand
         ImageIcon imageIcon = IconLoader.icon("World.gif");
         String[] empty = {};
 
@@ -536,116 +393,20 @@ public class JUMPHandler {
      * @precondition setup and prepareData have been called
      */
     public void buildDisplay() {
-        //workbenchContext.getLayerManager().addLayer("MirarLA", "Block Group",
-          //      blockGroupShpData);
-        //workbenchContext.getLayerManager().addLayer("MirarLA", "Census Tract",
-         //       censusTractShpData);
-
-        // ****************************
-        //layer style
-        //*****************************
-      
+    	System.out.println("JumpHandler buildDisplay"); //PriyaUnderStand
         censusTractLayer = new Layer("Census Tract Layer", Color.GREEN, censusTractData, workbenchContext.getLayerManager());
         blockGroupLayer = new Layer("Block Group Layer", Color.YELLOW, blockGroupData, workbenchContext.getLayerManager());
         blockLayer = new Layer("Block Layer", Color.RED, blockData,
                 workbenchContext.getLayerManager());
-        
-        
-        //   workbenchContext.getLayerManager().addLayer("test", blockLayer);
-
-        // ColorScheme.load();
-        // ColorScheme colorScheme = ColorScheme.create("Set 1");
-
-        //******************
-        // discrete style based on BLOCK2000 value
-        //***********************
-
-        /*
-         * ArrayList names = new ArrayList();
-         * names.addAll(ColorScheme.discreteColorSchemeNames());
-         * System.out.println("names size : " + names.size()); ColorScheme
-         * colorScheme = ColorScheme.create(names.get(0).toString());
-         * 
-         * //ColorScheme colorScheme = new ColorScheme("discrete",
-         * ColorScheme.discreteColorSchemeNames());
-         *  // if (colorScheme == null) System.out.println("color scheme is
-         * null"); // ArrayList colorList = (ArrayList)colorScheme.getColors(); //
-         * System.out.println("colorList size : " + colorList.size()); //
-         * layer.setName("(" + colorScheme.getColors().size() + ") " +
-         * colorSchemeName);
-         * 
-         *  // create a new map of attributes to colors Map attributeToStyleMap =
-         * new HashMap(); // FeatureSchema schema =
-         * ((Feature)featureList.get(0)).getSchema();
-         * //System.out.println("schema:num attributes: " +
-         * schema.getAttributeCount());
-         *  // get the features - use them for the attribute to color mapping
-         * for (int i=0; i <featureList.size(); i++) { // get the feature value
-         * String block = (String)((Feature)featureList.get(i)).getString(4);
-         * System.out.println("Block: " + block); // get the next color value
-         * in the color scheme BasicStyle tempStyle = new
-         * BasicStyle((Color)colorScheme.next()); // add both to the map --
-         * note this is discrete attributeToStyleMap.put(block, tempStyle); // }
-         * 
-         * 
-         *  }
-         * 
-         * ColorThemingStyle themeStyle = new ColorThemingStyle("BLOCK2000",
-         * attributeToStyleMap, new BasicStyle((Color)colorScheme.next()));
-         *  
-         */
-        //******************
-        // end discrete style based on BLOCK2000 value
-        //***********************
-        //***********************
-        // range style
-        //*****************************
-        // add feature and value for it to feature list - this will be used for
-        // the range value
-        /*
-         * for (int i=0; i <featureList.size(); i++) { // add feature --
-         * racePct FeatureSchema schema =
-         * ((Feature)featureList.get(i)).getSchema();
-         * schema.addAttribute("racePct", AttributeType.DOUBLE);
-         * //((Feature)featureList.get(i)).setSchema(schema); //for (int j=0; j
-         * <schema.getAttributeCount(); j++) { // System.out.println("j: " +
-         * j); // System.out.println(schema.getAttributeName(j)); //
-         * System.out.println(schema.getAttributeType(j)); //
-         * System.out.println(((Feature)featureList.get(i)).getString(j)); //}
-         *  // FeatureSchema schema =
-         * ((Feature)featureList.get(0)).getSchema(); }
-         * System.out.println("featurelist size: " + featureList.size());
-         * 
-         * for (int k=0; k <featureList.size(); k++) {
-         * System.out.println("featurelist num: " + k);
-         * 
-         * if (k < featureList.size()/2) { //set value to .5 or less
-         * ((Feature)featureList.get(k)).setAttribute(6, new Double(0.3)); }
-         * else { //set value to higher than .5
-         * ((Feature)featureList.get(k)).setAttribute(6, new Double(1.0));
-         *  } }
-         */
 
         ArrayList names = new ArrayList();
         names.addAll(ColorScheme.rangeColorSchemeNames());
-      //  System.out.println("names size : " + names.size());
-        //for (int i = 0; i < names.size(); i++) {
-        //    System.out.println("color scheme name : " + names.get(i));
-       // }
 
         ColorScheme colorScheme = ColorScheme.create("spectral (ColorBrewer)");//names.get(0).toString());
-        // ColorScheme colorScheme = new ColorScheme("spectral", names);
 
         // create a new map of attributes to colors
         Range.RangeTreeMap attributeRangeToStyleMap = new Range.RangeTreeMap();
-        // FeatureSchema schema = ((Feature)featureList.get(0)).getSchema();
-        //System.out.println("schema:num attributes: " +
-        // schema.getAttributeCount());
-
-        // start off simple: use 0 -.5 and >.5 to 1
-
-        //   Range(java.lang.Object@min, boolean@includingMin,
-        // java.lang.Object@max, boolean@includingMax)
+ 
         Range whiteLow = new Range(new Double(0.0), false, new Double(0.3), true);
         Range whiteMid = new Range(new Double(0.3), false, new Double(0.7), true);
         Range whiteHigh = new Range(new Double(0.7), false, new Double(1.0), true);
@@ -702,44 +463,17 @@ public class JUMPHandler {
         blockGroupLayer.addStyle(themeStyle);
         blockLayer.addStyle(themeStyle);
 
-        // ****************************
-        //end layer style
-        //*****************************
-        // blockLayer.addStyle(new BasicStyle());
-        //layer.setVisible(false);
-        /*
-         * Map attributeToStyleMap = new HashMap(); for (Iterator i =
-         * cities.iterator(); i.hasNext(); ) { String city = (String) i.next();
-         * attributeToStyleMap.put(city, new BasicStyle(colorScheme.next())); }
-         *  // layer.getBasicStyle().setEnabled(false); ColorThemingStyle
-         * themeStyle = new ColorThemingStyle("City", attributeToStyleMap, new
-         * BasicStyle(Color.gray)); themeStyle.setEnabled(true);
-         * layer.addStyle(themeStyle); layer.setVisible(false);
-         */
-        // ((Feature)featureList.get(j)).getString(i))
-        /*
-         * try {
-         * 
-         * //PlugInContext pic = workbenchContext.createPlugInContext();
-         * TestColorThemingPlugIn testColor = new TestColorThemingPlugIn();
-         * testColor.initialize(workbenchContext.createPlugInContext());
-         * testColor.execute(workbenchContext.createPlugInContext()); // new
-         * TestColorThemingPlugIn().initialize(workbenchContext.createPlugInContext()); }
-         * catch (java.lang.Exception e) { e.printStackTrace();
-         */
-        //omHandler.createDisplay();
-
-        // test showing attributes
-        //ViewAttributesPlugIn(
     }
 
     public ArrayList getSTFIDList() {
+    	System.out.println("JumpHandler getSTFIDList"); //PriyaUnderStand
         return stfidList;
     }
     public void buildMap() {
     }
     
     public void initializeSTFIDData() {
+    	System.out.println("JumpHandler initializeSTFIDData"); //PriyaUnderStand
         stfidList = new ArrayList();
         FileChannel in = null;
         DBFReader dbfFileReader = null;
@@ -752,23 +486,15 @@ public class JUMPHandler {
             
             in = new FileInputStream(dbfString).getChannel();
             dbfFileReader = new DBFReader(dbfString);
-            //DbaseFileHeader header = dbfFileReader.getHeader();
-          //  int numRecords = header.getNumRecords();
             int numFields = dbfFileReader.getFieldCount();
-            for (int i=0; i<numFields; i++) {
+            /*for (int i=0; i<numFields; i++) {//Priyasree_remove print displays
                 System.out.println("dbf filed: " + ((JDBField)dbfFileReader.getField(i)).getName()); // Priyasree_Audit: Unnecessary type cast to JDBField_Delete the unnecessary cast.
-            }
+            }*/
             while (dbfFileReader.hasNextRecord()) {
                 Object [] record = dbfFileReader.nextRecord();
               //  System.out.println("record stfid: " + (String)record[4]);
                 stfidList.add((String)record[4]);
             }
-            
-//            for (int i = 0; i < numRecords; i++) {
-                //           create one new obj for each feature
-               // Object obj = clazz.newInstance();
-                //((GisAgent) obj).setGisAgentIndex(i);
-                //agentList.add(obj);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -782,11 +508,6 @@ public class JUMPHandler {
                 }
             }
             if (dbfFileReader != null) {
-                //try {
-                 //   dbfFileReader.close();
-                //} catch (IOException e) {
-                   // e.printStackTrace();
-                //}
             }
 
         }
@@ -794,36 +515,4 @@ public class JUMPHandler {
 
     }
 
-       /* stfidList = new ArrayList();
-            try {
-              // get feature info - features, types 
-              URL file = new File(MirarUtils.BLOCK_SHP_FILE).toURL();
-              org.geotools.data.shapefile.ShapefileDataStore store = new ShapefileDataStore(file);
-              String name = store.getTypeNames()[0];  // there is just one - one type per shapefile - type of data in shapefile
-              System.out.println("init STFID data - name " + name);
-              FeatureSource source =   store.getFeatureSource(name);
-              FeatureResults fsShape = source.getFeatures();
-
-              //String[] types = store.getTypeNames();
-
-              //Method[] methods = clazz.getMethods();
-                     
-                    
-              FeatureType ft = source.getSchema();
-              FeatureReader reader = fsShape.reader();
-              while (reader.hasNext()) {
-                  org.geotools.feature.Feature feature = reader.next();   
-                //     get the stfid for each feature
-                //agentList.add(obj);
-                  stfidList.add(feature.getAttribute("STFID"));
-                //stfidList.add((String) f11.getAttribute("STFID"));
-              }
-              reader.close();
-
-              
-            } catch (Exception e) {
-              e.printStackTrace();
-            }
-
-    }*/
 }
