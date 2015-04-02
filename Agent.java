@@ -21,33 +21,30 @@ import java.util.*;
 
 public class Agent {
 
-	public static int Block = 0; //Priyasree
-    public static int CountComputeUtility = 0; //Priyasree
-    private double income = -1.0; // Priyasree_DeadCode : Unreachable code_
-    private int incomeCategory = - 1; // Priyasree_DeadCode : Unreachable code_
-    private int race; // Priyasree_DeadCode : Unreachable code_
+    private double income = -1.0; 
+    private int incomeCategory = - 1; 
+    private int race; 
     
-    private int housingUnitNum; // Priyasree_DeadCode : Unreachable code_
-    private HousingUnit housingUnit; // Priyasree_DeadCode : Unreachable code_
-    private ArrayList possibleHousingUnitList = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
-    private ArrayList neighbors = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
-    private ArrayList memory = new ArrayList(); // Priyasree_DeadCode : Unreachable code_
-    private AgentMemory carryOverMemory = null; // Priyasree_DeadCode : Unreachable code_
+    private int housingUnitNum; 
+    private HousingUnit housingUnit; 
+    private ArrayList possibleHousingUnitList = new ArrayList(); 
+    private ArrayList neighbors = new ArrayList(); 
+    private ArrayList memory = new ArrayList(); 
+    private AgentMemory carryOverMemory = null; 
     
-    private int blockNum; // Priyasree_DeadCode : Unreachable code_
-    private int agentNum; // Priyasree_DeadCode : Unreachable code_
-    private String stfid; // Priyasree_DeadCode : Unreachable code_
-  //private boolean sampled;
-    private boolean addToIncomeList = true; // Priyasree_DeadCode : Unreachable code_
+    private int blockNum; 
+    private int agentNum; 
+    private String stfid; 
+    private boolean addToIncomeList = true; 
     
-    public static final int WHITE = 0; // Priyasree_DeadCode : Unreachable code_
-    public static final int BLACK = 1; // Priyasree_DeadCode : Unreachable code_
-    public static final int ASIAN = 2; // Priyasree_DeadCode : Unreachable code_
-    public static final int HISPANIC = 3; // Priyasree_DeadCode : Unreachable code_
+    public static final int WHITE = 0; 
+    public static final int BLACK = 1; 
+    public static final int ASIAN = 2; 
+    public static final int HISPANIC = 3; 
 
-    private int tenure; // Priyasree_DeadCode : Unreachable code_
-    public static final int OWNER = 0; // Priyasree_DeadCode : Unreachable code_
-    public static final int RENTER = 1; // Priyasree_DeadCode : Unreachable code_
+    private int tenure; 
+    public static final int OWNER = 0; 
+    public static final int RENTER = 1; 
   
 
     public Agent() { 
@@ -137,7 +134,6 @@ public class Agent {
                         if (b2 == null) System.out.println("\t NULL ---  neighbors.get(j)");
                     }
                 }
-               //
             }
         }
         
@@ -211,7 +207,6 @@ public class Agent {
     }
     
     public double computeUtility(Block b, int tenure) { 
-    	CountComputeUtility++;
         return MirarUtils.AGENT_DECISION.computeUtility(b, this, tenure);
     }
     
