@@ -211,14 +211,10 @@ System.out.println("this is x " + x);
             t1[i] = t2[i - 1];
             t2[i] = data.get(i) + t1[i];
         }
-
-        
+      
         x = Random.uniform.nextDoubleFromTo(0, 1);
-//System.out.println("this is x " + x); 
         for (int i = 0; i < transLength; i++) {
-        //	System.out.println("this is t1 " + t1[i] + " and this is t2: " + t2[i]); 
             if (x > t1[i] && x <= t2[i]) {
-            //    System.out.println("this is i " + i); 
                 return i;
             }
         }

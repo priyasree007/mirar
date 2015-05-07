@@ -48,30 +48,13 @@ public class HousingMarket {
      */
 
     public DoubleArrayList getIncomeDistribution(Block b) {
-       // int numBlocks = blocks.size();
         ArrayList neighborhood = new ArrayList();
         DoubleArrayList incomeDistribution = new DoubleArrayList();
-       // Block b = new Block(0);
-        //compute rent for each block
-        //for (int i=0; i<numBlocks; i++) {
-          //  b = (Block)blocks.get(i);
 
             neighborhood.addAll(b.getNeighbors());
-/*           try {
-                PrintWriter neighborsFromCode = new PrintWriter(new FileOutputStream("neighborsFromCode.txt", true));
-               Iterator iter = neighborhood.iterator();
-               while (iter.hasNext()) {
-                   neighborsFromCode.println(b.getSTFID() + ", " + ((Block) iter.next()).getSTFID());
-               }
-               neighborsFromCode.close();
-            } catch (IOException ioe) {
-
-            }
-  */
             neighborhood.add(b);
 
             int numNeighbors = neighborhood.size();
-           // System.out.println("-- >    HousingMarket#getIncomeDistribution: neighborhood size:  " + numNeighbors);
             for (int j=0; j<numNeighbors; j++) {
                 incomeDistribution.addAllOf( ((Block)neighborhood.get(j)).getIncomeDistribution());
             }
@@ -169,16 +152,6 @@ public class HousingMarket {
      * @param tenure TODO
      */
     public void computeHomogeneousRentWithinBlock(ArrayList blocks, int tenure) {
-       // compute Rent for each block - each housing unit has the same rent
-      //  PrintWriter homoRent = null;
-    /*    try {
-             homoRent = new PrintWriter(new FileOutputStream("homoRent.txt", true));
-             homoRent.println("step num: " + MirarUtils.STEP_NUM );
-        } catch (IOException ioe) {
-
-        }
-      
-        */
         int numBlocks = blocks.size();
         ArrayList neighborhood = new ArrayList();
         DoubleArrayList incomeDistribution = new DoubleArrayList();
@@ -224,29 +197,6 @@ public class HousingMarket {
             
             b.setRentListByBlock(rent, tenure);
 
-            /*
-            //%%%%%%%%%%
-            // print test info
-            //%%%%%%%%%%%%
-
-            homoRent.println("Block STFID: " + b.getSTFID() );
-
-            if (incomeDistribution.size() > 0) {
-                for (int index=0; index< incomeDistribution.size()-1; index++) {
-                    homoRent.print(incomeDistribution.get(index) + ", ");
-                }
-                homoRent.print("" + incomeDistribution.get(incomeDistribution.size()-1));
-                homoRent.println();
-            }
-                homoRent.println(MirarUtils.HOMOGENEOUS_RENT_QUANTILE + "");
-                homoRent.println(income + "");
-                homoRent.println(rent + "");
-
-                homoRent.close();
-                //   } catch (IOException ioe) {
-
-            //}
-*/
             // clean up
             neighborhood.clear();
             housingUnits.clear();
@@ -262,15 +212,6 @@ public class HousingMarket {
      */
 
     public void computeHeterogeneousRentWithinBlock(ArrayList blocks, int tenure) {
-/*
-         PrintWriter heteroRent = null;
-        try {
-            heteroRent = new PrintWriter(new FileOutputStream("heteroRent.txt", true));
-            heteroRent.println("Step Num: " + MirarUtils.STEP_NUM );
-        } catch (IOException ioe) {
-
-        }
-  */ 
         int numBlocks = blocks.size();
         ArrayList neighborhood = new ArrayList();
         DoubleArrayList incomeDistribution = new DoubleArrayList();
@@ -286,24 +227,11 @@ public class HousingMarket {
                 incomeDistribution.addAllOf( ((Block)neighborhood.get(j)).getIncomeDistribution());
             }
             incomeDistribution.sort();
-
-
-
-            //System.out.println("incom Distro Block " + b.getSTFID());
-            //for (int m=0; m<incomeDistribution.size(); m++) {
-            //    System.out.print(incomeDistribution.get(m) + " ");
-            //}
-            //System.out.println("");
             // get quantile
             double [] qP = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 };
             DoubleArrayList quantilePoints = new DoubleArrayList(qP);
             DoubleArrayList incomes = Descriptive.quantiles(incomeDistribution, quantilePoints);
-            //System.out.println("Housing market compute homo rent - block: " + b.getSTFID() + " income: " + income );
-            //double rent = (444.13 + 9.647*(income) - 0.03*(income*income));
-           // System.out.println("Housing market compute hetero - quantilePoints size " + quantilePoints.size());
             DoubleArrayList rawRents = new DoubleArrayList(quantilePoints.size());
-            //set raw rents based on rent function
-           // System.out.println("Housing market compute hetero - raw rents size " + rawRents.size());
            double bk,w,h,as;
             bk=b.getPctBlkInNeighborhood();
             w=b.getPctWhtInNeighborhood();
@@ -312,7 +240,6 @@ public class HousingMarket {
              
            
             for (int n=0; n<quantilePoints.size(); n++) {
-           //     System.out.println("Housing market compute hetero - raw rents");
                 double rent= -10; 
                 if(tenure==Agent.OWNER) {
                  rent = computePricesLosAngeles(bk, h, as, w, incomes.get(n));
@@ -322,26 +249,18 @@ public class HousingMarket {
                 	System.out.println("HM: TENURE NOT FOUND");
                 }
                 rawRents.add(rent);
-            //    System.out.println("Housing market compute hetero - raw rents " + rent);
             }
             DoubleArrayList rents = new DoubleArrayList((rawRents.size() -1));
-           // System.out.println("Housing market compute hetero -  rents size " + rents.size() );
             int numRents = rawRents.size() -1;
             for (int p=0; p<numRents; p++) {
-                //System.out.println("Housing market compute hetero -  rents");
                 double rent = ((rawRents.get(p) + rawRents.get(p+1))/2);
-                //double rent = (rawRents.get(p) + (rawRents.get(p+1)/2));
                 rents.add(rent);
             }
 
             // Randomly choose 1 rent for each housing unit in the block
             // set the rent in each vacant housing unit in the block
-            //housingUnits = b.getHousingUnitList();
           housingUnits.addAll(b.getHousingUnitsByTenure(tenure));
-            //  .getVacantHousingUnits(); get ALL housing units, not just vacant ones
-          //  System.out.println("Housing market compute hetero rent - block: " + b.getSTFID() + " num vacant units: " + b.getVacantHousingUnitList().size());
             Agent a = new Agent(0);
-            //System.out.println("Housing market compute homo rent - block: " + b.getSTFID() + " rent: " + rent );
             int numUnits = housingUnits.size();
             for (int k=0; k<numUnits; k++) { // set rents for occupied units
                 if(((HousingUnit)housingUnits.get(k)).isOccupied()){
@@ -357,89 +276,11 @@ public class HousingMarket {
                     int choice = Random.uniform.nextIntFromTo(0, rents.size()-1);
                 ((HousingUnit)housingUnits.get(k)).setRent(rents.get(choice));
                 }
-            //    System.out.println("Housing market compute hetero rent - block: " + b.getSTFID() + "quantile: " + choice + " rent: " + rent );
-
             }
-         
-            //@@@@@@@@@@@@
-            // print test info
-            //################
-             /*
-            // print block Stfid
-            heteroRent.println("Block STFID: " + b.getSTFID());
-            heteroRent.println("quantile .3 is " + b.getRentQuantile(.3));
-            heteroRent.println("quantile .6 is " + b.getRentQuantile(.6));
-            heteroRent.println("quantile .9 is " + b.getRentQuantile(.9));
-            heteroRent.println("quantile .5 is " + b.getRentQuantile(.5));
-            heteroRent.println("quantile .4 is " + b.getRentQuantile(.4));
-            if (incomeDistribution.size() > 0) {
-                // print income distro
-                for (int index=0; index< incomeDistribution.size()-1; index++) {
-                    heteroRent.print(incomeDistribution.get(index) + ", ");
-                }
-
-                heteroRent.print("" + incomeDistribution.get(incomeDistribution.size()-1));
-                heteroRent.println();
-            }
-            if (incomes.size() > 0) {
-                //print incomes
-                for (int index=0; index< incomes.size()-1; index++) {
-                    heteroRent.print(incomes.get(index) + ", ");
-                }
-                heteroRent.print("" + incomes.get(incomes.size()-1));
-                heteroRent.println();
-            }
-            //print rawrents
-            if (rawRents.size() > 0) {
-                for (int index=0; index< rawRents.size()-1; index++) {
-                    heteroRent.print(rawRents.get(index) + ", ");
-                }
-                heteroRent.print("" + rawRents.get(rawRents.size()-1));
-                heteroRent.println();
-            }
-            // print rents
-            if (rents.size() > 0) {
-                for (int index=0; index< rents.size()-1; index++) {
-                    heteroRent.print(rents.get(index) + ", ");
-                }
-                heteroRent.print("" + rents.get(rents.size()-1));
-                heteroRent.println();
-            }
-            // print rents for occupied housing units
-            ArrayList occupiedHousingUnits = new ArrayList();
-            occupiedHousingUnits.addAll(b.getOccupiedHousingUnitList());
-            if (occupiedHousingUnits.size() > 0) {
-                for (int index=0; index<occupiedHousingUnits.size()-1;index++) {
-                    heteroRent.print(((HousingUnit)occupiedHousingUnits.get(index)).getRent() + ", ");
-                }
-
-                heteroRent.print("" + ((HousingUnit)occupiedHousingUnits.get(occupiedHousingUnits.size()-1)).getRent());
-
-                heteroRent.println();
-            }
-//          print rents for vacant housing units
-            ArrayList vacantHousingUnits = new ArrayList();
-            vacantHousingUnits.addAll(b.getVacantHousingUnits());
-            if (vacantHousingUnits.size() > 0) {
-                for (int index=0; index<vacantHousingUnits.size()-1;index++) {
-                    heteroRent.print(((HousingUnit)vacantHousingUnits.get(index)).getRent() + ", ");
-                }
-
-                heteroRent.print("" + ((HousingUnit)vacantHousingUnits.get(vacantHousingUnits.size()-1)).getRent());
-
-                heteroRent.println();
-            }
-  
-          
-            vacantHousingUnits.clear();
-            occupiedHousingUnits.clear();
-            // clean up
-          */  
-             
+               
             neighborhood.clear();
             housingUnits.clear();
         }
-        //heteroRent.close();
         
     }
 
@@ -464,14 +305,11 @@ public class HousingMarket {
      else {
          testAgents = AgentHandler.getInstance().getOwnerTestAgents();
      }
-     
-   //System.out.println("this is number of test agents " + testAgents.size());
-                // for each block compute list of utilities
+        // for each block compute list of utilities
         Iterator blocksIter = MirarUtils.BLOCKS .iterator();
         DoubleArrayList probabilities = new DoubleArrayList();
         DoubleArrayList utilities = new DoubleArrayList();
 
-        //int numBlocks = blocks.size();
         Iterator agentsIter = testAgents.iterator();
 
         while (agentsIter.hasNext()) { // looping over agent types
@@ -481,7 +319,6 @@ public class HousingMarket {
             Iterator blockIter = MirarUtils.BLOCKS.iterator();
             while (blockIter.hasNext() ) {
                 Block b = (Block)blockIter.next();
-//                double totHU = b.getHousingUnitList().size();
    
                 // changing this for tenure
                 double totHU = b.getHousingUnitsByTenure(tenure).size();
@@ -530,7 +367,6 @@ public class HousingMarket {
         
         try {
             PrintWriter HMOut = new PrintWriter(new FileOutputStream("housingMarket.txt", true));
-            //     blockOut.println("race income rent (rir) num,  numBlocks,  (rirNum/numBlocks),   rirValue");
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -550,7 +386,6 @@ public class HousingMarket {
         int iter = 0;
         
   while(difference>0.001) {
-        //for(int i=0;i<5;i++) {
         System.out.println("------ HM#computeMCR:  Iterations within Market Clearing Rent Update Loop: ------ :" + iter);
 
         difference = 0.0; // set back to zero
@@ -568,17 +403,13 @@ public class HousingMarket {
                 marginalUtil = a.computeMarginalUtility(b, tenure); // check to make sure this is right
      
                 updateDelta=marginalUtil - Math.log(nHat);
-              // System.out.println("old marginalUtil is: " + marginalUtil + " and new MarginalUtil is: " + updateDelta);
+
         price = a.computePrice(updateDelta, b, tenure); // solve for new prices
-       // System.out.println("HM#computeMCR:  this is the new price for housing unit: " + price);
-        
-        
+
         b.setRentListByBlock(price, tenure); // assign updated prices to housing units
         difference=+ Math.abs(marginalUtil-updateDelta);
            }
                 }
-             //   System.out.println("this is total sum over expected agents " + sumTot);
-                //        System.out.println("HM#computeMCR:  this is the difference: " + difference);
             iter = iter+1; // number of iterations to convergence
       
     }

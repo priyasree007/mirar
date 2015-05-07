@@ -46,12 +46,8 @@ public class HousingUnit {
         this.block = block;
         this.occupied = false;
         this.tenure = tenure;
-     //   System.out.println("new HU  block #: " + block.getBlockNum());
     }
     
-    
-    
-   
     public Agent getAgent() { 
         return agent;
     }
@@ -64,40 +60,23 @@ public class HousingUnit {
     public void addAgent(Agent agent) { 	
         if (agent == null) System.out.println("000010101 Housing Unit - add Agent - agent is null");
         this.setOccupied(true);
-        //this.setAgentNum(agent.getAgentNum());
         this.setAgent(agent);
-//        this.setIncome(agent.getIncome)
         this.block.addAgent(agent);
         this.setTenure(agent.getTenure());
-        //this.block.setUpdate(true);
-       // this.block.updateHousingUnit(this);
-       // System.out.println("add agent HU  block #: " + block.getBlockNum());
     }
     
     public void removeAgent() { // Priyasree_DeadCode : Unreachable code_
         
         this.setOccupied(false);
-      //  this.setAgentNum(-1);
         
         if (this.agent == null) {
             System.out.println("4444  Housing Unit - remove agent - agent is null  CRAP");
-            //return;
         }
         this.block.removeAgent(this.agent);
         this.block.setUpdate(true);
-       // this.block.updateHousingUnit(this);
         this.agent = null;
     }
-    
-    
-    /*public int getAgentNum() {
-        return agentNum;
-    }
 
-    public void setAgentNum(int agentNum) {
-        this.agentNum = agentNum;
-    }
-*/
     public Block getBlock() {
         return block;
     }
@@ -116,22 +95,14 @@ public class HousingUnit {
 
     public double getIncome() { 
         if (this.agent == null) return 0.0;
-    //    System.out.println("\t ##  HU - agent.get Income : " + agent.getIncome());
         return this.agent.getIncome();
     }
 
-   /* public void setIncome(int income) {
-        this.income = income;
-    }
-*/
     /*public int getRace() { // Priyasree_DeadCode : Unreachable code_
         if (this.agent == null) return  -1;
         return this.agent.getRace();
     }*/
 
-    //public void setRace(int race) {
-     //   this.race = race;
-   // }
 
     public double getRent() {
         return rent;

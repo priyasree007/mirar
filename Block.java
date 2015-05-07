@@ -183,25 +183,9 @@ public class Block {
 	    return offset;
 	}
 	
-	/*public ArrayList getRenterHistory() { // Priyasree_DeadCode : Unreachable code_
-		return renterHistory;
-	}*/
-	/*public void setRenterHistory(ArrayList history) { // Priyasree_DeadCode : Unreachable code_
-		this.renterHistory = history;
-	}*/
 	public IntArrayList getRaceAndIncomeList() { 
 		return raceAndIncomeList;
 	}
-	/*public void setRaceAndIncomeList(IntArrayList raceAndIncomeList) { // Priyasree_DeadCode : Unreachable code_
-		this.raceAndIncomeList = raceAndIncomeList;
-	}*/
-	/*public boolean needsToBeUpdated() { // Priyasree_DeadCode : Unreachable code_
-		return this.update;
-	}*/
-
-	/*public boolean getUpdate() { // Priyasree_DeadCode : Unreachable code_
-		return this.update;
-	}*/
 
 	public void setUpdate(boolean update) { // Priyasree_DeadCode : Unreachable code_
 		this.update = update;
@@ -291,10 +275,6 @@ public class Block {
 		unit.setRent(rent);
 		unit.addAgent(agent);
 		unit.setOccupied(true);
-         // this is not the problem  if (unit.getAgent() == null) System.out.println("2222 Block ->  Housing Unit - add - agent is null");
-	//	unit.setAgentNum(agent.getAgentNum());
-		//this.addAgent(agent);
-		//if (MirarUtils.TENURE_MATTERS==true) {
 			if (agent.getTenure() == Agent.RENTER) {
 				housingUnitList_Renters.add(unit);    
 			}
@@ -302,9 +282,7 @@ public class Block {
 				housingUnitList_Owners.add(unit);    
 			}
 			else System.out.println("--- Block - add Occupied HU - tenure not 0 or 1");			
-		//} else {
 			housingUnitList_All.add(unit); 
-	//	}
 
         if (unit == null) System.out.println("*******    block -- add  occupied housing unit  -- unit is null !!!!1");
         if (unit.getAgent() == null) System.out.println("" +
@@ -322,9 +300,7 @@ public class Block {
 	public HousingUnit addVacantHousingUnit(int tenure) { 
         HousingUnit unit = new HousingUnit(this.numHousingUnits, this, tenure);
         this.numHousingUnits++;
-   //     if(MirarUtils.TENURE_MATTERS==true){
-		//this.numHousingUnits++;
-		//        unit.setBlock(this);
+
         	if (tenure == Agent.RENTER) {
         		housingUnitList_Renters.add(unit);    
         	}
@@ -332,23 +308,10 @@ public class Block {
         		housingUnitList_Owners.add(unit);    
         	}
         	else System.out.println("--- Block - add vacant HU - tenure not 0 or 1");
-    //    } else {
         	housingUnitList_All.add(unit);
-    //    }
-//		vacantHousingUnitList.add(unit);
-		//      this.addAgent(unit.getAgent());
 		return unit;
 	}
 	
-	/**
-	 * Adds a new occupied housing unit to the block and puts
-	 * the specified agent in the housing unit; updates list of 
-	 * occupied housing units. 
-	 * 
-	 * @param Agent agent
-	 * 	agent to be put in housing unit
-	 * 
-	 */
 
     /**
 	 * Adds a utility for the appropriate agent type to the list of
@@ -372,42 +335,8 @@ public class Block {
 			}	
 
 	}
-	/**
-	 * Adds a utility for the appropriate agent type to the list of
-	 * utilities for the block. 
-	 * 
-	 * @param utility
-	 * 		value of utility to be added
-	 * @param race
-	 * 		agent's race type
-	 * @param incomeCategory
-	 * 		agent's income category
-	 * 
-	 */
-	/*public void addUtility(double utility, int race, int incomeCategory) {
-		//int race = agent.getRace();
-		//int incomeCategory = agent.getIncomeCategory();
 
-		int position = ((race * MirarUtils.NUM_INCOMES) + incomeCategory);
-		utilityList.set(position, utility);
 
-	}*/
-	/**
-	 * Gets the utility for the appropriate agent type from the list of
-	 * utilities for the block. 
-	 * 
-	 * @param race
-	 * 		agent race type
-	 * @param incomeCategory
-	 * 		agent income category
-	 * 
-	 * @return double utility
-	 * 
-	 */
-	/*public double getUtility(int race, int incomeCategory) {
-     //   System.out.println("Block # getUtility:  " + utilityList.get(((race * MirarUtils.NUM_INCOMES) + incomeCategory)) );
-		return utilityList.get(((race * MirarUtils.NUM_INCOMES) + incomeCategory));
-	}*/
 	/**
 	 * Gets the utility for the appropriate agent type from the list of
 	 * utilities for the block. 
@@ -427,16 +356,7 @@ public class Block {
 	
         }
     }
-	/*public double getAverageUtility(int tenure) {
-//	    Iterator iter = this.utilityList.iterator();
-        
-	    double totalUtility = 0.0;
-	    int utilSize = utilityList.size();
-	    for (int i=0;i<utilSize; i++) {
-	        totalUtility += utilityList.get(i);
-	    }
-	    return (totalUtility/(1.0*utilityList.size()));
-	}*/
+
 	
 	public void setTransitionProbability(Agent agent, double probability) { 
         if (agent.getTenure() == Agent.RENTER)
@@ -446,50 +366,6 @@ public class Block {
 	    transitionProbabilityList_Owners.set( ((agent.getRace() * MirarUtils.NUM_INCOMES )+ agent.getIncomeCategory()), probability);
 }
 
-	/*public double getTransitionProbability(Agent agent) { // Priyasree_DeadCode : Unreachable code_
-			if (agent.getTenure() == Agent.OWNER)
-				return  transitionProbabilityList_Owners.get( (agent.getRace() * MirarUtils.NUM_INCOMES) + agent.getIncomeCategory());
-			else
-				return	transitionProbabilityList_Renters.get( (agent.getRace() * MirarUtils.NUM_INCOMES) + agent.getIncomeCategory());
-
-	}*/
-	
-/*	public void setProbability(Agent agent, double probability) {
-		probablityList.set(agent.getRace() * MirarUtils.NUM_INCOMES + agent.getIncomeCategory(),
-				new Double(probability));
-	}
-
-	public double getProbability(Agent agent) {
-		return ((Double) probablityList.get(agent.getRace() * MirarUtils.NUM_INCOMES
-				+ agent.getIncomeCategory())).doubleValue();
-	}
-	*/
-
-	/**
-	 * Samples agents from all occupied housing units in block, using agent
-	 * sample proportion in MirarUtils. 
-	 * 
-	 * @return array of sampled agents
-	 * 
-	 */
-	/*  not used ? RN - 9-21-05
-     * 
-     * public ArrayList sampleAgents() {
-		ArrayList units = new ArrayList();
-		units.addAll(getOccupiedHousingUnitList());
-		int probInt = MirarUtils.probabilisticInterpolation(units.size(),
-				MirarUtils.OWNER_AGENT_SAMPLE);
-		int sampleNum = Math.min(probInt, units.size());
-
-		ArrayList result = new ArrayList(sampleNum);
-		for (int i = 0; i < sampleNum; i++) {
-			int choice = Random.uniform.nextIntFromTo(0, units.size() - 1);
-			result.add(((HousingUnit) units.get(choice)).getAgent());
-			units.remove(choice);
-		}
-		return result;
-	}
-    */
 	/**
 	 * Samples vacant housing units from all available vacancies in block, 
 	 * using vacancy sample proportion in MirarUtils. 
@@ -502,12 +378,7 @@ public class Block {
 		ArrayList units = new ArrayList();
 
 		units.addAll(getVacantHousingUnits(tenure));
-		//     System.out.println("Block: " + getSTFID() + " housingUnit list:" +
-	  // housingUnitList_Renters.size());
-		//     System.out.println("Block: " + getSTFID() + " sampleVAcant HU vacatHU
-	  // list:" + ((ArrayList)getVacantHousingUnitList()).size());
-		//     System.out.println("Block: " + getSTFID() + " units HU list:" +
-	  // units.size());
+
 		int probInt = 0;
         double sample = 0.0;
         if (tenure == Agent.RENTER) sample = MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE; 
@@ -516,15 +387,12 @@ public class Block {
 		int sampleNum = Math.min(probInt, units.size());
 
 		ArrayList result = new ArrayList(sampleNum);
-		// System.out.println("Block sample vacat HU: vacant hus: " + units.size()
-	  // + " sample Num: " + sampleNum);
+
 		for (int i = 0; i < sampleNum; i++) {
 			int choice = Random.uniform.nextIntFromTo(0, units.size() - 1);
 			result.add(units.get(choice));
 			units.remove(choice);
 		}
-		//  System.out.println("Block: " + getSTFID() + " result HU vacatHU list:"
-	  // + result.size());
 
 		return result;
 	}
@@ -533,12 +401,7 @@ public class Block {
 		ArrayList units = new ArrayList();
 
 		units.addAll(getVacantHousingUnits());
-		//     System.out.println("Block: " + getSTFID() + " housingUnit list:" +
-	  // housingUnitList_Renters.size());
-		//     System.out.println("Block: " + getSTFID() + " sampleVAcant HU vacatHU
-	  // list:" + ((ArrayList)getVacantHousingUnitList()).size());
-		//     System.out.println("Block: " + getSTFID() + " units HU list:" +
-	  // units.size());
+
 		int probInt = 0;
         double sample = 0.0;
         sample = MirarUtils.ALL_VACANT_HOUSING_UNIT_SAMPLE; 
@@ -546,15 +409,12 @@ public class Block {
 		int sampleNum = Math.min(probInt, units.size());
 
 		ArrayList result = new ArrayList(sampleNum);
-		// System.out.println("Block sample vacat HU: vacant hus: " + units.size()
-	  // + " sample Num: " + sampleNum);
+
 		for (int i = 0; i < sampleNum; i++) {
 			int choice = Random.uniform.nextIntFromTo(0, units.size() - 1);
 			result.add(units.get(choice));
 			units.remove(choice);
 		}
-		//  System.out.println("Block: " + getSTFID() + " result HU vacatHU list:"
-	  // + result.size());
 
 		return result;
 	}
@@ -576,7 +436,6 @@ public class Block {
 				proportion);
 		ArrayList result = new ArrayList(sampleNum);
 		for (int i = 0; i < sampleNum; i++) {
-		//	int choice = Random.uniform.nextIntFromTo(0, units.size());
 			result.add(units.get(i));
 			units.remove(i);
 		}
@@ -591,7 +450,6 @@ public class Block {
 		ArrayList result = new ArrayList(sampleNum);
 		for (int i = 0; i < sampleNum; i++) {//priyaComm: may be random selection is req, chk how used
 			System.out.println("I am here " + i); //Priyasree_Test
-		//	int choice = Random.uniform.nextIntFromTo(0, units.size());
 			result.add(units.get(i));
 			units.remove(i);
 		}
@@ -648,59 +506,7 @@ public class Block {
 		}
 	}*/
 
-	/*public HousingUnit getVacantHousingUnit() {
-		// get first vacant Housing Unit in list
-		// System.out.println("Block: get VacantHousingUnit: " + unitNum);
-		for (int i = 0; i < housingUnitList_Renters.size(); i++) {
-			if (((HousingUnit) housingUnitList_Renters.get(i)).isOccupied() == false) {
-				return (HousingUnit) housingUnitList_Renters.get(i);
-			}
-		}
-		return null;
-	}
-*/
-/*	public HousingUnit getVacantHousingUnit(int unitNum) {
-		// System.out.println("Block: get VacantHousingUnit: " + unitNum);
-		for (int i = 0; i < vacantHousingUnitList.size(); i++) {
-			if (((HousingUnit) vacantHousingUnitList.get(i))
-					.getHousingUnitNum() == unitNum) {
-				return (HousingUnit) vacantHousingUnitList.get(i);
-			}
-		}
-		return null;
-	}
-*/
-	/*  not used? RN - Oct 3, 2005
-     * 
-     * public HousingUnit getOccupiedHousingUnit() {
-		// get first occupied Housing Unit in list
-		// System.out.println("Block: get VacantHousingUnit: " + unitNum);
-		for (int i = 0; i < housingUnitList_Renters.size(); i++) {
-			if (((HousingUnit) housingUnitList_Renters.get(i)).isOccupied() == true) {
-				return (HousingUnit) housingUnitList_Renters.get(i);
-			}
-		}
-		return null;
-	}
-*/
-/*	public HousingUnit getOccupiedHousingUnit(int unitNum) {
-		for (int i = occupiedHousingUnitList.size() - 1; i >= 0; i--) {
-			if (((HousingUnit) occupiedHousingUnitList.get(i))
-					.getHousingUnitNum() == unitNum) {
-				return (HousingUnit) occupiedHousingUnitList.get(i);
-			}
-		}
-		return null;
-	}
-*/
-	/*public void addPopulatedHousingUnit(HousingUnit unit) {
-		if (housingUnitList_Renters == null) {
-			housingUnitList_Renters = new ArrayList();
-		}
-		unit.setBlock(this);
-		housingUnitList_Renters.add(unit);
-		this.addAgent(unit.getAgent());
-	}*/
+
 /**
  * Removes agent from block, and updates total number of people, total number of
  * agent's race and income group, income distribution. 
@@ -708,14 +514,9 @@ public class Block {
  * @param agent
  */
 	public void removeAgent(Agent agent) { // Priyasree_DeadCode : Unreachable code_
-		//    System.out.println("Block num: " + this.blockNum + " removeAgent
-	  // numAgents: " + numAgents);
 		numAgents--;
-		//  System.out.println("Block num: " + this.blockNum + " removeAgent
-	  // numAgents: " + numAgents);
 		if (agent == null)System.out.println("66666  Block  removeAgent  agent is null");
 		int position = ((agent.getRace() *MirarUtils.NUM_INCOMES) + agent.getIncomeCategory());
-		// utilityList.add(position, new Double(utility));
 		int num = raceAndIncomeList.get(position);
 		num -= 1;
 		raceAndIncomeList.set(position, num);
@@ -724,16 +525,12 @@ public class Block {
 		int race = agent.getRace();
 		if (race == Agent.WHITE) {
 		    setNumWhite(getNumWhite()-1);
-			//numWhite--;
 		} else if (race == Agent.BLACK) {
 			setNumBlack(getNumBlack() - 1);
-//		    numBlack--;
 		} else if (race == Agent.ASIAN) {
 		    setNumAsian(getNumAsian() - 1);
-			//numAsian--;
 		} else if (race == Agent.HISPANIC) {
 			setNumHispanic(getNumHispanic() - 1);;
-		    //numHispanic--;
 		}
 
 		//subtract income
@@ -750,57 +547,9 @@ public class Block {
  * @param occupied
  * @param agent
  */
-	/* not used? RN = Oct 3, 2005
-     * 
-     * public void updateHousingUnit(int huNum, boolean occupied, Agent agent) {
 
-		HousingUnit h = getHousingUnit(huNum, agent.getTenure());
-		h.setOccupied(occupied);
-		if (occupied == true) {
-			h.setAgent(agent);
-			this.addAgent(agent);
-		} else {
-			this.removeAgent(agent);
-		}
-		
-	}
-*/
 	/*public void updateHousingUnit(HousingUnit hu) { // Priyasree_DeadCode : Unreachable code_
-		//System.out.println("Block: " + this.getSTFID() + " updateHousingUnit");
-		//  System.out.println("Block " + getSTFID() + " update vac hu list: " +
-	  // vacantHousingUnitList.size());
-		//  for (int i=0; i<vacantHousingUnitList.size(); i++){
-		//      System.out.println("housing unit num: "+ this.getSTFID() + " "
-	  // +((HousingUnit)vacantHousingUnitList.get(i)).getHousingUnitNum());
-		//  }
-		
-	   * if (hu.isOccupied() == true) { // System.out.println("Block: " +
-	   * this.blockNum + " updateHousingUnit + occupied"); //
-	   * System.out.println("\t occupiedHousingUnitList size" +
-	   * occupiedHousingUnitList.size()); // System.out.println("\t
-	   * vacantHousingUnitList size" + vacantHousingUnitList.size());
-	   * occupiedHousingUnitList.add(hu); removeHousingUnitFromList(hu,
-	   * vacantHousingUnitList);//vacantHousingUnitList.remove(hu); //
-	   * System.out.println("\t occupiedHousingUnitList size" +
-	   * occupiedHousingUnitList.size()); // System.out.println("\t
-	   * vacantHousingUnitList size" + vacantHousingUnitList.size()); } else if
-	   * (hu.isOccupied() == false) { // System.out.println("Block: " +
-	   * this.getSTFID() + " updateHousingUnit - vacant"); //
-	   * System.out.println("\t occupiedHousingUnitList size" +
-	   * occupiedHousingUnitList.size()); /// System.out.println("\t
-	   * vacantHousingUnitList size" + vacantHousingUnitList.size());
-	   * vacantHousingUnitList.add(hu); removeHousingUnitFromList(hu,
-	   * occupiedHousingUnitList);// occupiedHousingUnitList.remove(hu); //
-	   * System.out.println("\t occupiedHousingUnitList size" +
-	   * occupiedHousingUnitList.size()); // System.out.println("\t
-	   * vacantHousingUnitList size" + vacantHousingUnitList.size()); }
-	   * //System.out.println("Block " + getSTFID() + " After update vac hu
-	   * list: " + vacantHousingUnitList.size()); //for (int i=0; i
-	   * <vacantHousingUnitList.size(); i++){ // System.out.println("housing
-	   * unit num: "+ this.getSTFID() + " "
-	   * +((HousingUnit)vacantHousingUnitList.get(i)).getHousingUnitNum()); // }
-	   *  
-	   
+
 	}
 */
     /** deprecated
@@ -913,7 +662,6 @@ public class Block {
 	} // end pctWhite
 
 	public double getPctBlack() { 
-      //  System.out.println("Block#getPctBlack  numBlack " + numBlack + "  numAgents " + numAgents);
 		if (numAgents > 0) {
 			return ((numBlack * 1.0) / (numAgents * 1.0));
 		} else
@@ -1036,8 +784,6 @@ public class Block {
 	  	while (huIter.hasNext()) {
 		    HousingUnit hu =  (HousingUnit)huIter.next();
 		    rents.add(hu.getRent());
-		//   System.out.println("is this unit occupied? " + hu.isOccupied());
-		//   System.out.println("this is a rent: " + hu.getRent());
 		}
 		rents.sort();
 		return Descriptive.median(rents);
@@ -1071,8 +817,6 @@ public class Block {
 		while (huIter.hasNext()) {
 		    HousingUnit hu =  (HousingUnit)huIter.next();
 		    rents.add(hu.getRent());
-		    //System.out.println("is this unit occupied? " + hu.isOccupied());
-		    //System.out.println("this is a rent: " + hu.getRent());
 		}
 		rents.sort();		
 		return Descriptive.quantile(rents, centile);
@@ -1103,7 +847,6 @@ public class Block {
 	}*/
 	
 	public double getMedianIncome(){ 
-		//Iterator huIter = housingUnitList_Renters.iterator();
 		DoubleArrayList incomes = this.getIncomes();
 	incomes.sort();
 		return Descriptive.median(incomes);
@@ -1279,7 +1022,6 @@ public class Block {
         while(iter.hasNext()) {
             Block block = (Block)iter.next();
             totalAgents += block.getNumAgents();
-            //incomes.addAllOf(block.getHispanicIncomes());
             
         }
         return totalAgents;
@@ -1541,37 +1283,12 @@ public class Block {
 	}*/
 	
 	/**
-	 * Returns list of occupied housing units. 
-	 * @return
-	 */
-/*	 not used? RN - Oct 3, 2005
- * 
- * public ArrayList getOccupiedHousingUnitList() {
-		// go through the housing unit list and get the occupied units
-		ArrayList units = new ArrayList();
-		for (int i = 0; i < housingUnitList_Renters.size(); i++) {
-			if (((HousingUnit) housingUnitList_Renters.get(i)).isOccupied() == true) {
-				units.add(housingUnitList_Renters.get(i));
-			}
-		}
-		return units;
-
-		//  return occupiedHousingUnitList;
-	}
-    */
-/*public void setOccupiedHousingUnitList(ArrayList occupiedHousingUnitList) {
-		this.occupiedHousingUnitList = occupiedHousingUnitList;
-	}*/
-	/**
 	 * returns list of vacant housing units. 
 	 * @param tenure 
 	 * 
 	 * @return
 	 */
 	public ArrayList getVacantHousingUnits(int tenure) { 
-		// go through the housing unit list and get the vacant units
-		//System.out.println("Block : " + getSTFID() + " housingUnitList_Renters size: "
-	  // + housingUnitList_Renters.size());
 		ArrayList units = new ArrayList();
         
         if (tenure == Agent.RENTER) {
@@ -1594,15 +1311,10 @@ public class Block {
         }
         else 
 		System.out.println("Block : get Vacant HU tenure not 0 or 1");
-	  // size: " + units.size());
 		return units;
-		//return vacantHousingUnitList;
 	}
 	
 	public ArrayList getVacantHousingUnits() { 
-		// go through the housing unit list and get the vacant units
-		//System.out.println("Block : " + getSTFID() + " housingUnitList_Renters size: "
-	  // + housingUnitList_Renters.size());
 		ArrayList units = new ArrayList();
        
             for (int i = 0; i < housingUnitList_All.size(); i++) {
@@ -1613,7 +1325,6 @@ public class Block {
             }
         
 		return units;
-		//return vacantHousingUnitList;
 	}
 
 
@@ -1625,9 +1336,6 @@ public class Block {
 	   return num;
 	}
 
-	/*public void setVacantHousingUnitList(ArrayList vacantHousingUnitList) {
-		this.vacantHousingUnitList = vacantHousingUnitList;
-	}*/
 	public DoubleArrayList getIncomeDistribution() { // E.E.B. 
 																		   // added
 																		   // 2/26
@@ -1640,7 +1348,7 @@ public class Block {
         neighborhood.add(this);
         DoubleArrayList incomes  = new DoubleArrayList();
         Iterator iter = neighborhood.iterator();
-      //  System.out.println("block STFID is " + this.getSTFID());
+        
         while(iter.hasNext()) {         
             Block block = (Block)iter.next();
          if (block !=null) {
@@ -1648,7 +1356,6 @@ public class Block {
             }
         }
         incomes.sort();
-      //  System.out.println("median neighborhood income is " + Descriptive.median(incomes));
         return Descriptive.median(incomes);
        
 
@@ -1668,45 +1375,30 @@ public class Block {
 
 	   public String historyToString_Renter() { 
            
-           if (carryOverHistory_Renter == null) {
-            //   System.out.println("carry overv renterHistory is NULL");
-               
+           if (carryOverHistory_Renter == null) {               
                return createHistoryString_Renter(MirarUtils.STEP_NUM );
-               //return createHistoryString();
            }
            else {  // there is a carryOverHistory_Renter
               
                if (this.renterHistory.size() == 0) { // there are not histories in the list
                    renterHistory.add(carryOverHistory_Renter);
-                   //break;
                    return createHistoryString_Renter(MirarUtils.PRINT_INTERVAL);
                }
                else {
                  
                    if (((BlockHistory)this.renterHistory.get(0)).getStepNum() == carryOverHistory_Renter.getStepNum()) {
-                       // renterHistory.0 is the same step as the carry over renterHistory - don't need the carry over renterHistory
                        return createHistoryString_Renter(MirarUtils.PRINT_INTERVAL);
-                       //   return createHistoryString();
                    }
                    else { 
                        // need to use the carry over renterHistory
                        this.renterHistory.add(0, carryOverHistory_Renter);
-                     // break;
-                       // return createHistoryString();
                        return createHistoryString_Renter(MirarUtils.PRINT_INTERVAL);
                    }
                }
            }
-           
-          // this.carryOverHistory = new BlockHistory((BlockHistory)this.history.get(this.history.size()-1),MirarUtils.STEP_NUM+1 );
-         //   this.history.clear();
-         //  this.history.add(nextHistory);
-           
-         //  this.carryOverHistory = 
           
        }
        private String createHistoryString_Renter(int finalStepNum) { 
-        //   System.out.println("renterHistory lenght: " + renterHistory.size());
 	        StringBuffer result = new StringBuffer();
 	        int totalHistory = 0;
 	        // add race-income type
@@ -1714,80 +1406,9 @@ public class Block {
 	        result.append(this.getSTFID() + ", " );
     		result.append(((BlockHistory)renterHistory.get(0)).toString());
     		result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
-	  /******** add back in if wanting all block histories....    
-	        // add remaining memory STFIDs - for 1 through last set of model
-	        // if missing any memories in between steps, have to insert them
-	        // if missing any memories from last memory to last step of model - have to add them
-	        int numHistories = renterHistory.size();
-	        int currStep = 0;
-	        int prevStep = 0;//((BlockHistory)renterHistory.get(0)).getStepNum();
-	        int currHistory = 1;
-	        int prevHistory = 0;
-	      // int stepToAdd = 0;
-            
-	        for (int i=1; i< numHistories; i++) {
-                prevStep = ((BlockHistory)renterHistory.get(i-1)).getStepNum();
-	             currStep =  ((BlockHistory)renterHistory.get(i)).getStepNum();
-	            if ( (currStep - prevStep) > 1) {
-	                // there are missing steps in between this step and previous one
-	                // add those missing onese
-	                // then add the current one
-	                int insertHistories = ((currStep - prevStep) - 1);
-	                int stepToAdd = ((BlockHistory)renterHistory.get(prevHistory)).getStepNum();
-	                for (int j=0; j<insertHistories; j++) {
-	                	result.append(this.getSTFID() + ", ");
-	                	
-    					result.append(new BlockHistory( (BlockHistory)renterHistory.get(prevHistory), (stepToAdd + (j+1))) );
-                      //  result.append("insert histories");
-    					result.append("\n");
-	                    totalHistory++;
-	                }
-	                result.append(this.getSTFID() + ", ");
-	                result.append(((BlockHistory)renterHistory.get(currHistory)));
-                 //   result.append("middle part");
-	                result.append("\n");
-	                totalHistory++;
-	                prevHistory = currHistory;
-	                currHistory++;
-	            }
-	            else {
-	                // don't need to insert any steps
-	                result.append(this.getSTFID() + ", ");
-	                result.append(((BlockHistory)renterHistory.get(currHistory)));
-               //     result.append("no insert part");
-	                result.append("\n");
-	                totalHistory++;
-	                prevHistory = currHistory;
-	                currHistory++;
-	            }
-	        //prevStep = currStep;
-	        }
-	        	          
-	    // check to make sure there are not histories needed to get to last step of model
-//	        if ( (MirarUtils.STEP_NUM - totalHistory) > 0 ) {
-	        if ( (finalStepNum - totalHistory) > 0 ) {
-	            // need to add histories to end of list
-	          //  int addMemories = (MirarUtils.STEP_NUM - totalHistory);
-	            int lastHistory = (renterHistory.size() - 1);
-	            int lastStep = ((BlockHistory)renterHistory.get(lastHistory)).getStepNum();
-	            int incrementor = 1;
-	            for (int i=lastStep+1; i<=MirarUtils.STEP_NUM; i++) {
-	            //for (int i=lastStep+1; i<=finalStepNum; i++) {
-	                //stepToAdd = ((BlockHistory)renterHistory.get(lastStep)).getStepNum();
-	                result.append(this.getSTFID() + ", ");
-					result.append(new BlockHistory( (BlockHistory)renterHistory.get(lastHistory), (lastStep + incrementor)) );
-                  //  result.append("last part");
-					result.append("\n");
-					 totalHistory++;
-					 incrementor++;
-	            }
-	        }
-	        result.deleteCharAt(result.length()-1);
-	        
-             add back in if wanting all block histories....     */
+
             this.carryOverHistory_Renter = new BlockHistory((BlockHistory)this.renterHistory.get(this.renterHistory.size()-1),MirarUtils.STEP_NUM+1 );
-            
-              
+                        
             this.renterHistory.clear();
             
             return result.toString();
@@ -1797,44 +1418,29 @@ public class Block {
   public String historyToString_Owner() { 
            
            if (carryOverHistory_Owner == null) {
-            //   System.out.println("carry overv renterHistory is NULL");
-               
                return createHistoryString_Owner(MirarUtils.STEP_NUM );
-               //return createHistoryString();
            }
            else {  // there is a carryOverHistory_Renter
               
                if (this.ownerHistory.size() == 0) { // there are not histories in the list
                    ownerHistory.add(carryOverHistory_Owner);
-                   //break;
                    return createHistoryString_Owner(MirarUtils.PRINT_INTERVAL);
                }
                else {
                  
                    if (((BlockHistory)this.ownerHistory.get(0)).getStepNum() == carryOverHistory_Owner.getStepNum()) {
-                       // renterHistory.0 is the same step as the carry over renterHistory - don't need the carry over renterHistory
                        return createHistoryString_Owner(MirarUtils.PRINT_INTERVAL);
-                       //   return createHistoryString();
                    }
                    else { 
                        // need to use the carry over renterHistory
                        this.ownerHistory.add(0, carryOverHistory_Owner);
-                     // break;
-                       // return createHistoryString();
                        return createHistoryString_Owner(MirarUtils.PRINT_INTERVAL);
                    }
                }
            }
-           
-          // this.carryOverHistory = new BlockHistory((BlockHistory)this.history.get(this.history.size()-1),MirarUtils.STEP_NUM+1 );
-         //   this.history.clear();
-         //  this.history.add(nextHistory);
-           
-         //  this.carryOverHistory = 
           
        }
        private String createHistoryString_Owner(int finalStepNum) { 
-        //   System.out.println("renterHistory lenght: " + renterHistory.size());
             StringBuffer result = new StringBuffer();
             int totalHistory = 0;
             // add race-income type
@@ -1851,7 +1457,6 @@ public class Block {
             int prevStep = 0;//((BlockHistory)renterHistory.get(0)).getStepNum();
             int currHistory = 1;
             int prevHistory = 0;
-          // int stepToAdd = 0;
             
             for (int i=1; i< numHistories; i++) {
                 prevStep = ((BlockHistory)ownerHistory.get(i-1)).getStepNum();
@@ -1866,13 +1471,11 @@ public class Block {
                         result.append(this.getSTFID() + ", ");
                         
                         result.append(new BlockHistory( (BlockHistory)ownerHistory.get(prevHistory), (stepToAdd + (j+1))) );
-                      //  result.append("insert histories");
                         result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                         totalHistory++;
                     }
                     result.append(this.getSTFID() + ", ");
                     result.append(((BlockHistory)ownerHistory.get(currHistory)));
-                 //   result.append("middle part");
                     result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                     totalHistory++;
                     prevHistory = currHistory;
@@ -1882,28 +1485,20 @@ public class Block {
                     // don't need to insert any steps
                     result.append(this.getSTFID() + ", ");
                     result.append(((BlockHistory)ownerHistory.get(currHistory)));
-               //     result.append("no insert part");
                     result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                     totalHistory++;
                     prevHistory = currHistory;
                     currHistory++;
                 }
-            //prevStep = currStep;
             }
         // check to make sure there are not histories needed to get to last step of model
-//          if ( (MirarUtils.STEP_NUM - totalHistory) > 0 ) {
             if ( (finalStepNum - totalHistory) > 0 ) {
-                // need to add histories to end of list
-              //  int addMemories = (MirarUtils.STEP_NUM - totalHistory);
                 int lastHistory = (ownerHistory.size() - 1);
                 int lastStep = ((BlockHistory)ownerHistory.get(lastHistory)).getStepNum();
                 int incrementor = 1;
                 for (int i=lastStep+1; i<=MirarUtils.STEP_NUM; i++) {
-                //for (int i=lastStep+1; i<=finalStepNum; i++) {
-                    //stepToAdd = ((BlockHistory)renterHistory.get(lastStep)).getStepNum();
                     result.append(this.getSTFID() + ", ");
                     result.append(new BlockHistory( (BlockHistory)ownerHistory.get(lastHistory), (lastStep + incrementor)) );
-                  //  result.append("last part");
                     result.append("\n"); //Priyasree_Audit: String literal can be replaced by a character literal_Replace the string literal with a character literal.
                      totalHistory++;
                      incrementor++;
@@ -1956,17 +1551,10 @@ public class Block {
 	}*/
 
 	
-
-	/*public ArrayList getProbablityList() {
-		return probablityList;
-	}*/
 	/**
     * @param probablityList
     *                The probablityList to set.
     */
-/*	public void setProbablityList(ArrayList probablityList) {
-		this.probablityList = probablityList;
-	}*/
 	/*public double getExpectedNumAgents() { // Priyasree_DeadCode : Unreachable code_
 		return expectedNumAgents;
 	}*/
@@ -2003,33 +1591,11 @@ public class Block {
             
 	    int numHU = housingUnits.size();
 	    for (int i=0; i<numHU; i++) {
-	       // HousingUnit hu = (HousingUnit)housingUnits.get(i);
-	      //  if (hu.getTenure() ==tenure) {
 	            rents.add(((HousingUnit)housingUnits.get(i)).getRent());
-	      //  }
 	    }
 	    return rents;
 	}
 	
-	/*
-    
-     * replaced by version with tenure -- see below - RN - 9-21-05
-     * 
-	 *public void setRentListByBlock(double rent) {
-		/**
-		 * This method updates prices assuming utilities are computed
-		 * at the block level. Thus, all the housing units in the block
-		 * get the same market price.
-		 */
-	/*	ArrayList housingUnits = this.getHousingUnitList();
-		HousingUnit h = new HousingUnit();
-		int numHU = housingUnits.size();
-		for(int i=0;i<numHU;i++){
-			h = (HousingUnit) housingUnits.get(i);
-			h.setRent(rent);
-		}
-	}
-	*/
 	public void setRentListByBlock(double rent, int tenure) { 
 	    /**
 	     * This method updates prices assuming utilities are computed
