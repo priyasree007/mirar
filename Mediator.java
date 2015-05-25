@@ -352,7 +352,7 @@ public class Mediator {
             String [] race = p.split(s);
             for (int i=1; i<race.length; i++) {
                 raceList.add(race[i]);
-            //    System.out.println("race list " + i + "  " + race[i]);
+                //System.out.println("race list " + i + "  " + race[i]);
             }
             
             s = in.readLine();
@@ -380,7 +380,7 @@ public class Mediator {
             
             MirarUtils.NUM_AGENT_TYPES = MirarUtils.NUM_RACES * MirarUtils.NUM_INCOMES;
             MirarUtils.RACE_INCOME_SIZE = MirarUtils.NUM_RACES * MirarUtils.NUM_INCOMES;
-           // System.out.println("MirarUtils.NUM_AGENT_TYPES " + MirarUtils.NUM_AGENT_TYPES + " MirarUtils.RACE_INCOME_SIZE  " + MirarUtils.RACE_INCOME_SIZE);
+           //System.out.println("MirarUtils.NUM_AGENT_TYPES " + MirarUtils.NUM_AGENT_TYPES + " MirarUtils.RACE_INCOME_SIZE  " + MirarUtils.RACE_INCOME_SIZE); 
         
             in.close();
         } catch (IOException e) { // Priyasree_Audit: Empty catch clause for exception e_Delete the empty catch clause.
@@ -500,14 +500,10 @@ public class Mediator {
             String[] result = null;
             while ((s = in.readLine()) != null) {
                 raceIncomeRent = new DoubleArrayList();
-             //   String[] raceIncomeList = new String[64];
                 result = p.split(s);
-        //        System.out.println("result length: " + result.length );
                 if (result == null) System.out.println("Load Agent Data:: result string for data is NULL");
-             //   else System.out.println("Load Agent Data:: result string length  "  + result.length);
                
 //PriyasreeComment System.out.println("Mediator#loadAgentData:  stfid " + result[0] + "  bg:  " + result[1] + "  get block group"); 
-           //     System.out.println("Mediator#loadAgentData: censusUnitHandler.getBlockGroup");
                 BlockGroup bg = censusUnitHandler.getBlockGroup(Integer
                         .parseInt(result[0]), Integer.parseInt(result[1]));
 
@@ -516,24 +512,10 @@ public class Mediator {
                 	/*System.out   //PriyasreeComment
                             .println("load agent data - can't find blockgroup");*/
                 else {
-//                    System.out.println("Mediator#loadAgentData: set block group data");
-                 //   bg.setNumOwnerOccupiedUnits( Double.parseDouble(result[2]));
-                //    bg.setNumOwnerHousingUnits( Double.parseDouble(result[3]));
-              //      bg.setNumOwnerVacantUnits( Double.parseDouble(result[4]));
-                	//System.out.println("result that is choked on is: " + result[5]);
                     bg.setRenterVacancyRate(Double.parseDouble(result[5]));
-                    
-                 //   bg.initializeNumWhite(Double.parseDouble(result[6]));
-              //      bg.initializeNumBlack( Double.parseDouble(result[7]));
-              //      bg.initializeNumAsian( Double.parseDouble(result[8]));
-             //       bg.initializeNumHispanic( Double.parseDouble(result[9]));
                    
-   //                 System.out.println("Mediator#loadAgentData:  raceIncomeRent.add");
                     for(int index = 10; index<result.length; index++) {
-                    	//System.out.print("result count is " + result[index]);
                         raceIncomeRent.add(new Double(result[index]).doubleValue()); // "Priyasree_Audit:  Expression can be replaced by Double.parseDouble(result[index])_Replace the expression with the more efficient code."
-//                                new Integer(MirarUtils.probabilisticInterpolation( Double.parseDouble(result[index]))));
-//                                new Integer(result[index]));
                     }
                  
                     bg.initializeRenterHousingUnits(raceIncomeRent);
@@ -551,8 +533,6 @@ public class Mediator {
             }
             // should we update the blocks here, so they will have block history set for time 0?
             in.close();
-//            System.out.println("Mediator#loadAgentDAta :  CensusUnitHandler -  getAllBlocks();");
-          //  ArrayList allBlocks = CensusUnitHandler.getInstance().getAllBlocks();
            
             //#### 
             // add to block history
@@ -570,9 +550,6 @@ public class Mediator {
             e.printStackTrace();
         }
         
-     //   RentTestOut.println("median occupied rent is: " + Descriptive.median(occRents));    
-       // RentTestOut.println("median vacant rent is: " + Descriptive.median(vacantRents));
-       // RentTestOut.close();
     }
 
     public void loadOwnerAgentData() {
@@ -612,7 +589,6 @@ public class Mediator {
                 if (result == null) System.out.println("Load Agent Data:: result string for data is NULL");
                
 //PriyasreeComment System.out.println("Mediator#loadAgentData:  stfid " + result[0] + "  bg:  " + result[1] + "  get block group");
-           //     System.out.println("Mediator#loadAgentData: censusUnitHandler.getBlockGroup");
                 BlockGroup bg = censusUnitHandler.getBlockGroup(Integer
                         .parseInt(result[0]), Integer.parseInt(result[1]));
 
@@ -762,7 +738,7 @@ public class Mediator {
         if (MirarUtils.NO_GUI == false) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
             // prepare display
             jumpHandler.buildDisplay();
-            jumpHandler.updateBlockLayer();//censusUnitHandler.getAllBlocks());
+            jumpHandler.updateBlockLayer();
             jumpHandler.updateBlockGroupLayer(censusUnitHandler.getAllBlockGroups());
             jumpHandler.updateCensusTractLayer(censusUnitHandler.getCensusTractList());
         }
@@ -787,7 +763,8 @@ public class Mediator {
             if(b.getNumHousingUnits()>0) {
             	for (int j=0; j<numTestAgents; j++) {
                 Agent a = (Agent)testAgents.get(j);
-                double util = a.computeUtility(b, Agent.RENTER);
+                //double util = a.computeUtility(b, Agent.RENTER); PriyasreeDR
+                double util = a.computeUtilityDR(b, Agent.RENTER); //PriyasreeDR
                 b.addUtility(util, a);
             	}
             }

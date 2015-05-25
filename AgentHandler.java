@@ -171,7 +171,8 @@ public class AgentHandler {
            if(b.getNumHousingUnits()>0){
            for (int j=0; j<numTestAgents; j++) {
                Agent a = (Agent)testAgents.get(j);
-               double util = a.computeUtility(b, Agent.RENTER);
+               //double util = a.computeUtility(b, Agent.RENTER); PriyasreeDR
+               double util = a.computeUtilityDR(b, Agent.RENTER); //PriyasreeDR
                b.addUtility(util, a);
            }
            }
@@ -246,7 +247,8 @@ public class AgentHandler {
             double util = 0.0;
             for (int j=0; j<numTestAgents; j++) {
                 a = (Agent)ownerTestAgents.get(j);
-                util = a.computeUtility(b, a.getTenure());
+                //util = a.computeUtility(b, a.getTenure()); PriyasreeDR
+                util = a.computeUtilityDR(b, a.getTenure()); //PriyasreeDR
             }
             b.update(util, a);
         }
@@ -270,7 +272,8 @@ public class AgentHandler {
                 double util = 0.0;
                     for (int j=0; j<numTestAgents; j++) {
                          a = (Agent)renterTestAgents.get(j);
-                         util = a.computeUtility(b, a.getTenure());
+                         //util = a.computeUtility(b, a.getTenure()); PriyasreeDR
+                         util = a.computeUtilityDR(b, a.getTenure());//PriyasreeDR
                     }
                     b.update(util, a);
                 }
@@ -293,6 +296,7 @@ public class AgentHandler {
              }
               agent = new Agent(renterAgentList.size(), race, incomeCategory, stfid, tenure);
              renterAgentList.add(agent);
+             //System.out.println("AgentHandler renterAgentList : " + renterAgentList); //PriyaUnderstand
              }
              else {// tenure == Agent.OWNER
                  if (ownerAgentList == null) {
@@ -341,15 +345,11 @@ public class AgentHandler {
         }
         return result;
     }
-    
-    
+        
     public ArrayList getRenterAgentList() { 
         return renterAgentList;
     } // end getAgentList
 
-    
-    
-    
     public ArrayList getRenterTestAgents() { 
         return renterTestAgents;
     }

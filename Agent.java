@@ -151,7 +151,8 @@ public class Agent {
                 
             }
         }
-        HousingUnit moveToUnit = MirarUtils.AGENT_DECISION.select(possibleHousingUnitList, this.getHousingUnit(), this);
+        //HousingUnit moveToUnit = MirarUtils.AGENT_DECISION.select(possibleHousingUnitList, this.getHousingUnit(), this); PriyasreeDR
+        HousingUnit moveToUnit = MirarUtils.AGENT_DECISION.selectDR(possibleHousingUnitList, this.getHousingUnit(), this); //PriyasreeDR 
       
         // if own unit - do nothing
         if (moveToUnit == null ) {
@@ -206,8 +207,12 @@ public class Agent {
         }
     }
     
-    public double computeUtility(Block b, int tenure) { 
+/*    public double computeUtility(Block b, int tenure) { PriyasreeDR
         return MirarUtils.AGENT_DECISION.computeUtility(b, this, tenure);
+    }*/
+    
+    public double computeUtilityDR(Block b, int tenure) { //PriyasreeDR 
+        return MirarUtils.AGENT_DECISION.computeUtilityDR(b, this, tenure);
     }
     
     public double computeMarginalUtility(Block b, int tenure){ 

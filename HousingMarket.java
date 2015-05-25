@@ -322,7 +322,8 @@ public class HousingMarket {
    
                 // changing this for tenure
                 double totHU = b.getHousingUnitsByTenure(tenure).size();
-                utilities.add(agent.computeUtility((Block)MirarUtils.BLOCKS.get(index), tenure)*totHU);
+                //utilities.add(agent.computeUtility((Block)MirarUtils.BLOCKS.get(index), tenure)*totHU); PriyasreeDR
+                utilities.add(agent.computeUtilityDR((Block)MirarUtils.BLOCKS.get(index), tenure)*totHU); //PriyasreeDR
                 index++;
             }
 

@@ -1,6 +1,9 @@
 package mirar;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.lang.reflect.*; //Priyasree
 
 import javax.swing.*;
@@ -43,33 +46,24 @@ import uchicago.src.reflector.ListPropertyDescriptor;
 
 public class Mirar extends SimModelImpl {
     
-   private Schedule schedule;	
+   private Schedule schedule;
+   static long startTime = 0;//PriyasreeTime
+   static long endTime = 0;//PriyasreeTime
+   static long duration = 0;//PriyasreeTime
+   static DateFormat dateFormat = new SimpleDateFormat("HH:mm"); //PriyasreeTime
     
    private Mediator mediator = new Mediator();
     
    public Mirar() {
-        
+        System.out.println("Mirar()"); //PriyaUnderStand
         /**
          * These vectors are the information that go into the REPAST Gui
          */
-// priyaComm: put in an array  l-exp      
         Vector v = new Vector();
         v.add("PSID_IncomeOnly");
         v.add("PSID_RaceOnly");
         v.add("PSID_Test"); //Priyasree_Test
         v.add("PSID_RaceIncome");
-        /*v.add("MCSUIdecision");
-        v.add("ThresholdRace");
-        v.add("StaircaseRace");
-        v.add("ContsRace");
-        v.add("ThresholdIncome");
-        v.add("RaceAndIncome");
-        v.add("RaceAndIncomeNeighborhood");
-        v.add("RaceAndIncomeNeighborhoodOptimal");
-        v.add("Random");
-        v.add("CensusPumsIncOnly");
-        v.add("CensusPumsRaceInc");
-        v.add("CensusPumsRaceOnly");*/
         ListPropertyDescriptor pd = new ListPropertyDescriptor("AgentDecisionType", v);
         
         
@@ -85,7 +79,7 @@ public class Mirar extends SimModelImpl {
         Random.createUniform();
     }
     
-    public void reset() { // Priyasree_DeadCode : Unreachable code_
+    public void reset() { // Priyasree: keep for future use, not used now
         this.schedule = null;	
         System.gc();
 
@@ -96,36 +90,48 @@ public class Mirar extends SimModelImpl {
     }
     
     public void buildModel() {
+    	System.out.println("Build Model"); //PriyaUnderStand
     }
     
     public void buildDisplay()  {
+    	System.out.println("Build Display"); //PriyaUnderStand
         mediator.buildDisplay();
     }
  
     private void buildSchedule() {
+    	System.out.println("Build Schedule"); //PriyaUnderStand
          schedule.scheduleActionBeginning(1.0, this, "step");
          
          class CollectData extends BasicAction {
              public void execute() {
+            	 System.out.println("BasicAction Execute"); //PriyaUnderStand
                  try {
                      finishUp();
                  } catch (IOException e) {
                      e.printStackTrace();
                  }
              }
-         }; // Priyasree_Audit: Extra semicolon_Delete the extra semicolon.
+         }
          CollectData collectData = new CollectData();
          schedule.scheduleActionAtEnd(collectData);
 
     }
     
     public void finishUp() throws IOException  {
-        
+    	System.out.println("Finish Up"); //PriyaUnderStand
+    	endTime = System.currentTimeMillis(); //PriyasreeTime
+    	Date end = new Date(endTime); //PriyasreeTime
+    	System.out.println("End Time = " + dateFormat.format(end)); //PriyasreeTime
+    	duration = endTime - startTime;//PriyasreeTime
+        System.out.println("DURATION = " + String.format("%d min, %d sec", 
+        												  TimeUnit.MILLISECONDS.toMinutes(duration), 
+        												  (TimeUnit.MILLISECONDS.toSeconds(duration) - (TimeUnit.MILLISECONDS.toMinutes(duration) * 60)))); //PriyasreeTime);
         MirarData.getInstance().processData();
         ErrorLog.getInstance().finishUp();
     }
     
     public void begin() {
+    	System.out.println("Begin"); //PriyaUnderStand
         buildModel();
         buildDisplay();
         buildSchedule();
@@ -140,6 +146,7 @@ public class Mirar extends SimModelImpl {
     }
     
     public void step() { // Priyasree_DeadCode : Unreachable code_
+    	System.out.println("Step"); //PriyaUnderStand
         if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             if (MirarUtils.STEPS_TO_RUN == MirarUtils.STEP_NUM) {
                 this.stop();
@@ -151,6 +158,7 @@ public class Mirar extends SimModelImpl {
     
 //priyaComm: use aspects to create a run log which will display the parameter values.    
     public void setup() {
+    	System.out.println("SetUp"); //PriyaUnderStand
         schedule = null;
         schedule = new Schedule();
 
@@ -162,10 +170,12 @@ public class Mirar extends SimModelImpl {
  }
     
     public String getName() {
+    	System.out.println("Get Name"); //PriyaUnderStand
         return "Model of Race, Income, And Residence (MIRAR) ";
     }
     
     public Schedule getSchedule() {
+    	System.out.println("Get Schedule"); //PriyaUnderStand
 	mediator.setup(); //Priyasree_added
     return schedule;
     }
@@ -174,6 +184,7 @@ public class Mirar extends SimModelImpl {
      * Gets parameters for model from mirarParams.pf file
      */
     public String[] getInitParam() {
+    	System.out.println("Get Init Param"); //PriyaUnderStand
         String[] params =
     {
                 "AgentDecisionType", "RentType", "renterAgent_SampleProportion",  "ownerAgent_SampleProportion",  "renterVacantHousingUnit_SampleProportion",  
@@ -185,10 +196,12 @@ public class Mirar extends SimModelImpl {
     }
         
     public double getRenterData_SampleProportion() {
+    	System.out.println("getRenterData_SampleProportio"); //PriyaUnderStand
         return MirarUtils.RENTER_DATA_SAMPLE;
     }
     
     public void setRenterData_SampleProportion(double p) {
+    	System.out.println("setRenterData_SampleProportio"); //PriyaUnderStand
         MirarUtils.RENTER_DATA_SAMPLE = p;
     }
     
@@ -212,7 +225,6 @@ public class Mirar extends SimModelImpl {
     public double getOwnerData_SampleProportion() {
         return MirarUtils.OWNER_DATA_SAMPLE;
     }
-    
     
     public void setOwnerData_SampleProportion(double p) {
         MirarUtils.OWNER_DATA_SAMPLE = p;
@@ -238,31 +250,10 @@ public class Mirar extends SimModelImpl {
         return MirarUtils.AGENT_DECISION_STRING;
     }
     
-    public void setAgentDecisionType(String type) { // Priyasree_DeadCode : Unreachable code_
+    /*public void setAgentDecisionType(String type) { PriyasreeDR
         MirarUtils.AGENT_DECISION_STRING = type;
         if (MirarUtils.AGENT_DECISION == null ) {
-  /*          if (type.equalsIgnoreCase("ThresholdRace")) {
-                MirarUtils.AGENT_DECISION = new ThresholdRace();
-            }
-            else if (type.equalsIgnoreCase("RaceAndIncomeNeighborhood")) {
-                MirarUtils.AGENT_DECISION = new RaceAndIncomeNeighborhood();
-            }
-            else if (type.equalsIgnoreCase("RaceAndIncomeNeighborhoodOptimal")) {
-                MirarUtils.AGENT_DECISION = new RaceAndIncomeNeighborhoodOptimal();
-            }
-            else if(type.equalsIgnoreCase("ContsRace")){
-                MirarUtils.AGENT_DECISION = new ContsRace();
-            }
-            
-            else if(type.equalsIgnoreCase("StaircaseRace")){
-                MirarUtils.AGENT_DECISION = new StaircaseRace();
-            }
-            
-            else if(type.equalsIgnoreCase("ThresholdIncome")){
-                MirarUtils.AGENT_DECISION = new ThresholdIncome();
-                
-            }
-            else */ if(type.equalsIgnoreCase("PSID_RaceOnly")){
+        	if(type.equalsIgnoreCase("PSID_RaceOnly")){
                 MirarUtils.AGENT_DECISION = new PSID_RaceOnly();
                 
             }
@@ -277,26 +268,19 @@ public class Mirar extends SimModelImpl {
             else if(type.equalsIgnoreCase("PSID_RaceIncome")){
                 MirarUtils.AGENT_DECISION = new PSID_RaceIncome();
                 
-            }/*
-            else if(type.equalsIgnoreCase("MCSUIdecision")){
-                MirarUtils.AGENT_DECISION = new MCSUIdecision(); 
-                
             }
-            else if(type.equalsIgnoreCase("CensusPumsRaceOnly")) {
-                MirarUtils.AGENT_DECISION = new CensusPumsRaceOnly();	
-            }
-            else if(type.equalsIgnoreCase("CensusPumsRaceInc")) {
-                MirarUtils.AGENT_DECISION = new CensusPumsRaceInc();	
-            }
-            else if(type.equalsIgnoreCase("CensusPumsIncOnly")) {
-                MirarUtils.AGENT_DECISION = new CensusPumsIncOnly();	
-            }*/
             else {
                 ErrorLog.getInstance().logError("Mirar#setAgentDeccisionType:  new Agent: no agent specified; random agent");
             }
         }
-    }
-//priyaComm:refactor the above to use these methods once. there sudnt b 2 similar functionality(the set and this one)
+    }*/
+  //priyaComm:refactor the above to use these methods once. there sudnt b 2 similar functionality(the set and this one)
+    
+	public void setAgentDecisionType(String type) { //PriyasreeDR
+		MirarUtils.AGENT_DECISION_STRING = type;
+		MirarUtils.AGENT_DECISION = new DecisionRule();
+	}
+
     
     public String getRentType() {
         return MirarUtils.RENT_TYPE;
@@ -425,20 +409,23 @@ public class Mirar extends SimModelImpl {
     
     
     public static void main(String[] args) {
+    	startTime = System.currentTimeMillis(); //PriyasreeTime
+    	Date start = new Date(startTime); //PriyasreeTime
+    	System.out.println("Start Time = " + dateFormat.format(start)); //PriyasreeTime
+    	//System.out.println("Start Time = " + String.format("%d:%d:%d", TimeUnit.MILLISECONDS.toHours(startTime), TimeUnit.MILLISECONDS.toMinutes(startTime),TimeUnit.MILLISECONDS.toSeconds(startTime)));//PriyasreeTime
+    	System.out.println("MAIN"); //PriyaUnderStand
         uchicago.src.sim.engine.SimInit init = new uchicago.src.sim.engine.SimInit();
         
 		Mirar model = new Mirar();
 		
         // setup the Error Log class
         ErrorLog.getInstance().setup();
-        
-        /*if (args.length >3) {
-        if (args[3].equalsIgnoreCase("batch")) */
-    {
+ 
+    
         if (MirarUtils.RUN_Mode == "batch") {
             MirarUtils.NO_GUI = true;
         }
-    }
+    
         
         if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             init.loadModel(model, "./mirarParams.pf", true);
