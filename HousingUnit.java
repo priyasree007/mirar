@@ -57,11 +57,14 @@ public class HousingUnit {
         this.agent = agent;
     }
 
-    public void addAgent(Agent agent) { 	
+    //public void addAgent(Agent agent) { //PriyasreeAddAgent
+    public void addHousingUnitToAgent(Agent agent) {	//PriyasreeAddAgent
+    	//System.out.println("Add Agent from HousingUnit");//PriyasreeAddAgent
         if (agent == null) System.out.println("000010101 Housing Unit - add Agent - agent is null");
         this.setOccupied(true);
         this.setAgent(agent);
-        this.block.addAgent(agent);
+        //this.block.addAgent(agent); //PriyasreeAddAgent
+        this.block.addAgentToBlock(agent); //PriyasreeAddAgent
         this.setTenure(agent.getTenure());
     }
     

@@ -179,7 +179,9 @@ public class Agent {
      */
     public void moveIn(HousingUnit h) { 
         if (h == null) ErrorLog.getInstance().logError("Agent#MoveIn could not get housing Unit to move in to");
-        h.addAgent(this);
+        //System.out.println("Add Agent from Agent");//PriyasreeAddAgent
+        //h.addAgent(this); //PriyasreeAddAgent
+        h.addHousingUnitToAgent(this); //PriyasreeAddAgent
         this.setSTFID(h.getBlock().getSTFID());
         this.setHousingUnitNum(h.getHousingUnitNum());
         this.setHousingUnit(h);

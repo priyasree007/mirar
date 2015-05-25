@@ -203,7 +203,9 @@ public class Block {
      * 
      * @param agent 
      */
-	public void addAgent(Agent agent) { 
+	//public void addAgent(Agent agent) { //PriyasreeAddAgent
+	public void addAgentToBlock(Agent agent) { //PriyasreeAddAgent	
+		//System.out.println("Add Agent from Block");//PriyasreeAddAgent
 		numAgents++;
 		int position = ((agent.getRace() * MirarUtils.NUM_INCOMES) + agent.getIncomeCategory());
 		if (raceAndIncomeList == null ) System.out.println("Block  - raceAndIncomeList is NULL");
@@ -273,7 +275,8 @@ public class Block {
 		HousingUnit unit = new HousingUnit(this.numHousingUnits, this, agent.getTenure());
         this.numHousingUnits++;
 		unit.setRent(rent);
-		unit.addAgent(agent);
+		//unit.addAgent(agent); //PriyasreeAddAgent
+		unit.addHousingUnitToAgent(agent); //PriyasreeAddAgent
 		unit.setOccupied(true);
 			if (agent.getTenure() == Agent.RENTER) {
 				housingUnitList_Renters.add(unit);    
