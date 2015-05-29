@@ -74,16 +74,14 @@ public class JUMPHandler {
 
 
     public static JUMPHandler getInstance() { 
-    	System.out.println("JumpHandler Get Instance"); //PriyaUnderStand
+    	//System.out.println("JumpHandler_getInstance"); //PriyaUnderStand
       return instance;
     }
-
-
     
-    public void setup() { 
+    public void setup() { //PriyasreeNotUsed
+    	System.out.println("JumpHandler_setUp"); //PriyaUnderStand
      setupJUMPWorkbench();
-    }
-    
+    }   
     
     /**
      *  for now this only deals with the block data, we'll see about the blockGroup and
@@ -96,8 +94,8 @@ public class JUMPHandler {
      *  @precondition: shp data read in, blocks created and populated with agents
      *  @postcondition: racePct field and data added to block schema
      */
-    public void prepareData() {
-    	System.out.println("JumpHandler Prepare Data"); //PriyaUnderStand
+    public void prepareData() { //PriyasreeNotUsed
+    	System.out.println("JumpHandler_prepareData"); //PriyaUnderStand
         try {
             
             // for blocks
@@ -211,8 +209,8 @@ public class JUMPHandler {
      *  BlockList
      *  @precondition blocks are create, map data read in
      */
-    public void updateBlockLayer() {
-    	System.out.println("JumpHandler Update Block Layer"); //PriyaUnderStand
+    public void updateBlockLayer() { //PriyasreeNotUsed
+    	System.out.println("JumpHandler_UpdateBlockLayer"); //PriyaUnderStand
         Block b = null;
         int j=0;
         for (Iterator i = blockData.iterator(); i.hasNext(); ) {
@@ -257,8 +255,8 @@ public class JUMPHandler {
      *  BlockList
      *  @precondition blocks are create, map data read in
      */
-    public void updateBlockGroupLayer(ArrayList blockGroupList) {
-    	System.out.println("JumpHandler update Block Group Layer"); //PriyaUnderStand
+    public void updateBlockGroupLayer(ArrayList blockGroupList) { //PriyasreeNotUsed
+    	System.out.println("JumpHandler_updateBlockGroupLayer"); //PriyaUnderStand
         BlockGroup bg = null;
         int j=0;
         for (Iterator i = blockGroupData.iterator(); i.hasNext(); ) {
@@ -290,10 +288,9 @@ public class JUMPHandler {
          blockGroupLayer.fireLayerChanged(LayerEventType.APPEARANCE_CHANGED);//
          
     }
-
  
-    public void updateCensusTractLayer(ArrayList censusTractList) {
-    	System.out.println("JumpHandler updateCensusTractLayer"); //PriyaUnderStand
+    public void updateCensusTractLayer(ArrayList censusTractList) { //PriyasreeNotUsed
+    	System.out.println("JumpHandler_updateCensusTractLayer"); //PriyaUnderStand
         CensusTract ct = null;
         int j=0;
         for (Iterator i = censusTractData.iterator(); i.hasNext(); ) {
@@ -326,14 +323,13 @@ public class JUMPHandler {
           censusTractLayer.fireLayerChanged(LayerEventType.APPEARANCE_CHANGED);//
           
      }
-
     
     /**
      * load in shapefile data using Strings indicating filenames
      * 
      */
-        public void loadShapefiles() { 
-        	System.out.println("JumpHandler loadShapefiles"); //PriyaUnderStand
+        public void loadShapefiles() { //PriyasreeNotUsed
+        	System.out.println("JumpHandler_loadShapefiles"); //PriyaUnderStand
         ImageIcon imageIcon = IconLoader.icon("World.gif");
 
         ShapefileReader sfReader = new ShapefileReader();
@@ -362,7 +358,7 @@ public class JUMPHandler {
      * this mus be done (and completed) before the map can be added to the Workbench
      *
      */
-    public void setupJUMPWorkbench() { 
+    public void setupJUMPWorkbench() { //PriyasreeNotUsed
     	System.out.println("JumpHandler setupJUMPWorkbench"); //PriyaUnderStand
         ImageIcon imageIcon = IconLoader.icon("World.gif");
         String[] empty = {};
@@ -384,16 +380,15 @@ public class JUMPHandler {
             e.printStackTrace();
         }
     }
-
-    
     
     /**
      * creates layers and themes and adds them to the JUMP Workbench
      * 
      * @precondition setup and prepareData have been called
      */
-    public void buildDisplay() {
-    	System.out.println("JumpHandler buildDisplay"); //PriyaUnderStand
+    //public void buildDisplay() { //PriyasreeNotUsed
+    public void buildDisplayGUI() { //PriyasreeNotUsed //PriyasreeBuildDisplay
+    	System.out.println("JumpHandler_buildDisplayGUI"); //PriyaUnderStand
         censusTractLayer = new Layer("Census Tract Layer", Color.GREEN, censusTractData, workbenchContext.getLayerManager());
         blockGroupLayer = new Layer("Block Group Layer", Color.YELLOW, blockGroupData, workbenchContext.getLayerManager());
         blockLayer = new Layer("Block Layer", Color.RED, blockData,
@@ -466,14 +461,14 @@ public class JUMPHandler {
     }
 
     public ArrayList getSTFIDList() {
-    	System.out.println("JumpHandler getSTFIDList"); //PriyaUnderStand
+    	//System.out.println("JumpHandler getSTFIDList"); //PriyaUnderStand
         return stfidList;
     }
     public void buildMap() {
     }
     
     public void initializeSTFIDData() {
-    	System.out.println("JumpHandler initializeSTFIDData"); //PriyaUnderStand
+    	//System.out.println("JumpHandler initializeSTFIDData"); //PriyaUnderStand
         stfidList = new ArrayList();
         FileChannel in = null;
         DBFReader dbfFileReader = null;
@@ -492,7 +487,7 @@ public class JUMPHandler {
             }*/
             while (dbfFileReader.hasNextRecord()) {
                 Object [] record = dbfFileReader.nextRecord();
-              //  System.out.println("record stfid: " + (String)record[4]);
+               //System.out.println("record stfid: " + (String)record[4]); 
                 stfidList.add((String)record[4]);
             }
 
