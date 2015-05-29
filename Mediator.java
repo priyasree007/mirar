@@ -76,6 +76,7 @@ public class Mediator {
     
     
     public Mediator() {
+    	//System.out.println("Mediator_Mediator()"); //PriyaUnderStand
         censusUnitHandler = CensusUnitHandler.getInstance();
         jumpHandler = JUMPHandler.getInstance();
         agentHandler = AgentHandler.getInstance();
@@ -83,7 +84,8 @@ public class Mediator {
         housingMarket = HousingMarket.getInstance();
     }
 
-    public void checkHU() {
+    public void checkHU() { // PriyasreeNotUsed
+    	//System.out.println("Mediator_checkHU"); //PriyaUnderStand
         Iterator iter = MirarUtils.BLOCKS.iterator();
         ArrayList huList = new ArrayList();
         while (iter.hasNext()) {
@@ -120,6 +122,7 @@ public class Mediator {
         }
     
     public void setupRents() { // Priyasree_DeadCode : Unreachable code_
+    	//System.out.println("Mediator_setupRents"); //PriyaUnderStand
         if (MirarUtils.RENT_TYPE.equalsIgnoreCase("HomogeneousRentWithinBlocks")) {
             housingMarket.computeHomogeneousRentWithinBlock(MirarUtils.BLOCKS, Agent.RENTER);
             housingMarket.computeHomogeneousRentWithinBlock(MirarUtils.BLOCKS, Agent.OWNER);
@@ -136,6 +139,7 @@ public class Mediator {
     }
     
     public void step() { // Priyasree_DeadCode : Unreachable code_
+    	//System.out.println("Mediator_step"); //PriyaUnderStand
         MirarUtils.STEP_NUM++;
         
         if (MirarUtils.STEP_NUM<=1) {
@@ -148,7 +152,7 @@ public class Mediator {
            // update rents
            //***********************************
                     if (MirarUtils.AGENT_DECISION.toString() != "PSID_RaceOnly" & (MirarUtils.STEP_NUM % MirarUtils.RENTS_UPDATE_INTERVAL == 1 || MirarUtils.RENTS_UPDATE_INTERVAL == 1))  { //Priyasree_Audit: Cannot compare strings using the not equals (!=) operator_Replace the comparison with equals().
-                        System.out.println("-------->>>>     updating rents");
+                        System.out.println("-------->>>>     updating rents"); //PriyaRemovePrints
                         if (MirarUtils.RENT_TYPE.equalsIgnoreCase("HomogeneousRentWithinBlocks")) {
                             housingMarket.computeHomogeneousRentWithinBlock(this.blocksForUpdating_Renter, Agent.RENTER);
                         }
@@ -204,7 +208,7 @@ public class Mediator {
                                 
                             }
                         }
-                        agentHandler.updateUtilities();
+                        agentHandler.updateUtilities();//here
                     }
            //****************************
            // end update rents
@@ -221,7 +225,7 @@ public class Mediator {
            }
            
             if (MirarUtils.STEP_NUM % MirarUtils.PRINT_INTERVAL== 0) {
-                System.out.println("Step: " + MirarUtils.STEP_NUM + "   print out data");
+                System.out.println("Step: " + MirarUtils.STEP_NUM + "   print out data"); //PriyaRemovePrints
                     MirarData.getInstance().processData();
             }
             
@@ -256,34 +260,36 @@ public class Mediator {
             System.out.println("numOwnerAgents_AH:   " + numOwnerAgents_AH  + "   numRenterAgents_AH:   " +  numRenterAgents_AH);
             System.out.println("numOwners_B:   " + numOwners_B  + "   numRenters_B:   " +  numRenters_B);
             System.out.println("numWhites:   " + numWhites_B  + "   numBlacks:   " +  numBlacks_B
-            		+ "   numHisps:   " +  numHisps_B + "   numAsians:   " +  numAsians_B);
+            		+ "   numHisps:   " +  numHisps_B + "   numAsians:   " +  numAsians_B); //PriyaRemovePrints
             }
             System.out.println("BlockAgents  : " + MirarData.BlockAgents);
             System.out.println("TOTAL BLACK % Estimation_B : " + (Block.totBlackInNeighborhood_B));
-            System.out.println("TOTAL WHITE % Estimation_B : " + (Block.totWhiteInNeighborhood_B));
+            System.out.println("TOTAL WHITE % Estimation_B : " + (Block.totWhiteInNeighborhood_B)); //PriyaRemovePrints
             if(MirarData.BlockAgents != 0) {
                 System.out.println("BLACK % Estimation_B : " + (Block.totBlackInNeighborhood_B/MirarData.BlockAgents));
-                System.out.println("WHITE % Estimation_B : " + (Block.totWhiteInNeighborhood_B/MirarData.BlockAgents));
+                System.out.println("WHITE % Estimation_B : " + (Block.totWhiteInNeighborhood_B/MirarData.BlockAgents)); //PriyaRemovePrints
                 MirarData.BlockAgents = 0;
                 }
             Block.totBlackInNeighborhood_B = 0;
             Block.totWhiteInNeighborhood_B = 0;
                         
-            System.out.println("Agent sample prop. is: " + MirarUtils.RENTER_AGENT_SAMPLE + " -- " + "Vacant unit sample prop. is " + MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE);
+            System.out.println("Agent sample prop. is: " + MirarUtils.RENTER_AGENT_SAMPLE + " -- " + "Vacant unit sample prop. is " + MirarUtils.RENTER_VACANT_HOUSING_UNIT_SAMPLE); //PriyaRemovePrints
             //}
             
             this.blocksForUpdating_Renter.clear();
             this.blocksForUpdating_Owner.clear();
-           System.out.println("Step: " + MirarUtils.STEP_NUM);
+           System.out.println("Step: " + MirarUtils.STEP_NUM); //PriyaRemovePrints
           
        }
     
 
-    public void updateBlockLayer() {
+    public void updateBlockLayer() { // PriyasreeNotUsed
+    	//System.out.println("Mediator_updateBlockLayer"); //PriyaUnderStand
             jumpHandler.updateBlockLayer();
     }
 
     public void setup() {
+    	//System.out.println("Mediator_setup"); //PriyaUnderStand
         // read in shapefiles
 
         // loadShapefiles();
@@ -305,6 +311,7 @@ public class Mediator {
     }
 
     public void prepareCensusUnits() {
+    	//System.out.println("Mediator_prepareCensusUnits"); //PriyaUnderStand
         censusUnitHandler.prepareCensusUnits(jumpHandler.getSTFIDList());
     }
 
@@ -312,7 +319,6 @@ public class Mediator {
      * read in agents from a file and add them to the model
      */
     public void agentsFromFile() {
-
     }
 
     /**
@@ -323,11 +329,13 @@ public class Mediator {
     }
 
     public void loadAgentDataHeader() {
+    	//System.out.println("Mediator_loadAgentDataHeader"); //PriyaUnderStand
         loadRenterAgentDataHeader();
         loadOwnerAgentDataHeader();
     }
     
     public void loadRenterAgentDataHeader() {
+    	//System.out.println("Mediator_loadRenterAgentDataHeader"); //PriyaUnderStand
         BufferedReader in;
         try {
             Pattern p = Pattern.compile(",");
@@ -390,6 +398,7 @@ public class Mediator {
     }
     
     public void loadOwnerAgentDataHeader() {
+    	//System.out.println("Mediator_loadOwnerAgentDataHeader"); //PriyaUnderStand
         BufferedReader in;
         try {
             Pattern p = Pattern.compile(",");
@@ -433,6 +442,7 @@ public class Mediator {
     }
     
     public void loadAgentData() throws FileNotFoundException { // file not found exception just for testing
+    	//System.out.println("Mediator_loadAgentData"); //PriyaUnderStand
         
        // testing code
         File deleteMCRentBefore = new File("mcRentsBefore.txt");
@@ -477,6 +487,7 @@ public class Mediator {
     
     
     public void loadRenterAgentData() {
+    	//System.out.println("Mediator_loadRenterAgentData"); //PriyaUnderStand
         try {
             Pattern p = Pattern.compile(",");            
             DoubleArrayList raceIncomeRent;// = new ArrayList();
@@ -553,6 +564,7 @@ public class Mediator {
     }
 
     public void loadOwnerAgentData() {
+    	//System.out.println("Mediator_loadOwnerAgentData"); //PriyaUnderStand
         try {
             Pattern p = Pattern.compile(",");           
             DoubleArrayList raceIncomeRent;// = new ArrayList();
@@ -629,6 +641,7 @@ public class Mediator {
     }
     
     public void loadBlockNeighborData() {
+    	//System.out.println("Mediator_loadBlockNeighborData"); //PriyaUnderStand
         // load block neighbor file
         try {            
             Pattern p = Pattern.compile(",");
@@ -677,7 +690,8 @@ public class Mediator {
 
     }
 
-    public void loadShapefiles() {
+    public void loadShapefiles() {// PriyasreeNotUsed 
+    	//System.out.println("Mediator_loadShapefiles"); //PriyaUnderStand
         jumpHandler.loadShapefiles();//blockShpFile, blockGroupShpFile,
     } // end loadData
 
@@ -693,7 +707,6 @@ public class Mediator {
     } // end prepareData
 
     public void prepareMap() {
-
     }
 
     /**
@@ -703,7 +716,9 @@ public class Mediator {
      * 
      * @postcondition map is added to the JUMP display
      */
-    public void buildDisplay() {
+    //public void buildDisplay() {
+    public void loadFilesToBuildDisplay() { //PriyasreeBuildDisplay
+    	//System.out.println("Mediator_loadFilesToBuildDisplay"); //PriyaUndrstand
         if (MirarUtils.BLOCK_SHP_FILE == null) {
         	MirarUtils.BLOCK_SHP_FILE = "Data" + File.separator  + "subset" + File.separator + "blk_subset.shp";
         	System.out.println("Block File Missing... ");
@@ -727,7 +742,7 @@ public class Mediator {
         prepareCensusUnits();
 
 
-        loadBlockNeighborData();
+        loadBlockNeighborData(); 
         try { 
             loadAgentData();
         } catch (FileNotFoundException e) {
@@ -737,16 +752,18 @@ public class Mediator {
 
         if (MirarUtils.NO_GUI == false) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
             // prepare display
-            jumpHandler.buildDisplay();
+            //jumpHandler.buildDisplay();
+            jumpHandler.buildDisplayGUI(); //PriyasreeBuildDisplay
             jumpHandler.updateBlockLayer();
             jumpHandler.updateBlockGroupLayer(censusUnitHandler.getAllBlockGroups());
             jumpHandler.updateCensusTractLayer(censusUnitHandler.getCensusTractList());
         }
         
-        setupUtilities();
+        setupUtilities(); 
     }
 
     public void setupUtilities()  {
+    	 //System.out.println("Mediator_setupUtilities"); //PriyaUndrstand
     	 PrintWriter setupOut;
      // get the blocks
         agentHandler.createTestAgents();

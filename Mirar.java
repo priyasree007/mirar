@@ -55,7 +55,7 @@ public class Mirar extends SimModelImpl {
    private Mediator mediator = new Mediator();
     
    public Mirar() {
-        System.out.println("Mirar()"); //PriyaUnderStand
+        //System.out.println("Mirar()"); //PriyaUnderStand
         /**
          * These vectors are the information that go into the REPAST Gui
          */
@@ -79,7 +79,7 @@ public class Mirar extends SimModelImpl {
         Random.createUniform();
     }
     
-    public void reset() { // Priyasree: keep for future use, not used now
+    public void reset() { // PriyasreeNotUsed: keep for future use, not used now
         this.schedule = null;	
         System.gc();
 
@@ -90,21 +90,22 @@ public class Mirar extends SimModelImpl {
     }
     
     public void buildModel() {
-    	System.out.println("Build Model"); //PriyaUnderStand
+    	//System.out.println("Mirar_buildModel"); //PriyaUnderStand
     }
     
     public void buildDisplay()  {
-    	System.out.println("Build Display"); //PriyaUnderStand
-        mediator.buildDisplay();
+    	//System.out.println("Mirar_buildDisplay"); //PriyaUnderStand
+        //mediator.buildDisplay();
+        mediator.loadFilesToBuildDisplay(); //PriyasreeBuildDisplay
     }
  
     private void buildSchedule() {
-    	System.out.println("Build Schedule"); //PriyaUnderStand
+    	//System.out.println("Mirar_buildSchedule"); //PriyaUnderStand
          schedule.scheduleActionBeginning(1.0, this, "step");
          
          class CollectData extends BasicAction {
              public void execute() {
-            	 System.out.println("BasicAction Execute"); //PriyaUnderStand
+            	// System.out.println("Mirar_BasicAction Execute"); //PriyaUnderStand
                  try {
                      finishUp();
                  } catch (IOException e) {
@@ -118,12 +119,12 @@ public class Mirar extends SimModelImpl {
     }
     
     public void finishUp() throws IOException  {
-    	System.out.println("Finish Up"); //PriyaUnderStand
+    	//System.out.println("Mirar_Finish Up"); //PriyaUnderStand
     	endTime = System.currentTimeMillis(); //PriyasreeTime
     	Date end = new Date(endTime); //PriyasreeTime
-    	System.out.println("End Time = " + dateFormat.format(end)); //PriyasreeTime
+    	System.out.println("End Time = " + dateFormat.format(end)); //PriyasreeTime //PriyaRemovePrints
     	duration = endTime - startTime;//PriyasreeTime
-        System.out.println("DURATION = " + String.format("%d min, %d sec", 
+        System.out.println("DURATION = " + String.format("%d min, %d sec", //PriyaRemovePrints
         												  TimeUnit.MILLISECONDS.toMinutes(duration), 
         												  (TimeUnit.MILLISECONDS.toSeconds(duration) - (TimeUnit.MILLISECONDS.toMinutes(duration) * 60)))); //PriyasreeTime);
         MirarData.getInstance().processData();
@@ -131,7 +132,7 @@ public class Mirar extends SimModelImpl {
     }
     
     public void begin() {
-    	System.out.println("Begin"); //PriyaUnderStand
+    	//System.out.println("Mirar_Begin"); //PriyaUnderStand
         buildModel();
         buildDisplay();
         buildSchedule();
@@ -145,8 +146,8 @@ public class Mirar extends SimModelImpl {
         }
     }
     
-    public void step() { // Priyasree_DeadCode : Unreachable code_
-    	System.out.println("Step"); //PriyaUnderStand
+    public void step() { 
+    	//System.out.println("Mirar_Step"); //PriyaUnderStand
         if (MirarUtils.NO_GUI == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             if (MirarUtils.STEPS_TO_RUN == MirarUtils.STEP_NUM) {
                 this.stop();
@@ -158,7 +159,7 @@ public class Mirar extends SimModelImpl {
     
 //priyaComm: use aspects to create a run log which will display the parameter values.    
     public void setup() {
-    	System.out.println("SetUp"); //PriyaUnderStand
+    	//System.out.println("Mirar_SetUp"); //PriyaUnderStand
         schedule = null;
         schedule = new Schedule();
 
@@ -169,13 +170,13 @@ public class Mirar extends SimModelImpl {
         //mediator.setup(); //Priyasree_removed from here to getSchedule 
  }
     
-    public String getName() {
-    	System.out.println("Get Name"); //PriyaUnderStand
+    public String getName() { // Priyasree: keep for future use, not used now
+    	//System.out.println("Mirar_GetName"); //PriyaUnderStand
         return "Model of Race, Income, And Residence (MIRAR) ";
     }
     
     public Schedule getSchedule() {
-    	System.out.println("Get Schedule"); //PriyaUnderStand
+    	//System.out.println("Mirar_GetSchedule"); //PriyaUnderStand
 	mediator.setup(); //Priyasree_added
     return schedule;
     }
@@ -184,7 +185,7 @@ public class Mirar extends SimModelImpl {
      * Gets parameters for model from mirarParams.pf file
      */
     public String[] getInitParam() {
-    	System.out.println("Get Init Param"); //PriyaUnderStand
+    	//System.out.println("Mirar_Get Init Param"); //PriyaUnderStand
         String[] params =
     {
                 "AgentDecisionType", "RentType", "renterAgent_SampleProportion",  "ownerAgent_SampleProportion",  "renterVacantHousingUnit_SampleProportion",  
@@ -196,12 +197,11 @@ public class Mirar extends SimModelImpl {
     }
         
     public double getRenterData_SampleProportion() {
-    	System.out.println("getRenterData_SampleProportio"); //PriyaUnderStand
         return MirarUtils.RENTER_DATA_SAMPLE;
     }
     
     public void setRenterData_SampleProportion(double p) {
-    	System.out.println("setRenterData_SampleProportio"); //PriyaUnderStand
+    	//System.out.println("Mirar_setRenterData_SampleProportio"); //PriyaUnderStand
         MirarUtils.RENTER_DATA_SAMPLE = p;
     }
     
@@ -411,9 +411,9 @@ public class Mirar extends SimModelImpl {
     public static void main(String[] args) {
     	startTime = System.currentTimeMillis(); //PriyasreeTime
     	Date start = new Date(startTime); //PriyasreeTime
-    	System.out.println("Start Time = " + dateFormat.format(start)); //PriyasreeTime
+    	System.out.println("Start Time = " + dateFormat.format(start)); //PriyasreeTime //PriyaRemovePrints
     	//System.out.println("Start Time = " + String.format("%d:%d:%d", TimeUnit.MILLISECONDS.toHours(startTime), TimeUnit.MILLISECONDS.toMinutes(startTime),TimeUnit.MILLISECONDS.toSeconds(startTime)));//PriyasreeTime
-    	System.out.println("MAIN"); //PriyaUnderStand
+    	//System.out.println("Mirar_MAIN"); //PriyaUnderStand
         uchicago.src.sim.engine.SimInit init = new uchicago.src.sim.engine.SimInit();
         
 		Mirar model = new Mirar();
