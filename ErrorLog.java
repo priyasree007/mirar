@@ -29,6 +29,7 @@ public class ErrorLog {
     }
 
     public void setup() {
+    	 //System.out.println("ErrorLog_SetUp"); //PriyaUnderStand
          logfile = new File("errorLog.txt");
          try {
          logWriter = new PrintWriter(new FileOutputStream(logfile, true));
@@ -38,7 +39,7 @@ public class ErrorLog {
     }
     
     public void logError(String msg) {
-        
+    	//System.out.println("ErrorLog_logError"); //PriyaUnderStand
        errorLogged = true;
         
         Calendar rightNow = Calendar.getInstance();
@@ -64,10 +65,13 @@ public class ErrorLog {
     }
     
     public static ErrorLog getInstance() {
+    	//System.out.println("ErrorLog_getInstance"); //PriyaUnderStand
       return instance;
     }
     
-    public void finishUp() {
+    //public void finishUp() {
+    public void finishLoggingError() { //PriyasreefinishUp
+    	//System.out.println("ErrorLog_finishUp"); //PriyaUnderStand
         if (errorLogged == true) { //Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
             logWriter.flush();
             logWriter.println("\n##########################\n");

@@ -128,7 +128,8 @@ public class Mirar extends SimModelImpl {
         												  TimeUnit.MILLISECONDS.toMinutes(duration), 
         												  (TimeUnit.MILLISECONDS.toSeconds(duration) - (TimeUnit.MILLISECONDS.toMinutes(duration) * 60)))); //PriyasreeTime);
         MirarData.getInstance().processData();
-        ErrorLog.getInstance().finishUp();
+        //ErrorLog.getInstance().finishUp();
+        ErrorLog.getInstance().finishLoggingError(); //PriyasreefinishUp
     }
     
     public void begin() {
