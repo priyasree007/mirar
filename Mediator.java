@@ -288,7 +288,8 @@ public class Mediator {
             jumpHandler.updateBlockLayer();
     }
 
-    public void setup() {
+    //public void setup() {
+    public void setupJUMPHandler() { //PriyasreeSetup
     	//System.out.println("Mediator_setup"); //PriyaUnderStand
         // read in shapefiles
 
@@ -298,7 +299,8 @@ public class Mediator {
         //assign agents to blocks 
     	
         if (MirarUtils.NO_GUI == false) { // Priyasree_Audit: Equality test with boolean literal: false_ Remove the comparison with false.
-            jumpHandler.setup();
+            //jumpHandler.setup();
+            jumpHandler.setupJUMPWB(); //PriyasreeSetup
         }
         else {
             jumpHandler.initializeSTFIDData();
@@ -668,11 +670,10 @@ public class Mediator {
             // ################################
             while ((s = in.readLine()) != null) {
                 data = p.split(s);            
-                   
                    tractNum = Integer.parseInt(data[1]);
                    blockNum = Integer.parseInt(data[2]);
                    String stfid = data[3] + data[4];
-
+                   
                    if (MirarUtils.SUBSET_DATA == true) { // Priyasree_Audit: Equality test with boolean literal: true_ Remove the comparison with true.
                            if (CensusUnitHandler.getInstance().hasBlock(tractNum, blockNum) && CensusUnitHandler.getInstance().hasBlock(stfid)) {
                                ((Block) censusUnitHandler.getBlock(tractNum, blockNum)).addNeighbor(CensusUnitHandler.getInstance().getBlock(stfid)); // Priyasree_Audit: Unnecessary type cast to Block_Delete the unnecessary cast.

@@ -178,7 +178,8 @@ public class Mirar extends SimModelImpl {
     
     public Schedule getSchedule() {
     	//System.out.println("Mirar_GetSchedule"); //PriyaUnderStand
-	mediator.setup(); //Priyasree_added
+	//mediator.setup(); //Priyasree_added
+	mediator.setupJUMPHandler(); //PriyasreeSetup //Priyasree_added
     return schedule;
     }
     
@@ -420,7 +421,8 @@ public class Mirar extends SimModelImpl {
 		Mirar model = new Mirar();
 		
         // setup the Error Log class
-        ErrorLog.getInstance().setup();
+        //ErrorLog.getInstance().setup();
+        ErrorLog.getInstance().setupErrorLog(); //PriyasreeSetup
  
     
         if (MirarUtils.RUN_Mode == "batch") {

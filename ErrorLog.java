@@ -28,8 +28,9 @@ public class ErrorLog {
     
     }
 
-    public void setup() {
-    	 //System.out.println("ErrorLog_SetUp"); //PriyaUnderStand
+    //public void setup() {
+    public void setupErrorLog() { //PriyasreeSetup
+    	 //System.out.println("ErrorLog_SetUpErrorLog"); //PriyaUnderStand
          logfile = new File("errorLog.txt");
          try {
          logWriter = new PrintWriter(new FileOutputStream(logfile, true));

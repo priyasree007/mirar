@@ -78,7 +78,8 @@ public class JUMPHandler {
       return instance;
     }
     
-    public void setup() { //PriyasreeNotUsed
+    //public void setup() { //PriyasreeNotUsed
+    public void setupJUMPWB() { //PriyasreeSetup //PriyasreeNotUsed
     	System.out.println("JumpHandler_setUp"); //PriyaUnderStand
      setupJUMPWorkbench();
     }   
